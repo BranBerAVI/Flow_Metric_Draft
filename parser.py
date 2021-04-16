@@ -3,10 +3,13 @@ import re
 import subprocess
 import os
 import sys
+import math
 sys.setrecursionlimit(3000)
 
 SRC_NS = 'http://www.srcML.org/srcML/src'
 POS_NS = 'http://www.srcML.org/srcML/position'
+SRC_CPP = 'http://www.srcML.org/srcML/cpp'
+
 NS = {'src': SRC_NS, 'pos': POS_NS}
 NEWLINE_RE = re.compile(r'\r\n?|\n')
 
@@ -20,29 +23,27 @@ def _get_name(element):
         name = ''.join(i.strip() for i in name.itertext())
     return name
 
-def _is_pointer_declaration(element):
-    decl = element.find(rf"{{{SRC_NS}}}decl")
+def _get_name_from_nested_name(name):
+    if name is not None:
+        if name.text is not None:
+            return name
+        else:
+            next_name = name.find(rf"{{{SRC_NS}}}name")     
+            return _get_name_from_nested_name(next_name)
 
-    decl_init = decl.find(rf"{{{SRC_NS}}}init") if decl is not None else None
-    decl_init_txt = decl_init.text if decl_init is not None and decl_init.text is not None else ""
+    return None
 
-    decl_type = decl.find(rf"{{{SRC_NS}}}type") if decl is not None else None
-    decl_mod = decl_type.find(rf"{{{SRC_NS}}}modifier") if decl_type is not None else None
-    decl_mod_txt = decl_mod.text if decl_mod is not None and decl_mod.text is not None else ""
+def _get_full_name_text_from_name(name):
+    name_txt = ''
 
-    if decl_mod_txt == "*":
-        return True
-    
-    return False
+    if name is not None:
+        if name.text is not None:
+            name_txt = name.text
+        else:
+            for n_txt in name.itertext():
+                name_txt += n_txt
 
-def _get_call_signature(element):
-    call_sig = ""
-    for substr in element.itertext():
-        call_sig+=substr
-
-    call_sig = re.sub(r"\s", "", call_sig)
-
-    return call_sig
+    return name_txt
 
 def _get_signature(element):
     def _join(values, delimiter=' '):
@@ -50,8 +51,10 @@ def _get_signature(element):
 
     components = list()
     type_ = element.find('src:type', NS)
-    components.append(_join(type_.itertext()))
-    components.append(' ')
+    if type_ is not None:
+        components.append(_join(type_.itertext()))
+        components.append(' ')
+
     components.append(_get_name(element))
     parameters = element.find('src:parameter_list', NS)
     if parameters:
@@ -72,17 +75,6 @@ def _get_paramter_count(element):
         return len(parameters)
 
     return 0
-
-def _get_srcml(contents, language):
-    try:
-        args = ['srcml', '--position', '--language', language, '-o', "testxml.xml"]
-        process = subprocess.run(
-            args, input=contents, check=True, text=True, capture_output=True
-        )
-        return process.stdout
-    except subprocess.CalledProcessError as error:
-        print(error)
-    return None
 
 def get_srcml(contents, language):
     process = subprocess.run(["srcml", '--position', '--text', contents, "--language", language], check=True, text=True, capture_output=True) 
@@ -185,7 +177,12 @@ def _get_decl_signatures(element):
             for decl in decls:
                 decl_type = decl.find(rf"{{{SRC_NS}}}type") if decl is not None else None
 
-                decl_name = decl.find(rf"{{{SRC_NS}}}name") if decl is not None else None
+                decl_name_el = decl.find(rf"{{{SRC_NS}}}name") if decl is not None else None
+                decl_name = decl_name_el
+
+                if decl_name_el is not None and decl_name_el.text is None:
+                    decl_name = next((el for el in decl_name_el.iter() if re.search(rf"{{{SRC_NS}}}name", str(el)) and el.text is not None), None)
+
                 decl_name_txt = decl_name.text if decl_name is not None and decl_name.text is not None else ""
 
                 type_specifier = decl_type.find(rf"{{{SRC_NS}}}specifier") if decl_type is not None else None
@@ -213,7 +210,10 @@ def _get_decl_signatures(element):
                 type_modifier = decl_type.find(rf"{{{SRC_NS}}}modifier") if decl_type is not None else None
                 type_modifier_txt = type_modifier.text if type_modifier is not None and type_modifier.text is not None else ""
 
-                if type_name != "":
+                decl_pos = decl.attrib[rf"{{{POS_NS}}}start"].split(':') if rf"{{{POS_NS}}}start" in decl.attrib.keys() else [-1, -1]
+                decl_pos_row = int(decl_pos[0])
+
+                if type_name != "":                    
                     elestr_list.append({
                         "specifier": type_specifier_txt,
                         "type": type_name_txt,
@@ -221,55 +221,13 @@ def _get_decl_signatures(element):
                         "name": decl_name_txt,
                         "index_tag": index_tag,
                         "index_str": index_str,
-                        "signature": re.sub("/s+", " ", " ".join([type_specifier_txt, type_name_txt, type_modifier_txt, decl_name_txt]).rstrip())
+                        "signature": re.sub("/s+", " ", " ".join([type_specifier_txt, type_name_txt, type_modifier_txt, decl_name_txt]).rstrip()),
+                        "pos_row": decl_pos_row
                     })
-
-            # for subel in child.iter(rf"{{{SRC_NS}}}decl"):
-            #     subel_list = list(subel)
-
-            #     name = [el.text if el.text else "" for el in subel_list if re.search(rf"{{{SRC_NS}}}name", str(el))][:1]
-
-            #     ele_sub_dict["name"] = name[0]
-            #     for child in subel.iter():                    
-            #         if(re.search(rf".{{{SRC_NS}}}type" , str(child))):
-            #             for type_child in child:        
-            #                 if(re.search(rf".{{{SRC_NS}}}specifier" , str(type_child))):
-            #                     ele_sub_dict["specifier"] = type_child.text if type_child.text else ""
-
-            #                 if(re.search(rf".{{{SRC_NS}}}name" , str(type_child))):
-            #                     ele_sub_dict["type"] = type_child.text if type_child.text else ""
-
-            #                 if(re.search(rf"{{{SRC_NS}}}modifier" , str(type_child))):
-            #                     ele_sub_dict["modifier"] = type_child.text if type_child.text else ""
-
-            #     if(ele_sub_dict["name"] != ""):
-            #         ele_sub_dict["signature"] = re.sub(" +", " ", " ".join([ele_sub_dict["specifier"], ele_sub_dict["type"], ele_sub_dict["modifier"], ele_sub_dict["name"]]).rstrip())
-            #         elestr_list.append(ele_sub_dict)
          
     return elestr_list
 
-def _get_definitions_in_file(root):
-    definitions = []
-
-    for child in root.iter():
-        if(re.search(rf"define", str(child))):
-            #parse the definition
-            for define in child.iter():                
-                if(re.search(rf"{{{SRC_NS}}}name", str(define))):
-                    if(define.text):
-                        definitions.append(define.text)
-                    break
-
-        elif (re.search(rf"typedef", str(child))):
-            for define in child.iter():
-                if(re.search(rf"{{{SRC_NS}}}decl", str(define))):
-                   name = define.find(rf"{{{SRC_NS}}}name")
-                   if(name is not None and name.text is not None):
-                       definitions.append(name.text)
-
-    return definitions
-
-def _get_pointers_from_parameter_list(function):
+def _get_param_data(function):
     parameter_list = function.find(rf"{{{SRC_NS}}}parameter_list")
     parameters = parameter_list.findall(rf"{{{SRC_NS}}}parameter")
 
@@ -362,10 +320,10 @@ def _get_all_function_call_info(function):
     for child in function.iter():
         if(re.search(rf"{{{SRC_NS}}}call", str(child))):
             call_name = child.find(rf"{{{SRC_NS}}}name")
-            call_name_txt = call_name.text if call_name is not None and call_name.text is not None else ""
+            call_name_txt = _get_full_name_text_from_name(call_name)
 
 
-            if call_name_txt not in list(call_data):
+            if call_name_txt not in list(call_data) and call_name_txt != "":
                 call_data[call_name_txt] ={
                     "cumulative_args": []
                 }
@@ -387,6 +345,145 @@ def _get_all_function_call_info(function):
 
     return call_data
 
+def _parse_function_call(element):
+    call_data = {}
+
+    if(re.search(rf"{{{SRC_NS}}}call", str(element))):
+            call_name = element.find(rf"{{{SRC_NS}}}name")
+            call_name_txt = _get_full_name_text_from_name(call_name)
+
+
+            if call_name_txt not in list(call_data) and call_name_txt != "":
+                call_data[call_name_txt] ={
+                    "cumulative_args": []
+                }
+
+            if(call_name_txt != ""):
+                call_arg_list = element.find(rf"{{{SRC_NS}}}argument_list")
+                call_args = call_arg_list.findall(rf"{{{SRC_NS}}}argument") if call_arg_list is not None else []
+
+                for arg in call_args:
+                    arg_expr = arg.find(rf"{{{SRC_NS}}}expr")
+                    arg_expr_name = arg_expr.find(rf"{{{SRC_NS}}}name") if arg_expr is not None else None
+                    arg_expr_name_txt = arg_expr_name.text if arg_expr_name is not None and arg_expr_name.text is not None else ""
+
+                    if(arg_expr_name_txt != ""):
+                        call_data[call_name_txt]["cumulative_args"] = [*call_data[call_name_txt]["cumulative_args"], arg_expr_name_txt]
+
+    for key in list(call_data):
+        call_data[key]["cumulative_args"] = list(set(call_data[key]["cumulative_args"]))
+
+    if call_data != {}:
+        return call_data
+
+    return None
+
+def _parse_macro_call(element):
+    macro_list = []
+    macro_calls = {}
+    if(re.search(rf"{{{SRC_NS}}}macro", element.tag)):
+        macro_name = element.find(rf"{{{SRC_NS}}}name")
+        macro_name_txt = macro_name.text if macro_name is not None and macro_name.text is not None else ""
+        macro_arg_list = element.find(rf"{{{SRC_NS}}}argument_list")
+        macro_args = macro_arg_list.findall(rf"{{{SRC_NS}}}argument") if macro_arg_list is not None else None
+
+        child_macro_code_block = ""
+
+        if(macro_args is not None):
+            for arg in macro_args:
+                arg_text = arg.text if arg is not None and arg.text is not None else ""                    
+
+                if(arg_text != ""):
+                    srcml = get_srcml(arg_text, language)
+                    rootet = ET.fromstring(srcml)
+
+                    if(re.search(r"{(.)+}", arg_text, flags=re.MULTILINE|re.DOTALL)):                           
+                        for child in rootet.iter():        
+                            call_name_txt = ""       
+                            arg_list = []
+
+                            call = _parse_function_call(child)
+
+                            if call is not None:
+                                macro_calls = {**macro_calls, **call}                         
+
+    if macro_calls != {}:                               
+        return macro_calls
+
+    return None
+
+def _parse_declaration(element, parent_struct_name, parent_struct_type, belongs_to_file):
+    if re.search(rf"{{{SRC_NS}}}decl_stmt|control", element.tag):
+        decls = []
+
+        if re.search(rf"{{{SRC_NS}}}control", element.tag):
+            control_init = element.find(rf"{{{SRC_NS}}}init")
+            control_init_decls = control_init.findall(rf"{{{SRC_NS}}}decl")
+            #print (control_init_decls)
+            decls = [*decls, *control_init_decls]
+
+        decls = [*decls, *element.findall(rf"{{{SRC_NS}}}decl")]
+
+        for decl in decls:
+            decl_type = decl.find(rf"{{{SRC_NS}}}type") if decl is not None else None
+
+            decl_name_el = decl.find(rf"{{{SRC_NS}}}name") if decl is not None else None
+            decl_name = decl_name_el
+
+            if decl_name_el is not None and decl_name_el.text is None:
+                decl_name = next((el for el in decl_name_el.iter() if re.search(rf"{{{SRC_NS}}}name", str(el)) and el.text is not None), None)
+
+            decl_name_txt = decl_name.text if decl_name is not None and decl_name.text is not None else ""
+
+            type_specifier = decl_type.find(rf"{{{SRC_NS}}}specifier") if decl_type is not None else None
+            type_specifier_txt = type_specifier.text if type_specifier is not None and type_specifier.text is not None else ""
+
+            type_name = decl_type.find(rf"{{{SRC_NS}}}name") if decl_type is not None else None
+            type_name_txt = type_name.text if type_name is not None and type_name.text is not None else ""
+            
+            index_tag = None
+            index_str = ""
+
+            if type_name_txt == "" and type_name is not None:
+                i_type_name = type_name.find(rf"{{{SRC_NS}}}name")
+                
+                type_name_txt = i_type_name.text if i_type_name is not None and i_type_name.text is not None else ""
+                #print("index name: " + str(type_name_txt))
+
+                type_name_index = type_name.find(rf"{{{SRC_NS}}}index")
+                index_tag = type_name_index                   
+
+                if type_name_index is not None:
+                    for i_str in type_name_index.itertext():
+                        index_str += i_str
+
+            type_modifier = decl_type.find(rf"{{{SRC_NS}}}modifier") if decl_type is not None else None
+            type_modifier_txt = type_modifier.text if type_modifier is not None and type_modifier.text is not None else ""
+
+            decl_pos = decl.attrib[rf"{{{POS_NS}}}start"].split(':') if rf"{{{POS_NS}}}start" in decl.attrib.keys() else [-1, -1]
+            decl_pos_row = int(decl_pos[0])
+
+
+            if type_name != "":                    
+                return {
+                    "specifier": type_specifier_txt,
+                    "type": type_name_txt,
+                    "modifier": type_modifier_txt,
+                    "name": decl_name_txt,
+                    "index_tag": index_tag,
+                    "index_str": index_str,
+                    "signature": re.sub("/s+", " ", " ".join([type_specifier_txt, type_name_txt, type_modifier_txt, decl_name_txt]).rstrip()),
+                    "pos_row": decl_pos_row,
+                    "file_name": belongs_to_file,                    
+                    "parent_structure_name": parent_struct_name,
+                    "parent_structure_type": parent_struct_type,
+                }
+
+        
+    return None
+        
+def _get_local_declarations(root):
+    pass
 #Do not count calls that are passed in as a parameters to another call
 #Not picking up all calls in a function!
 
@@ -436,8 +533,8 @@ def _get_unique_calls_from_function(function):
 
             name = child.find(rf"{{{SRC_NS}}}name")
             
-            if(name is not None and name.text is not None):
-                call_names.append(name.text)    
+            if name is not None:
+                call_names.append(_get_full_name_text_from_name(name))    
 
 
     #print(call_names)
@@ -469,8 +566,11 @@ def _get_pointer_declarations_from_expr(function):
                 decl_type_modifier = decl_type.find(rf"{{{SRC_NS}}}modifier")   
                 decl_type_modifier_txt = decl_type_modifier.text if decl_type_modifier is not None and decl_type_modifier.text else ""
 
+                decl_pos = decl.attrib[rf"{{{POS_NS}}}start"].split(':') if rf"{{{POS_NS}}}start" in decl.attrib.keys() else [-1, -1]
+                decl_pos_row = int(decl_pos[0])
+
                 if(decl_type_modifier_txt == "*"): #and decl_type_specifier_txt != "const"):
-                    pointer_declarations.append({"type": decl_type_name_txt, "modifier": decl_type_modifier_txt, "name": decl_name_txt})
+                    pointer_declarations.append({"type": decl_type_name_txt, "modifier": decl_type_modifier_txt, "name": decl_name_txt, "pos_row": decl_pos_row})
 
     # print("pointer decls: ")
     # print('♠'*20)
@@ -479,190 +579,9 @@ def _get_pointer_declarations_from_expr(function):
     #print(pointer_declarations)
     return pointer_declarations
 
-def _get_expr_from_conditional(function):
-    expr_list = []
-
-    for child in function.iter():
-        if(re.search(rf"{{{SRC_NS}}}if_stmt", str(child))):
-            if_contents = child.find(rf"{{{SRC_NS}}}if")
-            if_condition = if_contents.find(rf"{{{SRC_NS}}}condition") if if_contents is not None else None
-            if_expr = if_condition.find(rf"{{{SRC_NS}}}expr") if if_condition is not None else None
-
-            expr_str = ""
-
-            if(if_expr is not None):
-                for el in if_expr:
-                    if(el is not None and el.text is not None):
-                        expr_str += el.text
-
-            expr_split = re.split(r"\&\&|\|\|", expr_str)
-            expr_list = [*expr_list, *expr_split]
-
-    new_expr_list = []
-
-    for expr in expr_list:
-        if(not re.search(r"[a-zA-Z][a-zA-Z0-9]*(?<!\!)\=", expr) and not not re.search(r"[a-zA-Z][a-zA-Z0-9]*(?<!\=)\=", expr)):
-            split_expr = re.split(r"\!\=|\>\=|\<\=|\=\=|\<|\>(?!\w)", expr)
-            new_expr_list = [*new_expr_list, *split_expr]
-    
-    #print(new_expr_list)
-    #filtered_expr = list(filter(lambda expr: expr is not None and re.match(r"\S\D", expr), new_expr_list))
-    filtered_expr = [expr for expr in new_expr_list if expr is not None and re.match(r"\S\D", expr) and not re.search(r"[a-zA-Z][a-zA-Z0-9]*\=(?!\=)", expr)]
-    #print(filtered_expr)
-    return filtered_expr
-
-def _get_fan_out_from_expressions(function_declaration_list, function_expression_list, if_expressions, parameters_passed_by_reference, file_definitions, pointer_declarations):
-    fan_out = 0
-
-    function_external_pointers = {}
-    pointers = [*parameters_passed_by_reference, *pointer_declarations]
-
-    pointer_names = [p["name"] for p in pointers]
-    #print(pointer_names)
-
-    for pointer in pointers:
-        function_external_pointers[pointer["name"]] = {
-            "reads": [],
-            "writes": [],
-            "direct_writes": []
-        }
-
-    #print (pointers)
-
-    function_declaration_list_names = list(map(lambda func_decl: func_decl["name"], function_declaration_list))
-
-    assignmentRegex = r"^\*?\w+\*?(=|->)[\w\W]+|(\*\w+|\w+\*)(\=|\+\=|\-\=|\+\+|\-\-|\*\=|\-\=)"
-    incrementDecrementRegex = r"\*?\w+\*?((\+\+)|(\-\-)|(\+\=)|(\-\=)|(\*\=)|(\/\=))"
-    #Match declarations/variable reassignments
-    pointer_by_ref_names =  list(map(lambda param: param["name"], pointers))
-    param_by_ref_counts = list(map(lambda param: {"name": param["name"], "read_count": 0, "write_count": 0}, parameters_passed_by_reference))
-    #print (pointer_by_ref_names)
-
-    fan_in_matches = []
-
-    function_expression_list = [*function_expression_list, *if_expressions]
-
-    #print(function_expression_list)
-
-    #Find arithmetic operators
-    for expr in function_expression_list:
-        VarIsBeingAssigned = True if re.search(assignmentRegex, expr) else False
-        VarIsBeingIncrOrDecr = re.search(incrementDecrementRegex, expr)
-
-        fan_out_matches = []
-        fan_out_matches_by_param = []
-        split_var = []
-
-
-        if(VarIsBeingAssigned):
-            update_operators = r"=|\+\+|\-\-|\+\=|\-\=|\*\=|\/\="
-            splitVar = re.split(update_operators, expr, 1) if re.search(update_operators, expr) else []
-
-            leftHandSide = splitVar[0] if len(splitVar) else ""
-            rightHandSide = splitVar[1] if len(splitVar) > 0 else ""   
-
-            #print(expr)  
-
-            if(len(splitVar) > 1):
-                #Check lefthand side and see if it matches with any of the parameters passed by reference
-                if(re.search(r"\-\>", leftHandSide)):
-                    leftHandPointerCheck = re.split("->", leftHandSide)
-                    leftHandPointer = leftHandPointerCheck[0]
-
-                    if(len(leftHandPointerCheck) > 1):
-                        if(leftHandPointer.rstrip() in pointer_by_ref_names):
-                            # print(" left: " + str(leftHandPointer))
-                            # print("right: " + str(leftHandPointerCheck[1]))
-                            # print("altrt: " + str(rightHandSide))                            
-
-                            rightHandMember = str(leftHandPointerCheck[1])
-                            if(re.search(r"\w+\-\>\w+\[[\w\W]*\]?\=", str(expr))):
-                                postPointerDereference = re.split(r"\-\>", str(expr), 1)[1]
-                                #print("postp:" + postPointerDereference)
-                                preEqualsPointerDereference = re.split(r"\=", str(postPointerDereference))[0] + ']'
-                                #print("deref: " + preEqualsPointerDereference)
-
-                                if(re.search(r"\[", rightHandMember)):
-                                    rightHandMember = preEqualsPointerDereference
-                            
-                            #print('|' * 20)
-                            #Find if left handside is in pointer list
-                            if(leftHandPointer in list(function_external_pointers)):
-                                pointer_members = function_external_pointers[leftHandPointer]["writes"]
-                                pointer_members.append(rightHandMember)
-                                pointer_members = list(set(pointer_members))
-                                function_external_pointers[leftHandPointer]["writes"] = pointer_members
-                                function_external_pointers[leftHandPointer]["writes"]
-                elif(re.search(r"\*", leftHandSide)):                    
-                    if(re.search(r"\*\*?[a-zA-Z][\w\d]*\=", str(expr))):
-                        leftHandSideWithoutPointer = re.sub(r"\*|[^\w\d]", "", leftHandSide)                     
-                        
-                        if(leftHandSideWithoutPointer in list(function_external_pointers)):
-                            pointer_members = function_external_pointers[leftHandSideWithoutPointer]["writes"]
-                            pointer_members.append(rightHandSide)
-                            pointer_members = list(set(pointer_members))
-                            function_external_pointers[leftHandSideWithoutPointer]["writes"] = pointer_members
-                else:
-                    leftHandSideVar = re.sub(r"[^\w\d]", "", leftHandSide)
-                   
-                    if(leftHandSideVar in list(function_external_pointers)):                        
-                        pointer_members = function_external_pointers[leftHandSideVar]["direct_writes"]
-                        pointer_members.append(rightHandSide)
-                        pointer_members = list(set(pointer_members))
-                        function_external_pointers[leftHandSideVar]["direct_writes"] = pointer_members
-
-            #Check if leftHandSide value is in any declarations
-            fan_out_matches_sub = list(filter(lambda decl: decl["name"].rstrip() == leftHandSide.rstrip() and leftHandSide.rstrip() not in file_definitions, function_declaration_list))
-            #fan_out_matches_by_param_sub = list(map(lambda param: param["name"], list(filter(lambda param: param["name"].rstrip() == leftHandSide.rstrip(), parameters_passed_by_reference))))
-            
-            fan_out_matches.append(fan_out_matches_sub)
-            #fan_out_matches_by_param += fan_out_matches_by_param_sub
-            
-            #Divide the righthand side by any delimiters or rather, anything that isn't a word or number
-            rightHandSideVariables = list(filter(lambda var: re.search("[^\d\s]", var) and var not in function_declaration_list_names and var not in file_definitions, re.split("[^\w\d]", rightHandSide)))
-            fan_in_matches.extend(rightHandSideVariables)    
-
-
-        #If the expression did not match any of the declarations within the function
-        #Then someting outside of the function is being modified, so increment fan-out
-        if(fan_out_matches == [] and len(split_var) > 1):
-            fan_out+=1
-
-    global_writes = 0
-    for param in function_external_pointers:
-        global_writes += len(function_external_pointers[param]["writes"]) + len(function_external_pointers[param]["direct_writes"])
-        # print(" write: " + param )
-        # [print ("    " + w) for w in function_external_pointers[param]["direct_writes"]]
-        # print("dwrite: " + param )
-        # [print ("    " + w) for w in function_external_pointers[param]["writes"]]
-        # print("-"*10)
-    
-    fan_out += global_writes
-    #Remove duplicates in fan-in matches
-    fan_in_matches = list(set(fan_in_matches))
-
-    #print("fan-out: " + str(fan_out))
-
-    return fan_out
-
-def _get_file_variable_declarations(root):
-    declaration_names = []
-    declarations = root.findall(rf"{{{SRC_NS}}}decl_stmt")
-
-    for decl_stmt in declarations:
-        decl = decl_stmt.find(rf"{{{SRC_NS}}}decl")
-        decl_name = decl.find(rf"{{{SRC_NS}}}name")
-        decl_name_txt = decl_name.text if decl_name is not None and decl_name.text is not None else ""
-
-        if decl_name_txt != "":
-            declaration_names.append(decl_name_txt)
-
-    return declaration_names
-
 def _get_enum_declarations(root):
     enum_names = []
 
-    print("getting enums")
     for el in root.iter():
         if re.search(rf"{{{SRC_NS}}}enum", str(el)):
            
@@ -676,490 +595,581 @@ def _get_enum_declarations(root):
 
     return list(set(enum_names))
 
-def _get_variables_read_from_expr(function, calls, function_declarations, pointer_declarations, params, declarations, local_function_names, local_declarations, enums):
-    fan_in = 0
-    read_variable_names = []
-    declarations = [decl["name"] for decl in [*pointer_declarations, *function_declarations]]
-    params = [param["name"] for param in params]
-
-    #print(declarations)
-    call_args = []
-    for call_name in list(calls):
-        if calls[call_name]["cumulative_args"] != []:
-            args = [arg for arg in calls[call_name]["cumulative_args"] if arg not in params and arg not in C_LIB_FUNCTIONS and arg not in C_LIB_STREAMS and arg not in C_RESERVED_KEYWORDS and arg not in declarations and arg not in local_function_names and not re.match(r"^null$", arg, flags=re.IGNORECASE) and arg not in enums]
-            call_args = [*call_args, *args]
+def _calculate_unique_path_count(function):
+    paths = 1
 
     for child in function.iter():
-        if re.search(rf"{{{SRC_NS}}}expr_stmt", str(child)):
-            expr = child.find(rf"{{{SRC_NS}}}expr")
+        #print(child)
+        sub_path = 1
+        
+        if re.search(rf'{{{SRC_NS}}}(if_stmt|else|then|case|default)', child.tag): #or re.search(rf'{{{SRC_CPP}}}(if|ifdef)', child.tag):
+            if re.search(rf'{{{SRC_NS}}}(if_stmt|else)', child.tag):
+                if_else_exprs= [*child.findall(rf'{{{SRC_NS}}}if')] #, *child.findall(rf'{{{SRC_NS}}}else')]
+                op_count = 0
 
-            expr_descendants = list(expr.iter())
+                for if_child in if_else_exprs:
+                    if_cond = if_child.find(rf'{{{SRC_NS}}}condition')
+                    if_cond_expr = if_cond.find(rf'{{{SRC_NS}}}expr') if if_cond is not None else None
+                    if_cond_ops = if_cond_expr.findall(rf'{{{SRC_NS}}}operator') if if_cond_expr is not None else []
+
+                    for op in if_cond_ops:
+                        if op is not None and op.text is not None:
+                            if op.text == '&&' or op.text == '||':
+                                op_count += 1
 
 
-            expr_name = expr.find(rf"{{{SRC_NS}}}name") if expr is not None else None
-            expr_name_txt = expr_name.text if expr_name is not None else ""
+                    for if_child_el in if_child.iter():
+                        if re.search(rf'{{{SRC_NS}}}(if_stmt|else)', if_child_el.tag): #or re.search(rf'{{{SRC_CPP}}}(if)', if_child_el.tag):
+                            sub_path *= (2 + op_count)
+                
 
-            ops = expr.findall(rf"{{{SRC_NS}}}operator") if expr is not None else None
-            last_op = None
-            #find last op that is =
-            for op in ops:
-                if op.text is not None and op.text == '=':
-                    last_op = op
+            if sub_path > 1:
+                paths += sub_path
+            else:
+                paths+=1
 
-            op_txt = last_op.text if last_op is not None and last_op.text is not None else ""
 
-            last_op_index = expr_descendants.index(last_op) if last_op is not None else 0
-            
-            read_expr = expr_descendants[last_op_index + 1:]
-            
+    return paths
 
-            if op_txt == "=" and last_op_index > 0:
-                for el in read_expr:
-                    if re.search(rf"{{{SRC_NS}}}name", str(el)):
-                        sub_expr_name_txt = el.text if el is not None and el.text is not None else ""
-                        
-                        if(
-                        sub_expr_name_txt != expr_name_txt and 
-                        sub_expr_name_txt not in list(calls) and 
-                        sub_expr_name_txt not in params and
-                        sub_expr_name_txt not in call_args and
-                        sub_expr_name_txt not in declarations and 
-                        sub_expr_name_txt not in C_RESERVED_KEYWORDS and 
-                        sub_expr_name_txt not in C_LIB_STREAMS and 
-                        sub_expr_name_txt not in C_LIB_FUNCTIONS and
-                        sub_expr_name_txt is not None and
-                        sub_expr_name_txt not in local_function_names and
-                        sub_expr_name_txt not in enums and
-                        #sub_expr_name_txt not in local_declarations and
-                        not re.match(r"^null$", sub_expr_name_txt, flags=re.IGNORECASE)):
-                            read_variable_names.append(sub_expr_name_txt)
-                            #print(sub_expr_name_txt)
-
-        if re.search(rf"{{{SRC_NS}}}condition", str(child)):
-            expr = child.find(rf"{{{SRC_NS}}}expr")            
-            
-            for el in expr.iter():
-                if re.search(rf"{{{SRC_NS}}}name", str(el)):
-                    sub_expr_name_txt = el.text if el is not None else ""
-
-                    if(
-                    sub_expr_name_txt not in list(calls) and 
-                    sub_expr_name_txt not in params and
-                    sub_expr_name_txt not in call_args and
-                    sub_expr_name_txt not in declarations and 
-                    sub_expr_name_txt not in C_RESERVED_KEYWORDS and 
-                    sub_expr_name_txt not in C_LIB_STREAMS and 
-                    sub_expr_name_txt not in C_LIB_FUNCTIONS and
-                    sub_expr_name_txt is not None and
-                    sub_expr_name_txt not in local_function_names and
-                    sub_expr_name_txt not in enums and
-                    #sub_expr_name_txt not in local_declarations and
-                    not re.match(r"^null$", sub_expr_name_txt, flags=re.IGNORECASE)):
-                        read_variable_names.append(sub_expr_name_txt)
-
-    read_variable_names = list(set([*read_variable_names, *call_args]))
-    #print(read_variable_names)
-    fan_in = fan_in + len(read_variable_names)
-
-    # print(fan_in)
-
-    # print("var reads: ")
-    # total_reads = sorted(read_variable_names)
-    # [print(read) for read in total_reads]
-
-    
-    # print('_'*30)
-    return fan_in
-
-def _get_name_from_nested_name(name):
-    if name is not None:
-        if name.text is not None:
-            return name
-        elif name.find(rf"{{{SRC_NS}}}name") is not None:
-            next_name = name.find(rf"{{{SRC_NS}}}name")
-            _get_name_from_nested_name(next_name)
-
-    return None
-
-def _get_variable_writes_from_expr(function, expressions, function_declaration_list, parameters_passed_by_reference, file_definitions, pointer_declarations, calls):
+def _get_fan_out_from_expr_global_var_write(expr, function_declaration_list, parameters_passed_by_reference, pointer_declarations, calls, variable_writes, parent_declarations):
     fan_out = 0
 
-    variable_writes = {
-        
-    }
+    decl_names = [d["name"] for d in [*function_declaration_list]] 
 
-    function_external_pointers = {}
+    pointer_names = [p["name"] for p in [*parameters_passed_by_reference, *pointer_declarations]]
 
-    decl_names = [d["name"] for d in [*function_declaration_list, *pointer_declarations]]
+    expr_str = ""
 
-    pointers = [*parameters_passed_by_reference, *pointer_declarations]
+    expr_children = [child for child in expr.iter()]     
+    expr_str = ''.join([child for child in expr.itertext()])           
 
-    pointer_names = [p["name"] for p in pointers]
+    expr_row_pos = int(expr.attrib[rf"{{{POS_NS}}}start"].split(':')[0]) if rf"{{{POS_NS}}}" in expr.attrib.keys() else -1
 
-    for expr in expressions:        
-        expr_children = [child for child in expr.iter()]     
-        expr_str = ''.join([child for child in expr.itertext()])     
+    expr_names = expr.findall(rf"{{{SRC_NS}}}name")
+    operators = expr.findall(rf"{{{SRC_NS}}}operator")
 
-        expr_names = expr.findall(rf"{{{SRC_NS}}}name")
-        operators = expr.findall(rf"{{{SRC_NS}}}operator")
+    incr_decr_op = next((op for op in operators if op is not None and op.text is not None and re.fullmatch(r"^\+\+|\-\-$", op.text)), None)
+    incr_decr_op_txt = incr_decr_op.text if incr_decr_op is not None and incr_decr_op.text is not None else ''
+    
+    incr_decr_op_pos = incr_decr_op.attrib[rf"{{{POS_NS}}}start"].split(':') if incr_decr_op is not None and rf"{{{POS_NS}}}start" in incr_decr_op.attrib.keys() else [-1, -1]
+    incr_decr_op_row = int(incr_decr_op_pos[0])
+    incr_decr_op_col = int(incr_decr_op_pos[1])
 
-        equals_op = next((op for op in operators if op is not None and op.text is not None and re.fullmatch(rf"^\=|\+\=|\-\=|\*\=|\\\=$", op.text)), None)
-        equals_op_pos = equals_op.attrib[rf"{{{POS_NS}}}start"].split(':') if equals_op is not None and rf"{{{POS_NS}}}start" in equals_op.attrib.keys() else [-1, -1]
-        equals_op_row = int(equals_op_pos[0])
-        equals_op_col = int(equals_op_pos[1])
+    equals_ops = [op for op in operators if op is not None and op.text is not None and re.fullmatch(r"^\=|\+\=|\-\=|\*\=|\\\=$", op.text)]
 
-        last_op = operators[-1] if len(operators) > 0 else None
-        last_op_txt = last_op.text if last_op is not None and last_op.text is not None else ''
+    if len(equals_ops) == 0:
+        equals_ops = [None]
 
-        last_op_pos = last_op.attrib[rf"{{{POS_NS}}}start"].split(':') if last_op is not None else [-1, -1]
-        last_op_pos_row = int(last_op_pos[0])
-        last_op_pos_col = int(last_op_pos[1])
+    last_equals_op_txt = equals_ops[-1].text if equals_ops[-1] is not None and equals_ops[-1].text is not None else ''
 
-        fan_out_var_candidates = []
+    last_equals_op_pos = equals_ops[-1].attrib[rf"{{{POS_NS}}}start"].split(':') if equals_ops[-1] is not None and rf"{{{POS_NS}}}start" in equals_ops[-1].attrib.keys() else [-1, -1]
+    last_equals_op_row = int(last_equals_op_pos[0])
+    last_equals_op_col = int(last_equals_op_pos[1])
 
-        if last_op_txt != '':
-            if len(expr_names) > 0:
-                first_expr_name = expr_names[0]
-                first_expr_name_txt = ''
-                first_expr_name_txt_full = ''
+    first_equals_op_txt = equals_ops[0].text if equals_ops[0] is not None and equals_ops[0].text is not None else ''
 
-                
-                for name in expr_names:
-                        name_pos = name.attrib[rf"{{{POS_NS}}}start"].split(':') 
-                        name_pos_row = int(name_pos[0])  
-                        name_pos_col = int(name_pos[1])  
+    first_equals_op_pos = equals_ops[0].attrib[rf"{{{POS_NS}}}start"].split(':') if equals_ops[0] is not None and rf"{{{POS_NS}}}start" in equals_ops[0].attrib.keys() else [-1, -1]
+    first_equals_op_row = int(first_equals_op_pos[0])
+    first_equals_op_col = int(first_equals_op_pos[1])
 
-                        expr_sub_names = name.findall(rf"{{{SRC_NS}}}name")                          
-                        expr_sub_name = _get_name_from_nested_name(expr_sub_names[0]) if len(expr_sub_names) > 1 else name 
-                        expr_sub_name_pos = expr_sub_name.attrib[rf"{{{POS_NS}}}start"].split(':') if expr_sub_name is not None and rf"{{{POS_NS}}}start" in expr_sub_name.attrib.keys() else [-1, -1]
-                        expr_sub_name_pos_row = int(expr_sub_name_pos[0])
-                        expr_sub_name_pos_col = int(expr_sub_name_pos[1])
-                        
-                        expr_sub_index = name.find(rf"{{{SRC_NS}}}index")  
-                        expr_sub_index_txt = ''.join(child_txt for child_txt in expr_sub_index.text if expr_sub_index.text is not None) if expr_sub_index is not None else ''                       
+    fan_out_var_candidates = []
 
-                        first_expr_name_txt = expr_sub_name.text if expr_sub_name is not None and expr_sub_name.text is not None else ''.join([child_txt for child_txt in first_expr_name.itertext()])
-                        name_signature = ''.join([child_txt for child_txt in name.itertext()])
-                        
-                        name_op = name.findall(rf"{{{SRC_NS}}}operator")
-                        member_access_op = next((op for op in name_op if op is not None and op.text is not None and op.text == '->'), None)
-                        member_access_op_pos = member_access_op.attrib[rf"{{{POS_NS}}}start"].split(':') if member_access_op is not None and rf"{{{POS_NS}}}start" in member_access_op.attrib.keys() else [-1, -1]
-                        member_access_op_pos_row = int(member_access_op_pos[0])
-                        member_access_op_pos_col = int(member_access_op_pos[1])
+    if last_equals_op_txt != '' or incr_decr_op_txt != '':
+        #print(expr_str)
+        if len(expr_names) > 0:
+            first_expr_name = expr_names[0]
+            first_expr_name_txt = ''
+            first_expr_name_txt_full = ''
 
-                        members_accessed = []
-                        expr_mod_statements = []
+            
+            for name in expr_names:
+                    name_pos = name.attrib[rf"{{{POS_NS}}}start"].split(':') 
+                    name_pos_row = int(name_pos[0])  
+                    name_pos_col = int(name_pos[1])  
 
-                        if (member_access_op is not None 
-                            and member_access_op_pos_row == expr_sub_name_pos_row 
-                            and member_access_op_pos_col > expr_sub_name_pos_col 
-                            and member_access_op_pos_col < equals_op_row 
-                            and member_access_op_pos_row == equals_op_row):
-                            for child in expr_sub_names:
-                                child_pos = child.attrib[rf"{{{POS_NS}}}start"].split(':') if rf"{{{POS_NS}}}start" in child.attrib.keys() else [-1, -1]
-                                child_pos_row = int(child_pos[0])
-                                child_pos_col = int(child_pos[1])
-
-                                if child_pos_row == member_access_op_pos_row and child_pos_col > member_access_op_pos_col:
-                                    members_accessed.append(_get_name_from_nested_name(child).text)
-                        elif member_access_op is None and expr_sub_index is None: 
-                            expr_mod_statements.append(expr_str)
-
-                        if first_expr_name_txt in pointer_names or first_expr_name not in decl_names:
-                            fan_out_var_candidates.append({
-                            "name": first_expr_name_txt,
-                            "signature": name_signature,
-                            "row_pos": name_pos_row,
-                            "col_pos": name_pos_col,
-                            "members_accessed": members_accessed,
-                            "indices" : [expr_sub_index_txt],
-                            "expr_mod_statements": expr_mod_statements
-                            })  
-
-            for cand in fan_out_var_candidates:           
-                if re.fullmatch(r"^\=|\+\=|\-\=|\*\=|\\\=$", last_op_txt) and last_op_pos_col > cand["col_pos"] and last_op_pos_row == cand["row_pos"]:
+                    expr_sub_names = name.findall(rf"{{{SRC_NS}}}name")                          
+                    expr_sub_name = _get_name_from_nested_name(expr_sub_names[0]) if len(expr_sub_names) > 1 else name 
+                    expr_sub_name_pos = expr_sub_name.attrib[rf"{{{POS_NS}}}start"].split(':') if expr_sub_name is not None and rf"{{{POS_NS}}}start" in expr_sub_name.attrib.keys() else [-1, -1]
+                    expr_sub_name_pos_row = int(expr_sub_name_pos[0])
+                    expr_sub_name_pos_col = int(expr_sub_name_pos[1])
                     
-                    if cand["name"] not in variable_writes.keys():
-                        variable_writes[cand["name"]] = {
-                            'expressions': cand["expr_mod_statements"],
-                            'members_modified': cand["members_accessed"],
-                            'indices_modified': cand["indices"]
-                        }
-                    else:
-                        variable_writes[cand["name"]]['expressions'] = [*variable_writes[cand["name"]]['expressions'], *cand["expr_mod_statements"]]
-                        variable_writes[cand["name"]]['members_modified'] = [*variable_writes[cand["name"]]['members_modified'], *cand["members_accessed"]]
-                        variable_writes[cand["name"]]['indices_modified'] = [*variable_writes[cand["name"]]['indices_modified'], *cand["indices"]]
-                elif re.fullmatch(r"^\+\+|\-\-$", last_op_txt) and last_op_pos_row == cand["row_pos"]:
+                    expr_index = name.find(rf"{{{SRC_NS}}}index")  
+                    expr_index_txt = ''.join(child_txt for child_txt in expr_index.text if expr_index.text is not None) if expr_index is not None else ''                       
+
+                    expr_index_pos = expr_index.attrib[rf"{{{POS_NS}}}start"].split(':') if expr_index is not None and rf"{{{POS_NS}}}start" in expr_index.keys() else [-1, -1]
+                    expr_index_pos_row = int(expr_index_pos[0])
+                    expr_index_pos_col = int(expr_index_pos[1])
+
+                    first_expr_name_txt = expr_sub_name.text if expr_sub_name is not None and expr_sub_name.text is not None else ''.join([child_txt for child_txt in first_expr_name.itertext()])
+                    name_signature = ''.join([child_txt for child_txt in name.itertext()])
+
                     
-                    if cand["name"] not in variable_writes.keys():
-                        variable_writes[cand["name"]] = {
-                            'expressions': cand["expr_mod_statements"],
-                            'members_modified': cand["members_accessed"],
-                            'indices_modified': cand["indices"]
-                        }
-                    else:
-                        variable_writes[cand["name"]]['expressions'] = [*variable_writes[cand["name"]]['expressions'], *cand["expr_mod_statements"]]
-                        variable_writes[cand["name"]]['members_modified'] = [*variable_writes[cand["name"]]['members_modified'], *cand["members_accessed"]]
-                        variable_writes[cand["name"]]['indices_modified'] = [*variable_writes[cand["name"]]['indices_modified'], *cand["indices"]]
+                    name_op = name.findall(rf"{{{SRC_NS}}}operator")
+                    member_access_op = next((op for op in name_op if op is not None and op.text is not None and (op.text == '->' or op.text == '.')), None)
+                    member_access_op_pos = member_access_op.attrib[rf"{{{POS_NS}}}start"].split(':') if member_access_op is not None and rf"{{{POS_NS}}}start" in member_access_op.attrib.keys() else [-1, -1]
+                    member_access_op_pos_row = int(member_access_op_pos[0])
+                    member_access_op_pos_col = int(member_access_op_pos[1])
 
-    for key in list(variable_writes):
-        # print("variable: " + key)
-        # print("expressions: ")
-        for expr in variable_writes[key]['expressions']:
-            #print("    " + expr)
+                    members_accessed = []
+                    expr_mod_statements = []
 
-            if len(variable_writes[key]['expressions']) > 0:
-                fan_out += 1
+                    index_accessed_str = ''
 
-            fan_out += len(variable_writes[key]['members_modified']) + len(variable_writes[key]['indices_modified'])
+                    if (member_access_op is not None
+                        and member_access_op_pos_row == expr_sub_name_pos_row 
+                        and member_access_op_pos_col > expr_sub_name_pos_col 
+                        and member_access_op_pos_col < first_equals_op_col
+                        and member_access_op_pos_row == first_equals_op_row):
 
-        # print("\nmodified members:")
-        # for mem in variable_writes[key]['members_modified']:
-        #     print('    ' + mem)
+                        member_accessed_str = ''
 
-        # print("\nmodified indices:")
-        # for indx in variable_writes[key]['indices_modified']:
-        #     print('   ' + indx)       
+                        #for child in expr_sub_names:
+                        for child in expr_children:
+                            child_pos = child.attrib[rf"{{{POS_NS}}}start"].split(':') if rf"{{{POS_NS}}}start" in child.attrib.keys() else [-1, -1]
+                            child_pos_row = int(child_pos[0])
+                            child_pos_col = int(child_pos[1])
+
+                            if child_pos_row == member_access_op_pos_row and child_pos_col > member_access_op_pos_col and child_pos_col < first_equals_op_col:
+
+                                if child.text is not None:        
+                                    if expr_index_pos_col > member_access_op_pos_col and expr_index_pos_row == member_access_op_pos_row:
+                                        index_accessed_str += child.text
+                                    else:            
+                                        member_accessed_str += child.text
+                            elif child_pos_col < first_equals_op_col and child_pos_col < first_equals_op_col and expr_index_pos_col < first_equals_op_col and expr_index_pos_col != -1:
+                                if child.text is not None:      
+                                    if expr_index_pos_row == member_access_op_pos_row:
+                                        index_accessed_str += child.text
+                                
+                        if member_accessed_str != '':
+                            members_accessed.append(member_accessed_str)
+
+                    elif member_access_op is None and expr_index is None: 
+                        expr_mod_statements.append(expr_str)
+
+                    # Checks to see if a variable that is in declarations was invoked before it was declared and therefore still a valid candidate in 
+                    # being counted towards the fan-out metric
+                    invoked_before_declared = False if next((decl for decl in function_declaration_list if first_expr_name_txt == decl["name"] and decl["pos_row"] > expr_row_pos), None) is not None else True
+                    if first_expr_name_txt in pointer_names or first_expr_name_txt not in decl_names or invoked_before_declared:                          
+                        fan_out_var_candidates.append({
+                        "name": first_expr_name_txt,
+                        "signature": name_signature,
+                        "row_pos": name_pos_row,
+                        "col_pos": name_pos_col,
+                        "members_accessed": members_accessed,
+                        "indices" : [index_accessed_str],
+                        "expr_mod_statements": expr_mod_statements
+                        })  
+
+        for cand in fan_out_var_candidates:
+            if last_equals_op_txt != '' and last_equals_op_col > cand["col_pos"] and last_equals_op_row == cand["row_pos"]:
+                if cand["name"] not in variable_writes.keys():
+                    variable_writes[cand["name"]] = {
+                        'expressions': cand["expr_mod_statements"],
+                        'members_modified': cand["members_accessed"],
+                        'indices_modified': cand["indices"]
+                    }
+                else:
+                    variable_writes[cand["name"]]['expressions'] = [*variable_writes[cand["name"]]['expressions'], *cand["expr_mod_statements"]]
+                    variable_writes[cand["name"]]['members_modified'] = [*variable_writes[cand["name"]]['members_modified'], *cand["members_accessed"]]
+                    variable_writes[cand["name"]]['indices_modified'] = [*variable_writes[cand["name"]]['indices_modified'], *cand["indices"]]
+            elif incr_decr_op_txt and incr_decr_op_row == cand["row_pos"]:
+                if cand["name"] not in variable_writes.keys():
+                    variable_writes[cand["name"]] = {
+                        'expressions': cand["expr_mod_statements"],
+                        'members_modified': cand["members_accessed"],
+                        'indices_modified': cand["indices"]
+                    }
+                else:
+                    variable_writes[cand["name"]]['expressions'] = [*variable_writes[cand["name"]]['expressions'], *cand["expr_mod_statements"]]
+                    variable_writes[cand["name"]]['members_modified'] = [*variable_writes[cand["name"]]['members_modified'], *cand["members_accessed"]]
+                    variable_writes[cand["name"]]['indices_modified'] = [*variable_writes[cand["name"]]['indices_modified'], *cand["indices"]]
+    
+def _count_fan_out(variable_writes):
+    fan_out = 0
+
+    print_data = False
+    for key in list(variable_writes):        
+        if len(variable_writes[key]['expressions']) > 0:
+            fan_out += 1
+
+        members_modded = list(set([m for m in variable_writes[key]['members_modified'] if m.rstrip() != '']))
+        indicies_modded = list(set([i for i in variable_writes[key]['indices_modified'] if i.rstrip() != '']))
+
+        fan_out += len(members_modded) + len(indicies_modded)
+
+        if print_data:
+            print("variable: " + key)
+            print("expressions: ")
+            for expr in variable_writes[key]['expressions']:
+                print("    " + expr)
 
 
-        #print ('\n')
-    print("New Fan Out: " + str(fan_out))
-        
+            print("\nmodified members:")
+            for mem in members_modded:
+                print('    ' + mem)
+
+            print("\nmodified indices:")
+            for indx in indicies_modded:
+                print('   ' + indx)       
+
     return fan_out
 
-def _get_fan_in_from_expressions(function_declaration_list, function_expression_list, if_expressions, parameters_passed_by_reference, file_definitions, pointer_declarations):
+def _get_fan_in_from_expr_global_var_read(expr, calls, function_declarations, pointer_declarations, params, local_function_names, enums, read_variable_names, function_throws_exception_names, parent_declarations):
     fan_in = 0
+    none_ptr_declaration_var_names = [d["name"] for d in function_declarations]
+    pointer_declaration_var_names = [d["name"] for d in pointer_declarations]
+    parent_declaration_var_names= [d["name"] for d in parent_declarations]
 
-    function_external_pointers = {}
-    declarations = [decl["name"] for decl in [*pointer_declarations, *function_declaration_list]]
+    expr_names = expr.findall(rf"{{{SRC_NS}}}name")
 
-    expressions = [*function_expression_list, *if_expressions]
+    expr_pos = expr.attrib[rf"{{{POS_NS}}}start"].split(':') if expr is not None and rf"{{{POS_NS}}}start" in expr.attrib.keys() else [-1, -1]
+    expr_pos_row = int(expr_pos[0])
+    expr_pos_col = int(expr_pos[1])
 
-    #print(expressions)
-    #print(declarations)
+    ops = expr.findall(rf"{{{SRC_NS}}}operator") if expr is not None else None
+    last_op = next((op for op in list(reversed(ops)) if op is not None and op.text is not None and re.fullmatch(r"^\=|\+\=|\-\=|\*\=|\\\=$", op.text)), None)
 
-    for expr in expressions:
-        if(re.search(r"[a-zA-Z][a-zA-Z0-9]*(?<!\!)\=(?!\=)", expr) or re.search(r"[a-zA-Z][a-zA-Z0-9]*(\-\>)[a-zA-Z][a-zA-Z0-9]*(?<!\!)\=(?!\=)", expr)):
-            split_expr = re.split(r"(?<!\!)\=(?!\=)", expr, 1)
-            
-            if(len(split_expr) > 1):
-                left_expr = split_expr[0]
-                right_expr = split_expr[1]
-
-                #print(expr)
+    incr_decr_op = next((op for op in ops if op is not None and op.text is not None and re.fullmatch(r"^\+\+|\-\-$", op.text)), None)
+    incr_decr_op_txt = incr_decr_op.text if incr_decr_op is not None and incr_decr_op.text is not None else ''
     
-    return fan_in
+    incr_decr_op_pos = incr_decr_op.attrib[rf"{{{POS_NS}}}start"].split(':') if incr_decr_op is not None and rf"{{{POS_NS}}}start" in incr_decr_op.attrib.keys() else [-1, -1]
+    incr_decr_op_row = int(incr_decr_op_pos[0])
+    incr_decr_op_col = int(incr_decr_op_pos[1])
 
-def _get_fan_in(function_metrics, src_file_path, language):
-    other_file_functions = {src_file_path: {
-        "functions_called_by": {}
-    }}    
+    op_txt = last_op.text if last_op is not None and last_op.text is not None else ''
 
-    #print ("function names: ")
-    #[print(function_metrics[func]["function_name"]) for func in list(function_metrics)]
-    extension = "c" if language == "C" else "cpp" if language == "C++" else "java" if language == "JAVA" else "cs" if language == "C#" else ""
+    equal_op_pos = last_op.attrib[rf'{{{POS_NS}}}start'].split(':') if last_op is not None and rf'{{{POS_NS}}}start' in last_op.attrib.keys() else [-1, -1]
+    equal_op_pos_row = int(equal_op_pos[0])
+    equal_op_pos_col = int(equal_op_pos[1])
+
+    for name in expr_names:        
+        name_op = name.find(rf"{{{SRC_NS}}}operator")
+        name_op_text = name_op.text if name_op is not None and name_op.text is not None else ""
+
+        name_txt = _get_full_name_text_from_name(name)
+
+        name_member_access_txt = re.split(r"\-\>|\[|\.", name_txt, 1)[0]
+
+        name_pos = name.attrib[rf'{{{POS_NS}}}start'].split(':') if rf'{{{POS_NS}}}start' in name.attrib.keys() else [-1, -1]
+        name_pos_row = int(name_pos[0])
+        name_pos_col = int(name_pos[1]) 
+
+        if(
+            name_pos_col >= equal_op_pos_col and 
+            equal_op_pos_col <= incr_decr_op_col and 
+            name_member_access_txt != "" and
+            name_member_access_txt is not None and
+        (
+            (
+
+                (
+                    name_member_access_txt not in list(calls) and 
+                    name_member_access_txt not in none_ptr_declaration_var_names and
+                    name_member_access_txt not in C_RESERVED_KEYWORDS and 
+                    name_member_access_txt not in C_LIB_STREAMS and 
+                    name_member_access_txt not in C_LIB_FUNCTIONS and        
+                    name_member_access_txt not in local_function_names
+                ) 
+        or
+            name_member_access_txt not in parent_declaration_var_names and
+            name_member_access_txt not in none_ptr_declaration_var_names
+        ) 
+        or 
+            (
+                name_member_access_txt == next((param["name"] for param in params if param["modifier"] == "*" or param["modifier"] == "&"), None)) and
+                name_member_access_txt not in enums and
+                name_member_access_txt not in function_throws_exception_names and
+                not re.match(r"^null$", name_member_access_txt, flags=re.IGNORECASE)
+            )
+        ):
+            read_variable_names.append(name_txt)
+
+    read_variable_names = list(set([*read_variable_names])) 
     
-    fan_in_log = open("fan_in.log", "w")
-    fan_in = 0
+def _count_fan_in(variable_reads):
+    return len(variable_reads)
 
-    # if(extension != ""):
-    #     #Now its time to search to see how procedures in the current file are used elswhere in the current project
-    #     print("fan in ops: ")
-    #     for root, dirs, files in os.walk(root_dir):
-    #         for file in files:
-    #             if(file.endswith(extension)):
-    #                 current_file_path = os.path.join(root, file)
-
-    #                 #print(current_file_path)
-                    
-    #                 #Do not measure metrics for the same file twice
-    #                 #Also have to see if the src_file is being imported 
-    #                 #and used in this file
-    #                 if(current_file_path != src_file_path):
-    #                     #Run the current file data through srcml
-    #                     srcml = get_srcml_from_path(current_file_path, language)
-    #                     root_file = ET.fromstring(srcml)
-
-    #                     #We only have to measure the calls 
-    #                     for child in root_file.iter():                   
-    #                         #increment the fan-in of the called function
-    #                         if(re.search(rf'{{{SRC_NS}}}function', str(child))):
-    #                             func_name = child.find(rf"{{{SRC_NS}}}name")
-    #                             func_name_txt = func_name.text if func_name is not None and func_name.text is not None else ""
-
-    #                             if(func_name_txt != ""):
-    #                                 for subel in child.iter():
-    #                                     if(re.search(rf'{{{SRC_NS}}}call', str(subel))):
-    #                                         call_sig = _get_call_signature(subel)
-    #                                         #print(call_sig)           
-
-    #                                         call_arg_list = subel.find(rf"{{{SRC_NS}}}argument_list")     
-    #                                         call_args = call_arg_list.findall(rf"{{{SRC_NS}}}argument") if call_arg_list is not None else []
-    #                                         call_name = subel.find(rf"{{{SRC_NS}}}name")
-    #                                         call_name_txt = call_name.text if call_name is not None else ""   
-                                            
-    #                                         call_name_matches = [function for function in list(function_metrics)]
-
-    #                                         for function in list(function_metrics):
-    #                                             if function_metrics[function]['function_name'] == call_name_txt:
-    #                                                 call_name_matches.append(function)
-    #                                                 function_path = (current_file_path + "\\" + func_name_txt)
-    #                                                 function_metrics[function]['functions_called_by'].append(function_path[2:])
-    #                                                 function_metrics[function]['functions_called_by'] = list(set(function_metrics[function]['functions_called_by']))
-
-    #                                         if(call_name_matches != []):
-    #                                             fan_in_log.write(call_sig + '\n')
-    #                                             fan_in_log.write(str(call_name_matches) + '\n')
-    #                                             fan_in_log.write('_'*30 + '\n')
-
-                                        
-    fan_in_log.close()
-
-def _get_file_imports(path):
-    pass
-
-def _calculate_metrics(rootet, file_definitions, src_file_path, language, local_function_names, local_declarations, enums):
-    function_dict = {}
-
-    definitions = {}
-    declarations = {}
-    #print(rootet)
-
-    for child in rootet.iter():
-        #print(child)
-        # if(re.search(rf"{{{SRC_NS}}}literal", str(child))):
-        #     _parse_literal_for_functions(child, language)
-
-        if(re.search(rf"{{{SRC_NS}}}function", str(child))):
-            #Do not analyze function prototypes. Only perform analysis on functions that have blocks of code in them
-            block = child.find(rf"{{{SRC_NS}}}block")
-
-            if(block is not None):
-                func_sig = _get_signature(child)                
-
-                print(func_sig)
-                current_function = func_sig
-                
-                expression_signatures = _get_expr_signatures(child)
-                expressions = _get_exprs_from_function(child)
-                declarations = _get_decl_signatures(child)         
-
-                param_data = _get_pointers_from_parameter_list(child)
-                pointer_decls = _get_pointer_declarations_from_expr(child)
-                param_count = len(param_data["parameters"])
-
-                
-                macro_func_calls = _get_function_calls_from_macro_tags(child)
-
-                #print(param_data["parameters"])
-
-                calls = _get_all_function_call_info(child)                
+def _get_path_from_statement(statement):
+    paths = 0
+    sub_path = 1
         
-                declaration_names = list(map(lambda decl: decl["name"], declarations))
+    if re.search(rf'{{{SRC_NS}}}(if_stmt|else|then|case|default)', statement.tag): #or re.search(rf'{{{SRC_CPP}}}(if|ifdef)', child.tag):
+        if re.search(rf'{{{SRC_NS}}}(if_stmt|else)', statement.tag):
+            if_else_exprs= [*statement.findall(rf'{{{SRC_NS}}}if')] #, *child.findall(rf'{{{SRC_NS}}}else')]
+            op_count = 0
+
+            for if_child in if_else_exprs:
+                if_cond = if_child.find(rf'{{{SRC_NS}}}condition')
+                if_cond_expr = if_cond.find(rf'{{{SRC_NS}}}expr') if if_cond is not None else None
+                if_cond_ops = if_cond_expr.findall(rf'{{{SRC_NS}}}operator') if if_cond_expr is not None else []
+
+                for op in if_cond_ops:
+                    if op is not None and op.text is not None:
+                        if op.text == '&&' or op.text == '||':
+                            op_count += 1
+
+
+                for if_child_el in if_child.iter():
+                    if re.search(rf'{{{SRC_NS}}}(if_stmt|else)', if_child_el.tag): #or re.search(rf'{{{SRC_CPP}}}(if)', if_child_el.tag):
+                        sub_path *= (2 + op_count)
+            
+
+        if sub_path > 1:
+            paths += sub_path
+        else:
+            paths+=1
+
+    return paths
+
+def _get_throws_expression_names(statement):
+    exception_names = []
+
+    if re.search(rf"{{{SRC_NS}}}throws", statement.tag):
+        args = statement.findall(rf"{{{SRC_NS}}}argument")
+        for arg in args:
+            expr = arg.find(rf"{{{SRC_NS}}}expr")
+            expr_name = expr.find(rf"{{{SRC_NS}}}name") if expr is not None else None
+
+            name_txt = _get_full_name_text_from_name(expr_name)
+
+            if name_txt != '':
+                exception_names.append(name_txt)
+
+    return exception_names
+
+def _parse_function_for_metrics(root, function_dict, all_local_call_names, parent_struct_name, parent_struct_type, parent_declarations):
+    child = root
+
+    if re.search(rf"{{{SRC_NS}}}function|constructor", child.tag): #or re.search(rf"{{{SRC_NS}}}constructor", child.tag):
+        func_sig = parent_struct_name + " " + _get_signature(child)
+        func_name = _get_name(child)
+        print(func_sig)
+        #Do not analyze function prototypes. Only perform analysis on functions that have blocks of code in them
+        block = child.find(rf"{{{SRC_NS}}}block")
+
+        has_return_value = False
+
+        init_fan_out = 0
+        init_fan_in = 0
+
+        if re.search(rf"{{{SRC_NS}}}constructor", child.tag):
+            init_fan_out = 1
+            init_fan_in = 1
+        
+        init_n_path = 1 
+
+        throws_exception_names = []
+        declarations = []
+        pointer_decls = []
+        
+        calls = {}
+        macro_calls = {}
+
+        global_variable_writes = {}
+        global_variable_reads = []
+
+        if(block is not None):
+            param_data = _get_param_data(child)
+            param_count = len(param_data["parameters"])
+
+            for func_child in child.iter():
+                decl = _parse_declaration(func_child, parent_struct_name=parent_struct_name, parent_struct_type=parent_struct_type, belongs_to_file=file_name)
+                call = _parse_function_call(func_child)
+                macros = _parse_macro_call(func_child)
+                throws = _get_throws_expression_names(func_child)
+
+                if throws != []:
+                    throws_exception_names = [*throws_exception_names, *throws]
+
+                if decl is not None:
+                    if decl["modifier"] == "*":
+                        pointer_decls.append(decl)
+                    else:
+                        declarations.append(decl)
+
+                if call is not None:
+                    calls = {**calls, **call}
+                    all_local_call_names = [*all_local_call_names, *call.keys()]
+                    #print(all_local_call_names)
                 
-                #print(declaration_names)
+                if macros is not None:
+                    macro_calls = {**macro_calls, **macros}
 
-                #Do not include functions that are declared within another function
-                non_local_function_calls = list(filter(lambda call: call not in declaration_names and call not in C_LIB_FUNCTIONS, list(set([*list(calls), *macro_func_calls]))))
+                init_n_path += _get_path_from_statement(func_child)
 
-                if_expressions = _get_expr_from_conditional(child)
-                #print(if_expressions)               
-                # print("Non Local Function Calls: ")
-                # [print("    " + func) for func in non_local_function_calls]
-                # print("|"*30)
-                #(function, expressions, function_declaration_list, function_expression_list, if_expressions, parameters_passed_by_reference, file_definitions, pointer_declarations):
-    
+                if re.search(rf'{{{SRC_NS}}}return', func_child.tag) and has_return_value == False:  
+                    return_expr = func_child.find(rf"{{{SRC_NS}}}expr")
+                    if return_expr is not None:
+                        init_fan_out += 1
+                        has_return_value = True
 
-                init_fan_out = _get_fan_out_from_expressions(declarations, expression_signatures, if_expressions, param_data["parameters_passed_by_reference"], file_definitions, pointer_decls)
+                if re.search(rf"{{{SRC_NS}}}expr", func_child.tag):
+                    _get_fan_out_from_expr_global_var_write(
+                        expr = func_child, 
+                        function_declaration_list = declarations,
+                        parameters_passed_by_reference = param_data["parameters_passed_by_reference"], 
+                        pointer_declarations = pointer_decls, 
+                        calls = calls,
+                        variable_writes = global_variable_writes,
+                        parent_declarations = parent_declarations
+                        )
 
-                #if re.search(r"close_connection", func_sig):
-                writes_fan_out = _get_variable_writes_from_expr(child, expressions, declarations, param_data["parameters_passed_by_reference"], file_definitions, pointer_decls, calls)
-                
-                init_fan_in = _get_variables_read_from_expr(child, calls, declarations, pointer_decls, param_data["parameters"], declarations, local_function_names, local_declarations, enums)
-                #print("read_var_names: ")
-                #print(init_fan_in)
+                    _get_fan_in_from_expr_global_var_read(
+                        expr = func_child, 
+                        calls = calls, 
+                        function_declarations = declarations,
+                        pointer_declarations = pointer_decls,
+                        params = param_data["parameters"],
+                        local_function_names = local_function_names,
+                        enums = enums,
+                        read_variable_names = global_variable_reads,
+                        function_throws_exception_names = throws_exception_names,
+                        parent_declarations = parent_declarations
+                        )
 
-                #print(init_metrics["fan_out"])
-                print("--------------------------")
-                
-                #Add function to dict if not already in there
-                if func_sig not in list(function_dict):
-                    function_dict[func_sig] = {
-                        "src_file": src_file,
-                        "function_name": _get_name(child),
-                        "param_count": param_count,
-                        "is_void": True,
-                        "functions_called_by": [],
-                        "fan_in": param_count + init_fan_in,
-                        "fan_out": writes_fan_out + len(non_local_function_calls),
-                        "paths": 1,
-                        "has_return": False,
-                        "return_counted": False
-                    }
+                    declaration_names = [d["name"] for d in declarations]
 
-                #Keep iterating through to get function contents
-                #After this block, the fan-in, fan-out, and paths metrics
-                #will have been calculated for contents within the current file.
-                #
-                #We will also have to analyze the function for external variables 
-                #as well in order to determine if this function has executed a
-                #global variable read, or a global variable write
-                for subel in child.iter():
-                    if(re.search(rf'{{{SRC_NS}}}return', str(subel)) and function_dict[current_function]["return_counted"] == False):  
-                        return_expr = subel.find(rf"{{{SRC_NS}}}expr")
+            global_variable_reads = list(set(global_variable_reads))
+            if re.search(r"main", func_sig):
+                print("decls: ")
+                [print("    " + decl["name"]) for decl in declarations]
+                print("params: ")
+                [print("    " + str(p["name"])) for p in param_data["parameters_passed_by_reference"]]  
+                print("Global var reads: ")
+                [print("    " + str(r)) for r in global_variable_reads]
 
-                        if(return_expr is not None):
-                            function_dict[current_function]["has_return"] = True       
+            # print('_'*30)
 
-                    if(re.search(rf'{{{SRC_NS}}}(\bif\b|\belse\b|\btry\b|\bcatch\b|\bthen\b|\bcase\b|\bdefault\b)', subel.tag)):
-                        function_dict[current_function]["paths"] += 1
+            init_fan_in += _count_fan_in(global_variable_reads)
+            init_fan_out += _count_fan_out(global_variable_writes)
 
-                if (function_dict[current_function]["has_return"] and function_dict[current_function]["return_counted"] is False):
-                    function_dict[current_function]["fan_out"] += 1
-                    function_dict[current_function]["return_counted"] = True
-                    
-    _get_fan_in(function_dict, src_file_path, language)
-                  
+            non_local_function_calls = list(filter(lambda call: call not in declaration_names, list(set([*list(calls), *list(macro_calls)]))))
 
-    #Display metric results
-    for key in list(function_dict):
-        function_dict[key]["fan_in"] = function_dict[key]["fan_in"] + len(function_dict[key]["functions_called_by"])
-        fan_in = function_dict[key]["fan_in"]
-        fan_out = function_dict[key]["fan_out"]
-        functions_called_by = function_dict[key]["functions_called_by"]
-        paths = function_dict[key]["paths"]
-        flow = (fan_in * fan_out)**2
 
-        print ('-'*30)
-        print (" Func Sig: " + key)
-        print ("   Fan-in: " + str(fan_in))
-        print ("  Fan-out: " + str(fan_out))
-        print ("    Paths: " + str(paths))
-        print ("     Flow: " + str(flow))
-        print ("Called by: ")
-        [print("    " + call) for call in functions_called_by]
+            #Add function to dict if not already in there
+            #add_func_to_dict = next((False for key in function_dict.keys() if func_sig == key and parent_struct_name == function_dict[key]["parent_structure_name"] and parent_struct_type == function_dict[key]["parent_structure_type"]), True)
+            print("Add this func?")
 
-src_file = ".\\apache\\httpd-2.4.43\\support\\ab.c"
-#src_file_path = ".\\gitahead\\dep\\libgit2\\libgit2\\src\\xdiff\\xdiffi.c"
-root_dir = ".\\apache\\httpd-2.4.43"
+            if func_sig not in function_dict.keys():
+                function_dict[func_sig] = {
+                    "function_name": func_name,
+                    "param_count": param_count,
+                    "is_void": True,
+                    "functions_called_by": [],
+                    "fan_in": init_fan_in + param_count,
+                    "fan_out": init_fan_out + len(non_local_function_calls),
+                    "paths": init_n_path,
+                    "has_return": has_return_value,
+                    "return_counted": False,
+                    "parent_structure_name": parent_struct_name,
+                    "parent_structure_type": parent_struct_type,
+                    "file_name": file_name
+                }
+
+    return function_dict
+
+def _parse_metrics_for_structure(root, all_local_call_names, parent_struct_name, parent_struct_type, parent_declarations):
+    #print (list(root))
+
+    parent_name_txt = parent_struct_name
+    local_declarations = parent_declarations
+
+    function_dict = {}
+    for child in list(root):
+        if re.search(rf"{{{SRC_NS}}}class|struct", child.tag):
+            structure_code_blocks = child.findall(rf"{{{SRC_NS}}}block")
+
+            parent_name = child.find(rf"{{{SRC_NS}}}name")
+            new_parent_struct_type = re.sub(r"{.+}", "", child.tag)
+            new_parent_name_txt = _get_full_name_text_from_name(parent_name)
+
+            class_declarations = [_parse_declaration(element = decl, parent_struct_name = new_parent_name_txt, parent_struct_type = new_parent_struct_type, belongs_to_file = file_name) for decl in child.findall(rf"{{{SRC_NS}}}decl_stmt")]
+            local_declarations = [*parent_declarations, *class_declarations]
+
+            # for block in structure_code_blocks:
+            function_dict = {**function_dict, 
+            **_parse_metrics_for_structure(
+            root = child, 
+            all_local_call_names = all_local_call_names, 
+            parent_struct_name = new_parent_name_txt, 
+            parent_struct_type = new_parent_struct_type, 
+            parent_declarations = local_declarations)}
+
+        if re.search(rf"{{{SRC_NS}}}block", child.tag):
+            function_dict = {**function_dict, 
+            **_parse_metrics_for_structure(
+            root = child, 
+            all_local_call_names = all_local_call_names, 
+            parent_struct_name = parent_name_txt, 
+            parent_struct_type = parent_struct_type, 
+            parent_declarations = local_declarations)}
+        
+        if re.search(rf"{{{SRC_NS}}}function", child.tag):
+            #print(child)
+            updated_function_dict = _parse_function_for_metrics(root = child, function_dict = function_dict, all_local_call_names = all_local_call_names, parent_struct_name = parent_name_txt, parent_struct_type = parent_struct_type, parent_declarations = parent_declarations)      
+            function_dict = {**function_dict, **updated_function_dict}
+
+    return function_dict
+
+def _calculate_metrics(rootet, language, local_function_names, enums, file_name):
+    #function_dict = {}
+    all_local_call_names = []
+    #classinator(rootet)
+
+    parent_declarations = [_parse_declaration(element = decl, parent_struct = "file", parent_struct_type = "", belongs_to_file = file_name) for decl in rootet.findall(rf"{{{SRC_NS}}}decl_stmt")]
+
+    function_dict = _parse_metrics_for_structure(
+        root = rootet, 
+        all_local_call_names = all_local_call_names,
+        parent_struct_name = file_name,
+        parent_struct_type = "",
+        parent_declarations = parent_declarations
+        )
+
+    print_data = True
+
+    if print_data:
+        for key in list(function_dict):
+            locally_called_by = list(set([c for c in all_local_call_names if re.search(rf"{c}", function_dict[key]["function_name"])]))
+
+            function_dict[key]["fan_in"] += len(locally_called_by)
+            name = function_dict[key]["function_name"]
+            file_name = function_dict[key]["file_name"]
+            func_parent_name = function_dict[key]["parent_structure_name"]
+            func_parent_type = function_dict[key]["parent_structure_type"]
+            fan_in = function_dict[key]["fan_in"]
+            fan_out = function_dict[key]["fan_out"]
+            functions_called_by = function_dict[key]["functions_called_by"]
+            paths = function_dict[key]["paths"]
+            flow = (fan_in * fan_out)**2
+
+            print ('─'*50)
+            print ("    File Name: " + file_name)
+            print ("  Parent Name: " + func_parent_name)
+            print ("  Parent Type: " + func_parent_type)
+            print ("     Func Sig: " + key)
+            print ("    Func Name: " + name)
+            print ("       Fan-in: " + str(fan_in))
+            print ("      Fan-out: " + str(fan_out))
+            print ("        Paths: " + str(paths))
+            print ("         Flow: " + str(flow))
+            print ("    Called by: ")
+            [print("      " + call) for call in locally_called_by]
+
+src_file = ".\\TheAlgorithms\\TheAlgorithms\\DataStructures\\Bags\\Bag.java"
+#src_file = ".\\apache\\httpd-2.4.43\\support\\ab.c"
+file_name = src_file.split('\\')[-1]
 file_extension = src_file.split(".")[-1]
-language = "C"
+language = "Java"
 
-# file=open(src_file, "r")
-# contents = file.read()
-# file.close()
-
-#print(contents)
 srcml = get_srcml_from_path(src_file, language)
 
 rootet = ET.fromstring(srcml)
 
 local_function_names = _get_local_function_names(rootet)
-local_declarations = _get_file_variable_declarations(rootet)
-
-file_definitions = _get_definitions_in_file(rootet)
 
 enums = _get_enum_declarations(rootet)
 
-_calculate_metrics(rootet, file_definitions, root_dir, language, local_function_names, local_declarations, enums)
+_calculate_metrics(rootet, language, local_function_names, enums, file_name)
             
