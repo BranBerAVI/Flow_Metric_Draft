@@ -4,6 +4,8 @@ import subprocess
 import os
 import sys
 import math
+import csv
+import pandas as pd
 sys.setrecursionlimit(3000)
 
 SRC_NS = 'http://www.srcML.org/srcML/src'
@@ -236,14 +238,14 @@ def _get_param_data(function):
 
     for param in parameters:
         decl = param.find(rf"{{{SRC_NS}}}decl")  
-        decl_name = decl.find(rf"{{{SRC_NS}}}name")
+        decl_name = decl.find(rf"{{{SRC_NS}}}name") if decl is not None else None
         decl_name_txt = decl_name.text if decl_name is not None and decl_name.text else ""
 
-        decl_type = decl.find(rf"{{{SRC_NS}}}type")   
-        decl_type_name = decl_type.find(rf"{{{SRC_NS}}}name")
+        decl_type = decl.find(rf"{{{SRC_NS}}}type") if decl is not None else None
+        decl_type_name = decl_type.find(rf"{{{SRC_NS}}}name") if decl_type is not None else None
         decl_type_name_txt = decl_type_name.text if decl_type_name is not None and decl_type_name.text else ""
 
-        decl_type_modifier = decl_type.find(rf"{{{SRC_NS}}}modifier")   
+        decl_type_modifier = decl_type.find(rf"{{{SRC_NS}}}modifier") if decl_type is not None else None  
         decl_type_modifier_txt = decl_type_modifier.text if decl_type_modifier is not None and decl_type_modifier.text else ""
 
         if(re.search(r"\*|\&", decl_type_modifier_txt)):
@@ -378,7 +380,7 @@ def _parse_function_call(element):
 
     return None
 
-def _parse_macro_call(element):
+def _parse_macro_call(element, language):
     macro_list = []
     macro_calls = {}
     if(re.search(rf"{{{SRC_NS}}}macro", element.tag)):
@@ -482,8 +484,6 @@ def _parse_declaration(element, parent_struct_name, parent_struct_type, belongs_
         
     return None
         
-def _get_local_declarations(root):
-    pass
 #Do not count calls that are passed in as a parameters to another call
 #Not picking up all calls in a function!
 
@@ -641,7 +641,7 @@ def _get_fan_out_from_expr_global_var_write(expr, function_declaration_list, par
     expr_str = ""
 
     expr_children = [child for child in expr.iter()]     
-    expr_str = ''.join([child for child in expr.itertext()])           
+    expr_str = ''.join([child for child in expr.itertext()])  
 
     expr_row_pos = int(expr.attrib[rf"{{{POS_NS}}}start"].split(':')[0]) if rf"{{{POS_NS}}}" in expr.attrib.keys() else -1
 
@@ -675,12 +675,12 @@ def _get_fan_out_from_expr_global_var_write(expr, function_declaration_list, par
     fan_out_var_candidates = []
 
     if last_equals_op_txt != '' or incr_decr_op_txt != '':
-        #print(expr_str)
+        # print(expr_str)
         if len(expr_names) > 0:
             first_expr_name = expr_names[0]
             first_expr_name_txt = ''
-            first_expr_name_txt_full = ''
-
+            first_expr_name_txt_full = ''            
+            
             
             for name in expr_names:
                     name_pos = name.attrib[rf"{{{POS_NS}}}start"].split(':') 
@@ -702,7 +702,6 @@ def _get_fan_out_from_expr_global_var_write(expr, function_declaration_list, par
 
                     first_expr_name_txt = expr_sub_name.text if expr_sub_name is not None and expr_sub_name.text is not None else ''.join([child_txt for child_txt in first_expr_name.itertext()])
                     name_signature = ''.join([child_txt for child_txt in name.itertext()])
-
                     
                     name_op = name.findall(rf"{{{SRC_NS}}}operator")
                     member_access_op = next((op for op in name_op if op is not None and op.text is not None and (op.text == '->' or op.text == '.')), None)
@@ -718,8 +717,8 @@ def _get_fan_out_from_expr_global_var_write(expr, function_declaration_list, par
                     if (member_access_op is not None
                         and member_access_op_pos_row == expr_sub_name_pos_row 
                         and member_access_op_pos_col > expr_sub_name_pos_col 
-                        and member_access_op_pos_col < first_equals_op_col
-                        and member_access_op_pos_row == first_equals_op_row):
+                        and (member_access_op_pos_col < first_equals_op_col or incr_decr_op_col != -1)
+                        ):                        
 
                         member_accessed_str = ''
 
@@ -729,17 +728,19 @@ def _get_fan_out_from_expr_global_var_write(expr, function_declaration_list, par
                             child_pos_row = int(child_pos[0])
                             child_pos_col = int(child_pos[1])
 
-                            if child_pos_row == member_access_op_pos_row and child_pos_col > member_access_op_pos_col and child_pos_col < first_equals_op_col:
+                            child_txt = ''.join(child.itertext()) if child.text is None else child.text
 
-                                if child.text is not None:        
+                            if child_pos_row == member_access_op_pos_row and child_pos_col > member_access_op_pos_col and (child_pos_col < first_equals_op_col or incr_decr_op_col != -1):
+                                
+                                if child_txt != '':       
                                     if expr_index_pos_col > member_access_op_pos_col and expr_index_pos_row == member_access_op_pos_row:
-                                        index_accessed_str += child.text
+                                        index_accessed_str += child_txt
                                     else:            
-                                        member_accessed_str += child.text
-                            elif child_pos_col < first_equals_op_col and child_pos_col < first_equals_op_col and expr_index_pos_col < first_equals_op_col and expr_index_pos_col != -1:
-                                if child.text is not None:      
+                                        member_accessed_str += child_txt
+                            elif child_pos_col < first_equals_op_col and expr_index_pos_col < first_equals_op_col and expr_index_pos_col != -1:
+                                if child_txt != '':      
                                     if expr_index_pos_row == member_access_op_pos_row:
-                                        index_accessed_str += child.text
+                                        index_accessed_str += child_txt
                                 
                         if member_accessed_str != '':
                             members_accessed.append(member_accessed_str)
@@ -750,7 +751,7 @@ def _get_fan_out_from_expr_global_var_write(expr, function_declaration_list, par
                     # Checks to see if a variable that is in declarations was invoked before it was declared and therefore still a valid candidate in 
                     # being counted towards the fan-out metric
                     invoked_before_declared = False if next((decl for decl in function_declaration_list if first_expr_name_txt == decl["name"] and decl["pos_row"] > expr_row_pos), None) is not None else True
-                    if first_expr_name_txt in pointer_names or first_expr_name_txt not in decl_names or invoked_before_declared:                          
+                    if first_expr_name_txt != "this" and (first_expr_name_txt in pointer_names or first_expr_name_txt not in decl_names or invoked_before_declared):                          
                         fan_out_var_candidates.append({
                         "name": first_expr_name_txt,
                         "signature": name_signature,
@@ -821,6 +822,9 @@ def _get_fan_in_from_expr_global_var_read(expr, calls, function_declarations, po
     pointer_declaration_var_names = [d["name"] for d in pointer_declarations]
     parent_declaration_var_names= [d["name"] for d in parent_declarations]
 
+    #print(local_function_names)
+    pointer_parameter_names = [p["name"] for p in params if re.fullmatch(r"^\*|ref|\&$", p["modifier"])]
+
     expr_names = expr.findall(rf"{{{SRC_NS}}}name")
 
     expr_pos = expr.attrib[rf"{{{POS_NS}}}start"].split(':') if expr is not None and rf"{{{POS_NS}}}start" in expr.attrib.keys() else [-1, -1]
@@ -853,37 +857,39 @@ def _get_fan_in_from_expr_global_var_read(expr, calls, function_declarations, po
 
         name_pos = name.attrib[rf'{{{POS_NS}}}start'].split(':') if rf'{{{POS_NS}}}start' in name.attrib.keys() else [-1, -1]
         name_pos_row = int(name_pos[0])
-        name_pos_col = int(name_pos[1]) 
+        name_pos_col = int(name_pos[1])         
 
         if(
             name_pos_col >= equal_op_pos_col and 
             equal_op_pos_col <= incr_decr_op_col and 
             name_member_access_txt != "" and
             name_member_access_txt is not None and
+            name_member_access_txt not in C_RESERVED_KEYWORDS and 
+            name_member_access_txt not in C_LIB_STREAMS and 
+            not re.match(r"^null$", name_member_access_txt, flags=re.IGNORECASE) and
         (
             (
 
                 (
                     name_member_access_txt not in list(calls) and 
                     name_member_access_txt not in none_ptr_declaration_var_names and
-                    name_member_access_txt not in C_RESERVED_KEYWORDS and 
-                    name_member_access_txt not in C_LIB_STREAMS and 
+                    
                     name_member_access_txt not in C_LIB_FUNCTIONS and        
                     name_member_access_txt not in local_function_names
                 ) 
         or
-            name_member_access_txt not in parent_declaration_var_names and
+            name_member_access_txt in parent_declaration_var_names and
             name_member_access_txt not in none_ptr_declaration_var_names
         ) 
         or 
             (
                 name_member_access_txt == next((param["name"] for param in params if param["modifier"] == "*" or param["modifier"] == "&"), None)) and
                 name_member_access_txt not in enums and
-                name_member_access_txt not in function_throws_exception_names and
-                not re.match(r"^null$", name_member_access_txt, flags=re.IGNORECASE)
+                name_member_access_txt not in function_throws_exception_names                
             )
         ):
             read_variable_names.append(name_txt)
+            #print("     " + name_txt)
 
     read_variable_names = list(set([*read_variable_names])) 
     
@@ -938,13 +944,14 @@ def _get_throws_expression_names(statement):
 
     return exception_names
 
-def _parse_function_for_metrics(root, function_dict, all_local_call_names, parent_struct_name, parent_struct_type, parent_declarations):
+def _parse_function_for_metrics(root, function_dict, all_local_call_names, parent_struct_name, parent_struct_type, parent_declarations, file_name, enums, local_function_names, language):
     child = root
 
     if re.search(rf"{{{SRC_NS}}}function|constructor", child.tag): #or re.search(rf"{{{SRC_NS}}}constructor", child.tag):
         func_sig = parent_struct_name + " " + _get_signature(child)
         func_name = _get_name(child)
-        print(func_sig)
+        #print('-------------------------------------------------------------------------------')
+        print("    " + func_sig)
         #Do not analyze function prototypes. Only perform analysis on functions that have blocks of code in them
         block = child.find(rf"{{{SRC_NS}}}block")
 
@@ -976,7 +983,7 @@ def _parse_function_for_metrics(root, function_dict, all_local_call_names, paren
             for func_child in child.iter():
                 decl = _parse_declaration(func_child, parent_struct_name=parent_struct_name, parent_struct_type=parent_struct_type, belongs_to_file=file_name)
                 call = _parse_function_call(func_child)
-                macros = _parse_macro_call(func_child)
+                macros = _parse_macro_call(func_child, language)
                 throws = _get_throws_expression_names(func_child)
 
                 if throws != []:
@@ -991,7 +998,6 @@ def _parse_function_for_metrics(root, function_dict, all_local_call_names, paren
                 if call is not None:
                     calls = {**calls, **call}
                     all_local_call_names = [*all_local_call_names, *call.keys()]
-                    #print(all_local_call_names)
                 
                 if macros is not None:
                     macro_calls = {**macro_calls, **macros}
@@ -1013,7 +1019,7 @@ def _parse_function_for_metrics(root, function_dict, all_local_call_names, paren
                         calls = calls,
                         variable_writes = global_variable_writes,
                         parent_declarations = parent_declarations
-                        )
+                    )
 
                     _get_fan_in_from_expr_global_var_read(
                         expr = func_child, 
@@ -1031,7 +1037,7 @@ def _parse_function_for_metrics(root, function_dict, all_local_call_names, paren
                     declaration_names = [d["name"] for d in declarations]
 
             global_variable_reads = list(set(global_variable_reads))
-            if re.search(r"main", func_sig):
+            if re.search(r"MoveSokoban", func_sig):
                 print("decls: ")
                 [print("    " + decl["name"]) for decl in declarations]
                 print("params: ")
@@ -1039,7 +1045,22 @@ def _parse_function_for_metrics(root, function_dict, all_local_call_names, paren
                 print("Global var reads: ")
                 [print("    " + str(r)) for r in global_variable_reads]
 
-            # print('_'*30)
+
+                print("Global variable writes: ")
+                for key in global_variable_writes.keys():
+
+                    print ("    " + key)
+
+                    print ("     expressions:")
+                    [print ("        " + e) for e in global_variable_writes[key]['expressions']]
+
+                    print ("     members:")
+                    [print ("        " + m) for m in global_variable_writes[key]['members_modified']]
+
+                    print ("     indicies:")
+                    [print ("        " + i) for i in global_variable_writes[key]['indices_modified']]
+
+
 
             init_fan_in += _count_fan_in(global_variable_reads)
             init_fan_out += _count_fan_out(global_variable_writes)
@@ -1049,13 +1070,14 @@ def _parse_function_for_metrics(root, function_dict, all_local_call_names, paren
 
             #Add function to dict if not already in there
             #add_func_to_dict = next((False for key in function_dict.keys() if func_sig == key and parent_struct_name == function_dict[key]["parent_structure_name"] and parent_struct_type == function_dict[key]["parent_structure_type"]), True)
-            print("Add this func?")
 
             if func_sig not in function_dict.keys():
+                local_function_names.append(func_name)
                 function_dict[func_sig] = {
                     "function_name": func_name,
                     "param_count": param_count,
                     "is_void": True,
+                    "calls": calls,
                     "functions_called_by": [],
                     "fan_in": init_fan_in + param_count,
                     "fan_out": init_fan_out + len(non_local_function_calls),
@@ -1069,7 +1091,7 @@ def _parse_function_for_metrics(root, function_dict, all_local_call_names, paren
 
     return function_dict
 
-def _parse_metrics_for_structure(root, all_local_call_names, parent_struct_name, parent_struct_type, parent_declarations):
+def _parse_metrics_for_structure(root, all_local_call_names, parent_struct_name, parent_struct_type, parent_declarations, file_name, local_function_names, enums, language):
     #print (list(root))
 
     parent_name_txt = parent_struct_name
@@ -1077,12 +1099,12 @@ def _parse_metrics_for_structure(root, all_local_call_names, parent_struct_name,
 
     function_dict = {}
     for child in list(root):
-        if re.search(rf"{{{SRC_NS}}}class|struct", child.tag):
+        if re.search(rf"{{{SRC_NS}}}class|struct|namespace", child.tag):
             structure_code_blocks = child.findall(rf"{{{SRC_NS}}}block")
 
             parent_name = child.find(rf"{{{SRC_NS}}}name")
             new_parent_struct_type = re.sub(r"{.+}", "", child.tag)
-            new_parent_name_txt = _get_full_name_text_from_name(parent_name)
+            new_parent_name_txt = parent_struct_name + _get_full_name_text_from_name(parent_name)
 
             class_declarations = [_parse_declaration(element = decl, parent_struct_name = new_parent_name_txt, parent_struct_type = new_parent_struct_type, belongs_to_file = file_name) for decl in child.findall(rf"{{{SRC_NS}}}decl_stmt")]
             local_declarations = [*parent_declarations, *class_declarations]
@@ -1094,7 +1116,11 @@ def _parse_metrics_for_structure(root, all_local_call_names, parent_struct_name,
             all_local_call_names = all_local_call_names, 
             parent_struct_name = new_parent_name_txt, 
             parent_struct_type = new_parent_struct_type, 
-            parent_declarations = local_declarations)}
+            parent_declarations = local_declarations,
+            file_name = file_name,
+            local_function_names=local_function_names,
+            enums = enums,
+            language = language)}
 
         if re.search(rf"{{{SRC_NS}}}block", child.tag):
             function_dict = {**function_dict, 
@@ -1103,11 +1129,26 @@ def _parse_metrics_for_structure(root, all_local_call_names, parent_struct_name,
             all_local_call_names = all_local_call_names, 
             parent_struct_name = parent_name_txt, 
             parent_struct_type = parent_struct_type, 
-            parent_declarations = local_declarations)}
+            parent_declarations = local_declarations,
+            file_name = file_name,
+            local_function_names=local_function_names,
+            enums = enums,
+            language = language)}
         
-        if re.search(rf"{{{SRC_NS}}}function", child.tag):
+        if re.search(rf"{{{SRC_NS}}}function|constructor", child.tag):
             #print(child)
-            updated_function_dict = _parse_function_for_metrics(root = child, function_dict = function_dict, all_local_call_names = all_local_call_names, parent_struct_name = parent_name_txt, parent_struct_type = parent_struct_type, parent_declarations = parent_declarations)      
+            updated_function_dict = _parse_function_for_metrics(
+                root = child, 
+                function_dict = function_dict, 
+                all_local_call_names = all_local_call_names, 
+                parent_struct_name = parent_name_txt, 
+                parent_struct_type = parent_struct_type, 
+                parent_declarations = parent_declarations, 
+                file_name = file_name,
+                local_function_names=local_function_names,
+                enums = enums,
+                language = language)      
+
             function_dict = {**function_dict, **updated_function_dict}
 
     return function_dict
@@ -1117,33 +1158,38 @@ def _calculate_metrics(rootet, language, local_function_names, enums, file_name)
     all_local_call_names = []
     #classinator(rootet)
 
-    parent_declarations = [_parse_declaration(element = decl, parent_struct = "file", parent_struct_type = "", belongs_to_file = file_name) for decl in rootet.findall(rf"{{{SRC_NS}}}decl_stmt")]
+    parent_declarations = [_parse_declaration(element = decl, parent_struct_name = "file", parent_struct_type = "", belongs_to_file = file_name) for decl in rootet.findall(rf"{{{SRC_NS}}}decl_stmt")]
 
     function_dict = _parse_metrics_for_structure(
         root = rootet, 
         all_local_call_names = all_local_call_names,
         parent_struct_name = file_name,
         parent_struct_type = "",
-        parent_declarations = parent_declarations
+        parent_declarations = parent_declarations,
+        file_name = file_name,
+        local_function_names=[],
+        enums = enums,
+        language = language
         )
 
-    print_data = True
+    print_data = False
 
-    if print_data:
-        for key in list(function_dict):
-            locally_called_by = list(set([c for c in all_local_call_names if re.search(rf"{c}", function_dict[key]["function_name"])]))
+    for key in list(function_dict):
+        locally_called_by = list(set([c for c in all_local_call_names if re.search(rf"{c}", function_dict[key]["function_name"])]))
 
-            function_dict[key]["fan_in"] += len(locally_called_by)
-            name = function_dict[key]["function_name"]
-            file_name = function_dict[key]["file_name"]
-            func_parent_name = function_dict[key]["parent_structure_name"]
-            func_parent_type = function_dict[key]["parent_structure_type"]
-            fan_in = function_dict[key]["fan_in"]
-            fan_out = function_dict[key]["fan_out"]
-            functions_called_by = function_dict[key]["functions_called_by"]
-            paths = function_dict[key]["paths"]
-            flow = (fan_in * fan_out)**2
+        function_dict[key]["fan_in"] += len(locally_called_by)
+        name = function_dict[key]["function_name"]
+        file_name = function_dict[key]["file_name"]
+        func_parent_name = function_dict[key]["parent_structure_name"]
+        func_parent_type = function_dict[key]["parent_structure_type"]
+        fan_in = function_dict[key]["fan_in"]
+        fan_out = function_dict[key]["fan_out"]
+        functions_called_by = function_dict[key]["functions_called_by"]
+        paths = function_dict[key]["paths"]
+        flow = (fan_in * fan_out)**2
+        calls = function_dict[key]["calls"]
 
+        if print_data:
             print ('─'*50)
             print ("    File Name: " + file_name)
             print ("  Parent Name: " + func_parent_name)
@@ -1156,20 +1202,109 @@ def _calculate_metrics(rootet, language, local_function_names, enums, file_name)
             print ("         Flow: " + str(flow))
             print ("    Called by: ")
             [print("      " + call) for call in locally_called_by]
+            print ("     Calls to: ")
+            [print("      " + call) for call in calls.keys()]
 
-src_file = ".\\TheAlgorithms\\TheAlgorithms\\DataStructures\\Bags\\Bag.java"
+    return function_dict
+
+def _calculate_metrics_for_project(root, scitools_csv_path):
+    metric_csv_list_headers = ['Name', 'File', 'CountOutput', 'CountPath', 'CountInput']
+    csv_file_name = scitools_csv_path.split('.')[0]
+    our_metric_data = []
+    
+
+    def normalize_function_name(name):
+        split_func_name = name.split('.')
+        name = split_func_name[-1] 
+
+        #print("        func name: " + str(row))
+        #print(split_func_name)
+
+        return name
+
+    #     row[1] = split_func_name[-2:] if len(split_func_name) >= 2 else row[1]
+    # scitools_data_list = list(csv.reader(scitools_csv_file))
+    # scitools_data_headers = scitools_data_list.pop(0)
+
+    # for row in scitools_data_list:
+    #     split_func_name = row[1].split('.')
+    #     row[1] = split_func_name[-2:] if len(split_func_name) >= 2 else row[1]
+
+    scitools_csv_file = open(scitools_csv_path)
+
+    scitools_df = pd.read_csv(scitools_csv_file)
+
+
+    scitools_csv_file.close()
+
+    scitools_df["Name"] = scitools_df["Name"].apply(normalize_function_name)
+
+    for i in scitools_df.values:
+        print("func name: " + str(i[1]))
+    
+    for subdir, dirs, files in os.walk(root):
+        for file in files:
+            print(file)
+            path = os.path.join(subdir, file)
+
+            file_extension = file.split('.')[-1]
+            language = "C"
+
+            languages_from_extension = {
+                'c': 'C',
+                'cs': 'C#',
+                'cpp': 'C++',
+                'hpp': 'C++',
+                'h': 'C++',
+                'java': 'Java',
+                'py': 'Python'
+            }
+
+            if file_extension in languages_from_extension.keys(): 
+                language = languages_from_extension[file_extension] 
+                srcml = get_srcml_from_path(path, language)
+                root = ET.fromstring(srcml)
+
+                local_function_names = _get_local_function_names(root)
+                enums = _get_enum_declarations(root)
+
+                function_dict = _calculate_metrics(rootet = root, language = language, local_function_names = local_function_names, enums = enums, file_name = file)
+
+                for key in function_dict.keys():
+                    function_name = function_dict[key]['function_name'] if language == "C" else function_dict[key]['parent_structure_name'] + '.' + function_dict[key]['function_name'] 
+                    file_name = function_dict[key]['file_name']
+                    fan_out = function_dict[key]['fan_out']
+                    paths = function_dict[key]['paths']
+                    fan_in = function_dict[key]['fan_in']
+
+                    our_metric_data.append([function_name, file_name, fan_out, paths, fan_in])
+
+    our_metric_df = pd.DataFrame(data=our_metric_data, columns=metric_csv_list_headers)
+    our_metric_df["Name"] = our_metric_df["Name"].apply(normalize_function_name)
+
+    merged_metric_data = scitools_df.merge(our_metric_df, on=['File', 'Name'], suffixes=("Scitools", "Srcml"))
+    merged_metric_data.to_csv('SciToolsCompare' + csv_file_name + '.csv', index=False)
+
+src_file = ".\\TheAlgorithms\\DataStructures\\Trees\\TrieImp.java"
 #src_file = ".\\apache\\httpd-2.4.43\\support\\ab.c"
+#src_file = ".\\Sokoban Pro\\Level.cs"
+
+#root_dir = ".\\TheAlgorithms"
+root_dir = ".\\Sokoban Pro"
+
 file_name = src_file.split('\\')[-1]
-file_extension = src_file.split(".")[-1]
-language = "Java"
+# file_extension = src_file.split(".")[-1]
+language = "C#"
 
 srcml = get_srcml_from_path(src_file, language)
 
 rootet = ET.fromstring(srcml)
 
+
 local_function_names = _get_local_function_names(rootet)
 
 enums = _get_enum_declarations(rootet)
 
-_calculate_metrics(rootet, language, local_function_names, enums, file_name)
+#_calculate_metrics(rootet, language, local_function_names, enums, file_name)
+_calculate_metrics_for_project(root_dir, 'sokobanPro.csv')
             
