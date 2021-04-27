@@ -1038,19 +1038,19 @@ def _parse_function_for_metrics(root, function_dict, all_local_call_names, paren
                         parent_declarations = parent_declarations
                     )
 
-                    if re.search(r"create_server_config", func_sig):
-                        _get_fan_in_from_expr_global_var_read(
-                            expr = func_child, 
-                            calls = calls, 
-                            function_declarations = declarations,
-                            pointer_declarations = pointer_decls,
-                            params = param_data["parameters"],
-                            local_function_names = local_function_names,
-                            enums = enums,
-                            read_variable_names = global_variable_reads,
-                            function_throws_exception_names = throws_exception_names,
-                            parent_declarations = parent_declarations
-                            )
+                    
+                    _get_fan_in_from_expr_global_var_read(
+                        expr = func_child, 
+                        calls = calls, 
+                        function_declarations = declarations,
+                        pointer_declarations = pointer_decls,
+                        params = param_data["parameters"],
+                        local_function_names = local_function_names,
+                        enums = enums,
+                        read_variable_names = global_variable_reads,
+                        function_throws_exception_names = throws_exception_names,
+                        parent_declarations = parent_declarations
+                        )
 
                     declaration_names = [d["name"] for d in declarations]
 
