@@ -415,7 +415,7 @@ def _parse_macro_call(element, language):
     return None
 
 def _parse_declaration(element, parent_struct_name, parent_struct_type, belongs_to_file):
-    if re.search(rf"{{{SRC_NS}}}decl_stmt|control", element.tag):
+    if re.search(rf"{{{SRC_NS}}}decl_stmt|control|struct", element.tag):
         decls = []
 
         if re.search(rf"{{{SRC_NS}}}control", element.tag):
@@ -423,6 +423,11 @@ def _parse_declaration(element, parent_struct_name, parent_struct_type, belongs_
             control_init_decls = control_init.findall(rf"{{{SRC_NS}}}decl")
             #print (control_init_decls)
             decls = [*decls, *control_init_decls]
+
+        if re.search(rf"{{{SRC_NS}}}struct", element.tag):
+            struct_decls = element.findall(rf"{{{SRC_NS}}}decl")
+            
+            decls = [*decls, *struct_decls]
 
         decls = [*decls, *element.findall(rf"{{{SRC_NS}}}decl")]
 
@@ -711,6 +716,7 @@ def _get_fan_out_from_expr_global_var_write(expr, function_declaration_list, par
 
                     members_accessed = []
                     expr_mod_statements = []
+                    indices = []
 
                     index_accessed_str = ''
 
@@ -741,6 +747,9 @@ def _get_fan_out_from_expr_global_var_write(expr, function_declaration_list, par
                                 if child_txt != '':      
                                     if expr_index_pos_row == member_access_op_pos_row:
                                         index_accessed_str += child_txt
+
+                        if index_accessed_str != '':
+                            indices.append(index_accessed_str)
                                 
                         if member_accessed_str != '':
                             members_accessed.append(member_accessed_str)
@@ -758,7 +767,7 @@ def _get_fan_out_from_expr_global_var_write(expr, function_declaration_list, par
                         "row_pos": name_pos_row,
                         "col_pos": name_pos_col,
                         "members_accessed": members_accessed,
-                        "indices" : [index_accessed_str],
+                        "indices" : indices,
                         "expr_mod_statements": expr_mod_statements
                         })  
 
@@ -821,6 +830,7 @@ def _get_fan_in_from_expr_global_var_read(expr, calls, function_declarations, po
     none_ptr_declaration_var_names = [d["name"] for d in function_declarations]
     pointer_declaration_var_names = [d["name"] for d in pointer_declarations]
     parent_declaration_var_names= [d["name"] for d in parent_declarations]
+    param_names = [p["name"] for p in params]
 
     #print(local_function_names)
     pointer_parameter_names = [p["name"] for p in params if re.fullmatch(r"^\*|ref|\&$", p["modifier"])]
@@ -857,7 +867,7 @@ def _get_fan_in_from_expr_global_var_read(expr, calls, function_declarations, po
 
         name_pos = name.attrib[rf'{{{POS_NS}}}start'].split(':') if rf'{{{POS_NS}}}start' in name.attrib.keys() else [-1, -1]
         name_pos_row = int(name_pos[0])
-        name_pos_col = int(name_pos[1])         
+        name_pos_col = int(name_pos[1]) 
 
         if(
             name_pos_col >= equal_op_pos_col and 
@@ -867,6 +877,9 @@ def _get_fan_in_from_expr_global_var_read(expr, calls, function_declarations, po
             name_member_access_txt not in C_RESERVED_KEYWORDS and 
             name_member_access_txt not in C_LIB_STREAMS and 
             not re.match(r"^null$", name_member_access_txt, flags=re.IGNORECASE) and
+            name_member_access_txt not in none_ptr_declaration_var_names and
+            name_member_access_txt not in pointer_declaration_var_names and
+            name_member_access_txt not in param_names and
         (
             (
 
@@ -878,18 +891,22 @@ def _get_fan_in_from_expr_global_var_read(expr, calls, function_declarations, po
                     name_member_access_txt not in local_function_names
                 ) 
         or
-            name_member_access_txt in parent_declaration_var_names and
-            name_member_access_txt not in none_ptr_declaration_var_names
+            name_member_access_txt in parent_declaration_var_names 
         ) 
         or 
             (
-                name_member_access_txt == next((param["name"] for param in params if param["modifier"] == "*" or param["modifier"] == "&"), None)) and
                 name_member_access_txt not in enums and
                 name_member_access_txt not in function_throws_exception_names                
             )
+        )
         ):
             read_variable_names.append(name_txt)
-            #print("     " + name_txt)
+            # print("     " + name_txt)
+            # print ("              name_row: " + str(name_pos_row))
+            # print ("              name_col:" + str(name_pos_col))   
+            # print ("      equal_op_pos_col: " + str(equal_op_pos_col))
+            # print(last_op)
+            # print("\n")
 
     read_variable_names = list(set([*read_variable_names])) 
     
@@ -950,8 +967,8 @@ def _parse_function_for_metrics(root, function_dict, all_local_call_names, paren
     if re.search(rf"{{{SRC_NS}}}function|constructor", child.tag): #or re.search(rf"{{{SRC_NS}}}constructor", child.tag):
         func_sig = parent_struct_name + " " + _get_signature(child)
         func_name = _get_name(child)
-        #print('-------------------------------------------------------------------------------')
-        print("    " + func_sig)
+        # print('-------------------------------------------------------------------------------')
+        # print("    " + func_sig)
         #Do not analyze function prototypes. Only perform analysis on functions that have blocks of code in them
         block = child.find(rf"{{{SRC_NS}}}block")
 
@@ -1021,46 +1038,23 @@ def _parse_function_for_metrics(root, function_dict, all_local_call_names, paren
                         parent_declarations = parent_declarations
                     )
 
-                    _get_fan_in_from_expr_global_var_read(
-                        expr = func_child, 
-                        calls = calls, 
-                        function_declarations = declarations,
-                        pointer_declarations = pointer_decls,
-                        params = param_data["parameters"],
-                        local_function_names = local_function_names,
-                        enums = enums,
-                        read_variable_names = global_variable_reads,
-                        function_throws_exception_names = throws_exception_names,
-                        parent_declarations = parent_declarations
-                        )
+                    if re.search(r"create_server_config", func_sig):
+                        _get_fan_in_from_expr_global_var_read(
+                            expr = func_child, 
+                            calls = calls, 
+                            function_declarations = declarations,
+                            pointer_declarations = pointer_decls,
+                            params = param_data["parameters"],
+                            local_function_names = local_function_names,
+                            enums = enums,
+                            read_variable_names = global_variable_reads,
+                            function_throws_exception_names = throws_exception_names,
+                            parent_declarations = parent_declarations
+                            )
 
                     declaration_names = [d["name"] for d in declarations]
 
             global_variable_reads = list(set(global_variable_reads))
-            if re.search(r"MoveSokoban", func_sig):
-                print("decls: ")
-                [print("    " + decl["name"]) for decl in declarations]
-                print("params: ")
-                [print("    " + str(p["name"])) for p in param_data["parameters_passed_by_reference"]]  
-                print("Global var reads: ")
-                [print("    " + str(r)) for r in global_variable_reads]
-
-
-                print("Global variable writes: ")
-                for key in global_variable_writes.keys():
-
-                    print ("    " + key)
-
-                    print ("     expressions:")
-                    [print ("        " + e) for e in global_variable_writes[key]['expressions']]
-
-                    print ("     members:")
-                    [print ("        " + m) for m in global_variable_writes[key]['members_modified']]
-
-                    print ("     indicies:")
-                    [print ("        " + i) for i in global_variable_writes[key]['indices_modified']]
-
-
 
             init_fan_in += _count_fan_in(global_variable_reads)
             init_fan_out += _count_fan_out(global_variable_writes)
@@ -1086,7 +1080,9 @@ def _parse_function_for_metrics(root, function_dict, all_local_call_names, paren
                     "return_counted": False,
                     "parent_structure_name": parent_struct_name,
                     "parent_structure_type": parent_struct_type,
-                    "file_name": file_name
+                    "file_name": file_name,
+                    "global_variable_writes": global_variable_writes,
+                    "global_variable_reads": global_variable_reads
                 }
 
     return function_dict
@@ -1176,6 +1172,7 @@ def _calculate_metrics(rootet, language, local_function_names, enums, file_name)
 
     for key in list(function_dict):
         locally_called_by = list(set([c for c in all_local_call_names if re.search(rf"{c}", function_dict[key]["function_name"])]))
+        function_dict[key]["called_by"] = locally_called_by
 
         function_dict[key]["fan_in"] += len(locally_called_by)
         name = function_dict[key]["function_name"]
@@ -1283,14 +1280,97 @@ def _calculate_metrics_for_project(root, scitools_csv_path):
     our_metric_df["Name"] = our_metric_df["Name"].apply(normalize_function_name)
 
     merged_metric_data = scitools_df.merge(our_metric_df, on=['File', 'Name'], suffixes=("Scitools", "Srcml"))
+    merged_metric_data = merged_metric_data.drop_duplicates(subset = ['File', 'Name']).sample(n=333)
     merged_metric_data.to_csv('SciToolsCompare' + csv_file_name + '.csv', index=False)
 
-src_file = ".\\TheAlgorithms\\DataStructures\\Trees\\TrieImp.java"
+def _calculate_metrics_for_functions_in_file(root, file_name, function_name):
+    for subdir, dirs, files in os.walk(root):
+        for file in files:
+            if file == file_name:
+                path = os.path.join(subdir, file)
+
+                file_extension = file.split('.')[-1]
+                language = "C"
+
+                languages_from_extension = {
+                    'c': 'C',
+                    'cs': 'C#',
+                    'cpp': 'C++',
+                    'hpp': 'C++',
+                    'h': 'C++',
+                    'java': 'Java',
+                    'py': 'Python'
+                }
+
+                if file_extension in languages_from_extension.keys(): 
+                    language = languages_from_extension[file_extension] 
+                    srcml = get_srcml_from_path(path, language)
+                    root = ET.fromstring(srcml)
+
+                    local_function_names = _get_local_function_names(root)
+                    enums = _get_enum_declarations(root)
+                    
+                    function_dict = _calculate_metrics(rootet = root, language = language, local_function_names = local_function_names, enums = enums, file_name = file)
+
+                    for key in function_dict.keys():
+                        name = function_dict[key]["function_name"]
+                        
+                        if name == function_name:
+                            print ("    File: " + file_name)
+                            print ("Function: " + name)
+                            file_name = function_dict[key]["file_name"]
+                            func_parent_name = function_dict[key]["parent_structure_name"]
+                            func_parent_type = function_dict[key]["parent_structure_type"]
+                            fan_in = function_dict[key]["fan_in"]
+                            fan_out = function_dict[key]["fan_out"]
+                            functions_called_by = function_dict[key]["functions_called_by"]
+                            paths = function_dict[key]["paths"]
+                            calls = function_dict[key]["calls"]
+                            called_by = function_dict[key]["called_by"]
+                            global_writes = function_dict[key]["global_variable_writes"]
+                            global_reads = function_dict[key]["global_variable_reads"]
+
+                        
+
+                            print ("\n  Fan-in: " + str(fan_in))
+                            print (" Fan-out: " + str(fan_out))
+                            print ("   Paths: " + str(paths))
+
+                            print ("\nGlobal Variable Writes: ")
+                            for key in global_writes.keys():
+                                print (key)
+                                print ("    Expressions: ")
+                                for e in global_writes[key]["expressions"]:
+                                    print ("          " + str(e))
+
+                                print ("        Indices: ")
+                                for i in global_writes[key]["indices_modified"]:
+                                    print ("          " + str(i))
+
+                                print ("        Members: ")
+                                for m in global_writes[key]["members_modified"]:
+                                    print ("          " + str(m))
+            
+                            print ("\nGlobal Variable Reads: ")
+                            [print("    " + str(r)) for r in global_reads]
+
+                            print ("Calls to: ")
+                            [print("    " + str(c)) for c in calls]
+
+                            print ("Called by: ")
+                            [print("    " + str(c)) for c in called_by]
+
+                            print('-'*30)
+
+
+#src_file = ".\\TheAlgorithms\\DataStructures\\Trees\\TrieImp.java"
 #src_file = ".\\apache\\httpd-2.4.43\\support\\ab.c"
 #src_file = ".\\Sokoban Pro\\Level.cs"
+src_file = ".\\apache\\httpd-2.4.43\\modules\\loggers\\mod_log_config.c" #ab.c""
 
-#root_dir = ".\\TheAlgorithms"
-root_dir = ".\\Sokoban Pro"
+root_dir = ".\\apache"
+#root_dir = ".\\Sokoban Pro"
+#root_dir = ".\\apache"
 
 file_name = src_file.split('\\')[-1]
 # file_extension = src_file.split(".")[-1]
@@ -1306,5 +1386,6 @@ local_function_names = _get_local_function_names(rootet)
 enums = _get_enum_declarations(rootet)
 
 #_calculate_metrics(rootet, language, local_function_names, enums, file_name)
-_calculate_metrics_for_project(root_dir, 'sokobanPro.csv')
-            
+_calculate_metrics_for_project(root_dir, 'apache.csv')
+
+#_calculate_metrics_for_functions_in_file(root = root_dir, file_name = "mod_socache_memcache.c", function_name = "create_server_config")           

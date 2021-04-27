@@ -1,0 +1,1048 @@
+Kind,Name,File,CountOutput,CountPath,CountInput
+Public Constructor,"A_Star.A_Star.Edge.Edge",A_Star.java,4,1,5
+Public Method,"A_Star.A_Star.Edge.getFrom",A_Star.java,1,1,2
+Public Method,"A_Star.A_Star.Edge.getTo",A_Star.java,1,1,3
+Public Method,"A_Star.A_Star.Edge.getWeight",A_Star.java,1,1,3
+Public Constructor,"A_Star.A_Star.Graph.Graph",A_Star.java,3,2,2
+Private Method,"A_Star.A_Star.Graph.addEdge",A_Star.java,5,1,3
+Private Method,"A_Star.A_Star.Graph.getNeighbours",A_Star.java,1,1,3
+Public Constructor,"A_Star.A_Star.PathAndDistance.PathAndDistance",A_Star.java,4,1,4
+Public Method,"A_Star.A_Star.PathAndDistance.getDistance",A_Star.java,1,1,2
+Public Method,"A_Star.A_Star.PathAndDistance.getEstimated",A_Star.java,1,1,1
+Public Method,"A_Star.A_Star.PathAndDistance.getPath",A_Star.java,1,1,2
+Private Method,"A_Star.A_Star.PathAndDistance.printSolution",A_Star.java,2,2,4
+Public Static Method,"A_Star.A_Star.aStar",A_Star.java,18,5,6
+Lambda Method,"A_Star.A_Star.aStar.(lambda_expr_1)",A_Star.java,3,1,1
+Private Static Method,"A_Star.A_Star.initializeGraph",A_Star.java,4,2,3
+Public Static Method,"A_Star.A_Star.main",A_Star.java,6,1,0
+Constructor,"BSTIterative.BSTIterative",BSTIterative.java,2,1,2
+Constructor,"BSTIterative.Node.Node",BSTIterative.java,4,1,2
+Public Method,"BSTIterative.add",BSTIterative.java,5,10,8
+Public Method,"BSTIterative.find",BSTIterative.java,2,4,8
+Public Method,"BSTIterative.inorder",BSTIterative.java,7,4,7
+Public Static Method,"BSTIterative.main",BSTIterative.java,5,1,0
+Public Method,"BSTIterative.postorder",BSTIterative.java,8,6,5
+Public Method,"BSTIterative.preorder",BSTIterative.java,7,6,5
+Public Method,"BSTIterative.remove",BSTIterative.java,4,76,7
+Constructor,"BSTRecursive.BSTRecursive",BSTRecursive.java,2,1,0
+Constructor,"BSTRecursive.Node.Node",BSTRecursive.java,4,1,2
+Public Method,"BSTRecursive.add",BSTRecursive.java,2,1,2
+Private Method,"BSTRecursive.delete",BSTRecursive.java,5,8,7
+Public Method,"BSTRecursive.find",BSTRecursive.java,3,2,3
+Private Method,"BSTRecursive.inOrder",BSTRecursive.java,1,5,6
+Public Method,"BSTRecursive.inorder",BSTRecursive.java,3,1,2
+Private Method,"BSTRecursive.insert",BSTRecursive.java,4,4,6
+Public Static Method,"BSTRecursive.main",BSTRecursive.java,5,1,0
+Private Method,"BSTRecursive.postOrder",BSTRecursive.java,1,5,6
+Public Method,"BSTRecursive.postorder",BSTRecursive.java,3,1,2
+Private Method,"BSTRecursive.preOrder",BSTRecursive.java,1,5,6
+Public Method,"BSTRecursive.preorder",BSTRecursive.java,3,1,2
+Public Method,"BSTRecursive.remove",BSTRecursive.java,2,1,2
+Private Method,"BSTRecursive.search",BSTRecursive.java,1,4,6
+Public Static Method,"Conversions.AnyBaseToAnyBase.base2base",AnyBaseToAnyBase.java,4,12,4
+Public Static Method,"Conversions.AnyBaseToAnyBase.main",AnyBaseToAnyBase.java,8,10,4
+Public Static Method,"Conversions.AnyBaseToAnyBase.validForBase",AnyBaseToAnyBase.java,6,6,4
+Public Static Method,"Conversions.AnyBaseToDecimal.convertToDecimal",AnyBaseToDecimal.java,5,3,3
+Public Static Method,"Conversions.AnyBaseToDecimal.main",AnyBaseToDecimal.java,2,1,0
+Public Static Method,"Conversions.AnyBaseToDecimal.valOfChar",AnyBaseToDecimal.java,4,2,2
+Public Static Method,"Conversions.AnytoAny.main",AnytoAny.java,4,4,2
+Public Static Method,"Conversions.BinaryToDecimal.main",BinaryToDecimal.java,6,2,2
+Static Method,"Conversions.BinaryToHexadecimal.binToHex",BinaryToHexadecimal.java,7,12,2
+Public Static Method,"Conversions.BinaryToHexadecimal.main",BinaryToHexadecimal.java,5,1,2
+Public Static Method,"Conversions.BinaryToOctal.convertBinaryToOctal",BinaryToOctal.java,1,3,2
+Public Static Method,"Conversions.BinaryToOctal.main",BinaryToOctal.java,5,1,2
+Public Static Method,"Conversions.DecimalToAnyBase.convertToAnyBase",DecimalToAnyBase.java,9,4,3
+Public Static Method,"Conversions.DecimalToAnyBase.main",DecimalToAnyBase.java,8,1,2
+Public Static Method,"Conversions.DecimalToAnyBase.reVal",DecimalToAnyBase.java,1,2,2
+Public Static Method,"Conversions.DecimalToBinary.bitwiseConversion",DecimalToBinary.java,6,2,3
+Public Static Method,"Conversions.DecimalToBinary.conventionalConversion",DecimalToBinary.java,6,2,3
+Public Static Method,"Conversions.DecimalToBinary.main",DecimalToBinary.java,2,1,0
+Public Static Method,"Conversions.DecimalToHexaDecimal.decToHex",DecimalToHexaDecimal.java,6,2,6
+Public Static Method,"Conversions.DecimalToHexaDecimal.main",DecimalToHexaDecimal.java,3,1,1
+Public Static Method,"Conversions.DecimalToOctal.main",DecimalToOctal.java,6,2,2
+Public Static Method,"Conversions.HexToOct.decimal2octal",HexToOct.java,2,2,2
+Public Static Method,"Conversions.HexToOct.hex2decimal",HexToOct.java,5,2,2
+Public Static Method,"Conversions.HexToOct.main",HexToOct.java,7,1,2
+Public Method,"Conversions.HexaDecimalToBinary.completeDigits",HexaDecimalToBinary.java,2,2,3
+Public Method,"Conversions.HexaDecimalToBinary.convert",HexaDecimalToBinary.java,4,1,3
+Public Static Method,"Conversions.HexaDecimalToBinary.main",HexaDecimalToBinary.java,1,2,0
+Public Static Method,"Conversions.HexaDecimalToDecimal.getHexaToDec",HexaDecimalToDecimal.java,5,2,2
+Public Static Method,"Conversions.HexaDecimalToDecimal.main",HexaDecimalToDecimal.java,6,1,2
+Public Static Method,"Conversions.IntegerToRoman.integerToRoman",IntegerToRoman.java,4,4,5
+Public Static Method,"Conversions.IntegerToRoman.main",IntegerToRoman.java,2,1,1
+Public Static Method,"Conversions.OctalToDecimal.convertOctalToDecimal",OctalToDecimal.java,3,2,3
+Public Static Method,"Conversions.OctalToDecimal.main",OctalToDecimal.java,6,2,2
+Public Static Method,"Conversions.OctalToHexadecimal.decimalToHex",OctalToHexadecimal.java,2,3,2
+Public Static Method,"Conversions.OctalToHexadecimal.main",OctalToHexadecimal.java,7,1,2
+Public Static Method,"Conversions.OctalToHexadecimal.octToDec",OctalToHexadecimal.java,3,2,2
+Public Static Method,"Conversions.RomanToInteger.main",RomanToInteger.java,2,1,1
+Public Static Method,"Conversions.RomanToInteger.romanToInt",RomanToInteger.java,5,5,3
+Public Constructor,"DataStructures.Bags.Bag.Bag",Bag.java,3,1,1
+Public Constructor,"DataStructures.Bags.Bag.ListIterator.ListIterator",Bag.java,2,1,2
+Public Method,"DataStructures.Bags.Bag.ListIterator.hasNext",Bag.java,1,1,2
+Public Method,"DataStructures.Bags.Bag.ListIterator.next",Bag.java,4,2,3
+Public Method,"DataStructures.Bags.Bag.ListIterator.remove",Bag.java,1,1,0
+Public Method,"DataStructures.Bags.Bag.add",Bag.java,4,1,3
+Public Method,"DataStructures.Bags.Bag.contains",Bag.java,5,3,2
+Public Method,"DataStructures.Bags.Bag.isEmpty",Bag.java,1,1,1
+Public Method,"DataStructures.Bags.Bag.iterator",Bag.java,2,1,2
+Public Static Method,"DataStructures.Bags.Bag.main",Bag.java,6,2,1
+Public Method,"DataStructures.Bags.Bag.size",Bag.java,1,1,2
+Public Constructor,"DataStructures.Buffers.CircularBuffer.CircularBuffer",CircularBuffer.java,5,2,2
+Private Method,"DataStructures.Buffers.CircularBuffer.IsPowerOfTwo",CircularBuffer.java,1,1,2
+Public Constructor,"DataStructures.Buffers.CircularBuffer.TestReadWorker.TestReadWorker",CircularBuffer.java,2,1,2
+Public Method,"DataStructures.Buffers.CircularBuffer.TestReadWorker.run",CircularBuffer.java,8,4,2
+Public Constructor,"DataStructures.Buffers.CircularBuffer.TestWriteWorker.TestWriteWorker",CircularBuffer.java,2,1,2
+Private Method,"DataStructures.Buffers.CircularBuffer.TestWriteWorker.getRandomChar",CircularBuffer.java,4,1,3
+Public Method,"DataStructures.Buffers.CircularBuffer.TestWriteWorker.run",CircularBuffer.java,5,4,1
+Private Method,"DataStructures.Buffers.CircularBuffer.getTrueIndex",CircularBuffer.java,1,1,4
+Public Static Method,"DataStructures.Buffers.CircularBuffer.main",CircularBuffer.java,7,1,0
+Public Method,"DataStructures.Buffers.CircularBuffer.readOutChar",CircularBuffer.java,6,2,4
+Public Method,"DataStructures.Buffers.CircularBuffer.writeToCharBuffer",CircularBuffer.java,6,2,5
+Public Constructor,"DataStructures.DynamicArray.DynamicArray.DynamicArray",DynamicArray.java,4,1,2
+Public Constructor,"DataStructures.DynamicArray.DynamicArray.DynamicArray",DynamicArray.java,4,1,2
+Public Method,"DataStructures.DynamicArray.DynamicArray.DynamicArrayIterator.forEachRemaining",DynamicArray.java,3,2,2
+Public Method,"DataStructures.DynamicArray.DynamicArray.DynamicArrayIterator.hasNext",DynamicArray.java,1,1,2
+Public Method,"DataStructures.DynamicArray.DynamicArray.DynamicArrayIterator.next",DynamicArray.java,5,4,4
+Public Method,"DataStructures.DynamicArray.DynamicArray.DynamicArrayIterator.remove",DynamicArray.java,3,2,1
+Public Method,"DataStructures.DynamicArray.DynamicArray.add",DynamicArray.java,4,2,5
+Private Method,"DataStructures.DynamicArray.DynamicArray.fastRemove",DynamicArray.java,3,2,4
+Public Method,"DataStructures.DynamicArray.DynamicArray.get",DynamicArray.java,2,1,1
+Private Method,"DataStructures.DynamicArray.DynamicArray.getElement",DynamicArray.java,1,1,6
+Public Method,"DataStructures.DynamicArray.DynamicArray.getSize",DynamicArray.java,1,1,2
+Public Method,"DataStructures.DynamicArray.DynamicArray.isEmpty",DynamicArray.java,1,1,1
+Public Method,"DataStructures.DynamicArray.DynamicArray.iterator",DynamicArray.java,1,1,0
+Public Static Method,"DataStructures.DynamicArray.DynamicArray.main",DynamicArray.java,9,4,2
+Public Method,"DataStructures.DynamicArray.DynamicArray.newCapacity",DynamicArray.java,2,1,2
+Public Method,"DataStructures.DynamicArray.DynamicArray.put",DynamicArray.java,1,1,2
+Public Method,"DataStructures.DynamicArray.DynamicArray.remove",DynamicArray.java,3,1,4
+Public Method,"DataStructures.DynamicArray.DynamicArray.stream",DynamicArray.java,3,1,1
+Public Method,"DataStructures.DynamicArray.DynamicArray.toString",DynamicArray.java,5,1,2
+Public Constructor,"DataStructures.Graphs.AdjacencyListGraph.AdjacencyListGraph",Graphs.java,3,1,1
+Public Constructor,"DataStructures.Graphs.AdjacencyListGraph.Vertex.Vertex",Graphs.java,4,1,2
+Public Method,"DataStructures.Graphs.AdjacencyListGraph.Vertex.addAdjacentVertex",Graphs.java,3,3,4
+Public Method,"DataStructures.Graphs.AdjacencyListGraph.Vertex.removeAdjacentVertex",Graphs.java,5,3,4
+Public Method,"DataStructures.Graphs.AdjacencyListGraph.addEdge",Graphs.java,5,28,5
+Public Method,"DataStructures.Graphs.AdjacencyListGraph.removeEdge",Graphs.java,3,6,4
+Public Method,"DataStructures.Graphs.AdjacencyListGraph.toString",Graphs.java,5,3,3
+Public Constructor,"DataStructures.Graphs.AdjacencyMatrixGraph.AdjacencyMatrixGraph",MatrixGraphs.java,5,3,3
+Public Method,"DataStructures.Graphs.AdjacencyMatrixGraph.addEdge",MatrixGraphs.java,6,3,4
+Private Method,"DataStructures.Graphs.AdjacencyMatrixGraph.adjacency",MatrixGraphs.java,1,1,5
+Private Method,"DataStructures.Graphs.AdjacencyMatrixGraph.adjacencyOfEdgeDoesExist",MatrixGraphs.java,2,1,6
+Public Method,"DataStructures.Graphs.AdjacencyMatrixGraph.edgeDoesExist",MatrixGraphs.java,3,2,2
+Public Method,"DataStructures.Graphs.AdjacencyMatrixGraph.numberOfEdges",MatrixGraphs.java,1,1,3
+Public Method,"DataStructures.Graphs.AdjacencyMatrixGraph.numberOfVertices",MatrixGraphs.java,1,1,3
+Public Method,"DataStructures.Graphs.AdjacencyMatrixGraph.removeEdge",MatrixGraphs.java,6,3,3
+Private Method,"DataStructures.Graphs.AdjacencyMatrixGraph.setAdjacency",MatrixGraphs.java,1,1,2
+Private Method,"DataStructures.Graphs.AdjacencyMatrixGraph.setNumberOfEdges",MatrixGraphs.java,1,1,4
+Private Method,"DataStructures.Graphs.AdjacencyMatrixGraph.setNumberOfVertices",MatrixGraphs.java,1,1,2
+Public Method,"DataStructures.Graphs.AdjacencyMatrixGraph.toString",MatrixGraphs.java,3,6,1
+Public Method,"DataStructures.Graphs.AdjacencyMatrixGraph.vertexDoesExist",MatrixGraphs.java,2,2,4
+Constructor,"DataStructures.Graphs.BellmanFord.BellmanFord",BellmanFord.java,4,1,3
+Public Constructor,"DataStructures.Graphs.BellmanFord.Edge.Edge",BellmanFord.java,4,1,5
+Public Method,"DataStructures.Graphs.BellmanFord.addEdge",BellmanFord.java,3,1,4
+Public Method,"DataStructures.Graphs.BellmanFord.getEdgeArray",BellmanFord.java,1,1,1
+Public Method,"DataStructures.Graphs.BellmanFord.go",BellmanFord.java,8,240,7
+Public Static Method,"DataStructures.Graphs.BellmanFord.main",BellmanFord.java,2,1,0
+Method,"DataStructures.Graphs.BellmanFord.printPath",BellmanFord.java,1,2,5
+Public Method,"DataStructures.Graphs.BellmanFord.show",BellmanFord.java,4,48,10
+Public Static Method,"DataStructures.Graphs.ConnectedComponent.main",ConnectedComponent.java,4,1,1
+Public Constructor,"DataStructures.Graphs.Cycle.Cycle",Cycles.java,10,4,5
+Private Method,"DataStructures.Graphs.Cycle.dfs",Cycles.java,5,10,8
+Public Method,"DataStructures.Graphs.Cycle.printAll",Cycles.java,5,3,3
+Public Method,"DataStructures.Graphs.Cycle.start",Cycles.java,3,3,2
+Public Static Method,"DataStructures.Graphs.Cycles.main",Cycles.java,3,1,0
+Public Constructor,"DataStructures.Graphs.FloydWarshall.FloydWarshall",FloydWarshall.java,4,1,3
+Public Method,"DataStructures.Graphs.FloydWarshall.floydwarshall",FloydWarshall.java,3,90,5
+Public Static Method,"DataStructures.Graphs.FloydWarshall.main",FloydWarshall.java,6,6,3
+Public Constructor,"DataStructures.Graphs.Graph.Edge.Edge",ConnectedComponent.java,3,1,3
+Public Constructor,"DataStructures.Graphs.Graph.Graph",ConnectedComponent.java,4,1,1
+Public Constructor,"DataStructures.Graphs.Graph.Node.Node",ConnectedComponent.java,2,1,2
+Public Method,"DataStructures.Graphs.Graph.addEdge",ConnectedComponent.java,4,16,6
+Public Method,"DataStructures.Graphs.Graph.countGraphs",ConnectedComponent.java,7,3,2
+Public Method,"DataStructures.Graphs.Graph.depthFirstSearch",ConnectedComponent.java,4,3,6
+Public Static Method,"DataStructures.Graphs.Graphs.main",Graphs.java,3,1,1
+Public Static Method,"DataStructures.Graphs.MatrixGraphs.main",MatrixGraphs.java,3,1,1
+Public Static Method,"DataStructures.Graphs.PrimMST.main",PrimMST.java,1,1,0
+Method,"DataStructures.Graphs.PrimMST.minKey",PrimMST.java,1,3,5
+Method,"DataStructures.Graphs.PrimMST.primMST",PrimMST.java,2,8,4
+Method,"DataStructures.Graphs.PrimMST.printMST",PrimMST.java,1,2,5
+Public Constructor,"DataStructures.HashMap.Hashing.HashMap.HashMap",HashMap.java,4,2,2
+Public Constructor,"DataStructures.HashMap.Hashing.HashMap.LinkedList.LinkedList",HashMap.java,2,1,1
+Public Method,"DataStructures.HashMap.Hashing.HashMap.LinkedList.delete",HashMap.java,5,3,4
+Private Method,"DataStructures.HashMap.Hashing.HashMap.LinkedList.delete",HashMap.java,3,3,3
+Public Method,"DataStructures.HashMap.Hashing.HashMap.LinkedList.display",HashMap.java,2,1,2
+Private Method,"DataStructures.HashMap.Hashing.HashMap.LinkedList.display",HashMap.java,3,2,2
+Private Method,"DataStructures.HashMap.Hashing.HashMap.LinkedList.findEnd",HashMap.java,2,2,2
+Public Method,"DataStructures.HashMap.Hashing.HashMap.LinkedList.findKey",HashMap.java,4,2,3
+Private Method,"DataStructures.HashMap.Hashing.HashMap.LinkedList.findKey",HashMap.java,4,3,4
+Public Method,"DataStructures.HashMap.Hashing.HashMap.LinkedList.insert",HashMap.java,5,2,3
+Public Method,"DataStructures.HashMap.Hashing.HashMap.LinkedList.isEmpty",HashMap.java,1,1,4
+Public Constructor,"DataStructures.HashMap.Hashing.HashMap.Node.Node",HashMap.java,3,1,2
+Public Method,"DataStructures.HashMap.Hashing.HashMap.Node.getKey",HashMap.java,1,1,5
+Public Method,"DataStructures.HashMap.Hashing.HashMap.Node.getNext",HashMap.java,1,1,5
+Public Method,"DataStructures.HashMap.Hashing.HashMap.Node.setNext",HashMap.java,1,1,3
+Public Method,"DataStructures.HashMap.Hashing.HashMap.deleteHash",HashMap.java,2,1,3
+Public Method,"DataStructures.HashMap.Hashing.HashMap.displayHashtable",HashMap.java,3,2,4
+Public Method,"DataStructures.HashMap.Hashing.HashMap.hashing",HashMap.java,1,2,4
+Public Method,"DataStructures.HashMap.Hashing.HashMap.insertHash",HashMap.java,2,1,3
+Public Constructor,"DataStructures.HashMap.Hashing.HashMapLinearProbing.HashMapLinearProbing",HashMapLinearProbing.java,6,1,3
+Public Method,"DataStructures.HashMap.Hashing.HashMapLinearProbing.checkLoadFactor",HashMapLinearProbing.java,2,2,4
+Public Method,"DataStructures.HashMap.Hashing.HashMapLinearProbing.deleteHash",HashMapLinearProbing.java,7,5,6
+Public Method,"DataStructures.HashMap.Hashing.HashMapLinearProbing.displayHashtable",HashMapLinearProbing.java,2,3,5
+Public Method,"DataStructures.HashMap.Hashing.HashMapLinearProbing.findHash",HashMapLinearProbing.java,7,7,6
+Public Method,"DataStructures.HashMap.Hashing.HashMapLinearProbing.hashing",HashMapLinearProbing.java,1,2,5
+Public Method,"DataStructures.HashMap.Hashing.HashMapLinearProbing.insertHash",HashMapLinearProbing.java,6,5,6
+Public Method,"DataStructures.HashMap.Hashing.HashMapLinearProbing.isEmpty",HashMapLinearProbing.java,1,3,4
+Public Method,"DataStructures.HashMap.Hashing.HashMapLinearProbing.isFull",HashMapLinearProbing.java,1,3,4
+Private Method,"DataStructures.HashMap.Hashing.HashMapLinearProbing.lengthenTable",HashMapLinearProbing.java,4,1,4
+Public Static Method,"DataStructures.HashMap.Hashing.Main.main",Main.java,8,6,2
+Public Static Method,"DataStructures.HashMap.Hashing.MainLinearProbing.main",MainLinearProbing.java,10,8,2
+Public Constructor,"DataStructures.Heaps.EmptyHeapException.EmptyHeapException",EmptyHeapException.java,2,1,5
+Abstract Method,"DataStructures.Heaps.Heap.deleteElement",Heap.java,0,0,0
+Abstract Method,"DataStructures.Heaps.Heap.getElement",Heap.java,1,0,0
+Abstract Method,"DataStructures.Heaps.Heap.insertElement",Heap.java,0,0,0
+Public Constructor,"DataStructures.Heaps.HeapElement.HeapElement",HeapElement.java,3,1,2
+Public Constructor,"DataStructures.Heaps.HeapElement.HeapElement",HeapElement.java,3,1,2
+Public Constructor,"DataStructures.Heaps.HeapElement.HeapElement",HeapElement.java,3,1,2
+Public Constructor,"DataStructures.Heaps.HeapElement.HeapElement",HeapElement.java,3,1,2
+Public Constructor,"DataStructures.Heaps.HeapElement.HeapElement",HeapElement.java,3,1,1
+Public Constructor,"DataStructures.Heaps.HeapElement.HeapElement",HeapElement.java,3,1,1
+Public Constructor,"DataStructures.Heaps.HeapElement.HeapElement",HeapElement.java,3,1,1
+Public Constructor,"DataStructures.Heaps.HeapElement.HeapElement",HeapElement.java,3,1,1
+Public Method,"DataStructures.Heaps.HeapElement.equals",HeapElement.java,2,3,3
+Public Method,"DataStructures.Heaps.HeapElement.getInfo",HeapElement.java,1,1,1
+Public Method,"DataStructures.Heaps.HeapElement.getKey",HeapElement.java,1,1,7
+Public Method,"DataStructures.Heaps.HeapElement.hashCode",HeapElement.java,2,1,2
+Public Method,"DataStructures.Heaps.HeapElement.toString",HeapElement.java,2,1,2
+Public Constructor,"DataStructures.Heaps.MaxHeap.MaxHeap",MaxHeap.java,6,6,3
+Public Method,"DataStructures.Heaps.MaxHeap.deleteElement",MaxHeap.java,12,18,4
+Private Method,"DataStructures.Heaps.MaxHeap.extractMax",MaxHeap.java,3,1,2
+Public Method,"DataStructures.Heaps.MaxHeap.getElement",MaxHeap.java,4,2,3
+Public Method,"DataStructures.Heaps.MaxHeap.getElement",MaxHeap.java,3,2,0
+Private Method,"DataStructures.Heaps.MaxHeap.getElementKey",MaxHeap.java,3,1,5
+Public Method,"DataStructures.Heaps.MaxHeap.insertElement",MaxHeap.java,3,1,3
+Private Method,"DataStructures.Heaps.MaxHeap.swap",MaxHeap.java,2,1,5
+Private Method,"DataStructures.Heaps.MaxHeap.toggleDown",MaxHeap.java,6,3,3
+Private Method,"DataStructures.Heaps.MaxHeap.toggleUp",MaxHeap.java,5,2,4
+Public Constructor,"DataStructures.Heaps.MinHeap.MinHeap",MinHeap.java,6,6,3
+Public Method,"DataStructures.Heaps.MinHeap.deleteElement",MinHeap.java,12,18,4
+Private Method,"DataStructures.Heaps.MinHeap.extractMin",MinHeap.java,3,1,2
+Public Method,"DataStructures.Heaps.MinHeap.getElement",MinHeap.java,4,2,3
+Public Method,"DataStructures.Heaps.MinHeap.getElement",MinHeap.java,3,2,0
+Private Method,"DataStructures.Heaps.MinHeap.getElementKey",MinHeap.java,3,1,5
+Public Method,"DataStructures.Heaps.MinHeap.insertElement",MinHeap.java,3,1,3
+Private Method,"DataStructures.Heaps.MinHeap.swap",MinHeap.java,2,1,5
+Private Method,"DataStructures.Heaps.MinHeap.toggleDown",MinHeap.java,6,3,3
+Private Method,"DataStructures.Heaps.MinHeap.toggleUp",MinHeap.java,5,2,4
+Constructor,"DataStructures.Heaps.MinPriorityQueue.MinPriorityQueue",MinPriorityQueue.java,4,1,2
+Public Method,"DataStructures.Heaps.MinPriorityQueue.delete",MinPriorityQueue.java,4,1,3
+Public Method,"DataStructures.Heaps.MinPriorityQueue.heapSort",MinPriorityQueue.java,1,2,2
+Public Method,"DataStructures.Heaps.MinPriorityQueue.insert",MinPriorityQueue.java,3,4,4
+Public Method,"DataStructures.Heaps.MinPriorityQueue.isEmpty",MinPriorityQueue.java,1,2,1
+Public Method,"DataStructures.Heaps.MinPriorityQueue.isFull",MinPriorityQueue.java,1,2,3
+Public Static Method,"DataStructures.Heaps.MinPriorityQueue.main",MinPriorityQueue.java,4,1,0
+Public Method,"DataStructures.Heaps.MinPriorityQueue.peek",MinPriorityQueue.java,1,1,1
+Public Method,"DataStructures.Heaps.MinPriorityQueue.print",MinPriorityQueue.java,2,2,4
+Private Method,"DataStructures.Heaps.MinPriorityQueue.sink",MinPriorityQueue.java,1,13,3
+Public Constructor,"DataStructures.Lists.CircleLinkedList.CircleLinkedList",CircleLinkedList.java,4,1,1
+Private Constructor,"DataStructures.Lists.CircleLinkedList.Node.Node",CircleLinkedList.java,3,1,4
+Public Method,"DataStructures.Lists.CircleLinkedList.append",CircleLinkedList.java,5,2,2
+Public Method,"DataStructures.Lists.CircleLinkedList.getSize",CircleLinkedList.java,1,1,1
+Public Method,"DataStructures.Lists.CircleLinkedList.remove",CircleLinkedList.java,4,4,5
+Public Method,"DataStructures.Lists.CountSinglyLinkedListRecursion.count",CountSinglyLinkedListRecursion.java,3,1,1
+Private Method,"DataStructures.Lists.CountSinglyLinkedListRecursion.countRecursion",CountSinglyLinkedListRecursion.java,1,1,3
+Public Static Method,"DataStructures.Lists.CountSinglyLinkedListRecursion.main",CountSinglyLinkedListRecursion.java,2,2,0
+Public Constructor,"DataStructures.Lists.CursorLinkedList.CursorLinkedList",CursorLinkedList.java,4,1,0
+Constructor,"DataStructures.Lists.CursorLinkedList.Node.Node",CursorLinkedList.java,3,1,2
+Private Method,"DataStructures.Lists.CursorLinkedList.alloc",CursorLinkedList.java,3,2,4
+Public Method,"DataStructures.Lists.CursorLinkedList.append",CursorLinkedList.java,6,4,4
+Private Method,"DataStructures.Lists.CursorLinkedList.free",CursorLinkedList.java,2,1,5
+Public Method,"DataStructures.Lists.CursorLinkedList.get",CursorLinkedList.java,1,4,7
+Public Method,"DataStructures.Lists.CursorLinkedList.indexOf",CursorLinkedList.java,3,3,6
+Public Method,"DataStructures.Lists.CursorLinkedList.printList",CursorLinkedList.java,2,3,5
+Public Method,"DataStructures.Lists.CursorLinkedList.remove",CursorLinkedList.java,6,4,6
+Public Method,"DataStructures.Lists.CursorLinkedList.removeByIndex",CursorLinkedList.java,2,2,2
+Public Constructor,"DataStructures.Lists.DoublyLinkedList.DoublyLinkedList",DoublyLinkedList.java,4,1,1
+Public Constructor,"DataStructures.Lists.DoublyLinkedList.DoublyLinkedList",DoublyLinkedList.java,4,4,2
+Public Method,"DataStructures.Lists.DoublyLinkedList.clearList",DoublyLinkedList.java,3,1,1
+Public Method,"DataStructures.Lists.DoublyLinkedList.delete",DoublyLinkedList.java,6,9,8
+Public Method,"DataStructures.Lists.DoublyLinkedList.deleteHead",DoublyLinkedList.java,5,2,4
+Public Method,"DataStructures.Lists.DoublyLinkedList.deleteNode",DoublyLinkedList.java,5,3,4
+Public Method,"DataStructures.Lists.DoublyLinkedList.deleteTail",DoublyLinkedList.java,5,2,5
+Public Method,"DataStructures.Lists.DoublyLinkedList.display",DoublyLinkedList.java,2,2,4
+Public Method,"DataStructures.Lists.DoublyLinkedList.insertElementByIndex",DoublyLinkedList.java,7,8,6
+Public Method,"DataStructures.Lists.DoublyLinkedList.insertHead",DoublyLinkedList.java,7,2,5
+Public Method,"DataStructures.Lists.DoublyLinkedList.insertOrdered",DoublyLinkedList.java,6,6,6
+Public Method,"DataStructures.Lists.DoublyLinkedList.insertTail",DoublyLinkedList.java,7,2,6
+Public Method,"DataStructures.Lists.DoublyLinkedList.isEmpty",DoublyLinkedList.java,1,1,3
+Public Static Method,"DataStructures.Lists.DoublyLinkedList.removeDuplicates",DoublyLinkedList.java,1,4,4
+Public Constructor,"DataStructures.Lists.Link.Link",DoublyLinkedList.java,2,1,5
+Public Method,"DataStructures.Lists.Link.displayLink",DoublyLinkedList.java,1,1,3
+Public Static Method,"DataStructures.Lists.Link.main",DoublyLinkedList.java,9,1,0
+Public Static Method,"DataStructures.Lists.MergeSortedArrayList.main",MergeSortedArrayList.java,5,2,1
+Public Static Method,"DataStructures.Lists.MergeSortedArrayList.merge",MergeSortedArrayList.java,3,12,4
+Public Static Method,"DataStructures.Lists.MergeSortedSinglyLinkedList.main",MergeSortedSinglyLinkedList.java,5,2,0
+Public Static Method,"DataStructures.Lists.MergeSortedSinglyLinkedList.merge",MergeSortedSinglyLinkedList.java,6,12,5
+Public Constructor,"DataStructures.Lists.Merge_K_SortedLinkedlist.Node.Node",Merge_K_SortedLinkedlist.java,3,1,1
+Method,"DataStructures.Lists.Merge_K_SortedLinkedlist.mergeKList",Merge_K_SortedLinkedlist.java,10,3,4
+Lambda Method,"DataStructures.Lists.Merge_K_SortedLinkedlist.mergeKList.(lambda_expr_1)",Merge_K_SortedLinkedlist.java,1,1,2
+Constructor,"DataStructures.Lists.Node.Node",SinglyLinkedList.java,1,1,1
+Constructor,"DataStructures.Lists.Node.Node",SinglyLinkedList.java,2,1,2
+Constructor,"DataStructures.Lists.Node.Node",SinglyLinkedList.java,3,1,3
+Public Static Method,"DataStructures.Lists.SearchSinglyLinkedListRecursion.main",SearchSinglyLinkedListRecursion.java,2,4,0
+Public Method,"DataStructures.Lists.SearchSinglyLinkedListRecursion.search",SearchSinglyLinkedListRecursion.java,3,1,2
+Private Method,"DataStructures.Lists.SearchSinglyLinkedListRecursion.searchRecursion",SearchSinglyLinkedListRecursion.java,1,1,5
+Public Constructor,"DataStructures.Lists.SinglyLinkedList.SinglyLinkedList",SinglyLinkedList.java,3,1,2
+Public Constructor,"DataStructures.Lists.SinglyLinkedList.SinglyLinkedList",SinglyLinkedList.java,3,1,3
+Public Method,"DataStructures.Lists.SinglyLinkedList.checkBounds",SinglyLinkedList.java,1,2,6
+Public Method,"DataStructures.Lists.SinglyLinkedList.clear",SinglyLinkedList.java,2,2,3
+Public Method,"DataStructures.Lists.SinglyLinkedList.count",SinglyLinkedList.java,1,2,3
+Public Method,"DataStructures.Lists.SinglyLinkedList.delete",SinglyLinkedList.java,1,1,2
+Public Method,"DataStructures.Lists.SinglyLinkedList.deleteHead",SinglyLinkedList.java,1,1,1
+Public Method,"DataStructures.Lists.SinglyLinkedList.deleteNth",SinglyLinkedList.java,4,3,7
+Public Method,"DataStructures.Lists.SinglyLinkedList.getHead",SinglyLinkedList.java,1,1,4
+Public Method,"DataStructures.Lists.SinglyLinkedList.getNth",SinglyLinkedList.java,2,2,6
+Public Method,"DataStructures.Lists.SinglyLinkedList.insert",SinglyLinkedList.java,1,1,6
+Public Method,"DataStructures.Lists.SinglyLinkedList.insertHead",SinglyLinkedList.java,1,1,2
+Public Method,"DataStructures.Lists.SinglyLinkedList.insertNth",SinglyLinkedList.java,5,4,8
+Public Method,"DataStructures.Lists.SinglyLinkedList.isEmpty",SinglyLinkedList.java,1,1,2
+Public Static Method,"DataStructures.Lists.SinglyLinkedList.main",SinglyLinkedList.java,15,2,1
+Public Method,"DataStructures.Lists.SinglyLinkedList.search",SinglyLinkedList.java,1,3,5
+Public Method,"DataStructures.Lists.SinglyLinkedList.size",SinglyLinkedList.java,1,1,3
+Public Method,"DataStructures.Lists.SinglyLinkedList.toString",SinglyLinkedList.java,4,2,5
+Public Method,"DataStructures.Queues.GenericArrayListQueue.add",GenericArrayListQueue.java,2,1,3
+Private Method,"DataStructures.Queues.GenericArrayListQueue.hasElements",GenericArrayListQueue.java,2,1,3
+Public Static Method,"DataStructures.Queues.GenericArrayListQueue.main",GenericArrayListQueue.java,4,1,1
+Public Method,"DataStructures.Queues.GenericArrayListQueue.peek",GenericArrayListQueue.java,3,2,2
+Public Method,"DataStructures.Queues.GenericArrayListQueue.poll",GenericArrayListQueue.java,3,2,2
+Public Constructor,"DataStructures.Queues.LinkedQueue.LinkedQueue",LinkedQueue.java,4,1,1
+Public Constructor,"DataStructures.Queues.LinkedQueue.Node.Node",LinkedQueue.java,2,1,1
+Public Constructor,"DataStructures.Queues.LinkedQueue.Node.Node",LinkedQueue.java,2,1,3
+Public Constructor,"DataStructures.Queues.LinkedQueue.Node.Node",LinkedQueue.java,3,1,3
+Public Method,"DataStructures.Queues.LinkedQueue.clear",LinkedQueue.java,2,2,1
+Public Method,"DataStructures.Queues.LinkedQueue.dequeue",LinkedQueue.java,6,4,6
+Public Method,"DataStructures.Queues.LinkedQueue.enqueue",LinkedQueue.java,5,1,2
+Public Method,"DataStructures.Queues.LinkedQueue.isEmpty",LinkedQueue.java,1,1,7
+Public Static Method,"DataStructures.Queues.LinkedQueue.main",LinkedQueue.java,9,1,1
+Public Method,"DataStructures.Queues.LinkedQueue.peekFront",LinkedQueue.java,3,2,4
+Public Method,"DataStructures.Queues.LinkedQueue.peekRear",LinkedQueue.java,3,2,3
+Public Method,"DataStructures.Queues.LinkedQueue.size",LinkedQueue.java,1,1,2
+Public Method,"DataStructures.Queues.LinkedQueue.toString",LinkedQueue.java,8,3,3
+Public Constructor,"DataStructures.Queues.PriorityQueue.PriorityQueue",PriorityQueues.java,4,1,2
+Public Method,"DataStructures.Queues.PriorityQueue.getSize",PriorityQueues.java,1,1,1
+Public Method,"DataStructures.Queues.PriorityQueue.insert",PriorityQueues.java,4,3,4
+Public Method,"DataStructures.Queues.PriorityQueue.isEmpty",PriorityQueues.java,1,1,1
+Public Method,"DataStructures.Queues.PriorityQueue.isFull",PriorityQueues.java,1,1,3
+Public Method,"DataStructures.Queues.PriorityQueue.peek",PriorityQueues.java,1,1,2
+Public Method,"DataStructures.Queues.PriorityQueue.remove",PriorityQueues.java,2,1,3
+Public Static Method,"DataStructures.Queues.PriorityQueues.main",PriorityQueues.java,4,2,1
+Public Constructor,"DataStructures.Queues.Queue.Queue",Queues.java,2,1,1
+Public Constructor,"DataStructures.Queues.Queue.Queue",Queues.java,6,1,3
+Public Method,"DataStructures.Queues.Queue.getSize",Queues.java,1,1,1
+Public Method,"DataStructures.Queues.Queue.insert",Queues.java,5,2,4
+Public Method,"DataStructures.Queues.Queue.isEmpty",Queues.java,1,1,2
+Public Method,"DataStructures.Queues.Queue.isFull",Queues.java,1,1,4
+Public Method,"DataStructures.Queues.Queue.peekFront",Queues.java,1,1,3
+Public Method,"DataStructures.Queues.Queue.peekRear",Queues.java,1,1,3
+Public Method,"DataStructures.Queues.Queue.remove",Queues.java,4,2,4
+Public Method,"DataStructures.Queues.Queue.toString",Queues.java,7,3,5
+Public Static Method,"DataStructures.Queues.Queues.main",Queues.java,10,1,1
+Public Static Method,"DataStructures.Stacks.BalancedBrackets.isBalanced",BalancedBrackets.java,8,10,3
+Public Static Method,"DataStructures.Stacks.BalancedBrackets.isPaired",BalancedBrackets.java,1,3,3
+Public Static Method,"DataStructures.Stacks.BalancedBrackets.main",BalancedBrackets.java,1,1,0
+Private Static Method,"DataStructures.Stacks.DecimalToAnyUsingStack.convert",DecimalToAnyUsingStack.java,10,4,3
+Public Static Method,"DataStructures.Stacks.DecimalToAnyUsingStack.main",DecimalToAnyUsingStack.java,2,1,0
+Public Static Method,"DataStructures.Stacks.InfixToPostfix.infix2PostFix",InfixToPostfix.java,15,28,2
+Public Static Method,"DataStructures.Stacks.InfixToPostfix.main",InfixToPostfix.java,2,1,0
+Private Static Method,"DataStructures.Stacks.InfixToPostfix.precedence",InfixToPostfix.java,1,4,2
+Public Constructor,"DataStructures.Stacks.LinkedListStack.LinkedListStack",StackOfLinkedList.java,3,1,1
+Public Method,"DataStructures.Stacks.LinkedListStack.getSize",StackOfLinkedList.java,1,1,2
+Public Method,"DataStructures.Stacks.LinkedListStack.isEmpty",StackOfLinkedList.java,1,1,1
+Public Method,"DataStructures.Stacks.LinkedListStack.peek",StackOfLinkedList.java,2,2,4
+Public Method,"DataStructures.Stacks.LinkedListStack.pop",StackOfLinkedList.java,4,2,5
+Public Method,"DataStructures.Stacks.LinkedListStack.push",StackOfLinkedList.java,5,1,3
+Public Method,"DataStructures.Stacks.LinkedListStack.toString",StackOfLinkedList.java,7,2,3
+Public Constructor,"DataStructures.Stacks.Node.Node",StackOfLinkedList.java,3,1,2
+Public Constructor,"DataStructures.Stacks.NodeStack.NodeStack",NodeStack.java,1,1,1
+Private Constructor,"DataStructures.Stacks.NodeStack.NodeStack",NodeStack.java,2,1,2
+Private Method,"DataStructures.Stacks.NodeStack.getData",NodeStack.java,1,1,4
+Private Method,"DataStructures.Stacks.NodeStack.getHead",NodeStack.java,1,1,1
+Private Method,"DataStructures.Stacks.NodeStack.getNext",NodeStack.java,1,1,1
+Private Method,"DataStructures.Stacks.NodeStack.getPrevious",NodeStack.java,1,1,2
+Private Static Method,"DataStructures.Stacks.NodeStack.getSize",NodeStack.java,1,1,5
+Public Method,"DataStructures.Stacks.NodeStack.isEmpty",NodeStack.java,2,1,1
+Public Static Method,"DataStructures.Stacks.NodeStack.main",NodeStack.java,6,1,1
+Public Method,"DataStructures.Stacks.NodeStack.peek",NodeStack.java,2,1,2
+Public Method,"DataStructures.Stacks.NodeStack.pop",NodeStack.java,7,1,2
+Public Method,"DataStructures.Stacks.NodeStack.print",NodeStack.java,3,2,4
+Public Method,"DataStructures.Stacks.NodeStack.push",NodeStack.java,7,2,3
+Private Method,"DataStructures.Stacks.NodeStack.setData",NodeStack.java,1,1,1
+Private Static Method,"DataStructures.Stacks.NodeStack.setHead",NodeStack.java,1,1,3
+Private Method,"DataStructures.Stacks.NodeStack.setNext",NodeStack.java,1,1,3
+Private Method,"DataStructures.Stacks.NodeStack.setPrevious",NodeStack.java,1,1,2
+Private Static Method,"DataStructures.Stacks.NodeStack.setSize",NodeStack.java,1,1,3
+Public Method,"DataStructures.Stacks.NodeStack.size",NodeStack.java,2,1,0
+Public Constructor,"DataStructures.Stacks.StackArray.StackArray",StackArray.java,2,1,1
+Public Constructor,"DataStructures.Stacks.StackArray.StackArray",StackArray.java,4,1,4
+Public Method,"DataStructures.Stacks.StackArray.isEmpty",StackArray.java,1,1,4
+Public Method,"DataStructures.Stacks.StackArray.isFull",StackArray.java,1,1,4
+Public Static Method,"DataStructures.Stacks.StackArray.main",StackArray.java,7,1,0
+Public Method,"DataStructures.Stacks.StackArray.makeEmpty",StackArray.java,1,1,0
+Public Method,"DataStructures.Stacks.StackArray.peek",StackArray.java,3,2,4
+Public Method,"DataStructures.Stacks.StackArray.pop",StackArray.java,5,3,5
+Public Method,"DataStructures.Stacks.StackArray.push",StackArray.java,4,2,4
+Private Method,"DataStructures.Stacks.StackArray.resize",StackArray.java,2,2,5
+Public Method,"DataStructures.Stacks.StackArray.size",StackArray.java,1,1,2
+Public Constructor,"DataStructures.Stacks.StackArrayList.StackArrayList",StackArrayList.java,3,1,1
+Public Method,"DataStructures.Stacks.StackArrayList.isEmpty",StackArrayList.java,2,1,4
+Public Static Method,"DataStructures.Stacks.StackArrayList.main",StackArrayList.java,6,8,0
+Public Method,"DataStructures.Stacks.StackArrayList.peek",StackArrayList.java,5,2,2
+Public Method,"DataStructures.Stacks.StackArrayList.pop",StackArrayList.java,5,2,2
+Public Method,"DataStructures.Stacks.StackArrayList.push",StackArrayList.java,1,1,3
+Public Method,"DataStructures.Stacks.StackArrayList.size",StackArrayList.java,2,1,2
+Public Static Method,"DataStructures.Stacks.StackOfLinkedList.main",StackOfLinkedList.java,7,1,1
+Constructor,"DataStructures.Trees.AVLTree.Node.Node",AVLTree.java,3,1,3
+Private Method,"DataStructures.Trees.AVLTree.delete",AVLTree.java,5,7,6
+Public Method,"DataStructures.Trees.AVLTree.delete",AVLTree.java,1,4,5
+Private Method,"DataStructures.Trees.AVLTree.height",AVLTree.java,1,2,5
+Public Method,"DataStructures.Trees.AVLTree.insert",AVLTree.java,6,6,6
+Public Static Method,"DataStructures.Trees.AVLTree.main",AVLTree.java,4,2,1
+Public Method,"DataStructures.Trees.AVLTree.printBalance",AVLTree.java,1,1,2
+Private Method,"DataStructures.Trees.AVLTree.printBalance",AVLTree.java,1,2,6
+Private Method,"DataStructures.Trees.AVLTree.rebalance",AVLTree.java,7,10,7
+Private Method,"DataStructures.Trees.AVLTree.reheight",AVLTree.java,3,2,4
+Private Method,"DataStructures.Trees.AVLTree.rotateLeft",AVLTree.java,5,6,7
+Private Method,"DataStructures.Trees.AVLTree.rotateLeftThenRight",AVLTree.java,4,1,3
+Private Method,"DataStructures.Trees.AVLTree.rotateRight",AVLTree.java,5,6,7
+Private Method,"DataStructures.Trees.AVLTree.rotateRightThenLeft",AVLTree.java,4,1,3
+Public Method,"DataStructures.Trees.AVLTree.search",AVLTree.java,2,2,2
+Private Method,"DataStructures.Trees.AVLTree.searchHelper",AVLTree.java,1,3,6
+Private Method,"DataStructures.Trees.AVLTree.setBalance",AVLTree.java,3,2,6
+Public Constructor,"DataStructures.Trees.BinaryTree.BinaryTree",BinaryTree.java,2,1,0
+Public Constructor,"DataStructures.Trees.BinaryTree.Node.Node",BinaryTree.java,5,1,2
+Public Method,"DataStructures.Trees.BinaryTree.find",BinaryTree.java,1,6,7
+Public Method,"DataStructures.Trees.BinaryTree.findSuccessor",BinaryTree.java,1,3,4
+Public Method,"DataStructures.Trees.BinaryTree.getRoot",BinaryTree.java,1,1,1
+Public Method,"DataStructures.Trees.BinaryTree.inOrder",BinaryTree.java,1,2,5
+Public Method,"DataStructures.Trees.BinaryTree.postOrder",BinaryTree.java,1,2,5
+Public Method,"DataStructures.Trees.BinaryTree.preOrder",BinaryTree.java,1,2,5
+Public Method,"DataStructures.Trees.BinaryTree.put",BinaryTree.java,6,3,3
+Public Method,"DataStructures.Trees.BinaryTree.remove",BinaryTree.java,7,19,6
+Public Constructor,"DataStructures.Trees.GenericTree.GenericTree",GenericTree.java,4,1,1
+Private Method,"DataStructures.Trees.GenericTree.create_treeG",GenericTree.java,6,4,7
+Public Method,"DataStructures.Trees.GenericTree.depth",GenericTree.java,3,3,6
+Public Method,"DataStructures.Trees.GenericTree.depthcaller",GenericTree.java,1,1,2
+Public Method,"DataStructures.Trees.GenericTree.display",GenericTree.java,1,1,1
+Private Method,"DataStructures.Trees.GenericTree.display_1",GenericTree.java,4,4,5
+Private Method,"DataStructures.Trees.GenericTree.find",GenericTree.java,3,4,5
+Public Method,"DataStructures.Trees.GenericTree.findcall",GenericTree.java,2,1,2
+Private Method,"DataStructures.Trees.GenericTree.height",GenericTree.java,3,3,3
+Public Method,"DataStructures.Trees.GenericTree.heightcall",GenericTree.java,2,1,1
+Public Method,"DataStructures.Trees.GenericTree.levelorder",GenericTree.java,9,3,4
+Private Method,"DataStructures.Trees.GenericTree.max",GenericTree.java,3,4,5
+Public Method,"DataStructures.Trees.GenericTree.maxcall",GenericTree.java,2,1,2
+Private Method,"DataStructures.Trees.GenericTree.postorder",GenericTree.java,3,2,5
+Public Method,"DataStructures.Trees.GenericTree.postordercall",GenericTree.java,2,1,2
+Private Method,"DataStructures.Trees.GenericTree.preorder",GenericTree.java,3,2,5
+Public Method,"DataStructures.Trees.GenericTree.preordercall",GenericTree.java,2,1,2
+Private Method,"DataStructures.Trees.GenericTree.removeleaves",GenericTree.java,5,6,3
+Public Method,"DataStructures.Trees.GenericTree.removeleavescall",GenericTree.java,1,1,1
+Public Method,"DataStructures.Trees.GenericTree.size2",GenericTree.java,3,2,3
+Public Method,"DataStructures.Trees.GenericTree.size2call",GenericTree.java,2,1,1
+Public Constructor,"DataStructures.Trees.LevelOrderTraversal.LevelOrderTraversal",LevelOrderTraversal.java,2,1,1
+Public Constructor,"DataStructures.Trees.LevelOrderTraversal.Node.Node",LevelOrderTraversal.java,4,1,1
+Method,"DataStructures.Trees.LevelOrderTraversal.height",LevelOrderTraversal.java,2,2,4
+Method,"DataStructures.Trees.LevelOrderTraversal.printGivenLevel",LevelOrderTraversal.java,1,4,7
+Method,"DataStructures.Trees.LevelOrderTraversal.printLevelOrder",LevelOrderTraversal.java,2,2,1
+Public Constructor,"DataStructures.Trees.LevelOrderTraversalQueue.Node.Node",LevelOrderTraversalQueue.java,4,1,1
+Method,"DataStructures.Trees.LevelOrderTraversalQueue.printLevelOrder",LevelOrderTraversalQueue.java,5,5,5
+Public Constructor,"DataStructures.Trees.Node.Node",TreeTraversal.java,2,1,3
+Public Method,"DataStructures.Trees.Node.insert",TreeTraversal.java,3,4,5
+Public Method,"DataStructures.Trees.Node.printInOrder",TreeTraversal.java,1,4,5
+Public Method,"DataStructures.Trees.Node.printLevelOrder",TreeTraversal.java,5,5,5
+Public Method,"DataStructures.Trees.Node.printPostOrder",TreeTraversal.java,1,4,5
+Public Method,"DataStructures.Trees.Node.printPreOrder",TreeTraversal.java,1,4,5
+Public Static Method,"DataStructures.Trees.PrintTopViewofTree.main",PrintTopViewofTree.java,6,1,1
+Public Constructor,"DataStructures.Trees.QItem.QItem",PrintTopViewofTree.java,3,1,3
+Constructor,"DataStructures.Trees.RedBlackBST.Node.Node",RedBlackBST.java,2,1,3
+Method,"DataStructures.Trees.RedBlackBST.delete",RedBlackBST.java,9,9,9
+Public Method,"DataStructures.Trees.RedBlackBST.deleteDemo",RedBlackBST.java,10,2,3
+Method,"DataStructures.Trees.RedBlackBST.deleteFixup",RedBlackBST.java,6,25,9
+Private Method,"DataStructures.Trees.RedBlackBST.findNode",RedBlackBST.java,1,7,8
+Private Method,"DataStructures.Trees.RedBlackBST.fixTree",RedBlackBST.java,5,9,9
+Private Method,"DataStructures.Trees.RedBlackBST.insert",RedBlackBST.java,6,7,9
+Public Method,"DataStructures.Trees.RedBlackBST.insertDemo",RedBlackBST.java,8,3,3
+Public Method,"DataStructures.Trees.RedBlackBST.printTree",RedBlackBST.java,1,2,12
+Public Method,"DataStructures.Trees.RedBlackBST.printTreepre",RedBlackBST.java,2,2,11
+Method,"DataStructures.Trees.RedBlackBST.rotateLeft",RedBlackBST.java,4,5,8
+Method,"DataStructures.Trees.RedBlackBST.rotateRight",RedBlackBST.java,4,5,8
+Method,"DataStructures.Trees.RedBlackBST.transplant",RedBlackBST.java,4,3,6
+Method,"DataStructures.Trees.RedBlackBST.treeMinimum",RedBlackBST.java,1,2,4
+Public Constructor,"DataStructures.Trees.Tree.Tree",PrintTopViewofTree.java,2,1,0
+Public Constructor,"DataStructures.Trees.Tree.Tree",PrintTopViewofTree.java,2,1,2
+Public Method,"DataStructures.Trees.Tree.printTopView",PrintTopViewofTree.java,9,10,8
+Public Constructor,"DataStructures.Trees.TreeNode.TreeNode",PrintTopViewofTree.java,4,1,2
+Public Static Method,"DataStructures.Trees.TreeTraversal.main",TreeTraversal.java,8,1,1
+Public Constructor,"DataStructures.Trees.TrieImp.TrieImp",TrieImp.java,3,1,1
+Public Constructor,"DataStructures.Trees.TrieImp.TrieNode.TrieNode",TrieImp.java,3,1,2
+Public Method,"DataStructures.Trees.TrieImp.delete",TrieImp.java,4,5,5
+Public Method,"DataStructures.Trees.TrieImp.insert",TrieImp.java,5,3,4
+Public Static Method,"DataStructures.Trees.TrieImp.isValid",TrieImp.java,2,1,2
+Public Static Method,"DataStructures.Trees.TrieImp.main",TrieImp.java,10,14,1
+Public Method,"DataStructures.Trees.TrieImp.search",TrieImp.java,3,3,5
+Public Static Method,"DataStructures.Trees.TrieImp.sop",TrieImp.java,1,1,3
+Public Constructor,"DataStructures.Trees.ValidBSTOrNot.Node.Node",ValidBSTOrNot.java,4,1,1
+Method,"DataStructures.Trees.ValidBSTOrNot.isBST",ValidBSTOrNot.java,2,1,3
+Method,"DataStructures.Trees.ValidBSTOrNot.isBSTUtil",ValidBSTOrNot.java,1,3,7
+Public Static Method,"DynamicProgramming.BoardPath.bpIS",BoardPath.java,2,3,3
+Public Static Method,"DynamicProgramming.BoardPath.bpR",BoardPath.java,1,4,2
+Public Static Method,"DynamicProgramming.BoardPath.bpRS",BoardPath.java,2,5,3
+Public Static Method,"DynamicProgramming.BoardPath.endAlgo",BoardPath.java,3,1,2
+Public Static Method,"DynamicProgramming.BoardPath.startAlgo",BoardPath.java,2,1,0
+Public Static Method,"DynamicProgramming.CoinChange.change",CoinChange.java,1,3,3
+Public Static Method,"DynamicProgramming.CoinChange.main",CoinChange.java,3,1,1
+Public Static Method,"DynamicProgramming.CoinChange.minimumCoins",CoinChange.java,1,10,4
+Public Static Method,"DynamicProgramming.CoinChange.printAmount",CoinChange.java,2,2,3
+Public Static Method,"DynamicProgramming.EditDistance.main",EditDistance.java,5,1,2
+Public Static Method,"DynamicProgramming.EditDistance.minDistance",EditDistance.java,3,16,3
+Public Static Method,"DynamicProgramming.EggDropping.main",EggDropping.java,2,1,1
+Private Static Method,"DynamicProgramming.EggDropping.minTrials",EggDropping.java,2,20,4
+Public Static Method,"DynamicProgramming.Fibonacci.fibBotUp",Fibonacci.java,4,3,2
+Public Static Method,"DynamicProgramming.Fibonacci.fibMemo",Fibonacci.java,4,3,3
+Public Static Method,"DynamicProgramming.Fibonacci.fibOptimized",Fibonacci.java,1,3,2
+Public Static Method,"DynamicProgramming.Fibonacci.main",Fibonacci.java,7,1,2
+Public Static Method,"DynamicProgramming.FordFulkerson.main",FordFulkerson.java,4,1,2
+Private Static Method,"DynamicProgramming.FordFulkerson.networkFlow",FordFulkerson.java,17,65,8
+Static Method,"DynamicProgramming.KadaneAlgorithm.largestContiguousSum",KadaneAlgorithm.java,1,6,4
+Public Static Method,"DynamicProgramming.KadaneAlgorithm.main",KadaneAlgorithm.java,5,2,2
+Private Static Method,"DynamicProgramming.Knapsack.knapSack",Knapsack.java,3,10,5
+Public Static Method,"DynamicProgramming.Knapsack.main",Knapsack.java,2,1,2
+Private Static Method,"DynamicProgramming.LevenshteinDistance.calculate_distance",LevenshteinDistance.java,4,16,3
+Public Static Method,"DynamicProgramming.LevenshteinDistance.main",LevenshteinDistance.java,3,1,1
+Private Static Method,"DynamicProgramming.LevenshteinDistance.minimum",LevenshteinDistance.java,1,3,4
+Public Static Method,"DynamicProgramming.LongestCommonSubsequence.getLCS",LongestCommonSubsequence.java,5,18,4
+Public Static Method,"DynamicProgramming.LongestCommonSubsequence.lcsString",LongestCommonSubsequence.java,7,4,4
+Public Static Method,"DynamicProgramming.LongestCommonSubsequence.main",LongestCommonSubsequence.java,3,2,1
+Private Static Method,"DynamicProgramming.LongestIncreasingSubsequence.LIS",LongestIncreasingSubsequence.java,2,5,3
+Public Static Method,"DynamicProgramming.LongestIncreasingSubsequence.main",LongestIncreasingSubsequence.java,5,2,2
+Private Static Method,"DynamicProgramming.LongestIncreasingSubsequence.upperBound",LongestIncreasingSubsequence.java,1,3,5
+Public Static Method,"DynamicProgramming.LongestValidParentheses.getLongestValidParentheses",LongestValidParentheses.java,4,6,3
+Public Static Method,"DynamicProgramming.LongestValidParentheses.main",LongestValidParentheses.java,6,3,2
+Constructor,"DynamicProgramming.Matrix.Matrix",MatrixChainMultiplication.java,4,1,4
+Method,"DynamicProgramming.Matrix.col",MatrixChainMultiplication.java,1,1,2
+Method,"DynamicProgramming.Matrix.count",MatrixChainMultiplication.java,1,1,2
+Method,"DynamicProgramming.Matrix.row",MatrixChainMultiplication.java,1,1,2
+Private Static Method,"DynamicProgramming.MatrixChainMultiplication.input",MatrixChainMultiplication.java,4,1,4
+Public Static Method,"DynamicProgramming.MatrixChainMultiplication.main",MatrixChainMultiplication.java,21,192,7
+Private Static Method,"DynamicProgramming.MatrixChainMultiplication.matrixChainOrder",MatrixChainMultiplication.java,2,10,5
+Private Static Method,"DynamicProgramming.MatrixChainMultiplication.printArray",MatrixChainMultiplication.java,3,3,4
+Private Static Method,"DynamicProgramming.MatrixChainMultiplication.printOptimalParens",MatrixChainMultiplication.java,1,2,5
+Public Static Method,"DynamicProgramming.MinimumPathSum.minimumPathSum",MinimumPathSum.java,2,13,6
+Public Method,"DynamicProgramming.MinimumPathSum.testLessColumns",MinimumPathSum.java,2,1,1
+Public Method,"DynamicProgramming.MinimumPathSum.testLessRows",MinimumPathSum.java,2,1,1
+Public Method,"DynamicProgramming.MinimumPathSum.testOneRowOneColumn",MinimumPathSum.java,2,1,1
+Public Method,"DynamicProgramming.MinimumPathSum.testRegular",MinimumPathSum.java,2,1,1
+Public Static Method,"DynamicProgramming.MinimumSumPartition.getMin",MinimumSumPartition.java,2,3,5
+Public Static Method,"DynamicProgramming.MinimumSumPartition.getSum",MinimumSumPartition.java,1,2,2
+Public Static Method,"DynamicProgramming.MinimumSumPartition.main",MinimumSumPartition.java,1,1,0
+Public Static Method,"DynamicProgramming.MinimumSumPartition.subSet",MinimumSumPartition.java,3,60,3
+Private Static Method,"DynamicProgramming.RodCutting.cutRod",RodCutting.java,2,3,4
+Public Static Method,"DynamicProgramming.RodCutting.main",RodCutting.java,2,1,2
+Public Static Method,"DynamicProgramming.SubsetSum.main",SubsetSum.java,1,1,0
+Private Static Method,"DynamicProgramming.SubsetSum.subsetSum",SubsetSum.java,1,14,4
+Public Method,"Hanoi.(Anon_5).actionPerformed",Hanoi.java,1,1,0
+Constructor,"Hanoi.Hanoi",Hanoi.java,4,1,5
+Public Method,"Hanoi.Hanoi.(Anon_1).actionPerformed",Hanoi.java,1,1,0
+Public Method,"Hanoi.Hanoi.(Anon_2).actionPerformed",Hanoi.java,1,1,0
+Public Method,"Hanoi.Hanoi.(Anon_3).actionPerformed",Hanoi.java,2,1,0
+Public Method,"Hanoi.Hanoi.(Anon_4).actionPerformed",Hanoi.java,3,2,3
+Public Method,"Hanoi.initialize",Hanoi.java,8,1,6
+Public Static Method,"Hanoi.main",Hanoi.java,4,1,1
+Public Method,"Hanoi.paint",Hanoi.java,7,16,4
+Public Method,"Hanoi.startGame",Hanoi.java,10,2,6
+Public Method,"Hanoi.towerOfHanoi",Hanoi.java,6,2,7
+Public Method,"Hanoi.updateStacks",Hanoi.java,9,37,8
+Public Constructor,"Kruskal.Edge.Edge",Kruskal.java,4,1,4
+Private Static Method,"Kruskal.addEdge",Kruskal.java,2,1,6
+Public Method,"Kruskal.kruskal",Kruskal.java,13,6,8
+Lambda Method,"Kruskal.kruskal.(lambda_expr_1)",Kruskal.java,1,1,2
+Lambda Method,"Kruskal.kruskal.(lambda_expr_2)",Kruskal.java,1,1,2
+Public Static Method,"Kruskal.main",Kruskal.java,4,18,4
+Public Static Method,"Maths.AbsoluteMax.absMax",AbsoluteMax.java,2,3,3
+Public Static Method,"Maths.AbsoluteMax.main",AbsoluteMax.java,3,1,1
+Public Static Method,"Maths.AbsoluteMin.absMin",AbsoluteMin.java,2,3,3
+Public Static Method,"Maths.AbsoluteMin.main",AbsoluteMin.java,3,1,1
+Public Static Method,"Maths.AbsoluteValue.absVal",AbsoluteValue.java,1,1,2
+Public Static Method,"Maths.AbsoluteValue.main",AbsoluteValue.java,4,2,0
+Public Static Method,"Maths.AliquotSum.aliquotSum",AliquotSum.java,1,3,2
+Public Static Method,"Maths.AliquotSum.main",AliquotSum.java,1,1,0
+Static Method,"Maths.AmicableNumber.findAllInRange",AmicableNumber.java,6,4,4
+Static Method,"Maths.AmicableNumber.isAmicableNumber",AmicableNumber.java,2,1,3
+Public Static Method,"Maths.AmicableNumber.main",AmicableNumber.java,1,1,0
+Static Method,"Maths.AmicableNumber.recursiveCalcOfDividerSum",AmicableNumber.java,1,3,3
+Public Static Method,"Maths.Area.main",Area.java,9,1,0
+Private Static Method,"Maths.Area.surfaceAreaCircle",Area.java,1,1,3
+Private Static Method,"Maths.Area.surfaceAreaCube",Area.java,1,1,2
+Private Static Method,"Maths.Area.surfaceAreaParallelogram",Area.java,1,1,3
+Private Static Method,"Maths.Area.surfaceAreaRectangle",Area.java,1,1,3
+Private Static Method,"Maths.Area.surfaceAreaSphere",Area.java,1,1,3
+Private Static Method,"Maths.Area.surfaceAreaSquare",Area.java,1,1,2
+Private Static Method,"Maths.Area.surfaceAreaTrapezium",Area.java,1,1,4
+Private Static Method,"Maths.Area.surfaceAreaTriangle",Area.java,1,1,3
+Private Static Method,"Maths.Armstrong.isArmStrong",Armstrong.java,1,6,2
+Public Static Method,"Maths.Armstrong.main",Armstrong.java,1,1,0
+Public Static Method,"Maths.Average.average",Average.java,1,2,3
+Public Static Method,"Maths.Average.average",Average.java,1,2,3
+Public Static Method,"Maths.Average.main",Average.java,3,1,1
+Public Static Method,"Maths.BinaryPow.binPow",BinaryPow.java,1,3,3
+Public Static Method,"Maths.BinaryPow.main",BinaryPow.java,1,1,0
+Public Static Method,"Maths.BinaryPow.test",BinaryPow.java,3,1,4
+Public Static Method,"Maths.Ceil.ceil",Ceil.java,1,3,2
+Public Static Method,"Maths.Ceil.main",Ceil.java,4,2,0
+Public Static Method,"Maths.Combinations.combinations",Combinations.java,2,1,3
+Public Static Method,"Maths.Combinations.factorial",Combinations.java,2,2,2
+Public Static Method,"Maths.Combinations.main",Combinations.java,1,1,0
+Public Static Method,"Maths.Factorial.factorial",Factorial.java,2,4,2
+Public Static Method,"Maths.Factorial.main",Factorial.java,1,1,0
+Public Static Method,"Maths.FactorialRecursion.factorial",FactorialRecursion.java,2,2,2
+Public Static Method,"Maths.FactorialRecursion.main",FactorialRecursion.java,1,1,0
+Public Static Method,"Maths.FibonacciNumber.isFibonacciNumber",FibonacciNumber.java,2,1,2
+Public Static Method,"Maths.FibonacciNumber.isPerfectSquare",FibonacciNumber.java,2,1,2
+Public Static Method,"Maths.FibonacciNumber.main",FibonacciNumber.java,1,1,0
+Public Static Method,"Maths.FindMax.findMax",FindMax.java,1,3,3
+Public Static Method,"Maths.FindMax.main",FindMax.java,7,2,0
+Public Static Method,"Maths.FindMaxRecursion.main",FindMaxRecursion.java,8,2,1
+Public Static Method,"Maths.FindMaxRecursion.max",FindMaxRecursion.java,2,2,4
+Public Static Method,"Maths.FindMaxRecursion.max",FindMaxRecursion.java,2,1,3
+Public Static Method,"Maths.FindMin.findMin",FindMin.java,1,3,3
+Public Static Method,"Maths.FindMin.main",FindMin.java,7,2,0
+Public Static Method,"Maths.FindMinRecursion.main",FindMinRecursion.java,8,2,1
+Public Static Method,"Maths.FindMinRecursion.min",FindMinRecursion.java,2,2,4
+Public Static Method,"Maths.FindMinRecursion.min",FindMinRecursion.java,2,1,3
+Public Static Method,"Maths.Floor.floor",Floor.java,1,3,2
+Public Static Method,"Maths.Floor.main",Floor.java,4,2,0
+Public Static Method,"Maths.GCD.gcd",GCD.java,3,6,4
+Public Static Method,"Maths.GCD.gcd",GCD.java,2,2,3
+Public Static Method,"Maths.GCD.main",GCD.java,4,1,1
+Public Static Method,"Maths.GCDRecursion.gcd",GCDRecursion.java,3,6,3
+Public Static Method,"Maths.GCDRecursion.main",GCDRecursion.java,2,1,1
+Public Static Method,"Maths.LucasSeries.lucasSeries",LucasSeries.java,1,1,2
+Public Static Method,"Maths.LucasSeries.lucasSeriesIteration",LucasSeries.java,1,2,2
+Public Static Method,"Maths.LucasSeries.main",LucasSeries.java,2,1,0
+Public Static Method,"Maths.MaxValue.main",MaxValue.java,4,2,0
+Public Static Method,"Maths.MaxValue.max",MaxValue.java,1,1,3
+Public Static Method,"Maths.Median.main",Median.java,1,1,0
+Public Static Method,"Maths.Median.median",Median.java,2,1,3
+Public Static Method,"Maths.MinValue.main",MinValue.java,4,2,0
+Public Static Method,"Maths.MinValue.min",MinValue.java,1,1,3
+Public Static Method,"Maths.Mode.main",Mode.java,2,1,0
+Public Static Method,"Maths.Mode.mode",Mode.java,13,10,4
+Lambda Method,"Maths.Mode.mode.(lambda_expr_1)",Mode.java,1,1,1
+Public Static Method,"Maths.NumberOfDigits.main",NumberOfDigits.java,4,2,1
+Private Static Method,"Maths.NumberOfDigits.numberOfDigits",NumberOfDigits.java,1,1,2
+Private Static Method,"Maths.NumberOfDigits.numberOfDigitsFast",NumberOfDigits.java,4,1,2
+Private Static Method,"Maths.NumberOfDigits.numberOfDigitsFaster",NumberOfDigits.java,2,1,2
+Private Static Method,"Maths.NumberOfDigits.numberOfDigitsRecursion",NumberOfDigits.java,1,1,2
+Public Static Method,"Maths.PalindromeNumber.isPalindrome",PalindromeNumber.java,2,4,2
+Public Static Method,"Maths.PalindromeNumber.main",PalindromeNumber.java,1,1,0
+Public Static Method,"Maths.ParseInteger.main",ParseInteger.java,2,1,0
+Public Static Method,"Maths.ParseInteger.parseInt",ParseInteger.java,5,6,2
+Public Static Method,"Maths.PerfectCube.isPerfectCube",PerfectCube.java,2,1,2
+Public Static Method,"Maths.PerfectCube.main",PerfectCube.java,1,1,0
+Public Static Method,"Maths.PerfectNumber.isPerfectNumber",PerfectNumber.java,1,3,2
+Public Static Method,"Maths.PerfectNumber.main",PerfectNumber.java,1,1,0
+Public Static Method,"Maths.PerfectSquare.isPerfectSquare",PerfectSquare.java,2,1,2
+Public Static Method,"Maths.PerfectSquare.main",PerfectSquare.java,1,1,0
+Public Static Method,"Maths.Pow.main",Pow.java,2,1,0
+Public Static Method,"Maths.Pow.pow",Pow.java,1,2,3
+Public Static Method,"Maths.PowRecursion.main",PowRecursion.java,3,1,0
+Public Static Method,"Maths.PowRecursion.pow",PowRecursion.java,1,1,3
+Public Static Method,"Maths.PowerOfTwoOrNot.checkIfPowerOfTwoOrNot",PowerOfTwoOrNot.java,1,1,2
+Public Static Method,"Maths.PowerOfTwoOrNot.main",PowerOfTwoOrNot.java,1,1,0
+Public Static Method,"Maths.PrimeCheck.isPrime",PrimeCheck.java,2,5,2
+Public Static Method,"Maths.PrimeCheck.main",PrimeCheck.java,6,2,2
+Public Static Method,"Maths.PrimeFactorization.main",PrimeFactorization.java,6,1,2
+Public Static Method,"Maths.PrimeFactorization.pfactors",PrimeFactorization.java,3,12,3
+Public Static Method,"Maths.PythagoreanTriple.isPythagTriple",PythagoreanTriple.java,1,2,4
+Public Static Method,"Maths.PythagoreanTriple.main",PythagoreanTriple.java,1,1,0
+Public Static Method,"Maths.SumOfArithmeticSeries.main",SumOfArithmeticSeries.java,2,1,0
+Private Static Method,"Maths.SumOfArithmeticSeries.sumOfSeries",SumOfArithmeticSeries.java,1,1,4
+Public Static Method,"Maths.SumOfDigits.main",SumOfDigits.java,3,1,0
+Public Static Method,"Maths.SumOfDigits.sumOfDigits",SumOfDigits.java,1,2,2
+Public Static Method,"Maths.SumOfDigits.sumOfDigitsFast",SumOfDigits.java,2,2,3
+Public Static Method,"Maths.SumOfDigits.sumOfDigitsRecursion",SumOfDigits.java,1,1,2
+Static Method,"Maths.VampireNumber.isVampireNumber",VampireNumber.java,3,3,4
+Public Static Method,"Maths.VampireNumber.main",VampireNumber.java,1,1,0
+Static Method,"Maths.VampireNumber.splitIntoDigits",VampireNumber.java,7,8,3
+Static Method,"Maths.VampireNumber.test",VampireNumber.java,4,4,4
+Public Constructor,"MinimizingLateness.MinimizingLateness.Schedule.Schedule",MinimizingLateness.java,3,1,3
+Public Static Method,"MinimizingLateness.MinimizingLateness.main",MinimizingLateness.java,15,5,3
+Public Constructor,"Misc.MedianOfRunningArray.MedianOfRunningArray",MedianOfRunningArray.java,6,1,1
+Public Method,"Misc.MedianOfRunningArray.insert",MedianOfRunningArray.java,3,2,4
+Public Static Method,"Misc.MedianOfRunningArray.main",MedianOfRunningArray.java,4,2,1
+Public Method,"Misc.MedianOfRunningArray.median",MedianOfRunningArray.java,3,2,3
+Public Static Method,"Misc.PalindromePrime.functioning",PalindromePrime.java,3,4,3
+Public Static Method,"Misc.PalindromePrime.main",PalindromePrime.java,5,1,2
+Public Static Method,"Misc.PalindromePrime.prime",PalindromePrime.java,2,3,2
+Public Static Method,"Misc.PalindromePrime.reverse",PalindromePrime.java,1,2,2
+Public Static Method,"Misc.RangeInSortedArray.alteredBinSearch",RangeInSortedArray.java,1,7,7
+Public Static Method,"Misc.RangeInSortedArray.alteredBinSearchIter",RangeInSortedArray.java,1,7,7
+Public Static Method,"Misc.RangeInSortedArray.getCountLessThan",RangeInSortedArray.java,2,1,3
+Public Static Method,"Misc.RangeInSortedArray.getLessThan",RangeInSortedArray.java,1,4,5
+Public Static Method,"Misc.RangeInSortedArray.main",RangeInSortedArray.java,2,1,0
+Public Static Method,"Misc.RangeInSortedArray.sortedRange",RangeInSortedArray.java,2,1,4
+Static Method,"Others.BestFit.bestFit",BestFit.java,5,3,3
+Private Static Method,"Others.BestFit.findBestFit",BestFit.java,2,3,5
+Private Static Method,"Others.BestFit.findMaxElement",BestFit.java,1,3,2
+Public Static Method,"Others.BestFit.printMemoryAllocation",BestFit.java,6,3,3
+Static Method,"Others.BrianKernighanAlgorithm.countSetBits",BrianKernighanAlgorithm.java,1,2,2
+Public Static Method,"Others.BrianKernighanAlgorithm.main",BrianKernighanAlgorithm.java,5,1,2
+Public Static Method,"Others.CRC32.crc32",CRC32.java,3,1,2
+Public Static Method,"Others.CRC32.crc32",CRC32.java,4,3,3
+Public Static Method,"Others.CRC32.main",CRC32.java,3,1,1
+Public Constructor,"Others.CRCAlgorithm.CRCAlgorithm",CRCAlgorithm.java,18,2,4
+Public Method,"Others.CRCAlgorithm.changeMess",CRCAlgorithm.java,5,14,4
+Public Method,"Others.CRCAlgorithm.divideMessageWithP",CRCAlgorithm.java,13,270,5
+Public Method,"Others.CRCAlgorithm.generateRandomMess",CRCAlgorithm.java,3,2,2
+Public Method,"Others.CRCAlgorithm.getCorrectMess",CRCAlgorithm.java,1,1,1
+Public Method,"Others.CRCAlgorithm.getWrongMess",CRCAlgorithm.java,1,1,1
+Public Method,"Others.CRCAlgorithm.getWrongMessCaught",CRCAlgorithm.java,1,1,1
+Public Method,"Others.CRCAlgorithm.getWrongMessNotCaught",CRCAlgorithm.java,1,1,1
+Public Method,"Others.CRCAlgorithm.refactor",CRCAlgorithm.java,4,1,0
+Private Static Method,"Others.CountChar.CountCharacters",CountChar.java,3,1,2
+Public Static Method,"Others.CountChar.main",CountChar.java,6,1,2
+Public Static Method,"Others.CountWords.main",CountWords.java,6,1,2
+Private Static Method,"Others.CountWords.secondaryWordCount",CountWords.java,10,4,3
+Private Static Method,"Others.CountWords.wordCount",CountWords.java,4,2,3
+Public Static Method,"Others.Dijkstra.main",Dijkstra.java,3,1,3
+Public Static Method,"Others.EulersFunction.getEuler",EulersFunction.java,1,8,2
+Public Static Method,"Others.EulersFunction.main",EulersFunction.java,2,2,1
+Public Static Method,"Others.FibToN.main",FibToN.java,4,2,2
+Private Static Method,"Others.FirstFit.findFirstFit",FirstFit.java,1,3,5
+Static Method,"Others.FirstFit.firstFit",FirstFit.java,5,3,3
+Public Static Method,"Others.FirstFit.printMemoryAllocation",FirstFit.java,6,3,3
+Public Static Method,"Others.FloydTriangle.main",FloydTriangle.java,6,3,2
+Public Constructor,"Others.Graph.Edge.Edge",Dijkstra.java,4,1,3
+Public Constructor,"Others.Graph.Graph",Dijkstra.java,7,10,8
+Public Constructor,"Others.Graph.Vertex.Vertex",Dijkstra.java,2,1,2
+Public Method,"Others.Graph.Vertex.compareTo",Dijkstra.java,3,2,3
+Public Method,"Others.Graph.Vertex.equals",Dijkstra.java,5,8,5
+Public Method,"Others.Graph.Vertex.hashCode",Dijkstra.java,4,1,4
+Private Method,"Others.Graph.Vertex.printPath",Dijkstra.java,1,3,6
+Public Method,"Others.Graph.Vertex.toString",Dijkstra.java,1,1,2
+Public Method,"Others.Graph.dijkstra",Dijkstra.java,9,3,5
+Private Method,"Others.Graph.dijkstra",Dijkstra.java,9,7,5
+Public Method,"Others.Graph.printAllPaths",Dijkstra.java,3,2,2
+Public Method,"Others.Graph.printPath",Dijkstra.java,5,2,5
+Public Static Method,"Others.GuassLegendre.main",GuassLegendre.java,2,2,1
+Static Method,"Others.GuassLegendre.pi",GuassLegendre.java,3,2,2
+Static Method,"Others.GuassLegendre.update",GuassLegendre.java,3,1,5
+Public Static Method,"Others.InsertDeleteInArray.main",InsertDeleteInArray.java,5,48,2
+Public Static Method,"Others.KMP.KMPmatcher",KMP.java,4,9,4
+Private Static Method,"Others.KMP.computePrefixFunction",KMP.java,3,5,2
+Public Static Method,"Others.KMP.main",KMP.java,1,1,0
+Static Method,"Others.Krishnamurthy.fact",Krishnamurthy.java,1,2,2
+Public Static Method,"Others.Krishnamurthy.main",Krishnamurthy.java,5,4,2
+Public Constructor,"Others.LinearCongruentialGenerator.LinearCongruentialGenerator",LinearCongruentialGenerator.java,3,1,4
+Public Constructor,"Others.LinearCongruentialGenerator.LinearCongruentialGenerator",LinearCongruentialGenerator.java,5,1,5
+Public Static Method,"Others.LinearCongruentialGenerator.main",LinearCongruentialGenerator.java,4,2,1
+Public Method,"Others.LinearCongruentialGenerator.nextNumber",LinearCongruentialGenerator.java,2,1,5
+Private Static Method,"Others.LowestBasePalindrome.base2base",LowestBasePalindrome.java,4,9,4
+Public Static Method,"Others.LowestBasePalindrome.lowestBasePalindrome",LowestBasePalindrome.java,5,8,2
+Public Static Method,"Others.LowestBasePalindrome.main",LowestBasePalindrome.java,9,3,2
+Private Static Method,"Others.LowestBasePalindrome.reverse",LowestBasePalindrome.java,3,2,2
+Static Method,"Others.PasswordGen.generatePassword",PasswordGen.java,12,4,3
+Public Static Method,"Others.PasswordGen.main",PasswordGen.java,2,1,1
+Static Method,"Others.PerlinNoise.generatePerlinNoise",PerlinNoise.java,4,72,6
+Static Method,"Others.PerlinNoise.generatePerlinNoiseLayer",PerlinNoise.java,2,3,5
+Static Method,"Others.PerlinNoise.interpolate",PerlinNoise.java,1,1,4
+Public Static Method,"Others.PerlinNoise.main",PerlinNoise.java,11,5,3
+Public Static Method,"Others.QueueUsingTwoStacks.main",QueueUsingTwoStacks.java,8,1,1
+Public Constructor,"Others.QueueWithStack.QueueWithStack",QueueUsingTwoStacks.java,4,1,1
+Public Method,"Others.QueueWithStack.insert",QueueUsingTwoStacks.java,1,1,3
+Public Method,"Others.QueueWithStack.isEmpty",QueueUsingTwoStacks.java,2,1,3
+Public Method,"Others.QueueWithStack.peekBack",QueueUsingTwoStacks.java,2,1,2
+Public Method,"Others.QueueWithStack.peekFront",QueueUsingTwoStacks.java,5,3,3
+Public Method,"Others.QueueWithStack.remove",QueueUsingTwoStacks.java,4,3,3
+Public Static Method,"Others.RemoveDuplicateFromString.main",RemoveDuplicateFromString.java,6,1,2
+Public Static Method,"Others.RemoveDuplicateFromString.removeDuplicate",RemoveDuplicateFromString.java,9,4,2
+Public Static Method,"Others.ReturnSubsequence.main",ReturnSubsequence.java,5,2,3
+Private Static Method,"Others.ReturnSubsequence.returnSubsequence",ReturnSubsequence.java,4,5,3
+Private Static Method,"Others.ReverseStackUsingRecursion.insertAtEnd",ReverseStackUsingRecursion.java,4,2,3
+Public Static Method,"Others.ReverseStackUsingRecursion.main",ReverseStackUsingRecursion.java,7,8,2
+Private Static Method,"Others.ReverseStackUsingRecursion.reverseUsingRecursion",ReverseStackUsingRecursion.java,4,2,2
+Public Static Method,"Others.RootPrecision.main",RootPrecision.java,5,1,2
+Public Static Method,"Others.RootPrecision.squareRoot",RootPrecision.java,2,1,3
+Public Static Method,"Others.SJF.main",SJF.java,3,1,0
+Constructor,"Others.Schedule.Schedule",SJF.java,24,3,8
+Public Method,"Others.Schedule.ageing",SJF.java,4,3,5
+Method,"Others.Schedule.removeFinishedProcess",SJF.java,7,6,4
+Public Method,"Others.Schedule.solve",SJF.java,6,4,9
+Method,"Others.Schedule.startScheduling",SJF.java,11,3,6
+Public Method,"Others.Schedule.startScheduling.(Anon_1).compare",SJF.java,1,1,3
+Public Method,"Others.Schedule.startScheduling.(Anon_2).compare",SJF.java,1,1,6
+Public Method,"Others.Schedule.timeElapsed",SJF.java,5,2,6
+Public Static Method,"Others.SieveOfEratosthenes.findPrimesTillN",SieveOfEratosthenes.java,3,24,3
+Public Static Method,"Others.SieveOfEratosthenes.main",SieveOfEratosthenes.java,1,1,0
+Public Constructor,"Others.SkylineProblem.Building.Building",SkylineProblem.java,4,1,4
+Public Constructor,"Others.SkylineProblem.Skyline.Skyline",SkylineProblem.java,3,1,4
+Public Method,"Others.SkylineProblem.add",SkylineProblem.java,3,1,5
+Public Method,"Others.SkylineProblem.findSkyline",SkylineProblem.java,5,2,7
+Public Static Method,"Others.SkylineProblem.main",SkylineProblem.java,1,1,0
+Public Method,"Others.SkylineProblem.mergeSkyline",SkylineProblem.java,7,28,5
+Public Method,"Others.SkylineProblem.print",SkylineProblem.java,4,3,5
+Public Method,"Others.SkylineProblem.run",SkylineProblem.java,10,2,2
+Public Static Method,"Others.StackPostfixNotation.main",StackPostfixNotation.java,5,1,2
+Public Static Method,"Others.StackPostfixNotation.postfixEvaluate",StackPostfixNotation.java,11,6,2
+Public Static Method,"Others.ThreeSum.main",ThreeSum.java,5,10,2
+Public Constructor,"Others.TopKWords.CountWords.CountWords",TopKWords.java,2,1,2
+Public Method,"Others.TopKWords.CountWords.getDictionary",TopKWords.java,11,8,4
+Public Static Method,"Others.TopKWords.main",TopKWords.java,13,4,3
+Lambda Method,"Others.TopKWords.main.(lambda_expr_1)",TopKWords.java,2,1,1
+Public Static Method,"Others.TowerOfHanoi.main",TowerOfHanoi.java,5,1,2
+Public Static Method,"Others.TowerOfHanoi.shift",TowerOfHanoi.java,1,2,6
+Private Static Method,"Others.TwoPointers.isPairedSum",TwoPointers.java,2,4,4
+Public Static Method,"Others.TwoPointers.main",TwoPointers.java,1,1,0
+Private Static Method,"Others.WorstFit.findWorstFit",WorstFit.java,1,6,5
+Public Static Method,"Others.WorstFit.printMemoryAllocation",WorstFit.java,6,3,3
+Static Method,"Others.WorstFit.worstFit",WorstFit.java,5,3,3
+Public Static Method,"ProjectEuler.Problem01.main",Problem01.java,2,2,0
+Private Static Method,"ProjectEuler.Problem01.solution1",Problem01.java,1,3,2
+Private Static Method,"ProjectEuler.Problem01.solution2",Problem01.java,1,1,2
+Public Static Method,"ProjectEuler.Problem02.main",Problem02.java,1,2,0
+Private Static Method,"ProjectEuler.Problem02.solution1",Problem02.java,1,3,2
+Public Static Method,"ProjectEuler.Problem03.isPrime",Problem03.java,2,5,2
+Public Static Method,"ProjectEuler.Problem03.main",Problem03.java,1,2,0
+Static Method,"ProjectEuler.Problem03.maxPrimeFactor",Problem03.java,2,4,2
+Public Static Method,"ProjectEuler.Problem04.main",Problem04.java,1,1,0
+Private Static Method,"ProjectEuler.Problem04.solution1",Problem04.java,7,5,2
+Public Static Method,"ProjectEuler.Problem06.main",Problem06.java,2,2,0
+Private Static Method,"ProjectEuler.Problem06.solution1",Problem06.java,1,2,2
+Private Static Method,"ProjectEuler.Problem06.solutions2",Problem06.java,2,1,2
+Private Static Method,"ProjectEuler.Problem07.isPrime",Problem07.java,2,5,2
+Public Static Method,"ProjectEuler.Problem07.main",Problem07.java,1,2,0
+Private Static Method,"ProjectEuler.Problem07.solution1",Problem07.java,2,3,2
+Public Static Method,"ProjectEuler.Problem09.main",Problem09.java,1,1,0
+Private Static Method,"ProjectEuler.Problem09.solution1",Problem09.java,1,4,1
+Private Static Method,"ProjectEuler.Problem10.isPrime",Problem10.java,2,5,2
+Public Static Method,"ProjectEuler.Problem10.main",Problem10.java,1,2,0
+Private Static Method,"ProjectEuler.Problem10.solution1",Problem10.java,2,3,2
+Public Static Method,"ProjectEuler.Problem12.main",Problem12.java,1,1,0
+Public Static Method,"ProjectEuler.Problem12.solution1",Problem12.java,3,4,2
+Public Static Method,"ProjectEuler.Problem12.triangleNumber",Problem12.java,1,2,2
+Public Static Method,"RabinKarp.main",RabinKarp.java,5,1,3
+Private Static Method,"RabinKarp.searchPat",RabinKarp.java,4,44,6
+Public Generic Method,"Searches.BinarySearch.find",BinarySearch.java,2,1,4
+Public Static Method,"Searches.BinarySearch.main",BinarySearch.java,11,1,2
+Lambda Method,"Searches.BinarySearch.main.(lambda_expr_1)",BinarySearch.java,2,1,0
+Private Generic Method,"Searches.BinarySearch.search",BinarySearch.java,2,4,5
+Public Method,"Searches.InterpolationSearch.find",InterpolationSearch.java,1,4,4
+Public Static Method,"Searches.InterpolationSearch.main",InterpolationSearch.java,10,1,2
+Lambda Method,"Searches.InterpolationSearch.main.(lambda_expr_1)",InterpolationSearch.java,2,1,0
+Public Generic Method,"Searches.IterativeBinarySearch.find",IterativeBinarySearch.java,2,4,4
+Public Static Method,"Searches.IterativeBinarySearch.main",IterativeBinarySearch.java,10,1,2
+Lambda Method,"Searches.IterativeBinarySearch.main.(lambda_expr_1)",IterativeBinarySearch.java,2,1,0
+Public Generic Method,"Searches.IterativeTernarySearch.find",IterativeTernarySearch.java,2,5,4
+Public Static Method,"Searches.IterativeTernarySearch.main",IterativeTernarySearch.java,10,1,2
+Lambda Method,"Searches.IterativeTernarySearch.main.(lambda_expr_1)",IterativeTernarySearch.java,2,1,0
+Public Generic Method,"Searches.JumpSearch.find",JumpSearch.java,4,6,4
+Public Static Method,"Searches.JumpSearch.main",JumpSearch.java,1,2,1
+Public Generic Method,"Searches.LinearSearch.find",LinearSearch.java,2,3,4
+Public Static Method,"Searches.LinearSearch.main",LinearSearch.java,8,1,2
+Lambda Method,"Searches.LinearSearch.main.(lambda_expr_1)",LinearSearch.java,2,1,0
+Static Method,"Searches.PerfectBinarySearch.binarySearch",PerfectBinarySearch.java,1,4,4
+Public Static Method,"Searches.PerfectBinarySearch.main",PerfectBinarySearch.java,1,1,0
+Private Static Method,"Searches.SaddlebackSearch.find",SaddlebackSearch.java,1,4,6
+Public Static Method,"Searches.SaddlebackSearch.main",SaddlebackSearch.java,5,3,2
+Abstract Generic Method,"Searches.SearchAlgorithm.find",SearchAlgorithm.java,1,0,0
+Public Generic Method,"Searches.TernarySearch.find",TernarySearch.java,2,1,4
+Public Static Method,"Searches.TernarySearch.main",TernarySearch.java,10,1,2
+Lambda Method,"Searches.TernarySearch.main.(lambda_expr_1)",TernarySearch.java,2,1,0
+Private Generic Method,"Searches.TernarySearch.ternarySearch",TernarySearch.java,2,6,5
+Method,"Sorts.BitonicSort.bitonicMerge",BitonicSort.java,1,3,5
+Method,"Sorts.BitonicSort.bitonicSort",BitonicSort.java,1,2,5
+Method,"Sorts.BitonicSort.compAndSwap",BitonicSort.java,1,2,5
+Public Static Method,"Sorts.BitonicSort.main",BitonicSort.java,3,1,2
+Static Method,"Sorts.BitonicSort.printArray",BitonicSort.java,2,2,4
+Method,"Sorts.BitonicSort.sort",BitonicSort.java,1,1,4
+Private Static Generic Method,"Sorts.BogoSort.isSorted",BogoSort.java,2,3,3
+Public Static Method,"Sorts.BogoSort.main",BogoSort.java,2,1,0
+Private Static Generic Method,"Sorts.BogoSort.nextPermutation",BogoSort.java,2,2,4
+Public Generic Method,"Sorts.BogoSort.sort",BogoSort.java,3,2,2
+Public Static Method,"Sorts.BubbleSort.main",BubbleSort.java,3,4,1
+Public Generic Method,"Sorts.BubbleSort.sort",BubbleSort.java,3,7,3
+Private Static Generic Method,"Sorts.BubbleSortRecursion.bubbleSort",BubbleSortRecursion.java,2,6,3
+Public Static Method,"Sorts.BubbleSortRecursion.main",BubbleSortRecursion.java,4,4,1
+Public Generic Method,"Sorts.BubbleSortRecursion.sort",BubbleSortRecursion.java,2,1,3
+Private Static Method,"Sorts.BucketSort.bucketSort",BucketSort.java,9,24,2
+Private Static Method,"Sorts.BucketSort.hash",BucketSort.java,1,1,4
+Public Static Method,"Sorts.BucketSort.main",BucketSort.java,3,4,1
+Public Static Method,"Sorts.BucketSort.max",BucketSort.java,1,3,2
+Public Static Method,"Sorts.BucketSort.min",BucketSort.java,1,3,2
+Public Static Method,"Sorts.CocktailShakerSort.main",CocktailShakerSort.java,2,1,0
+Public Generic Method,"Sorts.CocktailShakerSort.sort",CocktailShakerSort.java,3,10,3
+Public Static Method,"Sorts.CombSort.main",CombSort.java,3,1,1
+Private Method,"Sorts.CombSort.nextGap",CombSort.java,1,1,2
+Public Generic Method,"Sorts.CombSort.sort",CombSort.java,4,4,3
+Public Static Method,"Sorts.CountingSort.main",CountingSort.java,7,1,1
+Public Generic Method,"Sorts.CountingSort.sort",CountingSort.java,4,1,1
+Public Generic Method,"Sorts.CountingSort.sort",CountingSort.java,9,3,4
+Lambda Method,"Sorts.CountingSort.sort.(lambda_expr_1)",CountingSort.java,3,1,1
+Private Static Generic Method,"Sorts.CountingSort.streamSort",CountingSort.java,9,1,6
+Lambda Method,"Sorts.CountingSort.streamSort.(lambda_expr_1)",CountingSort.java,1,1,1
+Lambda Method,"Sorts.CountingSort.streamSort.(lambda_expr_2)",CountingSort.java,1,1,0
+Lambda Method,"Sorts.CountingSort.streamSort.(lambda_expr_3)",CountingSort.java,1,1,2
+Lambda Method,"Sorts.CountingSort.streamSort.(lambda_expr_4)",CountingSort.java,4,1,2
+Lambda Method,"Sorts.CountingSort.streamSort.(lambda_expr_4).(lambda_expr_5)",CountingSort.java,2,1,1
+Public Static Method,"Sorts.CycleSort.main",CycleSort.java,3,1,1
+Private Generic Method,"Sorts.CycleSort.replace",CycleSort.java,2,1,4
+Public Generic Method,"Sorts.CycleSort.sort",CycleSort.java,4,313,3
+Public Static Method,"Sorts.GnomeSort.main",GnomeSort.java,3,1,1
+Public Generic Method,"Sorts.GnomeSort.sort",GnomeSort.java,3,4,3
+Public Constructor,"Sorts.HeapSort.Heap.Heap",HeapSort.java,2,1,2
+Private Method,"Sorts.HeapSort.Heap.getRoot",HeapSort.java,3,1,3
+Private Method,"Sorts.HeapSort.Heap.heapSubtree",HeapSort.java,2,6,5
+Private Method,"Sorts.HeapSort.Heap.makeMinHeap",HeapSort.java,1,3,4
+Public Static Method,"Sorts.HeapSort.main",HeapSort.java,2,1,0
+Public Generic Method,"Sorts.HeapSort.sort",HeapSort.java,4,1,2
+Public Generic Method,"Sorts.HeapSort.sort",HeapSort.java,8,2,2
+Public Static Method,"Sorts.InsertionSort.main",InsertionSort.java,2,1,0
+Public Generic Method,"Sorts.InsertionSort.sort",InsertionSort.java,3,3,3
+Private Static Generic Method,"Sorts.MergeSort.doSort",MergeSort.java,1,2,4
+Public Static Method,"Sorts.MergeSort.main",MergeSort.java,2,1,0
+Private Static Generic Method,"Sorts.MergeSort.merge",MergeSort.java,2,12,5
+Public Generic Method,"Sorts.MergeSort.sort",MergeSort.java,2,1,3
+Public Static Method,"Sorts.PancakeSort.main",PancakeSort.java,3,1,1
+Public Generic Method,"Sorts.PancakeSort.sort",PancakeSort.java,3,4,3
+Private Static Generic Method,"Sorts.QuickSort.doSort",QuickSort.java,1,2,4
+Public Static Method,"Sorts.QuickSort.main",QuickSort.java,2,1,0
+Private Static Generic Method,"Sorts.QuickSort.partition",QuickSort.java,3,9,4
+Private Static Generic Method,"Sorts.QuickSort.randomPartition",QuickSort.java,4,1,4
+Public Generic Method,"Sorts.QuickSort.sort",QuickSort.java,2,1,3
+Private Static Method,"Sorts.RadixSort.countSort",RadixSort.java,2,16,4
+Private Static Method,"Sorts.RadixSort.getMax",RadixSort.java,1,3,3
+Public Static Method,"Sorts.RadixSort.main",RadixSort.java,2,1,1
+Static Method,"Sorts.RadixSort.print",RadixSort.java,1,2,4
+Private Static Method,"Sorts.RadixSort.radixsort",RadixSort.java,2,2,3
+Public Static Method,"Sorts.SelectionSort.main",SelectionSort.java,2,1,0
+Public Generic Method,"Sorts.SelectionSort.sort",SelectionSort.java,3,7,3
+Public Generic Method,"Sorts.SelectionSort.swap",SelectionSort.java,1,1,4
+Public Static Method,"Sorts.ShellSort.main",ShellSort.java,2,2,1
+Public Generic Method,"Sorts.ShellSort.sort",ShellSort.java,3,8,3
+Generic Method,"Sorts.SortAlgorithm.sort",SortAlgorithm.java,5,1,1
+Abstract Generic Method,"Sorts.SortAlgorithm.sort",SortAlgorithm.java,1,0,1
+Static Generic Method,"Sorts.SortUtils.flip",SortUtils.java,1,2,4
+Static Generic Method,"Sorts.SortUtils.greater",SortUtils.java,2,1,4
+Static Generic Method,"Sorts.SortUtils.less",SortUtils.java,2,1,12
+Static Method,"Sorts.SortUtils.print",SortUtils.java,4,1,6
+Static Method,"Sorts.SortUtils.print",SortUtils.java,2,1,15
+Lambda Method,"Sorts.SortUtils.print.(lambda_expr_1)",SortUtils.java,2,1,1
+Static Generic Method,"Sorts.SortUtils.swap",SortUtils.java,2,1,14
+Public Static Method,"StringMatchFiniteAutomata.computeFA",StringMatchFiniteAutomata.java,2,3,4
+Public Static Method,"StringMatchFiniteAutomata.getNextState",StringMatchFiniteAutomata.java,2,8,5
+Public Static Method,"StringMatchFiniteAutomata.main",StringMatchFiniteAutomata.java,6,1,3
+Public Static Method,"StringMatchFiniteAutomata.searchPat",StringMatchFiniteAutomata.java,5,3,6
+Public Constructor,"Trie.Trie",WordBoggle.java,3,1,1
+Public Method,"Trie.add",WordBoggle.java,6,3,5
+Public Static Method,"WordBoggle.boggleBoard",WordBoggle.java,6,6,5
+Public Static Method,"WordBoggle.explore",WordBoggle.java,5,6,9
+Public Static Method,"WordBoggle.getNeighbors",WordBoggle.java,3,256,5
+Public Static Method,"WordBoggle.main",WordBoggle.java,4,1,0
+Public Static Method,"ciphers.AES.addRoundKey",AES.java,2,1,4
+Public Static Method,"ciphers.AES.decrypt",AES.java,6,2,3
+Public Static Method,"ciphers.AES.encrypt",AES.java,6,2,3
+Public Static Method,"ciphers.AES.keyExpansion",AES.java,9,2,3
+Public Static Method,"ciphers.AES.main",AES.java,8,3,2
+Public Static Method,"ciphers.AES.mergeCellsIntoBlock",AES.java,4,3,7
+Public Static Method,"ciphers.AES.mixColumns",AES.java,3,2,4
+Public Static Method,"ciphers.AES.mixColumnsDec",AES.java,3,2,6
+Public Static Method,"ciphers.AES.scheduleCore",AES.java,8,10,5
+Public Static Method,"ciphers.AES.shiftRows",AES.java,3,1,2
+Public Static Method,"ciphers.AES.shiftRowsDec",AES.java,3,1,2
+Public Static Method,"ciphers.AES.splitBlockIntoCells",AES.java,5,4,8
+Public Static Method,"ciphers.AES.subBytes",AES.java,3,2,3
+Public Static Method,"ciphers.AES.subBytesDec",AES.java,3,2,3
+Public Static Method,"ciphers.AESEncryption.bytesToHex",AESEncryption.java,2,2,4
+Public Static Method,"ciphers.AESEncryption.decryptText",AESEncryption.java,5,1,4
+Public Static Method,"ciphers.AESEncryption.encryptText",AESEncryption.java,5,1,4
+Public Static Method,"ciphers.AESEncryption.getSecretEncryptionKey",AESEncryption.java,4,1,1
+Public Static Method,"ciphers.AESEncryption.main",AESEncryption.java,6,1,1
+Private Static Method,"ciphers.Caesar.IsCapitalLatinLetter",Caesar.java,1,1,3
+Private Static Method,"ciphers.Caesar.IsSmallLatinLetter",Caesar.java,1,1,3
+Public Static Method,"ciphers.Caesar.decode",Caesar.java,5,4,3
+Public Static Method,"ciphers.Caesar.encode",Caesar.java,5,4,3
+Public Static Method,"ciphers.Caesar.main",Caesar.java,9,3,2
+Private Static Method,"ciphers.ColumnarTranspositionCipher.abecedariumBuilder",ColumnarTranspositionCipher.java,1,2,2
+Public Static Method,"ciphers.ColumnarTranspositionCipher.decrypter",ColumnarTranspositionCipher.java,2,3,4
+Public Static Method,"ciphers.ColumnarTranspositionCipher.encrpyter",ColumnarTranspositionCipher.java,6,3,5
+Public Static Method,"ciphers.ColumnarTranspositionCipher.encrpyter",ColumnarTranspositionCipher.java,6,6,6
+Private Static Method,"ciphers.ColumnarTranspositionCipher.findElements",ColumnarTranspositionCipher.java,4,2,4
+Private Static Method,"ciphers.ColumnarTranspositionCipher.getColumn",ColumnarTranspositionCipher.java,1,2,4
+Public Static Method,"ciphers.ColumnarTranspositionCipher.main",ColumnarTranspositionCipher.java,4,1,1
+Private Static Method,"ciphers.ColumnarTranspositionCipher.numberOfRows",ColumnarTranspositionCipher.java,2,2,3
+Private Static Method,"ciphers.ColumnarTranspositionCipher.showTable",ColumnarTranspositionCipher.java,3,3,3
+Private Static Method,"ciphers.ColumnarTranspositionCipher.sortTable",ColumnarTranspositionCipher.java,4,8,4
+Private Static Method,"ciphers.ColumnarTranspositionCipher.switchColumns",ColumnarTranspositionCipher.java,1,2,6
+Private Static Method,"ciphers.ColumnarTranspositionCipher.tableBuilder",ColumnarTranspositionCipher.java,5,4,6
+Public Constructor,"ciphers.RSA.RSA",RSA.java,2,1,2
+Public Method,"ciphers.RSA.decrypt",RSA.java,5,1,4
+Public Method,"ciphers.RSA.decrypt",RSA.java,2,1,3
+Public Method,"ciphers.RSA.encrypt",RSA.java,5,1,4
+Public Method,"ciphers.RSA.encrypt",RSA.java,2,1,3
+Public Method,"ciphers.RSA.generateKeys",RSA.java,12,2,4
+Public Static Method,"ciphers.RSA.main",RSA.java,5,1,0
+Public Static Method,"ciphers.SimpleSubstitutionCipher.decode",SimpleSubstitutionCipher.java,9,6,3
+Public Static Method,"ciphers.SimpleSubstitutionCipher.encode",SimpleSubstitutionCipher.java,9,6,3
+Public Static Method,"ciphers.SimpleSubstitutionCipher.main",SimpleSubstitutionCipher.java,3,1,1
+Public Static Method,"ciphers.Vigenere.decrypt",Vigenere.java,7,4,3
+Public Static Method,"ciphers.Vigenere.encrypt",Vigenere.java,7,4,3
+Public Static Method,"ciphers.Vigenere.main",Vigenere.java,3,1,1
+Constructor,"divideconquer.ClosestPair.ClosestPair",ClosestPair.java,3,1,3
+Constructor,"divideconquer.ClosestPair.Location.Location",ClosestPair.java,3,1,3
+Public Method,"divideconquer.ClosestPair.bruteForce",ClosestPair.java,6,18,7
+Public Method,"divideconquer.ClosestPair.buildLocation",ClosestPair.java,2,1,3
+Public Method,"divideconquer.ClosestPair.closestPair",ClosestPair.java,12,97,7
+Public Method,"divideconquer.ClosestPair.createLocation",ClosestPair.java,1,1,1
+Public Static Method,"divideconquer.ClosestPair.main",ClosestPair.java,6,2,7
+Public Static Method,"divideconquer.ClosestPair.setMinNum",ClosestPair.java,1,1,3
+Public Static Method,"divideconquer.ClosestPair.setSecondCount",ClosestPair.java,1,1,2
+Public Method,"divideconquer.ClosestPair.xPartition",ClosestPair.java,2,3,5
+Public Method,"divideconquer.ClosestPair.xQuickSort",ClosestPair.java,1,2,4
+Public Method,"divideconquer.ClosestPair.yPartition",ClosestPair.java,2,3,5
+Public Method,"divideconquer.ClosestPair.yQuickSort",ClosestPair.java,1,2,4
+Public Constructor,"divideconquer.SkylineAlgorithm.Point.Point",SkylineAlgorithm.java,3,1,2
+Public Method,"divideconquer.SkylineAlgorithm.Point.dominates",SkylineAlgorithm.java,1,1,4
+Public Method,"divideconquer.SkylineAlgorithm.Point.getX",SkylineAlgorithm.java,1,1,1
+Public Method,"divideconquer.SkylineAlgorithm.Point.getY",SkylineAlgorithm.java,1,1,1
+Public Constructor,"divideconquer.SkylineAlgorithm.SkylineAlgorithm",SkylineAlgorithm.java,3,1,0
+Public Method,"divideconquer.SkylineAlgorithm.XComparator.compare",SkylineAlgorithm.java,2,1,3
+Public Method,"divideconquer.SkylineAlgorithm.getPoints",SkylineAlgorithm.java,1,1,1
+Public Method,"divideconquer.SkylineAlgorithm.produceFinalSkyLine",SkylineAlgorithm.java,5,36,5
+Public Method,"divideconquer.SkylineAlgorithm.produceSubSkyLines",SkylineAlgorithm.java,8,7,1
+Public Static Method,"strings.Alphabetical.isAlphabetical",Alphabetical.java,5,3,2
+Public Static Method,"strings.Alphabetical.main",Alphabetical.java,1,1,0
+Public Static Method,"strings.CharactersSame.isAllCharactersSame",CharactersSame.java,3,3,2
+Public Static Method,"strings.CharactersSame.main",CharactersSame.java,1,1,0
+Public Static Method,"strings.CheckAnagrams.isAnagrams",CheckAnagrams.java,6,1,3
+Public Static Method,"strings.CheckAnagrams.main",CheckAnagrams.java,1,1,0
+Public Static Method,"strings.Lower.main",Lower.java,3,2,0
+Public Static Method,"strings.Lower.toLowerCase",Lower.java,6,3,3
+Public Static Method,"strings.Palindrome.isPalindrome",Palindrome.java,6,1,3
+Public Static Method,"strings.Palindrome.isPalindrome1",Palindrome.java,3,4,2
+Public Static Method,"strings.Palindrome.isPalindromeRecursion",Palindrome.java,5,3,2
+Public Static Method,"strings.Palindrome.main",Palindrome.java,3,4,0
+Public Static Method,"strings.Pangram.isPangram",Pangram.java,4,9,2
+Public Static Method,"strings.Pangram.main",Pangram.java,1,1,0
+Public Static Method,"strings.ReverseString.main",ReverseString.java,3,1,0
+Public Static Method,"strings.ReverseString.reverse",ReverseString.java,4,1,2
+Public Static Method,"strings.ReverseString.reverse2",ReverseString.java,5,3,2
+Public Static Method,"strings.Rotation.main",Rotation.java,5,1,0
+Public Static Method,"strings.Rotation.reverse",Rotation.java,1,2,4
+Public Static Method,"strings.Rotation.rotation",Rotation.java,3,1,3
+Public Static Method,"strings.Rotation.rotation",Rotation.java,1,1,4
+Public Static Method,"strings.Upper.main",Upper.java,3,2,0
+Public Static Method,"strings.Upper.toUpperCase",Upper.java,6,3,3
+Public Static Method,"test.LongestPalindromicSubsequence.LPS",LongestPalindromicSubsequence.java,5,1,2
+Public Static Method,"test.LongestPalindromicSubsequence.main",LongestPalindromicSubsequence.java,2,1,1
+Private Static Method,"test.LongestPalindromicSubsequence.recursiveLPS",LongestPalindromicSubsequence.java,4,4,3

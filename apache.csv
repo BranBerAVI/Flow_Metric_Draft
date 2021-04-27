@@ -1,0 +1,3383 @@
+Kind,Name,File,CountOutput,CountPath,CountInput
+Static Function,ImportULDAPOptFn,mod_authnz_ldap.c,9,1,1
+Static Function,_advance,regexp.c,9,128,10
+Static Function,abort_on_oom,ab.c,3,1,3
+Static Function,abort_on_oom,main.c,2,1,2
+Function,abort_on_oom,passwd_common.c,5,4,1
+Static Function,accept_mutex_error,worker.c,3,6,16
+Static Function,access_compat_ap_satisfies,mod_access_compat.c,1,1,6
+Static Function,accessible,htpasswd.c,3,2,4
+Static Function,action_handler,mod_actions.c,9,82,28
+Static Function,add_action,mod_actions.c,5,2,7
+Static Function,add_alias,mod_alias.c,8,5,8
+Static Function,add_alias_internal,mod_alias.c,11,12,27
+Static Function,add_alias_regex,mod_alias.c,2,1,4
+Static Function,add_alt,mod_autoindex.c,5,6,11
+Static Function,add_any_filter,util_filter.c,3,29,21
+Static Function,add_any_filter_handle,util_filter.c,9,70,22
+Static Function,add_auth_info,mod_auth_digest.c,11,21,25
+Static Function,add_authn_provider,mod_auth_form.c,9,5,9
+Static Function,add_authn_provider,mod_auth_digest.c,9,5,9
+Static Function,add_authn_provider,mod_auth_basic.c,9,5,9
+Static Function,add_authz_provider,mod_authz_core.c,19,38,19
+Static Function,add_authz_section,mod_authz_core.c,19,66,18
+Static Function,add_basic_fake,mod_auth_basic.c,7,7,6
+Static Function,add_browser,mod_setenvif.c,2,1,3
+Static Function,add_cache_disable,mod_cache.c,12,7,12
+Static Function,add_cache_enable,mod_cache.c,12,18,13
+Static Function,add_cl,mod_proxy_http.c,6,1,9
+Static Function,add_client,mod_auth_digest.c,13,11,17
+Static Function,add_cookie,mod_rewrite.c,11,18,16
+Static Function,add_custom_log,mod_log_config.c,13,10,14
+Static Function,add_desc,mod_autoindex.c,10,2,7
+Static Function,add_env_module_vars_passed,mod_env.c,5,3,10
+Static Function,add_env_module_vars_set,mod_env.c,6,3,13
+Static Function,add_env_module_vars_unset,mod_env.c,3,1,4
+Static Function,add_envvars,mod_setenvif.c,5,14,9
+Static Function,add_extension_info,mod_mime.c,9,8,9
+Static Function,add_filter,mod_filter.c,14,10,13
+Static Function,add_global_log,mod_log_config.c,4,3,12
+Static Function,add_header_do,cache_storage.c,2,1,4
+Static Function,add_icon,mod_autoindex.c,8,13,10
+Static Function,add_ignore,mod_autoindex.c,2,1,5
+Static Function,add_ignore_header,mod_cache.c,6,3,9
+Static Function,add_ignore_session_id,mod_cache.c,6,3,9
+Static Function,add_include_vars,mod_include.c,5,8,9
+Static Function,add_include_vars_lazy,mod_include.c,5,12,11
+Static Function,add_index,mod_dir.c,7,8,6
+Static Function,add_log_id,log.c,1,2,5
+Static Function,add_member,mod_proxy.c,26,1021,27
+Static Function,add_module_info,mod_info.c,4,1,8
+Static Function,add_name_vhost_config,vhost.c,6,3,7
+Static Function,add_optional_notes,http_protocol.c,3,2,7
+Static Function,add_options,mod_ext_filter.c,5,5,4
+Static Function,add_opts,mod_autoindex.c,17,442,8
+Static Function,add_pass,mod_proxy.c,41,1525,31
+Static Function,add_pass_noregex,mod_proxy.c,2,1,3
+Static Function,add_pass_regex,mod_proxy.c,2,1,3
+Static Function,add_pass_reverse,mod_proxy.c,7,5,7
+Static Function,add_password,htdigest.c,9,8,5
+Static Function,add_proxy,mod_proxy.c,14,18,12
+Static Function,add_proxy_http_headers,mod_proxy.c,3,1,2
+Static Function,add_proxy_noregex,mod_proxy.c,2,1,4
+Static Function,add_proxy_regex,mod_proxy.c,2,1,4
+Static Function,add_redirect,mod_alias.c,2,1,5
+Static Function,add_redirect2,mod_alias.c,2,1,4
+Static Function,add_redirect_internal,mod_alias.c,17,448,20
+Static Function,add_redirect_regex,mod_alias.c,2,1,5
+Static Function,add_session_exclude,mod_session.c,2,1,3
+Static Function,add_session_include,mod_session.c,2,1,3
+Static Function,add_setenvif,mod_setenvif.c,4,2,6
+Static Function,add_setenvif_core,mod_setenvif.c,20,64,25
+Static Function,add_setenvifexpr,mod_setenvif.c,14,3,13
+Static Function,add_ssi_vars,mod_cgid.c,8,6,7
+Static Function,add_te_chunked,mod_proxy_http.c,5,1,8
+Static Function,add_them_all,mod_headers.c,2,1,4
+Static Function,add_trailers,mod_proxy_http.c,2,2,4
+Static Function,add_unless_null,util_script.c,1,2,5
+Static Function,add_vary,util_expr_eval.c,3,3,6
+Static Function,addit_dammit,ajp_header.c,2,1,4
+Static Function,addit_dammit,mod_proxy_http.c,2,1,4
+Static Function,address,sed0.c,9,12,9
+Static Function,age,mod_lbmethod_bytraffic.c,1,1,1
+Static Function,age,mod_lbmethod_bybusyness.c,1,1,1
+Static Function,age,mod_lbmethod_byrequests.c,1,1,1
+Static Function,age,mod_lbmethod_heartbeat.c,1,1,1
+Function,ajp_alloc_data_msg,ajp_header.c,5,2,5
+Function,ajp_handle_cping_cpong,ajp_utils.c,11,236,13
+Function,ajp_ilink_receive,ajp_link.c,4,8,10
+Function,ajp_ilink_send,ajp_link.c,4,3,11
+Static Function,ajp_log_overflow,ajp_msg.c,2,2,20
+Static Function,ajp_marshal_into_msgb,ajp_header.c,17,3782400,32
+Function,ajp_msg_append_bytes,ajp_msg.c,4,3,6
+Function,ajp_msg_append_string_ex,ajp_msg.c,6,4,7
+Function,ajp_msg_append_uint16,ajp_msg.c,5,2,6
+Function,ajp_msg_append_uint32,ajp_msg.c,5,2,4
+Function,ajp_msg_append_uint8,ajp_msg.c,5,2,7
+Function,ajp_msg_check_header,ajp_msg.c,6,5,8
+Function,ajp_msg_copy,ajp_msg.c,6,3,10
+Function,ajp_msg_create,ajp_msg.c,9,1,6
+Function,ajp_msg_dump,ajp_msg.c,5,30,11
+Function,ajp_msg_end,ajp_msg.c,3,2,4
+Function,ajp_msg_get_bytes,ajp_msg.c,6,2,4
+Function,ajp_msg_get_string,ajp_msg.c,5,2,5
+Function,ajp_msg_get_uint16,ajp_msg.c,4,2,8
+Function,ajp_msg_get_uint32,ajp_msg.c,4,2,4
+Function,ajp_msg_get_uint8,ajp_msg.c,4,2,8
+Function,ajp_msg_log,ajp_msg.c,4,15,16
+Function,ajp_msg_peek_uint16,ajp_msg.c,3,2,5
+Function,ajp_msg_peek_uint8,ajp_msg.c,3,2,6
+Function,ajp_msg_reset,ajp_msg.c,4,1,7
+Function,ajp_msg_reuse,ajp_msg.c,7,1,5
+Function,ajp_msg_serialize_cping,ajp_msg.c,3,2,2
+Function,ajp_msg_serialize_ping,ajp_msg.c,3,2,1
+Function,ajp_parse_data,ajp_header.c,6,8,15
+Function,ajp_parse_header,ajp_header.c,5,5,12
+Function,ajp_parse_reuse,ajp_header.c,4,5,12
+Function,ajp_parse_type,ajp_header.c,4,2,11
+Function,ajp_read_header,ajp_header.c,9,16,14
+Function,ajp_send_data_msg,ajp_header.c,5,1,4
+Function,ajp_send_header,ajp_header.c,6,7,15
+Function,ajp_type_str,ajp_utils.c,1,10,6
+Static Function,ajp_unmarshal_response,ajp_header.c,19,738,14
+Static Function,alias_match,mod_proxy.c,2,74,3
+Static Function,alias_matches,mod_alias.c,1,8,4
+Static Function,all_check_authorization,mod_authz_core.c,1,2,2
+Static Function,all_parse_config,mod_authz_core.c,3,3,2
+Static Function,alloc_listener,listen.c,13,18,15
+Static Function,alloc_outbuf,mod_sed.c,4,1,6
+Static Function,alloc_reptr,sed0.c,12,3,6
+Static Function,allow_cmd,mod_access_compat.c,12,11,11
+Static Function,allowed_port,mod_proxy_connect.c,2,4,8
+Static Function,am_allowmethods,mod_allowmethods.c,6,8,5
+Static Function,am_check_access,mod_allowmethods.c,4,4,18
+Static Function,am_create_conf,mod_allowmethods.c,5,1,2
+Static Function,am_merge_conf,mod_allowmethods.c,4,2,6
+Static Function,am_register_hooks,mod_allowmethods.c,1,1,1
+Static Function,analyze_ct,mod_mime.c,17,3696,13
+Static Function,anon_set_string_slots,mod_authn_anon.c,7,4,6
+Function,ap_abort_on_oom,util.c,4,4,6
+Function,ap_add_cgi_vars,util_script.c,10,36,17
+Function,ap_add_common_vars,util_script.c,34,41600,35
+Function,ap_add_file_conf,core.c,4,2,5
+Function,ap_add_if_conf,core.c,5,14,10
+Function,ap_add_input_filter,util_filter.c,2,1,14
+Function,ap_add_input_filter_handle,util_filter.c,2,1,11
+Function,ap_add_loaded_module,config.c,2,3,5
+Function,ap_add_module,config.c,19,122,18
+Static Function,ap_add_module_commands,config.c,10,4,7
+Function,ap_add_node,util_cfgtree.c,7,6,5
+Function,ap_add_output_filter,util_filter.c,2,1,21
+Function,ap_add_output_filter_handle,util_filter.c,2,1,14
+Function,ap_add_per_dir_conf,core.c,1,1,5
+Static Function,ap_add_per_proxy_conf,mod_proxy.c,1,1,7
+Function,ap_add_per_url_conf,core.c,1,1,5
+Function,ap_add_version_component,core.c,5,3,6
+Function,ap_allow_methods,http_request.c,4,4,3
+Function,ap_allow_options,core.c,1,1,10
+Function,ap_allow_overrides,core.c,1,1,3
+Function,ap_allow_standard_methods,http_request.c,5,4,5
+Function,ap_append_pid,util.c,3,1,7
+Static Function,ap_apply_accept_filter,listen.c,4,6,7
+Function,ap_args_to_table,util_script.c,4,1,3
+Function,ap_array_str_contains,util.c,2,1,12
+Function,ap_array_str_index,util.c,2,4,7
+Function,ap_auth_name,core.c,2,2,14
+Function,ap_auth_type,core.c,2,2,9
+Static Function,ap_authn_cache_store,mod_authn_socache.c,8,18,24
+Function,ap_basic_http_header,http_filters.c,2,1,2
+Function,ap_bin2hex,util.c,1,2,8
+Function,ap_bucket_eoc_create,eoc_bucket.c,8,1,4
+Function,ap_bucket_eoc_make,eoc_bucket.c,6,1,3
+Function,ap_bucket_eor_create,eor_bucket.c,9,2,6
+Function,ap_bucket_eor_make,eor_bucket.c,5,1,5
+Function,ap_bucket_error_create,error_bucket.c,8,2,9
+Function,ap_bucket_error_make,error_bucket.c,7,1,7
+Static Function,ap_buffered_log_writer,mod_log_config.c,13,9,17
+Static Function,ap_buffered_log_writer_init,mod_log_config.c,6,2,6
+Function,ap_build_config,config.c,10,378,15
+Static Function,ap_build_config_sub,config.c,25,187,19
+Function,ap_build_cont_config,config.c,10,40,10
+Function,ap_byterange_filter,byterange_filter.c,26,528,36
+Function,ap_cache_cacheable_headers,cache_util.c,4,3,11
+Function,ap_cache_cacheable_headers_in,cache_util.c,2,1,6
+Function,ap_cache_cacheable_headers_out,cache_util.c,5,1,5
+Function,ap_cache_check_no_cache,cache_util.c,4,8,21
+Function,ap_cache_check_no_store,cache_util.c,4,8,22
+Function,ap_cache_control,cache_util.c,28,117,12
+Function,ap_cache_current_age,cache_util.c,1,2,7
+Function,ap_cache_generate_name,cache_util.c,3,1,8
+Function,ap_cache_hex2usec,cache_util.c,2,4,1
+Function,ap_cache_tokstr,cache_util.c,6,8,2
+Function,ap_cache_usec2hex,cache_util.c,1,3,1
+Function,ap_calc_scoreboard_size,scoreboard.c,3,1,5
+Function,ap_calloc,util.c,3,2,6
+Function,ap_cfg_closefile,util.c,2,1,13
+Function,ap_cfg_getc,util.c,3,2,3
+Function,ap_cfg_getline,util.c,3,2,10
+Static Function,ap_cfg_getline_core,util.c,6,33,8
+Function,ap_check_cmd_context,core.c,4,9,106
+Function,ap_check_mpm,mpm_common.c,4,5,5
+Function,ap_check_pipeline,http_request.c,8,901,17
+Function,ap_cleanup_scoreboard,scoreboard.c,4,3,4
+Static Function,ap_cleanup_shared_mem,scoreboard.c,4,1,3
+Function,ap_clear_auth_internal,request.c,2,1,1
+Function,ap_clear_method_list,http_protocol.c,4,1,2
+Function,ap_close_listeners,listen.c,1,2,6
+Function,ap_close_listeners_ex,listen.c,2,2,7
+Function,ap_close_piped_log,log.c,1,1,2
+Function,ap_close_selected_listeners,listen.c,3,3,5
+Function,ap_condition_if_match,http_protocol.c,3,3,6
+Function,ap_condition_if_modified_since,http_protocol.c,4,17,7
+Function,ap_condition_if_none_match,http_protocol.c,4,9,7
+Function,ap_condition_if_range,http_protocol.c,5,15,8
+Function,ap_condition_if_unmodified_since,http_protocol.c,4,17,7
+Function,ap_construct_server,util.c,4,2,4
+Function,ap_construct_url,core.c,7,2,11
+Function,ap_content_length_filter,protocol.c,21,176,34
+Function,ap_content_type_tolower,util.c,2,4,2
+Function,ap_context_document_root,core.c,2,2,7
+Function,ap_context_prefix,core.c,1,2,7
+Function,ap_cookie_check_string,util_cookies.c,2,2,2
+Function,ap_cookie_read,util_cookies.c,14,4,19
+Function,ap_cookie_remove,util_cookies.c,6,4,13
+Function,ap_cookie_remove2,util_cookies.c,6,4,13
+Function,ap_cookie_write,util_cookies.c,7,8,16
+Function,ap_cookie_write2,util_cookies.c,7,8,16
+Function,ap_copy_method_list,http_protocol.c,4,2,8
+Function,ap_copy_scoreboard_worker,scoreboard.c,8,1,9
+Function,ap_core_child_status,mpm_common.c,17,72,21
+Function,ap_core_input_filter,core_filters.c,20,551,24
+Function,ap_core_output_filter,core_filters.c,20,172662,30
+Function,ap_core_reorder_directories,core.c,6,5,8
+Function,ap_core_translate,core.c,8,15,18
+Function,ap_count_dirs,util.c,1,3,3
+Function,ap_create_conn_config,config.c,2,1,2
+Function,ap_create_environment,util_script.c,7,39,9
+Function,ap_create_per_dir_config,config.c,2,1,10
+Function,ap_create_request_config,config.c,2,1,8
+Function,ap_create_sb_handle,scoreboard.c,3,1,5
+Function,ap_create_scoreboard,scoreboard.c,14,5,10
+Static Function,ap_crypto_equals,mod_session_crypto.c,1,2,4
+Function,ap_cstr_casecmp,util.c,1,3,18
+Function,ap_cstr_casecmpn,util.c,1,3,13
+Function,ap_custom_response,core.c,7,2,6
+Function,ap_dbd_acquire,mod_dbd.c,8,16,14
+Function,ap_dbd_cacquire,mod_dbd.c,8,4,12
+Function,ap_dbd_close,mod_dbd.c,2,2,10
+Function,ap_dbd_open,mod_dbd.c,10,12,17
+Function,ap_dbd_prepare,mod_dbd.c,7,6,14
+Static Function,ap_dbd_sql_init,mod_dbd.c,4,4,9
+Static Function,ap_default_log_writer,mod_log_config.c,4,2,9
+Static Function,ap_default_log_writer_init,mod_log_config.c,6,7,12
+Function,ap_destroy_sub_req,request.c,1,1,20
+Function,ap_die,http_request.c,1,1,11
+Static Function,ap_die_r,http_request.c,17,1083,27
+Function,ap_dir_cfgmatch,util.c,10,1,8
+Function,ap_dir_fnmatch,util.c,16,64,13
+Function,ap_dir_nofnmatch,util.c,16,17,14
+Function,ap_directory_walk,request.c,51,999999999,50
+Function,ap_discard_request_body,http_filters.c,7,11,27
+Function,ap_document_root,core.c,1,2,12
+Function,ap_dump_mutexes,util_mutex.c,9,57,8
+Function,ap_duplicate_listeners,listen.c,19,36,15
+Function,ap_error_log2stderr,log.c,2,2,4
+Function,ap_escape_errorlog_item,util.c,2,21,7
+Function,ap_escape_html2,util.c,5,48,48
+Function,ap_escape_logitem,util.c,4,31,27
+Function,ap_escape_path_segment,util.c,4,1,5
+Function,ap_escape_path_segment_buffer,util.c,2,3,4
+Function,ap_escape_quotes,util.c,2,45,4
+Function,ap_escape_shell_cmd,util.c,3,3,8
+Function,ap_escape_urlencoded,util.c,4,1,4
+Function,ap_escape_urlencoded_buffer,util.c,2,4,5
+Function,ap_exists_config_define,core.c,2,1,13
+Function,ap_exists_directive,config.c,4,1,5
+Function,ap_exists_scoreboard_image,scoreboard.c,1,1,2
+Function,ap_explode_recent_gmt,util_time.c,2,1,4
+Function,ap_explode_recent_localtime,util_time.c,2,1,5
+Function,ap_expr_binary_op_make,util_expr_eval.c,4,2,5
+Static Function,ap_expr_eval,util_expr_eval.c,9,18,8
+Static Function,ap_expr_eval_binary_op,util_expr_eval.c,2,1,6
+Static Function,ap_expr_eval_comp,util_expr_eval.c,9,23,10
+Static Function,ap_expr_eval_re_backref,util_expr_eval.c,2,3,9
+Static Function,ap_expr_eval_string_func,util_expr_eval.c,2,1,6
+Static Function,ap_expr_eval_unary_op,util_expr_eval.c,2,1,6
+Static Function,ap_expr_eval_var,util_expr_eval.c,1,1,3
+Static Function,ap_expr_eval_word,util_expr_eval.c,14,21,13
+Function,ap_expr_exec,util_expr_eval.c,2,1,10
+Function,ap_expr_exec_ctx,util_expr_eval.c,9,20,23
+Function,ap_expr_exec_re,util_expr_eval.c,13,2,14
+Static Function,ap_expr_info_make,util_expr_eval.c,12,2,16
+Function,ap_expr_init,util_expr_eval.c,2,1,1
+Function,ap_expr_list_func_make,util_expr_eval.c,4,2,4
+Function,ap_expr_lookup_default,util_expr_eval.c,2,1,3
+Function,ap_expr_make,util_expr_eval.c,5,1,10
+Function,ap_expr_parse,util_expr_eval.c,23,5,14
+Function,ap_expr_parse_cmd_mi,util_expr_eval.c,9,2,36
+Static Function,ap_expr_post_config,util_expr_eval.c,5,1,3
+Function,ap_expr_str_exec,util_expr_eval.c,2,1,24
+Function,ap_expr_str_exec_re,util_expr_eval.c,16,7,15
+Function,ap_expr_str_func_make,util_expr_eval.c,4,2,4
+Function,ap_expr_unary_op_make,util_expr_eval.c,4,2,4
+Function,ap_expr_var_make,util_expr_eval.c,3,2,3
+Function,ap_expr_yy_create_buffer,util_expr_scan.c,7,4,7
+Function,ap_expr_yy_delete_buffer,util_expr_scan.c,2,5,8
+Function,ap_expr_yy_flush_buffer,util_expr_scan.c,6,3,6
+Static Function,ap_expr_yy_init_buffer,util_expr_scan.c,7,2,7
+Static Function,ap_expr_yy_load_buffer_state,util_expr_scan.c,5,1,13
+Function,ap_expr_yy_scan_buffer,util_expr_scan.c,14,3,5
+Function,ap_expr_yy_scan_bytes,util_expr_scan.c,5,8,4
+Function,ap_expr_yy_scan_string,util_expr_scan.c,3,1,2
+Function,ap_expr_yy_switch_to_buffer,util_expr_scan.c,7,3,8
+Function,ap_expr_yyalloc,util_expr_scan.c,2,1,8
+Static Function,ap_expr_yyensure_buffer_stack,util_expr_scan.c,7,5,8
+Function,ap_expr_yyerror,util_expr_parse.c,3,1,4
+Function,ap_expr_yyfree,util_expr_scan.c,1,1,3
+Function,ap_expr_yyget_debug,util_expr_scan.c,1,1,2
+Function,ap_expr_yyget_extra,util_expr_scan.c,1,1,2
+Function,ap_expr_yyget_in,util_expr_scan.c,1,1,2
+Function,ap_expr_yyget_leng,util_expr_scan.c,1,1,2
+Function,ap_expr_yyget_lineno,util_expr_scan.c,1,2,4
+Function,ap_expr_yyget_lval,util_expr_scan.c,1,1,2
+Function,ap_expr_yyget_out,util_expr_scan.c,1,1,2
+Function,ap_expr_yyget_text,util_expr_scan.c,1,1,2
+Function,ap_expr_yylex,util_expr_scan.c,37,11341,35
+Function,ap_expr_yylex_destroy,util_expr_scan.c,7,2,5
+Function,ap_expr_yylex_init,util_expr_scan.c,6,3,2
+Function,ap_expr_yylex_init_extra,util_expr_scan.c,7,3,2
+Function,ap_expr_yyparse,util_expr_parse.c,20,6336,19
+Function,ap_expr_yypop_buffer_state,util_expr_scan.c,5,5,4
+Function,ap_expr_yypush_buffer_state,util_expr_scan.c,8,5,7
+Function,ap_expr_yyrealloc,util_expr_scan.c,2,1,5
+Function,ap_expr_yyrestart,util_expr_scan.c,5,2,7
+Function,ap_expr_yyset_debug,util_expr_scan.c,1,1,2
+Function,ap_expr_yyset_extra,util_expr_scan.c,1,1,4
+Function,ap_expr_yyset_in,util_expr_scan.c,1,1,2
+Function,ap_expr_yyset_lineno,util_expr_scan.c,3,2,4
+Function,ap_expr_yyset_lval,util_expr_scan.c,1,1,2
+Function,ap_expr_yyset_out,util_expr_scan.c,1,1,2
+Function,ap_fatal_signal_child_setup,mpm_unix.c,3,1,1
+Function,ap_fatal_signal_setup,mpm_unix.c,14,243,9
+Function,ap_fcgi_begin_request_body_to_array,util_fcgi.c,0,1,6
+Function,ap_fcgi_encode_env,util_fcgi.c,5,1539,17
+Function,ap_fcgi_encoded_env_len,util_fcgi.c,3,34,8
+Function,ap_fcgi_fill_in_header,util_fcgi.c,9,1,7
+Function,ap_fcgi_fill_in_request_body,util_fcgi.c,5,1,3
+Function,ap_fcgi_header_fields_from_array,util_fcgi.c,5,1,2
+Function,ap_fcgi_header_from_array,util_fcgi.c,9,1,1
+Function,ap_fcgi_header_to_array,util_fcgi.c,0,1,12
+Function,ap_fflush,util_filter.c,6,1,11
+Function,ap_field_noparam,util.c,5,4,7
+Function,ap_file_walk,request.c,24,8744,23
+Function,ap_filter_flush,util_filter.c,3,1,6
+Function,ap_filter_protocol,util_filter.c,3,1,1
+Function,ap_finalize_request_protocol,protocol.c,2,2,4
+Function,ap_finalize_sub_req_protocol,protocol.c,1,2,3
+Function,ap_find_child_by_pid,scoreboard.c,2,3,6
+Function,ap_find_command,config.c,2,3,4
+Function,ap_find_command_in_modules,config.c,3,3,5
+Function,ap_find_etag_strong,util.c,2,1,5
+Function,ap_find_etag_weak,util.c,2,1,4
+Function,ap_find_last_token,util.c,2,1,3
+Function,ap_find_linked_module,config.c,2,3,8
+Function,ap_find_list_item,util.c,2,1,3
+Static Function,ap_find_loaded_module_symbol,mod_so.c,2,3,10
+Function,ap_find_module_name,config.c,1,1,2
+Function,ap_find_module_short_name,config.c,1,2,4
+Function,ap_find_path_info,util_script.c,2,16,5
+Function,ap_find_token,util.c,2,16,7
+Function,ap_fini_vhost_config,vhost.c,17,296,17
+Function,ap_fixup_virtual_hosts,config.c,11,33,12
+Function,ap_flush_conn,connection.c,1,1,3
+Function,ap_fprintf,util_filter.c,4,1,5
+Function,ap_fputstrs,util_filter.c,4,1,4
+Function,ap_get_basic_auth_components,protocol.c,8,10,6
+Function,ap_get_basic_auth_pw,protocol.c,15,8,13
+Function,ap_get_brigade,util_filter.c,2,2,37
+Function,ap_get_client_block,http_filters.c,10,10,16
+Function,ap_get_conn_module_loglevel,util_debug.c,1,2,7
+Function,ap_get_conn_server_module_loglevel,util_debug.c,1,2,8
+Function,ap_get_conn_socket,core.c,1,1,10
+Function,ap_get_core_module_config,util_debug.c,1,1,1
+Function,ap_get_exec_line,util.c,12,9,6
+Function,ap_get_input_filter_handle,util_filter.c,2,1,4
+Function,ap_get_limit_req_body,core.c,1,2,5
+Function,ap_get_limit_xml_body,core.c,1,2,4
+Function,ap_get_list_item,util.c,4,23,6
+Function,ap_get_loadavg,util.c,5,8,2
+Function,ap_get_local_host,util.c,8,9,3
+Function,ap_get_mime_headers,protocol.c,3,1,5
+Function,ap_get_mime_headers_core,protocol.c,15,106,18
+Function,ap_get_module_config,util_debug.c,1,1,3
+Function,ap_get_module_flags,util_debug.c,1,2,5
+Function,ap_get_output_filter_handle,util_filter.c,2,1,4
+Function,ap_get_protocol,protocol.c,2,1,6
+Function,ap_get_protocol_upgrades,protocol.c,7,12,13
+Function,ap_get_remote_host,core.c,7,378,14
+Function,ap_get_remote_logname,core.c,2,3,9
+Function,ap_get_request_module_loglevel,util_debug.c,1,2,9
+Function,ap_get_request_note,core.c,1,3,6
+Function,ap_get_scoreboard_global,scoreboard.c,1,1,3
+Function,ap_get_scoreboard_process,scoreboard.c,1,2,9
+Function,ap_get_scoreboard_worker,scoreboard.c,2,2,3
+Function,ap_get_scoreboard_worker_from_indexes,scoreboard.c,1,2,8
+Function,ap_get_server_banner,core.c,1,1,8
+Function,ap_get_server_built,buildmark.c,1,1,7
+Function,ap_get_server_description,core.c,1,1,9
+Function,ap_get_server_module_loglevel,util_debug.c,1,2,5
+Function,ap_get_server_name,core.c,6,7,31
+Function,ap_get_server_name_for_url,core.c,4,2,8
+Function,ap_get_server_port,core.c,3,6,29
+Function,ap_get_server_protocol,core.c,1,1,5
+Function,ap_get_server_revision,core.c,5,1,1
+Function,ap_get_sload,util.c,7,28,11
+Function,ap_get_status_line,http_protocol.c,2,1,7
+Function,ap_get_token,util.c,4,20,7
+Function,ap_get_useragent_host,core.c,8,253,21
+Function,ap_getline,protocol.c,4,4,9
+Function,ap_getparents,util.c,1,720,4
+Function,ap_getword,util.c,3,6,23
+Function,ap_getword_conf,util.c,4,34,61
+Function,ap_getword_conf2,util.c,5,84,4
+Function,ap_getword_conf2_nc,util.c,2,1,2
+Function,ap_getword_conf_nc,util.c,2,1,3
+Function,ap_getword_nc,util.c,2,1,4
+Function,ap_getword_nulls,util.c,4,2,9
+Function,ap_getword_nulls_nc,util.c,2,1,3
+Function,ap_getword_white,util.c,4,4,9
+Function,ap_getword_white_nc,util.c,2,1,2
+Function,ap_global_mutex_create,util_mutex.c,11,8,16
+Function,ap_gname2id,mpm_common.c,5,4,8
+Static Function,ap_headers_early,mod_headers.c,3,27,20
+Static Function,ap_headers_error_filter,mod_headers.c,5,2,15
+Static Function,ap_headers_fixup,mod_headers.c,2,2,8
+Static Function,ap_headers_insert_error_filter,mod_headers.c,1,2,8
+Static Function,ap_headers_insert_output_filter,mod_headers.c,1,2,9
+Static Function,ap_headers_output_filter,mod_headers.c,5,2,17
+Function,ap_hook_access_checker,request.c,11,4,11
+Function,ap_hook_access_checker_ex,request.c,11,4,10
+Function,ap_hook_auth_checker,request.c,11,4,10
+Function,ap_hook_check_access,request.c,2,2,7
+Function,ap_hook_check_access_ex,request.c,2,2,7
+Function,ap_hook_check_authn,request.c,2,2,10
+Function,ap_hook_check_authz,request.c,2,2,7
+Function,ap_hook_check_config,config.c,11,4,15
+Function,ap_hook_check_user_id,request.c,11,4,10
+Function,ap_hook_child_init,config.c,11,4,22
+Function,ap_hook_child_status,mpm_common.c,11,4,10
+Function,ap_hook_create_connection,connection.c,11,4,10
+Function,ap_hook_create_request,request.c,11,4,11
+Function,ap_hook_default_port,protocol.c,11,4,10
+Function,ap_hook_dirwalk_stat,request.c,11,4,10
+Function,ap_hook_drop_privileges,mpm_common.c,11,4,10
+Function,ap_hook_end_generation,mpm_common.c,11,4,9
+Function,ap_hook_error_log,log.c,11,4,9
+Function,ap_hook_expr_lookup,util_expr_eval.c,11,4,11
+Function,ap_hook_fixups,request.c,11,4,24
+Function,ap_hook_force_authn,request.c,11,4,9
+Function,ap_hook_generate_log_id,log.c,11,4,11
+Function,ap_hook_get_access_checker,request.c,1,1,3
+Function,ap_hook_get_access_checker_ex,request.c,1,1,3
+Function,ap_hook_get_auth_checker,request.c,1,1,3
+Function,ap_hook_get_check_config,config.c,1,1,3
+Function,ap_hook_get_check_user_id,request.c,1,1,3
+Function,ap_hook_get_child_init,config.c,1,1,3
+Function,ap_hook_get_child_status,mpm_common.c,1,1,3
+Function,ap_hook_get_create_connection,connection.c,1,1,3
+Function,ap_hook_get_create_request,request.c,1,1,3
+Function,ap_hook_get_default_port,protocol.c,1,1,3
+Function,ap_hook_get_dirwalk_stat,request.c,1,1,2
+Function,ap_hook_get_drop_privileges,mpm_common.c,1,1,3
+Function,ap_hook_get_end_generation,mpm_common.c,1,1,3
+Function,ap_hook_get_error_log,log.c,1,1,3
+Function,ap_hook_get_expr_lookup,util_expr_eval.c,1,1,3
+Function,ap_hook_get_fixups,request.c,1,1,3
+Function,ap_hook_get_force_authn,request.c,1,1,2
+Function,ap_hook_get_generate_log_id,log.c,1,1,3
+Function,ap_hook_get_get_mgmt_items,core.c,1,1,3
+Function,ap_hook_get_get_suexec_identity,unixd.c,1,1,2
+Function,ap_hook_get_handler,config.c,1,1,4
+Function,ap_hook_get_header_parser,config.c,1,1,3
+Function,ap_hook_get_http_scheme,protocol.c,1,1,3
+Function,ap_hook_get_insert_error_filter,http_protocol.c,1,1,3
+Function,ap_hook_get_insert_filter,request.c,1,1,3
+Function,ap_hook_get_insert_network_bucket,core.c,1,1,2
+Function,ap_hook_get_log_transaction,protocol.c,1,1,3
+Function,ap_hook_get_map_to_storage,request.c,1,1,3
+Function,ap_hook_get_mgmt_items,core.c,11,4,9
+Function,ap_hook_get_monitor,mpm_common.c,1,1,3
+Function,ap_hook_get_mpm,mpm_common.c,1,1,3
+Function,ap_hook_get_mpm_get_name,mpm_common.c,1,1,3
+Function,ap_hook_get_mpm_query,mpm_common.c,1,1,3
+Function,ap_hook_get_mpm_register_timed_callback,mpm_common.c,1,1,3
+Function,ap_hook_get_note_auth_failure,protocol.c,1,1,3
+Function,ap_hook_get_open_htaccess,config.c,1,1,2
+Function,ap_hook_get_open_logs,config.c,1,1,3
+Function,ap_hook_get_optional_fn_retrieve,config.c,1,1,3
+Function,ap_hook_get_post_config,config.c,1,1,3
+Function,ap_hook_get_post_perdir_config,request.c,1,1,2
+Function,ap_hook_get_post_read_request,protocol.c,1,1,3
+Function,ap_hook_get_pre_close_connection,connection.c,1,1,2
+Function,ap_hook_get_pre_config,config.c,1,1,3
+Function,ap_hook_get_pre_connection,connection.c,1,1,3
+Function,ap_hook_get_pre_mpm,scoreboard.c,1,1,3
+Function,ap_hook_get_pre_read_request,protocol.c,1,1,3
+Function,ap_hook_get_process_connection,connection.c,1,1,3
+Function,ap_hook_get_protocol_get,protocol.c,1,1,2
+Function,ap_hook_get_protocol_propose,protocol.c,1,1,2
+Function,ap_hook_get_protocol_switch,protocol.c,1,1,2
+Function,ap_hook_get_quick_handler,config.c,1,1,3
+Function,ap_hook_get_resume_connection,mpm_common.c,1,1,2
+Function,ap_hook_get_session_decode,mod_session.c,1,1,2
+Function,ap_hook_get_session_encode,mod_session.c,1,1,2
+Function,ap_hook_get_session_load,mod_session.c,1,1,2
+Function,ap_hook_get_session_save,mod_session.c,1,1,2
+Function,ap_hook_get_suexec_identity,unixd.c,11,4,11
+Function,ap_hook_get_suspend_connection,mpm_common.c,1,1,2
+Function,ap_hook_get_test_config,config.c,1,1,3
+Function,ap_hook_get_translate_name,request.c,1,1,3
+Function,ap_hook_get_type_checker,request.c,1,1,3
+Function,ap_hook_get_watchdog_exit,mod_watchdog.c,1,1,2
+Function,ap_hook_get_watchdog_init,mod_watchdog.c,1,1,2
+Function,ap_hook_get_watchdog_need,mod_watchdog.c,1,1,2
+Function,ap_hook_get_watchdog_step,mod_watchdog.c,1,1,2
+Function,ap_hook_handler,config.c,11,4,25
+Function,ap_hook_header_parser,config.c,11,4,10
+Function,ap_hook_http_scheme,protocol.c,11,4,10
+Function,ap_hook_insert_error_filter,http_protocol.c,11,4,13
+Function,ap_hook_insert_filter,request.c,11,4,17
+Function,ap_hook_insert_network_bucket,core.c,11,4,10
+Function,ap_hook_log_transaction,protocol.c,11,4,12
+Function,ap_hook_map_to_storage,request.c,11,4,13
+Function,ap_hook_monitor,mpm_common.c,11,4,10
+Function,ap_hook_mpm,mpm_common.c,11,4,10
+Function,ap_hook_mpm_get_name,mpm_common.c,11,4,10
+Function,ap_hook_mpm_query,mpm_common.c,11,4,10
+Function,ap_hook_mpm_register_timed_callback,mpm_common.c,11,4,9
+Function,ap_hook_note_auth_failure,protocol.c,11,4,12
+Function,ap_hook_open_htaccess,config.c,11,4,10
+Function,ap_hook_open_logs,config.c,11,4,12
+Function,ap_hook_optional_fn_retrieve,config.c,11,4,16
+Function,ap_hook_post_config,config.c,11,4,44
+Function,ap_hook_post_perdir_config,request.c,11,4,9
+Function,ap_hook_post_read_request,protocol.c,11,4,16
+Function,ap_hook_pre_close_connection,connection.c,11,4,9
+Function,ap_hook_pre_config,config.c,11,4,31
+Function,ap_hook_pre_connection,connection.c,11,4,13
+Function,ap_hook_pre_mpm,scoreboard.c,11,4,10
+Function,ap_hook_pre_read_request,protocol.c,11,4,10
+Function,ap_hook_process_connection,connection.c,11,4,11
+Function,ap_hook_protocol_get,protocol.c,11,4,9
+Function,ap_hook_protocol_propose,protocol.c,11,4,9
+Function,ap_hook_protocol_switch,protocol.c,11,4,9
+Function,ap_hook_quick_handler,config.c,11,4,11
+Function,ap_hook_resume_connection,mpm_common.c,11,4,9
+Function,ap_hook_session_decode,mod_session.c,11,4,11
+Function,ap_hook_session_encode,mod_session.c,11,4,11
+Function,ap_hook_session_load,mod_session.c,11,4,11
+Function,ap_hook_session_save,mod_session.c,11,4,11
+Function,ap_hook_suspend_connection,mpm_common.c,11,4,9
+Function,ap_hook_test_config,config.c,11,4,12
+Function,ap_hook_translate_name,request.c,11,4,18
+Function,ap_hook_type_checker,request.c,11,4,13
+Function,ap_hook_watchdog_exit,mod_watchdog.c,11,4,9
+Function,ap_hook_watchdog_init,mod_watchdog.c,11,4,9
+Function,ap_hook_watchdog_need,mod_watchdog.c,11,4,9
+Function,ap_hook_watchdog_step,mod_watchdog.c,11,4,9
+Function,ap_ht_time,util.c,5,10,8
+Function,ap_http_chunk_filter,chunk_filter.c,14,341,22
+Function,ap_http_filter,http_filters.c,39,4430,50
+Function,ap_http_header_filter,http_filters.c,54,5308442,37
+Function,ap_http_outerror_filter,http_filters.c,12,56,19
+Function,ap_if_walk,request.c,2,1,3
+Static Function,ap_if_walk_sub,request.c,16,2732,24
+Function,ap_increment_counts,scoreboard.c,8,4,13
+Function,ap_ind,util.c,2,2,4
+Function,ap_index_of_response,http_protocol.c,1,5,8
+Function,ap_init_rng,core.c,7,6,6
+Function,ap_init_scoreboard,scoreboard.c,11,3,7
+Function,ap_init_vhost_config,vhost.c,3,1,2
+Function,ap_init_virtual_host,config.c,31,1,10
+Function,ap_internal_fast_redirect,http_request.c,27,10,34
+Function,ap_internal_redirect,http_request.c,5,4,6
+Function,ap_internal_redirect_handler,http_request.c,5,5,7
+Function,ap_invoke_handler,config.c,10,62,19
+Function,ap_is_allowed_protocol,protocol.c,3,4,9
+Function,ap_is_chunked,util.c,3,9,5
+Function,ap_is_directory,util.c,2,2,9
+Function,ap_is_initial_req,request.c,1,1,10
+Function,ap_is_matchexp,util.c,1,3,3
+Function,ap_is_rdirectory,util.c,2,2,3
+Function,ap_is_recursion_limit_exceeded,core.c,3,11,17
+Function,ap_is_url,util.c,2,3,9
+Function,ap_limit_section,core.c,13,13,11
+Function,ap_lingering_close,connection.c,8,7,4
+Function,ap_list_provider_groups,provider.c,8,6,3
+Function,ap_list_provider_names,provider.c,9,5,11
+Function,ap_listen_pre_config,listen.c,7,2,3
+Function,ap_location_walk,request.c,24,2186,25
+Function,ap_log_assert,log.c,4,2,34
+Function,ap_log_cdata_,log.c,1,1,10
+Function,ap_log_cerror_,log.c,3,1,28
+Function,ap_log_command_line,log.c,4,12,9
+Function,ap_log_csdata_,log.c,1,1,10
+Function,ap_log_cserror_,log.c,3,1,8
+Function,ap_log_data_,log.c,1,1,9
+Function,ap_log_error_,log.c,3,1,238
+Function,ap_log_mpm_common,log.c,1,2,7
+Function,ap_log_perror_,log.c,3,1,27
+Function,ap_log_pid,log.c,9,13,8
+Function,ap_log_rdata_,log.c,1,1,11
+Function,ap_log_rerror_,log.c,7,2,343
+Static Function,ap_log_set_writer,mod_log_config.c,2,1,4
+Static Function,ap_log_set_writer_init,mod_log_config.c,2,1,4
+Static Function,ap_logio_add_bytes_in,mod_logio.c,1,1,5
+Static Function,ap_logio_add_bytes_out,mod_logio.c,1,1,5
+Static Function,ap_logio_get_last_bytes,mod_logio.c,1,1,5
+Function,ap_logs_child_init,log.c,1,2,4
+Function,ap_lookup_provider,provider.c,2,4,31
+Function,ap_make_content_type,protocol.c,6,7,13
+Function,ap_make_dirstr_parent,util.c,4,2,17
+Function,ap_make_dirstr_prefix,util.c,2,4,3
+Function,ap_make_etag,http_etag.c,4,229,16
+Function,ap_make_full_path,util.c,4,3,13
+Function,ap_make_method_list,http_protocol.c,5,1,6
+Function,ap_malloc,util.c,3,2,8
+Function,ap_map_http_request_error,http_filters.c,1,5,12
+Function,ap_matches_request_vhost,vhost.c,3,5,11
+Function,ap_md5,util_md5.c,3,1,9
+Function,ap_md5_binary,util_md5.c,6,1,4
+Function,ap_md5contextTo64,util_md5.c,4,2,4
+Function,ap_md5digest,util_md5.c,6,2,3
+Function,ap_meets_conditions,http_protocol.c,6,125,14
+Function,ap_merge_log_config,config.c,3,6,7
+Function,ap_merge_per_dir_configs,config.c,2,4,16
+Function,ap_method_in_list,http_protocol.c,3,3,5
+Function,ap_method_is_limited,config.c,2,2,3
+Function,ap_method_list_add,http_protocol.c,4,3,4
+Function,ap_method_list_remove,http_protocol.c,5,6,5
+Function,ap_method_name_of,http_protocol.c,4,3,3
+Function,ap_method_number_of,http_protocol.c,4,4,13
+Function,ap_method_register,http_protocol.c,6,8,9
+Static Function,ap_method_registry_destroy,http_protocol.c,3,1,1
+Function,ap_method_registry_init,http_protocol.c,4,1,3
+Function,ap_mpm_dump_pidfile,mpm_common.c,2,1,4
+Function,ap_mpm_end_gen_helper,mpm_common.c,4,9,12
+Function,ap_mpm_pod_check,mpm_unix.c,2,3,2
+Function,ap_mpm_pod_close,mpm_unix.c,2,3,3
+Function,ap_mpm_pod_killpg,mpm_unix.c,1,3,6
+Function,ap_mpm_pod_open,mpm_unix.c,7,2,4
+Function,ap_mpm_pod_signal,mpm_unix.c,3,2,1
+Function,ap_mpm_podx_check,mpm_unix.c,3,4,3
+Function,ap_mpm_podx_close,mpm_unix.c,2,3,4
+Function,ap_mpm_podx_killpg,mpm_unix.c,1,2,4
+Function,ap_mpm_podx_open,mpm_unix.c,6,2,5
+Function,ap_mpm_podx_signal,mpm_unix.c,2,1,3
+Function,ap_mpm_query,mpm_common.c,2,2,25
+Function,ap_mpm_register_timed_callback,mpm_common.c,2,1,3
+Function,ap_mpm_rewrite_args,mpm_unix.c,13,72,12
+Function,ap_mpm_safe_kill,mpm_unix.c,6,5,7
+Function,ap_mpm_set_coredumpdir,mpm_common.c,7,5,6
+Function,ap_mpm_set_graceful_shutdown,mpm_common.c,4,2,2
+Function,ap_mpm_set_max_mem_free,mpm_common.c,6,3,3
+Function,ap_mpm_set_max_requests,mpm_common.c,6,4,7
+Function,ap_mpm_set_pidfile,mpm_common.c,3,3,4
+Function,ap_mpm_set_thread_stacksize,mpm_common.c,6,3,3
+Function,ap_mutex_init,util_mutex.c,9,2,4
+Function,ap_mutex_register,util_mutex.c,9,3,15
+Function,ap_new_log_config,config.c,6,3,7
+Function,ap_no2slash,util.c,1,1,2
+Function,ap_no2slash_ex,util.c,0,4,2
+Function,ap_note_auth_failure,protocol.c,3,3,13
+Function,ap_note_basic_auth_failure,protocol.c,1,1,1
+Function,ap_note_digest_auth_failure,protocol.c,1,1,1
+Function,ap_old_write_filter,protocol.c,7,3,11
+Function,ap_open_htaccess,config.c,4,1,7
+Function,ap_open_logs,log.c,17,166,13
+Function,ap_open_piped_log,log.c,2,4,3
+Function,ap_open_piped_log_ex,log.c,12,3,6
+Function,ap_open_stderr_log,log.c,1,1,3
+Function,ap_os_create_privileged_process,unixd.c,4,2,8
+Function,ap_os_escape_path,util.c,5,9,30
+Function,ap_os_is_path_absolute,util.c,4,2,7
+Function,ap_parse_form_data,util.c,24,18577,20
+Function,ap_parse_htaccess,config.c,28,21,23
+Function,ap_parse_log_level,log.c,3,4,6
+Function,ap_parse_mutex,util_mutex.c,7,69,4
+Function,ap_parse_token_list_strict,util.c,7,12,7
+Function,ap_parse_uri,protocol.c,11,16,14
+Function,ap_parse_vhost_addrs,vhost.c,5,7,7
+Function,ap_pass_brigade,util_filter.c,5,5,72
+Function,ap_pass_brigade_fchk,util_filter.c,6,6,15
+Function,ap_pbase64decode,util.c,4,1,9
+Function,ap_pbase64encode,util.c,5,1,6
+Function,ap_pcfg_open_custom,util.c,8,1,8
+Function,ap_pcfg_openfile,util.c,15,7,15
+Function,ap_pcfg_strerror,util.c,2,3,8
+Function,ap_piped_log_read_fd,log.c,1,1,2
+Function,ap_piped_log_write_fd,log.c,1,1,3
+Function,ap_pool_cleanup_set_null,util.c,1,1,2
+Function,ap_pregcomp,util.c,5,3,23
+Function,ap_pregfree,util.c,2,1,4
+Function,ap_pregsub,util.c,2,2,11
+Function,ap_pregsub_ex,util.c,3,2,8
+Function,ap_prep_lingering_close,connection.c,3,2,3
+Function,ap_proc_mutex_create,util_mutex.c,11,8,11
+Function,ap_process_async_request,http_request.c,14,210,21
+Function,ap_process_child_status,mpm_unix.c,3,10,11
+Function,ap_process_config_tree,config.c,9,3,10
+Function,ap_process_connection,connection.c,5,4,4
+Function,ap_process_fnmatch_configs,config.c,18,9,10
+Static Function,ap_process_http_async_connection,http_core.c,9,15,8
+Static Function,ap_process_http_connection,http_core.c,3,2,4
+Static Function,ap_process_http_sync_connection,http_core.c,12,97,11
+Function,ap_process_request,http_request.c,12,14,19
+Function,ap_process_request_after_handler,http_request.c,14,8,14
+Function,ap_process_request_internal,request.c,27,16865,31
+Function,ap_process_resource_config,config.c,13,7,11
+Function,ap_proxy_acquire_connection,proxy_util.c,12,26,24
+Static Function,ap_proxy_ajp_request,mod_proxy_ajp.c,50,999999999,53
+Function,ap_proxy_backend_broke,proxy_util.c,8,2,13
+Function,ap_proxy_balancer_get_best_worker,proxy_util.c,2,1,4
+Static Function,ap_proxy_balancer_register_hook,mod_proxy_balancer.c,7,1,1
+Function,ap_proxy_buckets_lifetime_transform,proxy_util.c,10,6,25
+Function,ap_proxy_c2hex,proxy_util.c,1,4,2
+Function,ap_proxy_canon_netloc,proxy_util.c,12,79,13
+Function,ap_proxy_canonenc,proxy_util.c,6,225,15
+Function,ap_proxy_check_connection,proxy_util.c,11,180,22
+Function,ap_proxy_checkproxyblock,proxy_util.c,2,1,4
+Function,ap_proxy_checkproxyblock2,proxy_util.c,5,113,22
+Static Function,ap_proxy_clean_warnings,mod_proxy_http.c,9,2,4
+Static Function,ap_proxy_clear_connection,proxy_util.c,8,6,7
+Function,ap_proxy_conn_is_https,mod_proxy.c,2,2,3
+Function,ap_proxy_connect_backend,proxy_util.c,23,2179178,43
+Static Function,ap_proxy_connect_register_hook,mod_proxy_connect.c,2,1,1
+Function,ap_proxy_connect_to_backend,proxy_util.c,10,1297,23
+Function,ap_proxy_connect_uds,proxy_util.c,10,7,6
+Function,ap_proxy_connection_create,proxy_util.c,2,1,5
+Function,ap_proxy_connection_create_ex,proxy_util.c,2,1,8
+Function,ap_proxy_connection_reusable,proxy_util.c,1,1,8
+Function,ap_proxy_cookie_reverse_map,proxy_util.c,11,136,16
+Function,ap_proxy_create_hdrbrgd,proxy_util.c,28,197569,53
+Function,ap_proxy_de_socketfy,mod_proxy.c,4,4,7
+Function,ap_proxy_define_balancer,proxy_util.c,32,13,16
+Function,ap_proxy_define_worker,proxy_util.c,43,10377,30
+Function,ap_proxy_determine_connection,proxy_util.c,38,77585,60
+Function,ap_proxy_find_balancershm,proxy_util.c,4,4,8
+Function,ap_proxy_find_workershm,proxy_util.c,4,4,8
+Static Function,ap_proxy_ftp_register_hook,mod_proxy_ftp.c,6,1,3
+Function,ap_proxy_get_balancer,proxy_util.c,7,9,19
+Function,ap_proxy_get_worker,proxy_util.c,7,14,16
+Function,ap_proxy_hashfunc,proxy_util.c,3,5,8
+Function,ap_proxy_hex2c,proxy_util.c,2,9,4
+Static Function,ap_proxy_http_cleanup,mod_proxy_http.c,2,1,5
+Static Function,ap_proxy_http_prefetch,mod_proxy_http.c,31,4787,47
+Static Function,ap_proxy_http_process_response,mod_proxy_http.c,68,999999999,73
+Static Function,ap_proxy_http_register_hook,mod_proxy_ajp.c,2,1,1
+Static Function,ap_proxy_http_register_hook,mod_proxy_wstunnel.c,2,1,1
+Static Function,ap_proxy_http_register_hook,mod_proxy_http.c,5,1,2
+Static Function,ap_proxy_http_request,mod_proxy_http.c,4,9,21
+Function,ap_proxy_initialize_balancer,proxy_util.c,7,16,17
+Function,ap_proxy_initialize_worker,proxy_util.c,25,31828,31
+Function,ap_proxy_is_domainname,proxy_util.c,5,7,3
+Function,ap_proxy_is_hostname,proxy_util.c,7,7,4
+Function,ap_proxy_is_ipaddr,proxy_util.c,11,746,10
+Function,ap_proxy_is_socket_connected,proxy_util.c,7,4,3
+Function,ap_proxy_is_word,proxy_util.c,3,1,1
+Function,ap_proxy_lb_workers,proxy_util.c,2,2,2
+Function,ap_proxy_location_reverse_map,proxy_util.c,12,67,20
+Function,ap_proxy_parse_wstatus,proxy_util.c,2,12,9
+Function,ap_proxy_pass_brigade,proxy_util.c,15,28,27
+Function,ap_proxy_port_of_scheme,proxy_util.c,3,5,10
+Function,ap_proxy_post_request,proxy_util.c,2,3,5
+Function,ap_proxy_pre_http_request,proxy_util.c,2,1,4
+Function,ap_proxy_pre_request,proxy_util.c,8,12,22
+Static Function,ap_proxy_read_headers,mod_proxy_http.c,13,402,23
+Function,ap_proxy_release_connection,proxy_util.c,3,2,20
+Static Function,ap_proxy_retry_worker,proxy_util.c,6,7,14
+Function,ap_proxy_set_wstatus,proxy_util.c,2,4,11
+Function,ap_proxy_share_balancer,proxy_util.c,13,25,18
+Function,ap_proxy_share_worker,proxy_util.c,10,16,17
+Function,ap_proxy_show_hcmethod,proxy_util.c,1,3,6
+Function,ap_proxy_ssl_connection_cleanup,proxy_util.c,6,7,17
+Function,ap_proxy_ssl_disable,mod_proxy.c,2,2,3
+Function,ap_proxy_ssl_enable,mod_proxy.c,2,2,5
+Function,ap_proxy_ssl_engine,mod_proxy.c,4,4,8
+Function,ap_proxy_ssl_val,mod_proxy.c,2,2,7
+Function,ap_proxy_strncpy,proxy_util.c,3,4,16
+Function,ap_proxy_sync_balancer,proxy_util.c,22,96,32
+Function,ap_proxy_trans_match,mod_proxy.c,13,896,21
+Function,ap_proxy_transfer_between_connections,proxy_util.c,12,217,27
+Function,ap_proxy_update_balancer,proxy_util.c,4,5,11
+Function,ap_proxy_valid_balancer_name,proxy_util.c,2,2,6
+Function,ap_proxy_worker_name,proxy_util.c,2,2,14
+Function,ap_proxyerror,proxy_util.c,8,2,24
+Static Function,ap_proxygetline,mod_proxy_http.c,4,2,7
+Function,ap_psignature,core.c,8,3,15
+Function,ap_pstr2_alnum,util.c,5,2,4
+Function,ap_queue_create,mpm_fdqueue.c,11,3,8
+Static Function,ap_queue_destroy,mpm_fdqueue.c,3,1,4
+Function,ap_queue_info_create,mpm_fdqueue.c,11,3,7
+Function,ap_queue_info_free_idle_pools,mpm_fdqueue.c,5,3,3
+Function,ap_queue_info_num_idlers,mpm_fdqueue.c,2,1,3
+Function,ap_queue_info_pop_pool,mpm_fdqueue.c,3,7,8
+Function,ap_queue_info_push_pool,mpm_fdqueue.c,8,8,6
+Function,ap_queue_info_set_idle,mpm_fdqueue.c,6,5,7
+Function,ap_queue_info_term,mpm_fdqueue.c,6,2,4
+Function,ap_queue_info_try_get_idler,mpm_fdqueue.c,2,4,3
+Function,ap_queue_info_wait_for_idler,mpm_fdqueue.c,7,14,8
+Function,ap_queue_interrupt_all,mpm_fdqueue.c,2,1,2
+Function,ap_queue_interrupt_one,mpm_fdqueue.c,2,1,1
+Function,ap_queue_pop_something,mpm_fdqueue.c,13,52,19
+Function,ap_queue_push_socket,mpm_fdqueue.c,9,3,10
+Function,ap_queue_push_timer,mpm_fdqueue.c,8,2,8
+Function,ap_queue_term,mpm_fdqueue.c,2,1,2
+Function,ap_random_insecure_bytes,core.c,3,4,8
+Function,ap_random_parent_after_fork,core.c,1,1,2
+Function,ap_random_pick,core.c,2,2,4
+Function,ap_rationalize_mtime,protocol.c,2,1,5
+Function,ap_read_config,config.c,11,23,12
+Function,ap_read_pid,log.c,10,7,7
+Function,ap_read_request,protocol.c,59,11232,33
+Function,ap_realloc,util.c,3,2,2
+Function,ap_recent_ctime,util_time.c,2,1,3
+Function,ap_recent_ctime_ex,util_time.c,4,56,15
+Function,ap_recent_rfc822_date,util_time.c,3,1,12
+Function,ap_reclaim_child_processes,mpm_unix.c,7,120,8
+Function,ap_regcomp,util_pcre.c,6,96,8
+Function,ap_regcomp_default_cflag_by_name,util_pcre.c,2,5,2
+Function,ap_regcomp_get_default_cflags,util_pcre.c,1,1,4
+Function,ap_regcomp_set_default_cflags,util_pcre.c,1,1,3
+Function,ap_regerror,util_pcre.c,4,3,6
+Function,ap_regexec,util_pcre.c,3,1,26
+Function,ap_regexec_len,util_pcre.c,9,676,8
+Function,ap_regfree,util_pcre.c,1,1,5
+Function,ap_register_auth_provider,request.c,3,2,21
+Function,ap_register_config_hooks,config.c,1,1,1
+Function,ap_register_errorlog_handler,core.c,4,1,6
+Function,ap_register_extra_mpm_process,mpm_unix.c,5,1,4
+Function,ap_register_hooks,config.c,5,3,6
+Static Function,ap_register_include_handler,mod_include.c,2,1,3
+Function,ap_register_input_filter,util_filter.c,3,1,15
+Static Function,ap_register_log_handler,mod_log_config.c,5,1,5
+Function,ap_register_log_hooks,log.c,2,1,2
+Function,ap_register_output_filter,util_filter.c,2,1,20
+Function,ap_register_output_filter_protocol,util_filter.c,4,1,7
+Function,ap_register_provider,provider.c,7,32,23
+Function,ap_register_request_note,core.c,3,1,2
+Static Function,ap_register_rewrite_mapfunc,mod_rewrite.c,2,1,3
+Function,ap_regname,util_pcre.c,8,7,11
+Function,ap_relieve_child_processes,mpm_unix.c,4,20,5
+Function,ap_remove_input_filter,util_filter.c,1,1,12
+Function,ap_remove_input_filter_byhandle,util_filter.c,3,8,5
+Function,ap_remove_loaded_module,config.c,1,3,3
+Function,ap_remove_module,config.c,10,7,10
+Function,ap_remove_output_filter,util_filter.c,1,1,34
+Function,ap_remove_output_filter_byhandle,util_filter.c,3,8,4
+Function,ap_remove_pid,log.c,4,5,7
+Function,ap_reopen_scoreboard,scoreboard.c,6,5,9
+Function,ap_replace_stderr_log,log.c,9,40,10
+Function,ap_request_has_body,util.c,3,1,6
+Static Function,ap_request_insert_filter,mod_request.c,2,5,10
+Static Function,ap_request_remove_filter,mod_request.c,1,3,6
+Function,ap_reserve_module_slots,config.c,1,1,2
+Function,ap_reserve_module_slots_directive,config.c,2,1,2
+Function,ap_reset_module_loglevels,config.c,1,2,6
+Function,ap_resolve_env,core.c,13,73,10
+Function,ap_response_code_string,core.c,5,7,17
+Function,ap_retained_data_create,config.c,4,1,7
+Function,ap_retained_data_get,config.c,2,1,5
+Function,ap_rflush,protocol.c,8,2,11
+Function,ap_rgetline_core,protocol.c,9,73156609,18
+Function,ap_rind,util.c,2,2,3
+Function,ap_rl_end_create,mod_ratelimit.c,11,1,2
+Function,ap_rl_start_create,mod_ratelimit.c,11,1,2
+Function,ap_rprintf,protocol.c,4,2,32
+Function,ap_rputc,protocol.c,2,3,7
+Function,ap_run_access_checker,request.c,2,4,7
+Function,ap_run_access_checker_ex,request.c,2,4,7
+Function,ap_run_auth_checker,request.c,2,4,6
+Function,ap_run_check_config,config.c,2,4,9
+Function,ap_run_check_user_id,request.c,2,4,6
+Function,ap_run_child_init,config.c,1,3,7
+Function,ap_run_child_status,mpm_common.c,1,3,12
+Function,ap_run_create_connection,connection.c,2,4,14
+Function,ap_run_create_request,request.c,2,4,8
+Function,ap_run_default_port,protocol.c,2,4,15
+Function,ap_run_dirwalk_stat,request.c,2,4,8
+Function,ap_run_drop_privileges,mpm_common.c,2,4,8
+Function,ap_run_end_generation,mpm_common.c,1,3,7
+Function,ap_run_error_log,log.c,1,3,7
+Function,ap_run_expr_lookup,util_expr_eval.c,2,4,7
+Function,ap_run_fixups,request.c,2,4,6
+Function,ap_run_force_authn,request.c,2,4,6
+Function,ap_run_generate_log_id,log.c,2,4,8
+Function,ap_run_get_mgmt_items,core.c,2,4,7
+Function,ap_run_get_suexec_identity,unixd.c,2,4,7
+Function,ap_run_handler,config.c,2,4,6
+Function,ap_run_header_parser,config.c,2,4,6
+Function,ap_run_http_scheme,protocol.c,2,4,16
+Function,ap_run_insert_error_filter,http_protocol.c,1,3,6
+Function,ap_run_insert_filter,request.c,1,3,8
+Function,ap_run_insert_network_bucket,core.c,2,4,8
+Function,ap_run_log_transaction,protocol.c,2,4,7
+Function,ap_run_map_to_storage,request.c,2,4,6
+Function,ap_run_monitor,mpm_common.c,2,4,7
+Function,ap_run_mpm,mpm_common.c,2,4,8
+Function,ap_run_mpm_get_name,mpm_common.c,2,4,5
+Function,ap_run_mpm_query,mpm_common.c,2,4,8
+Function,ap_run_mpm_register_timed_callback,mpm_common.c,2,4,8
+Function,ap_run_note_auth_failure,protocol.c,2,4,7
+Function,ap_run_open_htaccess,config.c,2,4,10
+Function,ap_run_open_logs,config.c,2,4,9
+Function,ap_run_optional_fn_retrieve,config.c,1,3,5
+Function,ap_run_post_config,config.c,2,4,9
+Function,ap_run_post_perdir_config,request.c,2,4,6
+Function,ap_run_post_read_request,protocol.c,2,4,7
+Function,ap_run_pre_close_connection,connection.c,2,4,6
+Function,ap_run_pre_config,config.c,2,4,8
+Function,ap_run_pre_connection,connection.c,2,4,10
+Function,ap_run_pre_mpm,scoreboard.c,2,4,7
+Function,ap_run_pre_read_request,protocol.c,1,3,7
+Function,ap_run_process_connection,connection.c,2,4,6
+Function,ap_run_protocol_get,protocol.c,2,4,6
+Function,ap_run_protocol_propose,protocol.c,2,4,10
+Function,ap_run_protocol_switch,protocol.c,2,4,9
+Function,ap_run_quick_handler,config.c,2,4,10
+Function,ap_run_resume_connection,mpm_common.c,1,3,6
+Function,ap_run_rewrite_args,config.c,1,3,5
+Function,ap_run_session_decode,mod_session.c,2,4,7
+Function,ap_run_session_encode,mod_session.c,2,4,7
+Function,ap_run_session_load,mod_session.c,2,4,7
+Function,ap_run_session_save,mod_session.c,2,4,7
+Function,ap_run_status_hook,mod_status.c,3,4,5
+Function,ap_run_sub_req,request.c,4,6,10
+Function,ap_run_suspend_connection,mpm_common.c,1,3,6
+Function,ap_run_test_config,config.c,1,3,7
+Function,ap_run_translate_name,request.c,2,4,6
+Function,ap_run_type_checker,request.c,2,4,6
+Function,ap_run_watchdog_exit,mod_watchdog.c,2,4,8
+Function,ap_run_watchdog_init,mod_watchdog.c,2,4,8
+Function,ap_run_watchdog_need,mod_watchdog.c,2,4,9
+Function,ap_run_watchdog_step,mod_watchdog.c,2,4,8
+Function,ap_runtime_dir_relative,config.c,3,2,14
+Function,ap_rvputs,protocol.c,5,6,14
+Function,ap_rwrite,protocol.c,2,3,5
+Function,ap_rxplus_compile,util_regex.c,13,1032,5
+Function,ap_rxplus_exec,util_regex.c,10,6,11
+Function,ap_rxplus_match,util_regex.c,2,2,8
+Function,ap_rxplus_pmatch,util_regex.c,3,1,3
+Function,ap_satisfies,core.c,2,2,4
+Function,ap_save_brigade,util_filter.c,10,34,18
+Function,ap_scan_http_field_content,util.c,1,2,4
+Function,ap_scan_http_token,util.c,1,2,5
+Function,ap_scan_script_header_err,util_script.c,2,1,3
+Function,ap_scan_script_header_err_brigade,util_script.c,2,1,3
+Function,ap_scan_script_header_err_brigade_ex,util_script.c,2,1,7
+Function,ap_scan_script_header_err_core,util_script.c,2,1,4
+Function,ap_scan_script_header_err_core_ex,util_script.c,28,1550,23
+Function,ap_scan_script_header_err_ex,util_script.c,2,1,4
+Function,ap_scan_script_header_err_strs,util_script.c,8,4,7
+Function,ap_scan_script_header_err_strs_ex,util_script.c,8,4,8
+Function,ap_scan_vchar_obstext,util.c,1,2,4
+Function,ap_select_protocol,protocol.c,9,912,19
+Function,ap_send_error_response,http_protocol.c,27,571,15
+Function,ap_send_fd,protocol.c,5,2,8
+Function,ap_send_http_options,http_protocol.c,3,2,5
+Function,ap_send_http_trace,http_filters.c,18,103,21
+Function,ap_send_interim_response,protocol.c,12,10,22
+Function,ap_send_mmap,protocol.c,7,1,13
+Function,ap_server_root_relative,config.c,2,2,47
+Static Function,ap_session_get,mod_session.c,4,5,4
+Static Function,ap_session_load,mod_session.c,14,67,22
+Static Function,ap_session_save,mod_session.c,9,41,20
+Static Function,ap_session_set,mod_session.c,6,7,5
+Function,ap_set_accept_ranges,http_protocol.c,1,1,6
+Static Function,ap_set_byterange,byterange_filter.c,21,319797,24
+Function,ap_set_config_vectors,config.c,6,4,15
+Function,ap_set_conn_count,scoreboard.c,1,2,7
+Function,ap_set_content_length,protocol.c,4,1,14
+Function,ap_set_content_type,http_protocol.c,3,3,38
+Function,ap_set_context_info,core.c,2,4,8
+Function,ap_set_core_module_config,util_debug.c,1,1,1
+Function,ap_set_deprecated,config.c,1,1,3
+Function,ap_set_document_root,core.c,1,1,4
+Function,ap_set_etag,http_etag.c,4,5,7
+Function,ap_set_extended_status,scoreboard.c,3,2,2
+Function,ap_set_file_slot,config.c,4,2,6
+Function,ap_set_flag_slot,config.c,1,1,5
+Function,ap_set_flag_slot_char,config.c,1,1,4
+Function,ap_set_int_slot,config.c,4,2,6
+Function,ap_set_keepalive,http_protocol.c,13,7,17
+Function,ap_set_last_modified,protocol.c,4,2,10
+Function,ap_set_listenbacklog,listen.c,4,3,2
+Function,ap_set_listencbratio,listen.c,4,3,2
+Function,ap_set_listener,listen.c,7,13,6
+Function,ap_set_module_config,util_debug.c,1,1,3
+Function,ap_set_module_loglevel,config.c,4,3,8
+Function,ap_set_mutex,util_mutex.c,18,76,6
+Function,ap_set_name_virtual_host,vhost.c,2,3,7
+Function,ap_set_receive_buffer_size,listen.c,4,3,2
+Function,ap_set_reqtail,scoreboard.c,3,2,2
+Function,ap_set_scoreboard,scoreboard.c,3,2,2
+Function,ap_set_send_buffer_size,listen.c,4,3,2
+Function,ap_set_server_protocol,core.c,1,1,4
+Function,ap_set_string_slot,config.c,2,1,5
+Function,ap_set_string_slot_lower,config.c,4,1,4
+Function,ap_set_sub_req_protocol,protocol.c,23,2,11
+Function,ap_setup_auth_internal,request.c,2,48,10
+Function,ap_setup_client_block,http_filters.c,9,15,19
+Function,ap_setup_listeners,listen.c,6,100,14
+Function,ap_setup_make_content_type,protocol.c,4,4,3
+Function,ap_setup_prelinked_modules,config.c,14,56,12
+Function,ap_should_client_block,http_filters.c,1,2,7
+Function,ap_show_directives,config.c,2,4,6
+Function,ap_show_modules,config.c,1,2,3
+Function,ap_show_mpm,mpm_common.c,2,2,5
+Function,ap_shutdown_conn,connection.c,9,2,11
+Function,ap_signal_server,mpm_unix.c,10,109,7
+Function,ap_single_module_configure,config.c,5,4,7
+Static Function,ap_siphash24,mod_session_crypto.c,1,18,4
+Static Function,ap_siphash24_auth,mod_session_crypto.c,1,1,4
+Function,ap_size_list_item,util.c,4,60,2
+Static Function,ap_slotmem_shm_register_hook,mod_slotmem_shm.c,4,1,2
+Function,ap_soak_end_container,config.c,9,24,8
+Function,ap_sock_disable_nagle,mpm_common.c,2,3,6
+Function,ap_some_auth_required,request.c,2,2,2
+Function,ap_some_authn_required,request.c,6,9,2
+Static Function,ap_ssi_get_tag_and_value,mod_include.c,6,3,16
+Static Function,ap_ssi_parse_string,mod_include.c,15,161284,27
+Function,ap_start_lingering_close,connection.c,6,4,3
+Function,ap_state_query,core.c,1,4,18
+Function,ap_str2_alnum,util.c,3,4,3
+Function,ap_str_tolower,util.c,2,2,46
+Function,ap_str_toupper,util.c,2,2,5
+Function,ap_strcasecmp_match,util.c,2,12,4
+Function,ap_strcasestr,util.c,2,14,6
+Function,ap_strchr,util_debug.c,2,1,2
+Function,ap_strchr_c,util_debug.c,2,1,2
+Function,ap_strcmp_match,util.c,1,12,5
+Function,ap_stripprefix,util.c,1,6,2
+Function,ap_strrchr,util_debug.c,2,1,2
+Function,ap_strrchr_c,util_debug.c,2,1,2
+Function,ap_strstr,util_debug.c,2,1,2
+Function,ap_strstr_c,util_debug.c,2,1,2
+Function,ap_sub_req_lookup_dirent,request.c,24,1110,18
+Function,ap_sub_req_lookup_file,request.c,19,110,16
+Function,ap_sub_req_lookup_uri,request.c,2,1,18
+Function,ap_sub_req_method_uri,request.c,13,14,10
+Function,ap_sub_req_output_filter,request.c,7,4,13
+Function,ap_suck_in_APR,main.c,1,1,1
+Function,ap_switch_protocol,protocol.c,5,7,10
+Function,ap_sys_privileges_handlers,core.c,2,1,3
+Static Function,ap_terminate,unixd.c,3,1,2
+Function,ap_time_process_request,scoreboard.c,5,6,12
+Function,ap_timeout_parameter_parse,util.c,4,13,13
+Function,ap_uname2id,mpm_common.c,5,4,8
+Function,ap_unescape_all,util.c,2,1,1
+Function,ap_unescape_url,util.c,2,1,18
+Function,ap_unescape_url_keep2f,util.c,2,2,5
+Function,ap_unescape_urlencoded,util.c,2,4,4
+Static Function,ap_unix_create_privileged_process,unixd.c,7,21,13
+Function,ap_unixd_accept,unixd.c,4,9,10
+Function,ap_unixd_mpm_get_retained_data,unixd.c,5,2,4
+Function,ap_unixd_mpm_set_signals,unixd.c,13,21870,9
+Function,ap_unixd_set_global_mutex_perms,unixd.c,3,1,3
+Function,ap_unixd_set_proc_mutex_perms,unixd.c,13,7,7
+Function,ap_unixd_set_rlimit,unixd.c,12,36,18
+Function,ap_unixd_setup_child,mod_unixd.c,9,21,8
+Function,ap_unregister_extra_mpm_process,mpm_unix.c,5,6,8
+Function,ap_update_child_status,scoreboard.c,2,2,13
+Function,ap_update_child_status_descr,scoreboard.c,2,2,5
+Function,ap_update_child_status_from_conn,scoreboard.c,2,2,7
+Function,ap_update_child_status_from_indexes,scoreboard.c,2,2,9
+Function,ap_update_child_status_from_server,scoreboard.c,2,2,6
+Function,ap_update_global_status,scoreboard.c,2,2,5
+Function,ap_update_mtime,request.c,2,2,10
+Function,ap_update_sb_handle,scoreboard.c,3,1,3
+Function,ap_update_vhost_from_headers,vhost.c,7,39,15
+Function,ap_update_vhost_given_ip,vhost.c,5,3,6
+Function,ap_varbuf_cfg_getline,util.c,9,248,10
+Function,ap_varbuf_free,util.c,4,2,8
+Function,ap_varbuf_grow,util.c,15,48,13
+Function,ap_varbuf_init,util.c,7,1,9
+Function,ap_varbuf_pdup,util.c,8,36,11
+Function,ap_varbuf_regsub,util.c,2,1,7
+Function,ap_varbuf_strmemcat,util.c,6,4,8
+Function,ap_vhost_iterate_given_conn,vhost.c,1,10,10
+Function,ap_vrprintf,protocol.c,8,4,8
+Function,ap_wait_or_timeout,mpm_common.c,7,6,7
+Function,ap_walk_config,config.c,5,3,17
+Static Function,ap_walk_config_sub,config.c,11,9,17
+Static Function,ap_watchdog_get_instance,mod_watchdog.c,9,3,7
+Static Function,ap_watchdog_register_callback,mod_watchdog.c,12,3,9
+Static Function,ap_watchdog_set_callback_interval,mod_watchdog.c,4,3,8
+Function,ap_xml_parse_input,util_xml.c,14,392,31
+Static Function,append_bucket,mod_sed.c,11,3,18
+Static Function,append_to_genbuf,sed1.c,3,2,6
+Static Function,append_to_holdbuf,sed1.c,4,2,7
+Static Function,append_to_linebuf,sed1.c,3,1,5
+Static Function,appendmem_to_linebuf,sed1.c,3,2,8
+Static Function,apply_authz_sections,mod_authz_core.c,7,91,24
+Static Function,apply_rewrite_cond,mod_rewrite.c,17,148,22
+Static Function,apply_rewrite_list,mod_rewrite.c,15,525,27
+Static Function,apply_rewrite_rule,mod_rewrite.c,28,7505,25
+Static Function,apr_err,ab.c,4,2,8
+Static Function,argstr_to_table,util_script.c,4,4,3
+Static Function,argstr_to_table,mod_lbmethod_heartbeat.c,4,3,3
+Static Function,arout,sed1.c,8,15,9
+Static Function,arr_elts_close,config.c,2,1,4
+Static Function,arr_elts_getstr,config.c,3,3,8
+Static Function,array_alphasort,mod_cache_disk.c,2,1,3
+Static Function,array_alphasort,mod_cache_socache.c,2,1,3
+Static Function,array_close,mod_macro.c,3,1,5
+Static Function,array_getch,mod_macro.c,10,5,13
+Static Function,array_getstr,mod_macro.c,7,6,7
+Static Function,atoq,mod_negotiation.c,2,13,2
+Static Function,authaliassection,mod_authn_core.c,21,9,17
+Static Function,authenticate_basic_fake,mod_auth_basic.c,7,11,18
+Static Function,authenticate_basic_user,mod_auth_basic.c,17,3140,24
+Static Function,authenticate_digest_user,mod_auth_digest.c,23,7239,44
+Static Function,authenticate_form_authn,mod_auth_form.c,28,867,34
+Static Function,authenticate_form_login_handler,mod_auth_form.c,8,16,23
+Static Function,authenticate_form_logout_handler,mod_auth_form.c,6,5,17
+Static Function,authenticate_form_post_config,mod_auth_form.c,8,10,10
+Static Function,authenticate_form_redirect_handler,mod_auth_form.c,8,5,15
+Static Function,authenticate_no_user,mod_authn_core.c,3,3,10
+Static Function,authn_alias_check_password,mod_authn_core.c,7,3,14
+Static Function,authn_alias_get_realm_hash,mod_authn_core.c,7,3,15
+Static Function,authn_ap_auth_name,mod_authn_core.c,2,1,6
+Static Function,authn_ap_auth_type,mod_authn_core.c,1,1,5
+Static Function,authn_cache_child_init,mod_authn_socache.c,3,4,9
+Static Function,authn_cache_dircfg_create,mod_authn_socache.c,5,1,3
+Static Function,authn_cache_dircfg_merge,mod_authn_socache.c,5,8,8
+Static Function,authn_cache_enable,mod_authn_socache.c,3,1,1
+Static Function,authn_cache_post_config,mod_authn_socache.c,6,9,11
+Static Function,authn_cache_precfg,mod_authn_socache.c,6,2,5
+Static Function,authn_cache_setprovider,mod_authn_socache.c,5,2,5
+Static Function,authn_cache_socache,mod_authn_socache.c,8,9,6
+Static Function,authn_cache_timeout,mod_authn_socache.c,3,1,2
+Static Function,authn_dbd_cr_conf,mod_authn_dbd.c,3,1,2
+Static Function,authn_dbd_hooks,mod_authn_dbd.c,2,1,2
+Static Function,authn_dbd_merge_conf,mod_authn_dbd.c,4,1,6
+Static Function,authn_dbd_password,mod_authn_dbd.c,16,40,22
+Static Function,authn_dbd_prepare,mod_authn_dbd.c,7,4,6
+Static Function,authn_dbd_realm,mod_authn_dbd.c,16,28,22
+Static Function,authn_ldap_build_filter,mod_authnz_ldap.c,10,385,15
+Static Function,authn_ldap_check_password,mod_authnz_ldap.c,20,164,36
+Static Function,authn_ldap_xlate_password,mod_authnz_ldap.c,6,3,5
+Static Function,authnz_ldap_cleanup_connection_close,mod_authnz_ldap.c,2,1,5
+Static Function,authnz_ldap_post_config,mod_authnz_ldap.c,14,22,13
+Static Function,authorize_user,mod_authz_core.c,2,1,2
+Static Function,authorize_user_core,mod_authz_core.c,5,19,20
+Static Function,authorize_userless,mod_authz_core.c,2,1,2
+Static Function,authz_alias_check_authorization,mod_authz_core.c,8,5,21
+Static Function,authz_core_check_config,mod_authz_core.c,2,4,6
+Static Function,authz_core_check_section,mod_authz_core.c,7,46,13
+Static Function,authz_core_pre_config,mod_authz_core.c,2,1,1
+Static Function,authz_dbd_cr_cfg,mod_authz_dbd.c,4,1,2
+Static Function,authz_dbd_group_query,mod_authz_dbd.c,10,12,19
+Static Function,authz_dbd_hooks,mod_authz_dbd.c,1,1,5
+Static Function,authz_dbd_login,mod_authz_dbd.c,15,128,24
+Static Function,authz_dbd_merge_cfg,mod_authz_dbd.c,5,1,7
+Static Function,authz_dbd_prepare,mod_authz_dbd.c,7,4,6
+Function,authz_dbd_run_client_login,mod_authz_dbd.c,3,4,6
+Static Function,authz_dbm_getfns,mod_authz_dbm.c,2,1,1
+Static Function,authz_groupfile_getfns,mod_authz_groupfile.c,2,1,1
+Static Function,authz_host_post_config,mod_authz_host.c,2,1,1
+Static Function,authz_host_pre_config,mod_authz_host.c,5,1,6
+Static Function,authz_merge_sections,mod_authz_core.c,4,4,6
+Static Function,authz_owner_get_file_group,mod_authz_owner.c,5,9,15
+Static Function,authz_require_alias_section,mod_authz_core.c,23,19,22
+Static Function,authz_some_auth_required,mod_authz_core.c,1,2,7
+Static Function,backend_cleanup,mod_proxy_hcheck.c,6,6,14
+Static Function,bail_out_on_error,mod_request.c,8,1,13
+Static Function,bail_out_on_error,http_filters.c,14,5,15
+Static Function,balancer_child_init,mod_proxy_balancer.c,5,11,20
+Static Function,balancer_handler,mod_proxy_balancer.c,92,999999999,107
+Static Function,balancer_post_config,mod_proxy_balancer.c,37,1042,31
+Static Function,balancer_pre_config,mod_proxy_balancer.c,7,2,3
+Static Function,base64_func,util_expr_eval.c,2,1,3
+Static Function,basic_http_header,http_filters.c,13,313,20
+Static Function,basic_http_header_check,http_filters.c,10,17,8
+Static Function,best_match,mod_negotiation.c,15,492,10
+Static Function,bndm,mod_include.c,1,7,7
+Static Function,bndm_compile,mod_include.c,6,2,5
+Static Function,brigade_append,mod_reqtimeout.c,8,6,11
+Static Function,bucket_socket_ex_create,mod_proxy_scgi.c,8,1,4
+Static Function,bucket_socket_ex_make,mod_proxy_scgi.c,6,1,4
+Static Function,bucket_socket_ex_read,mod_proxy_scgi.c,16,12,9
+Static Function,buffer_in_filter,mod_buffer.c,22,145,31
+Static Function,buffer_out_filter,mod_buffer.c,18,391,27
+Static Function,buffer_output,protocol.c,11,4,20
+Static Function,c2x,util.c,2,1,9
+Static Function,c2x,mod_rewrite.c,2,1,5
+Function,cache_accept_headers,cache_storage.c,11,12,9
+Static Function,cache_canonicalise_key,cache_storage.c,20,9661,28
+Function,cache_check_freshness,cache_util.c,11,22036,37
+Static Function,cache_control_remove,cache_util.c,5,11,5
+Function,cache_create_entity,cache_storage.c,10,11,19
+Static Function,cache_filter,mod_cache.c,4,4,18
+Function,cache_generate_key_default,cache_storage.c,3,2,9
+Static Function,cache_get_filter,mod_cache.c,1,3,6
+Function,cache_get_providers,cache_util.c,4,14,19
+Static Function,cache_handler,mod_cache.c,27,47,38
+Static Function,cache_hash,cache_util.c,6,4,5
+Static Function,cache_header_cmp,mod_cache.c,3,2,5
+Function,cache_hook_cache_status,mod_cache.c,11,4,10
+Function,cache_hook_get_cache_status,mod_cache.c,1,1,2
+Static Function,cache_insert_error_filter,mod_cache.c,14,8,25
+Function,cache_invalidate,cache_storage.c,10,1821,21
+Static Function,cache_invalidate_filter,mod_cache.c,7,6,20
+Function,cache_merge_headers_out,cache_util.c,5,6,8
+Static Function,cache_negotiated_docs,mod_negotiation.c,4,1,3
+Static Function,cache_out_filter,mod_cache.c,16,22,32
+Static Function,cache_post_config,mod_cache.c,3,2,2
+Static Function,cache_quick_handler,mod_cache.c,28,52,40
+Function,cache_remove_lock,cache_util.c,7,20,17
+Function,cache_remove_url,cache_storage.c,3,5,19
+Static Function,cache_remove_url_filter,mod_cache.c,5,3,14
+Static Function,cache_replace_filter,mod_cache.c,4,15,8
+Function,cache_run_cache_status,mod_cache.c,2,4,14
+Static Function,cache_save_filter,mod_cache.c,59,999999999,79
+Static Function,cache_save_store,mod_cache.c,12,17,26
+Function,cache_select,cache_storage.c,28,1858,25
+Static Function,cache_socache_register_hook,mod_cache_socache.c,4,1,3
+Static Function,cache_status,mod_cache.c,3,80,17
+Function,cache_strqtok,cache_util.c,3,70,6
+Function,cache_table_getm,cache_util.c,6,3,11
+Static Function,cache_table_getm_do,cache_util.c,5,3,6
+Static Function,cache_the_file,mod_file_cache.c,17,16,24
+Function,cache_try_lock,cache_util.c,16,52,25
+Function,cache_use_early_url,cache_util.c,1,3,10
+Static Function,cached_explode,util_time.c,8,7,9
+Static Function,cachefilehandle,mod_file_cache.c,2,1,2
+Static Function,cachefilemmap,mod_file_cache.c,2,1,2
+Static Function,cfg_close,util.c,2,1,2
+Static Function,cfg_getch,util.c,2,1,3
+Static Function,cfg_getstr,util.c,2,1,4
+Static Function,cfg_trim_line,util.c,4,8,3
+Static Function,cgid_child_errfn,mod_cgid.c,2,2,9
+Static Function,cgid_handler,mod_cgid.c,48,168349,46
+Static Function,cgid_init,mod_cgid.c,27,11,16
+Static Function,cgid_maint,mod_cgid.c,7,16,13
+Static Function,cgid_pre_config,mod_cgid.c,3,1,2
+Static Function,cgid_server,mod_cgid.c,48,16142,33
+Static Function,cgid_start,mod_cgid.c,16,5,11
+Static Function,cgid_suexec_id_doer,mod_cgid.c,1,1,5
+Static Function,checkRotate,rotatelogs.c,6,23,13
+Static Function,check_anonymous,mod_authn_anon.c,5,25,23
+Static Function,check_args,htpasswd.c,14,1082,11
+Static Function,check_authn,mod_auth_form.c,7,448,24
+Static Function,check_code,mod_expires.c,8,46,4
+Static Function,check_config,mod_info.c,4,2,4
+Static Function,check_dbm_pw,mod_authn_dbm.c,6,11,19
+Static Function,check_dir_access,mod_access_compat.c,3,30,19
+Static Function,check_errorlog_dir,core.c,8,11,11
+Static Function,check_finalized,sed0.c,1,4,7
+Static Function,check_header,http_filters.c,10,50,15
+Static Function,check_headers,http_filters.c,4,1,7
+Static Function,check_headers_recursion,http_filters.c,3,2,3
+Static Function,check_headers_table,http_filters.c,3,5,7
+Static Function,check_hostalias,vhost.c,4,38,12
+Static Function,check_infinite_requests,worker.c,2,2,2
+Static Function,check_log_dir,mod_log_config.c,7,7,13
+Static Function,check_macro_arguments,mod_macro.c,7,17,12
+Static Function,check_macro_contents,mod_macro.c,5,12,13
+Static Function,check_macro_use_arguments,mod_macro.c,1,4,9
+Static Function,check_nc,mod_auth_digest.c,7,12,19
+Static Function,check_nonce,mod_auth_digest.c,11,13,21
+Static Function,check_password,mod_authn_file.c,9,29,18
+Static Function,check_password,mod_authn_socache.c,6,9,21
+Static Function,check_serverpath,vhost.c,3,9,13
+Static Function,check_signal,worker.c,1,2,2
+Static Function,check_site,mod_auth_form.c,4,3,6
+Static Function,check_speling,mod_speling.c,29,444,36
+Static Function,check_string,mod_auth_form.c,3,2,11
+Static Function,check_string,mod_session_dbd.c,3,2,7
+Static Function,check_string,mod_session_cookie.c,3,2,7
+Static Function,check_time_left,mod_reqtimeout.c,3,6,5
+Static Function,child_errfn,mod_ext_filter.c,5,1,5
+Static Function,child_init,mod_proxy.c,17,11,25
+Static Function,child_main,worker.c,38,303,27
+Static Function,clean_child_exit,worker.c,6,4,9
+Static Function,clean_var_rec,mod_negotiation.c,21,1,2
+Static Function,clean_warning_headers,mod_proxy_http.c,8,10,10
+Static Function,cleanup_global_providers,provider.c,3,1,1
+Static Function,cleanup_nonchild_process,mod_cgid.c,4,7,11
+Static Function,cleanup_script,mod_cgid.c,2,1,4
+Static Function,cleanup_slotmem,mod_slotmem_shm.c,6,3,8
+Static Function,cleanup_tables,mod_auth_digest.c,10,32,10
+Static Function,cleanup_tempfile_and_exit,htdigest.c,2,2,5
+Static Function,clear_ctxpool,mod_sed.c,5,1,4
+Static Function,clf_log_bytes_sent,mod_log_config.c,2,2,4
+Static Function,close_connection,ab.c,18,11,20
+Static Function,close_disk_cache_fd,mod_cache_disk.c,4,4,4
+Static Function,close_handle_in_child,log.c,5,1,4
+Static Function,close_listeners_on_exec,listen.c,2,1,1
+Static Function,close_logfile,rotatelogs.c,3,2,8
+Static Function,close_unix_socket,mod_cgid.c,2,1,4
+Static Function,close_worker_sockets,worker.c,2,3,3
+Static Function,cmd_lb_hb_storage,mod_lbmethod_heartbeat.c,4,2,7
+Static Function,cmd_log_message,mod_log_debug.c,14,71,11
+Static Function,cmd_parseflagfield,mod_rewrite.c,4,34,5
+Static Function,cmd_rewritebase,mod_rewrite.c,3,4,4
+Static Function,cmd_rewritecond,mod_rewrite.c,18,3724,22
+Static Function,cmd_rewritecond_setflag,mod_rewrite.c,4,4,4
+Static Function,cmd_rewriteengine,mod_rewrite.c,5,2,9
+Static Function,cmd_rewritemap,mod_rewrite.c,29,42,19
+Static Function,cmd_rewriteoptions,mod_rewrite.c,10,27,14
+Static Function,cmd_rewriterule,mod_rewrite.c,22,44,14
+Static Function,cmd_rewriterule_setflag,mod_rewrite.c,19,105,8
+Static Function,cmd_servertype,mod_proxy_fcgi.c,3,3,2
+Static Function,cmd_setenv,mod_proxy_fcgi.c,7,8,8
+Static Function,cmp_module_name,mod_info.c,2,1,4
+Static Function,cmp_provider_groups,mod_info.c,2,2,5
+Static Function,cmp_provider_names,mod_info.c,2,1,4
+Static Function,command,sed1.c,22,203,26
+Function,command_errf,sed0.c,4,2,13
+Static Function,commit_entity,mod_cache_disk.c,7,64,25
+Static Function,commit_entity,mod_cache_socache.c,9,30,31
+Static Function,compare_client_certs,util_ldap.c,2,5,8
+Static Function,compare_lexicography,mod_rewrite.c,2,4,3
+Static Function,compare_version,mod_version.c,5,73,6
+Static Function,comperr,regexp.c,1,1,4
+Static Function,compile_sed_expr,mod_sed.c,8,5,6
+Static Function,comple,sed0.c,3,2,8
+Static Function,compradre,ab.c,1,3,4
+Static Function,comprando,ab.c,1,3,4
+Static Function,compri,ab.c,1,3,5
+Static Function,compsub,sed0.c,4,10,9
+Static Function,compute_auth,mod_session_crypto.c,2,1,7
+Static Function,compwait,ab.c,1,3,4
+Static Function,conf_vector_length_pre_config,config.c,3,2,5
+Static Function,config_log_transaction,mod_log_config.c,8,486,24
+Static Function,config_perdir_create,mod_rewrite.c,13,3,3
+Static Function,config_perdir_merge,mod_rewrite.c,13,6,13
+Static Function,config_server_create,mod_rewrite.c,11,1,3
+Static Function,config_server_merge,mod_rewrite.c,13,3,12
+Static Function,configure_checkhandler,mod_dir.c,2,1,2
+Static Function,configure_redirect,mod_dir.c,5,8,2
+Static Function,configure_slash,mod_dir.c,2,1,2
+Static Function,conn_pool_cleanup,proxy_util.c,3,1,1
+Static Function,conn_var_fn,util_expr_eval.c,5,10,13
+Static Function,connect_to_daemon,mod_cgid.c,13,18,21
+Static Function,connection_cleanup,proxy_util.c,19,18,20
+Static Function,connection_constructor,proxy_util.c,10,1,5
+Static Function,connection_destructor,proxy_util.c,2,2,5
+Static Function,connection_shutdown,proxy_util.c,6,11,11
+Static Function,constant_item,mod_headers.c,1,1,2
+Static Function,constant_item,mod_log_config.c,1,1,2
+Static Function,construct_host_header,vhost.c,5,8,7
+Static Function,construct_key,mod_authn_socache.c,8,6,12
+Static Function,cookie_domain,mod_proxy.c,5,1,5
+Static Function,cookie_path,mod_proxy.c,5,1,5
+Static Function,copy_brigade_range,byterange_filter.c,9,156,13
+Static Function,copy_request,scoreboard.c,4,7,12
+Static Function,copy_to_genbuf,sed1.c,3,2,5
+Static Function,copy_to_holdbuf,sed1.c,3,1,4
+Static Function,copy_to_linebuf,sed1.c,3,1,5
+Static Function,copy_uri_components,mod_auth_digest.c,11,32,12
+Static Function,copyright,ab.c,1,2,2
+Static Function,core_check_config,core.c,2,3,4
+Static Function,core_child_init,core.c,5,2,3
+Static Function,core_create_conn,core.c,18,5,15
+Static Function,core_create_proxy_req,core.c,2,1,1
+Static Function,core_create_req,core.c,9,2,10
+Static Function,core_dirwalk_stat,core.c,2,1,6
+Static Function,core_dump_config,core.c,9,21,12
+Static Function,core_expr_lookup,util_expr_eval.c,10,41,16
+Static Function,core_generate_log_id,log.c,7,4,7
+Static Function,core_insert_filter,core.c,3,9,7
+Static Function,core_insert_network_bucket,core.c,5,1,9
+Static Function,core_map_to_storage,core.c,3,3,2
+Static Function,core_optional_fn_retrieve,core.c,1,1,1
+Static Function,core_opts_merge,request.c,7,9,12
+Static Function,core_override_type,core.c,11,28,16
+Static Function,core_post_config,core.c,13,3,7
+Static Function,core_pre_config,core.c,6,2,3
+Static Function,core_pre_connection,core.c,12,9,13
+Static Function,core_upgrade_handler,core.c,19,11,17
+Static Function,core_upgrade_storage,core.c,2,2,4
+Static Function,count_directives_sub,config.c,2,5,6
+Static Function,cpystrn,log.c,2,2,10
+Static Function,create_access_compat_dir_config,mod_access_compat.c,8,4,3
+Static Function,create_action_dir_config,mod_actions.c,5,1,2
+Static Function,create_alias_config,mod_alias.c,6,1,2
+Static Function,create_alias_dir_config,mod_alias.c,5,1,2
+Static Function,create_argv,mod_cgid.c,8,128,7
+Static Function,create_auth_basic_dir_config,mod_auth_basic.c,4,1,2
+Static Function,create_auth_form_dir_config,mod_auth_form.c,12,1,3
+Static Function,create_authn_alias_svr_config,mod_authn_core.c,5,1,2
+Static Function,create_authn_anon_dir_config,mod_authn_anon.c,8,1,2
+Static Function,create_authn_core_dir_config,mod_authn_core.c,3,1,2
+Static Function,create_authn_dbm_dir_config,mod_authn_dbm.c,4,1,2
+Static Function,create_authn_file_dir_config,mod_authn_file.c,3,1,2
+Static Function,create_authnz_ldap_dir_config,mod_authnz_ldap.c,23,1,3
+Static Function,create_authz_core_dir_config,mod_authz_core.c,7,1,3
+Static Function,create_authz_core_svr_config,mod_authz_core.c,5,1,2
+Static Function,create_authz_dbm_dir_config,mod_authz_dbm.c,4,1,2
+Static Function,create_authz_groupfile_dir_config,mod_authz_groupfile.c,3,1,2
+Static Function,create_authz_user_dir_config,mod_authz_user.c,2,1,2
+Static Function,create_autoindex_config,mod_autoindex.c,19,1,2
+Static Function,create_buffer_config,mod_buffer.c,5,1,2
+Static Function,create_cache_config,mod_cache.c,24,2,2
+Static Function,create_cgid_config,mod_cgid.c,6,1,2
+Static Function,create_cgid_dirconf,mod_cgid.c,3,1,2
+Static Function,create_config,mod_proxy_connect.c,5,1,2
+Static Function,create_config,mod_cache_disk.c,7,1,2
+Static Function,create_config,mod_cache_socache.c,3,1,2
+Static Function,create_core_dir_config,core.c,30,1,3
+Static Function,create_core_server_config,core.c,15,2,5
+Static Function,create_dbd_config,mod_dbd.c,16,1,6
+Static Function,create_default_per_dir_config,config.c,3,3,7
+Static Function,create_default_section,mod_authz_core.c,4,1,3
+Static Function,create_digest_dir_config,mod_auth_digest.c,9,3,3
+Static Function,create_dir_config,mod_cache.c,16,1,2
+Static Function,create_dir_config,mod_dir.c,7,1,2
+Static Function,create_dir_config,mod_cache_disk.c,7,1,2
+Static Function,create_dir_config,mod_cache_socache.c,8,1,2
+Static Function,create_dir_expires_config,mod_expires.c,8,1,2
+Static Function,create_ef_dir_conf,mod_ext_filter.c,5,1,2
+Static Function,create_ef_server_conf,mod_ext_filter.c,6,1,3
+Static Function,create_empty_config,config.c,3,1,6
+Static Function,create_entity,mod_cache_disk.c,25,8,27
+Static Function,create_entity,mod_cache_socache.c,13,12,23
+Static Function,create_env_dir_config,mod_env.c,5,1,2
+Static Function,create_hcheck_req,mod_proxy_hcheck.c,4,6,10
+Static Function,create_headers_dir_config,mod_headers.c,7,1,2
+Static Function,create_includes_dir_config,mod_include.c,7,1,2
+Static Function,create_includes_server_config,mod_include.c,4,1,2
+Static Function,create_info_config,mod_info.c,5,1,2
+Static Function,create_listener_thread,worker.c,8,3,12
+Static Function,create_logio_dirconf,mod_logio.c,3,1,2
+Static Function,create_mconfig_for_directory,mod_speling.c,2,1,2
+Static Function,create_mconfig_for_server,mod_speling.c,2,1,2
+Static Function,create_mime_dir_config,mod_mime.c,7,1,2
+Static Function,create_namebased_scoreboard,scoreboard.c,4,3,9
+Static Function,create_neg_dir_config,mod_negotiation.c,4,1,2
+Static Function,create_proxy_config,mod_proxy.c,42,1,3
+Static Function,create_proxy_dir_config,mod_proxy.c,16,1,2
+Static Function,create_proxy_ftp_dir_config,mod_proxy_ftp.c,5,1,2
+Static Function,create_radio,mod_proxy_balancer.c,2,4,4
+Static Function,create_remoteip_server_config,mod_remoteip.c,6,1,2
+Static Function,create_request_dir_config,mod_request.c,5,1,2
+Static Function,create_request_rec,mod_proxy_hcheck.c,35,4,12
+Static Function,create_scgi_config,mod_proxy_scgi.c,4,1,2
+Static Function,create_sed_dir_config,mod_sed.c,3,1,2
+Static Function,create_server_config,config.c,4,3,8
+Static Function,create_server_config,mod_socache_redis.c,4,1,2
+Static Function,create_server_config,mod_socache_memcache.c,4,1,2
+Static Function,create_server_config,mod_file_cache.c,4,1,2
+Static Function,create_session_cookie_dir_config,mod_session_cookie.c,3,1,2
+Static Function,create_session_crypto_config,mod_session_crypto.c,4,1,2
+Static Function,create_session_crypto_dir_config,mod_session_crypto.c,6,1,2
+Static Function,create_session_dbd_dir_config,mod_session_dbd.c,8,1,2
+Static Function,create_session_dir_config,mod_session.c,6,1,2
+Static Function,create_setenvif_config,mod_setenvif.c,4,1,3
+Static Function,create_setenvif_config_dir,mod_setenvif.c,2,1,2
+Static Function,create_setenvif_config_svr,mod_setenvif.c,2,1,2
+Static Function,create_substitute_dcfg,mod_substitute.c,7,1,2
+Static Function,create_userdir_config,mod_userdir.c,8,1,2
+Static Function,crypt_init,mod_session_crypto.c,10,15,16
+Static Function,daemon_signal_handler,mod_cgid.c,1,2,2
+Static Function,data_file,mod_cache_disk.c,5,4,12
+Static Function,date_canon,mod_proxy_http.c,4,3,3
+Function,dav_add_all_liveprop_xmlns,liveprop.c,5,2,4
+Static Function,dav_add_if_resource,util.c,6,2,5
+Static Function,dav_add_if_state,util.c,10,4,10
+Function,dav_add_lock,util_lock.c,14,10,11
+Function,dav_add_response,mod_dav.c,9,2,12
+Function,dav_add_vary_header,util.c,4,4,6
+Static Function,dav_append_prop,dbm.c,3,6,5
+Function,dav_auto_checkin,util.c,9,32,22
+Function,dav_auto_checkout,util.c,19,7993,18
+Function,dav_begin_multistatus,mod_dav.c,6,3,9
+Function,dav_buffer_append,util.c,4,1,7
+Function,dav_buffer_init,util.c,3,1,7
+Function,dav_buffer_place,util.c,3,1,6
+Function,dav_buffer_place_mem,util.c,2,1,8
+Static Function,dav_build_key,dbm.c,11,3,13
+Static Function,dav_cache_badprops,mod_dav.c,5,3,10
+Static Function,dav_can_auto_checkout,util.c,7,10,6
+Function,dav_check_bufsize,util.c,4,2,12
+Static Function,dav_cleanup_liveprops,liveprop.c,3,1,1
+Function,dav_close_propdb,props.c,4,4,7
+Static Function,dav_cmd_dav,mod_dav.c,6,9,6
+Static Function,dav_cmd_davdepthinfinity,mod_dav.c,2,2,2
+Static Function,dav_cmd_davmintimeout,mod_dav.c,3,2,3
+Function,dav_core_find_liveprop,std_liveprop.c,2,1,5
+Function,dav_core_insert_all_liveprops,std_liveprop.c,1,1,4
+Static Function,dav_core_insert_prop,std_liveprop.c,9,240,18
+Static Function,dav_core_is_writable,std_liveprop.c,2,1,4
+Static Function,dav_core_patch_validate,std_liveprop.c,2,1,1
+Function,dav_core_register_uris,std_liveprop.c,1,1,3
+Static Function,dav_create_dir_config,mod_dav.c,6,3,3
+Static Function,dav_create_server_config,mod_dav.c,3,1,2
+Static Function,dav_created,mod_dav.c,7,4,16
+Function,dav_dbm_close,dbm.c,1,1,5
+Function,dav_dbm_delete,dbm.c,3,1,6
+Function,dav_dbm_exists,dbm.c,2,1,6
+Function,dav_dbm_fetch,dbm.c,4,2,9
+Static Function,dav_dbm_firstkey,dbm.c,3,1,4
+Function,dav_dbm_freedatum,dbm.c,1,1,7
+Function,dav_dbm_get_statefiles,dbm.c,1,2,6
+Static Function,dav_dbm_nextkey,dbm.c,3,1,4
+Static Function,dav_dbm_open,dbm.c,5,2,5
+Function,dav_dbm_open_direct,dbm.c,8,3,6
+Function,dav_dbm_store,dbm.c,3,1,8
+Function,dav_do_find_liveprop,liveprop.c,3,12,11
+Static Function,dav_do_prop_subreq,props.c,4,1,6
+Static Function,dav_error_response,mod_dav.c,8,1,15
+Static Function,dav_error_response_tag,mod_dav.c,7,16,10
+Function,dav_failed_proppatch,mod_dav.c,6,13,11
+Static Function,dav_fetch_next_token,util.c,3,4,3
+Function,dav_find_child,util.c,2,3,16
+Static Function,dav_find_liveprop,props.c,3,6,10
+Static Function,dav_find_liveprop_provider,props.c,4,6,8
+Static Function,dav_find_submitted_locktoken,util.c,2,6,11
+Function,dav_finish_multistatus,mod_dav.c,8,1,11
+Static Function,dav_fixups,mod_dav.c,3,7,11
+Static Function,dav_format_time,repos.c,2,2,14
+Static Function,dav_fs_add_locknull_state,lock.c,7,3,5
+Static Function,dav_fs_alloc_lock,lock.c,10,2,13
+Static Function,dav_fs_append_locks,lock.c,20,16,19
+Static Function,dav_fs_build_key,lock.c,7,2,11
+Static Function,dav_fs_close_lockdb,lock.c,1,2,4
+Static Function,dav_fs_close_stream,repos.c,7,7,8
+Static Function,dav_fs_cmd_davlockdb,mod_dav_fs.c,4,2,8
+Static Function,dav_fs_compare_locktoken,lock.c,2,1,4
+Static Function,dav_fs_copy_resource,repos.c,6,3,9
+Static Function,dav_fs_copymove_file,repos.c,10,122,13
+Static Function,dav_fs_copymove_resource,repos.c,10,8,12
+Static Function,dav_fs_copymove_state,repos.c,7,14,9
+Static Function,dav_fs_copymove_walker,repos.c,7,8,16
+Static Function,dav_fs_copymoveset,repos.c,7,4,7
+Static Function,dav_fs_create_collection,repos.c,6,4,5
+Static Function,dav_fs_create_lock,lock.c,5,1,6
+Static Function,dav_fs_create_server_config,mod_dav_fs.c,3,1,2
+Static Function,dav_fs_dbm_error,dbm.c,5,5,16
+Static Function,dav_fs_delete_walker,repos.c,4,3,9
+Static Function,dav_fs_deleteset,repos.c,6,4,3
+Function,dav_fs_dir_file_name,repos.c,7,20,11
+Static Function,dav_fs_do_refresh,lock.c,5,3,8
+Function,dav_fs_ensure_state_dir,dbm.c,2,1,4
+Function,dav_fs_find_liveprop,repos.c,2,2,8
+Static Function,dav_fs_find_lock,lock.c,15,12,21
+Static Function,dav_fs_format_locktoken,lock.c,3,1,4
+Function,dav_fs_gather_propsets,repos.c,1,1,2
+Function,dav_fs_get_locknull_members,lock.c,4,1,3
+Static Function,dav_fs_get_locks,lock.c,16,10,19
+Static Function,dav_fs_get_parent_resource,repos.c,17,14,9
+Static Function,dav_fs_get_request_rec,repos.c,1,1,4
+Static Function,dav_fs_get_resource,repos.c,20,28,11
+Static Function,dav_fs_get_supportedlock,lock.c,1,1,1
+Static Function,dav_fs_getetag,repos.c,3,3,10
+Static Function,dav_fs_has_locks,lock.c,5,3,6
+Function,dav_fs_insert_all_liveprops,repos.c,1,3,7
+Static Function,dav_fs_insert_prop,repos.c,7,23,20
+Static Function,dav_fs_internal_walk,repos.c,27,5,27
+Static Function,dav_fs_is_parent_resource,repos.c,3,2,6
+Static Function,dav_fs_is_same_resource,repos.c,2,3,11
+Static Function,dav_fs_is_writable,repos.c,2,2,6
+Static Function,dav_fs_load_lock_record,lock.c,26,94,24
+Static Function,dav_fs_load_locknull_list,lock.c,13,18,9
+Static Function,dav_fs_lock_expired,lock.c,2,1,2
+Static Function,dav_fs_merge_server_config,mod_dav_fs.c,4,1,5
+Static Function,dav_fs_mktemp,repos.c,6,1,4
+Static Function,dav_fs_move_resource,repos.c,11,7,9
+Static Function,dav_fs_open_lockdb,lock.c,15,3,10
+Static Function,dav_fs_open_stream,repos.c,14,30,10
+Static Function,dav_fs_parse_locktoken,lock.c,7,3,4
+Static Function,dav_fs_patch_commit,repos.c,0,1,1
+Static Function,dav_fs_patch_exec,repos.c,8,5,8
+Static Function,dav_fs_patch_rollback,repos.c,7,4,8
+Static Function,dav_fs_patch_validate,repos.c,5,15,14
+Function,dav_fs_pathname,repos.c,1,1,7
+Function,dav_fs_pool,repos.c,1,1,4
+Static Function,dav_fs_really_open_lockdb,lock.c,6,3,11
+Static Function,dav_fs_refresh_locks,lock.c,16,19,20
+Function,dav_fs_register,repos.c,2,1,4
+Static Function,dav_fs_remove_lock,lock.c,9,52,12
+Static Function,dav_fs_remove_locknull_member,lock.c,9,20,8
+Static Function,dav_fs_remove_locknull_state,lock.c,3,2,5
+Static Function,dav_fs_remove_resource,repos.c,13,5,6
+Static Function,dav_fs_resolve,lock.c,7,7,13
+Static Function,dav_fs_save_lock_record,lock.c,12,83,23
+Static Function,dav_fs_save_locknull_list,lock.c,10,6,7
+Static Function,dav_fs_seek_stream,repos.c,3,2,5
+Static Function,dav_fs_walk,repos.c,2,1,5
+Static Function,dav_fs_walker,repos.c,29,8680,20
+Static Function,dav_fs_write_stream,repos.c,3,3,6
+Static Function,dav_gen_supported_live_props,mod_dav.c,14,51,20
+Static Function,dav_gen_supported_methods,mod_dav.c,7,14,18
+Static Function,dav_gen_supported_reports,mod_dav.c,7,42,19
+Function,dav_get_allprops,props.c,16,232,13
+Function,dav_get_binding_hooks,mod_dav.c,2,1,4
+Function,dav_get_depth,mod_dav.c,5,6,18
+Static Function,dav_get_direct_resource,util_lock.c,6,7,10
+Function,dav_get_liveprop_info,liveprop.c,3,3,11
+Function,dav_get_liveprop_ns_count,liveprop.c,1,1,2
+Function,dav_get_liveprop_ns_index,liveprop.c,2,1,4
+Function,dav_get_liveprop_supported,props.c,3,3,6
+Function,dav_get_lock_hooks,mod_dav.c,2,1,15
+Function,dav_get_lockdb_path,mod_dav_fs.c,1,1,7
+Function,dav_get_locktoken_list,util.c,8,9,10
+Static Function,dav_get_ns_table_uri,dbm.c,2,2,5
+Function,dav_get_options_providers,providers.c,2,1,2
+Static Function,dav_get_overwrite,mod_dav.c,3,5,12
+Function,dav_get_propdb_hooks,mod_dav.c,2,1,3
+Function,dav_get_props,props.c,23,8739,21
+Static Function,dav_get_provider,mod_dav.c,1,1,10
+Function,dav_get_provider_name,mod_dav.c,1,1,5
+Static Function,dav_get_resource,mod_dav.c,8,8,37
+Function,dav_get_resource_state,util_lock.c,6,11,22
+Function,dav_get_resource_type_providers,providers.c,2,1,2
+Function,dav_get_search_hooks,mod_dav.c,2,1,4
+Function,dav_get_timeout,util.c,8,5,5
+Function,dav_get_vsn_hooks,mod_dav.c,2,1,16
+Function,dav_handle_err,mod_dav.c,5,6,30
+Static Function,dav_handler,mod_dav.c,30,29,15
+Function,dav_hook_find_liveprop,mod_dav.c,11,4,11
+Function,dav_hook_gather_propsets,mod_dav.c,11,4,10
+Function,dav_hook_get_find_liveprop,mod_dav.c,1,1,2
+Function,dav_hook_get_gather_propsets,mod_dav.c,1,1,2
+Function,dav_hook_get_insert_all_liveprops,mod_dav.c,1,1,2
+Function,dav_hook_insert_all_liveprops,mod_dav.c,11,4,11
+Static Function,dav_inherit_locks,util_lock.c,16,14,12
+Static Function,dav_inherit_walker,util_lock.c,3,2,11
+Static Function,dav_init_handler,mod_dav.c,3,1,2
+Static Function,dav_insert_coreprop,props.c,11,58,19
+Static Function,dav_insert_liveprop,props.c,4,2,11
+Static Function,dav_insert_xmlns,props.c,2,1,6
+Function,dav_join_error,util.c,2,4,4
+Static Function,dav_label_walker,mod_dav.c,8,8,14
+Function,dav_lock_get_activelock,util_lock.c,8,293,15
+Function,dav_lock_parse_lockinfo,util_lock.c,17,46,17
+Function,dav_lock_query,util_lock.c,3,2,8
+Static Function,dav_lock_walker,util_lock.c,4,4,11
+Static Function,dav_log_err,mod_dav.c,1,5,26
+Function,dav_lookup_provider,providers.c,2,1,2
+Function,dav_lookup_uri,util.c,17,17,20
+Static Function,dav_meets_conditions,util.c,3,9,4
+Static Function,dav_merge_dir_config,mod_dav.c,10,6,13
+Static Function,dav_merge_server_config,mod_dav.c,3,1,2
+Static Function,dav_method_baseline_control,mod_dav.c,1,1,1
+Static Function,dav_method_bind,mod_dav.c,21,31,22
+Static Function,dav_method_checkin,mod_dav.c,14,18,18
+Static Function,dav_method_checkout,mod_dav.c,21,105,25
+Static Function,dav_method_copymove,mod_dav.c,31,40644,28
+Static Function,dav_method_delete,mod_dav.c,15,13,16
+Static Function,dav_method_get,mod_dav.c,7,7,8
+Static Function,dav_method_label,mod_dav.c,23,33,21
+Static Function,dav_method_lock,mod_dav.c,34,104,25
+Static Function,dav_method_make_activity,mod_dav.c,13,7,10
+Static Function,dav_method_make_workspace,mod_dav.c,14,8,17
+Static Function,dav_method_merge,mod_dav.c,19,17,21
+Static Function,dav_method_mkcol,mod_dav.c,17,14,6
+Static Function,dav_method_options,mod_dav.c,41,291755524,34
+Static Function,dav_method_post,mod_dav.c,4,3,2
+Static Function,dav_method_propfind,mod_dav.c,35,68,27
+Static Function,dav_method_proppatch,mod_dav.c,30,40,22
+Static Function,dav_method_put,mod_dav.c,31,3895,18
+Static Function,dav_method_report,mod_dav.c,15,9,15
+Static Function,dav_method_search,mod_dav.c,8,7,7
+Static Function,dav_method_uncheckout,mod_dav.c,11,9,8
+Static Function,dav_method_unlock,mod_dav.c,15,10,14
+Static Function,dav_method_update,mod_dav.c,18,41,24
+Static Function,dav_method_vsn_control,mod_dav.c,28,63,19
+Function,dav_new_error,util.c,7,1,61
+Function,dav_new_error_tag,util.c,4,1,7
+Function,dav_notify_created,util_lock.c,4,5,12
+Static Function,dav_open_lockdb,mod_dav.c,4,2,6
+Function,dav_open_propdb,props.c,2,1,9
+Function,dav_options_provider_register,providers.c,1,1,3
+Static Function,dav_output_prop_name,props.c,3,2,8
+Static Function,dav_parse_range,mod_dav.c,6,7,6
+Function,dav_popen_propdb,props.c,13,2,9
+Static Function,dav_process_ctx_list,mod_dav.c,1,14,8
+Static Function,dav_process_if_header,util.c,15,37,6
+Function,dav_prop_commit,props.c,1,2,12
+Function,dav_prop_exec,props.c,12,26,21
+Static Function,dav_prop_log_errors,mod_dav.c,1,1,4
+Function,dav_prop_rollback,props.c,5,9,17
+Function,dav_prop_validate,props.c,13,24,17
+Static Function,dav_propdb_apply_rollback,dbm.c,3,3,6
+Static Function,dav_propdb_close,dbm.c,10,4,15
+Static Function,dav_propdb_define_namespaces,dbm.c,5,3,7
+Static Function,dav_propdb_exists,dbm.c,3,1,3
+Static Function,dav_propdb_first_name,dbm.c,4,3,5
+Static Function,dav_propdb_get_rollback,dbm.c,12,3,6
+Static Function,dav_propdb_map_namespaces,dbm.c,14,3,11
+Static Function,dav_propdb_next_name,dbm.c,4,6,6
+Static Function,dav_propdb_open,dbm.c,20,7,13
+Static Function,dav_propdb_output_value,dbm.c,6,3,6
+Static Function,dav_propdb_remove,dbm.c,3,1,3
+Static Function,dav_propdb_store,dbm.c,5,1,9
+Static Function,dav_propfind_walker,mod_dav.c,9,4,12
+Function,dav_push_error,util.c,7,1,42
+Static Function,dav_really_open_db,props.c,5,2,9
+Function,dav_register_liveprop_group,liveprop.c,1,2,5
+Static Function,dav_register_liveprop_namespace,liveprop.c,6,4,5
+Function,dav_register_provider,providers.c,1,1,4
+Function,dav_resource_type_provider_register,providers.c,1,1,3
+Function,dav_run_find_liveprop,mod_dav.c,2,4,9
+Function,dav_run_gather_propsets,mod_dav.c,1,3,6
+Function,dav_run_insert_all_liveprops,mod_dav.c,1,3,9
+Static Function,dav_rw_liveprop,props.c,2,4,6
+Function,dav_send_multistatus,mod_dav.c,8,2,11
+Function,dav_send_one_response,mod_dav.c,6,18,15
+Function,dav_set_bufsize,util.c,5,3,10
+Static Function,dav_set_name,dbm.c,6,4,5
+Static Function,dav_stream_response,mod_dav.c,4,2,10
+Function,dav_success_proppatch,mod_dav.c,3,2,7
+Function,dav_unlock,util_lock.c,15,4,10
+Static Function,dav_unlock_walker,util_lock.c,3,5,10
+Function,dav_validate_request,util.c,45,17329,27
+Static Function,dav_validate_resource_state,util.c,16,15285,28
+Function,dav_validate_root,util.c,2,1,16
+Static Function,dav_validate_walker,util.c,4,3,14
+Static Function,dav_xml_escape_uri,mod_dav.c,4,2,3
+Function,dav_xml_get_cdata,util.c,5,372,12
+Function,dav_xmlns_add,util.c,1,1,7
+Function,dav_xmlns_add_uri,util.c,5,2,6
+Function,dav_xmlns_create,util.c,7,1,3
+Function,dav_xmlns_generate,util.c,5,2,6
+Function,dav_xmlns_get_prefix,util.c,2,1,3
+Function,dav_xmlns_get_uri,util.c,2,1,3
+Static Function,dbd_check,mod_dbd.c,4,5,15
+Static Function,dbd_child_init,mod_dbd.c,2,3,7
+Static Function,dbd_clean,mod_session_dbd.c,1,1,1
+Static Function,dbd_close,mod_dbd.c,2,1,4
+Static Function,dbd_construct,mod_dbd.c,14,19,15
+Static Function,dbd_destroy,mod_dbd.c,2,1,2
+Static Function,dbd_destruct,mod_dbd.c,2,2,5
+Static Function,dbd_hooks,mod_dbd.c,6,1,2
+Static Function,dbd_init,mod_session_dbd.c,8,12,16
+Static Function,dbd_init_sql,mod_dbd.c,2,2,3
+Static Function,dbd_init_sql_init,mod_dbd.c,2,3,7
+Static Function,dbd_load,mod_session_dbd.c,10,10,20
+Static Function,dbd_param,mod_dbd.c,5,6,10
+Static Function,dbd_param_flag,mod_dbd.c,3,2,7
+Static Function,dbd_param_int,mod_dbd.c,8,11,8
+Static Function,dbd_parse_config,mod_authz_dbd.c,4,2,5
+Static Function,dbd_post_config,mod_dbd.c,18,197,26
+Static Function,dbd_pre_config,mod_dbd.c,3,1,2
+Static Function,dbd_prepare,mod_dbd.c,2,2,4
+Static Function,dbd_prepared_init,mod_dbd.c,10,5,8
+Static Function,dbd_release,mod_dbd.c,2,1,4
+Static Function,dbd_remove,mod_session_dbd.c,4,6,18
+Function,dbd_run_post_connect,mod_dbd.c,3,4,6
+Static Function,dbd_save,mod_session_dbd.c,5,22,22
+Static Function,dbd_setup,mod_dbd.c,4,3,15
+Static Function,dbd_setup_init,mod_dbd.c,5,12,11
+Static Function,dbd_setup_lock,mod_dbd.c,5,13,9
+Static Function,dbdgroup_check_authorization,mod_authz_dbd.c,7,7,16
+Static Function,dbdlogin_check_authorization,mod_authz_dbd.c,2,2,6
+Static Function,dbdlogout_check_authorization,mod_authz_dbd.c,2,2,6
+Static Function,dbm_parse_config,mod_authz_dbm.c,4,2,5
+Static Function,dbmfilegroup_check_authorization,mod_authz_dbm.c,8,14,18
+Static Function,dbmgroup_check_authorization,mod_authz_dbm.c,9,25,19
+Static Function,dead_yet,mod_cgid.c,3,3,3
+Static Function,dechain,sed0.c,3,3,5
+Static Function,decl_die,request.c,2,4,12
+Static Function,decodeenc,mod_proxy_ftp.c,4,4,3
+Static Function,decodehtml,mod_include.c,2,259,4
+Static Function,decrement_busy_count,mod_proxy_balancer.c,3,2,4
+Static Function,decrypt_string,mod_session_crypto.c,14,6567,17
+Static Function,default_handler,core.c,26,55,37
+Static Function,define_filter,mod_ext_filter.c,25,1163,12
+Static Function,delete_entry,htcacheclean.c,8,48,9
+Static Function,delete_file,htcacheclean.c,8,12,8
+Static Function,delete_parent,htcacheclean.c,11,18,9
+Static Function,delete_url,htcacheclean.c,6,2,4
+Static Function,deregister_all_hooks,main.c,3,1,2
+Static Function,derive_codepage_from_lang,mod_authnz_ldap.c,5,5,5
+Static Function,destroy_and_exit_process,main.c,5,1,5
+Static Function,destroy_cache,mod_cache_socache.c,4,2,8
+Static Function,destroy_cache,mod_authn_socache.c,3,2,4
+Static Function,dir_fixups,mod_dir.c,3,3,5
+Static Function,dirsection,core.c,28,52,15
+Static Function,discard_script_output,mod_cgid.c,6,3,11
+Static Function,discard_variant_by_env,mod_negotiation.c,4,2,5
+Static Function,disk_cache_register_hook,mod_cache_disk.c,1,1,3
+Static Function,dispatch,mod_proxy_fcgi.c,43,999999999,35
+Static Function,display_info,mod_info.c,17,829732,18
+Static Function,doRotate,rotatelogs.c,24,612,20
+Static Function,do_cache_negotiated_docs,mod_negotiation.c,1,1,5
+Static Function,do_debug_log,mod_log_debug.c,3,170,34
+Static Function,do_double_reverse,core.c,3,6,7
+Static Function,do_emit_plain,mod_autoindex.c,3,27,4
+Static Function,do_errorlog_default,log.c,16,648,19
+Static Function,do_errorlog_format,log.c,7,25,13
+Static Function,do_expand,mod_rewrite.c,17,205,22
+Static Function,do_expand_cookie,mod_rewrite.c,2,2,6
+Static Function,do_expand_env,mod_rewrite.c,5,4,7
+Static Function,do_header_line,mod_negotiation.c,4,3,4
+Static Function,do_headers_fixup,mod_headers.c,22,1112,29
+Static Function,do_languages_line,mod_negotiation.c,5,4,3
+Static Function,do_negotiation,mod_negotiation.c,16,286,26
+Static Function,do_nothing,core.c,1,1,1
+Static Function,do_pattmatch,mod_substitute.c,22,1352,42
+Static Function,do_rewritelog,mod_rewrite.c,9,5,32
+Static Function,dosub,sed1.c,9,23,13
+Static Function,drain_available_output,mod_ext_filter.c,7,9,20
+Static Function,dso_load,mod_so.c,8,10,9
+Static Function,dsortf,mod_autoindex.c,5,215,12
+Static Function,dummy_connection,mpm_unix.c,13,41,13
+Static Function,dummy_signal_handler,worker.c,0,1,1
+Static Function,dumpConfig,rotatelogs.c,1,1,14
+Static Function,dump_a_hook,mod_info.c,3,5,7
+Static Function,dump_a_vhost,vhost.c,2,136,27
+Static Function,dump_config_name,config.c,3,16,3
+Static Function,dump_loaded_modules,mod_so.c,3,10,11
+Static Function,dump_vhost_config,vhost.c,2,6,5
+Static Function,dumpio_create_sconfig,mod_dumpio.c,5,1,2
+Static Function,dumpio_enable_input,mod_dumpio.c,2,1,6
+Static Function,dumpio_enable_output,mod_dumpio.c,2,1,6
+Static Function,dumpio_input_filter,mod_dumpio.c,4,8,21
+Static Function,dumpio_output_filter,mod_dumpio.c,8,6,22
+Static Function,dumpio_pre_conn,mod_dumpio.c,3,5,13
+Static Function,dumpio_register_hooks,mod_dumpio.c,3,1,1
+Static Function,dumpit,mod_dumpio.c,2,16,17
+Static Function,echo_header,mod_headers.c,3,2,8
+Static Function,edit_header,mod_headers.c,3,2,7
+Static Function,ef_close_file,mod_ext_filter.c,2,1,2
+Static Function,ef_init,mod_ext_filter.c,2,1,2
+Static Function,ef_input_filter,mod_ext_filter.c,13,13,29
+Static Function,ef_output_filter,mod_ext_filter.c,15,24,26
+Static Function,ef_unified_filter,mod_ext_filter.c,19,692,29
+Static Function,emit_head,mod_autoindex.c,15,1248,22
+Static Function,emit_link,mod_autoindex.c,2,2,8
+Static Function,emit_preamble,mod_autoindex.c,2,8,9
+Static Function,emit_tail,mod_autoindex.c,11,72,14
+Static Function,encrypt_string,mod_session_crypto.c,15,244,16
+Static Function,end_gen,mpm_common.c,6,2,13
+Static Function,end_output_stream,protocol.c,6,1,11
+Static Function,env2env,util_script.c,2,1,3
+Static Function,env_check_authorization,mod_authz_core.c,3,3,5
+Static Function,env_func,util_expr_eval.c,3,4,5
+Static Function,eoc_bucket_read,eoc_bucket.c,3,1,1
+Static Function,eor_bucket_cleanup,eor_bucket.c,4,3,5
+Static Function,eor_bucket_destroy,eor_bucket.c,3,3,4
+Static Function,eor_bucket_read,eor_bucket.c,3,1,1
+Static Function,err,ab.c,3,2,6
+Static Function,error_bucket_destroy,error_bucket.c,2,2,2
+Static Function,error_bucket_read,error_bucket.c,3,1,1
+Static Function,escape_absolute_uri,mod_rewrite.c,7,12,5
+Static Function,escape_backref,mod_rewrite.c,5,12,5
+Static Function,escape_func,util_expr_eval.c,2,1,3
+Static Function,etag_uint64_to_hex,http_etag.c,2,3,3
+Static Function,eval_errf,sed1.c,4,2,8
+Static Function,execute,sed1.c,13,3046,25
+Static Function,execute_now,config.c,6,4,10
+Static Function,exists,htpasswd.c,2,1,4
+Static Function,exit_error,fcgistarter.c,3,1,4
+Static Function,expand_tildepaths,mod_rewrite.c,5,11,4
+Static Function,expires_filter,mod_expires.c,10,39,16
+Static Function,expires_insert_filter,mod_expires.c,2,4,12
+Static Function,expr_check_authorization,mod_authz_core.c,3,5,13
+Static Function,expr_lookup_fn,mod_authz_core.c,5,2,5
+Static Function,expr_lookup_not_found,util_expr_eval.c,4,11,5
+Static Function,expr_parse_config,mod_authz_core.c,10,6,6
+Static Function,extend_timeout,mod_reqtimeout.c,3,3,7
+Static Function,extract_cookie_line,util_cookies.c,11,32,9
+Static Function,fake_basic_authentication,mod_auth_form.c,6,2,8
+Static Function,fatal_signal_cleanup,mpm_unix.c,2,1,3
+Static Function,fcgi_create_dconf,mod_proxy_fcgi.c,6,1,2
+Static Function,fcgi_do_request,mod_proxy_fcgi.c,9,15,15
+Static Function,fcgi_merge_dconf,mod_proxy_fcgi.c,6,1,6
+Static Function,fcomp,sed0.c,40,2259656,29
+Static Function,fetch_dbm_value,mod_authn_dbm.c,9,3,8
+Static Function,field_name_len,protocol.c,2,2,4
+Static Function,file_cache_create,mod_cache_disk.c,6,1,6
+Static Function,file_cache_el_final,mod_cache_disk.c,6,4,16
+Static Function,file_cache_handler,mod_file_cache.c,14,12,17
+Static Function,file_cache_post_config,mod_file_cache.c,1,1,1
+Static Function,file_cache_recall_mydata,mod_cache_disk.c,11,4,16
+Static Function,file_cache_temp_cleanup,mod_cache_disk.c,5,2,5
+Static Function,file_cache_xlat,mod_file_cache.c,7,4,9
+Static Function,file_func,util_expr_eval.c,10,6,4
+Static Function,filegroup_check_authorization,mod_authz_groupfile.c,6,11,17
+Static Function,fileowner_check_authorization,mod_authz_owner.c,7,12,16
+Static Function,filesection,core.c,25,39,16
+Static Function,filesize_func,util_expr_eval.c,3,2,5
+Static Function,filter_bytype,mod_filter.c,6,3,6
+Static Function,filter_bytype1,mod_filter.c,5,4,7
+Static Function,filter_chain,mod_filter.c,7,14,8
+Static Function,filter_cleanup,util_filter.c,3,1,1
+Static Function,filter_config,mod_filter.c,5,1,2
+Static Function,filter_debug,mod_filter.c,5,2,6
+Static Function,filter_declare,mod_filter.c,11,6,7
+Static Function,filter_harness,mod_filter.c,11,12,17
+Static Function,filter_header_do,cache_storage.c,3,2,4
+Static Function,filter_hooks,mod_filter.c,1,1,1
+Static Function,filter_init,mod_filter.c,11,8,18
+Static Function,filter_insert,mod_filter.c,11,21,20
+Static Function,filter_lookup,mod_filter.c,14,13637,36
+Static Function,filter_merge,mod_filter.c,7,18,8
+Static Function,filter_protocol,mod_filter.c,7,124,11
+Static Function,filter_provider,mod_filter.c,2,1,5
+Static Function,filter_trace,mod_filter.c,1,8,18
+Static Function,find_accf_name,listen.c,3,3,5
+Static Function,find_allowdeny,mod_access_compat.c,5,31,13
+Static Function,find_arg_or_tail,mod_include.c,3,4,6
+Static Function,find_argument,mod_include.c,19,80,28
+Static Function,find_best_bybusyness,mod_lbmethod_bybusyness.c,4,2,3
+Static Function,find_best_byrequests,mod_lbmethod_byrequests.c,4,2,3
+Static Function,find_best_bytraffic,mod_lbmethod_bytraffic.c,2,1,3
+Static Function,find_best_hb,mod_lbmethod_heartbeat.c,14,79,27
+Static Function,find_best_worker,mod_proxy_balancer.c,11,32,16
+Static Function,find_char_in_curlies,mod_rewrite.c,1,5,3
+Static Function,find_closing_curly,mod_rewrite.c,1,4,2
+Static Function,find_conn_headers,proxy_util.c,8,12,6
+Static Function,find_content_length,mod_negotiation.c,5,4,12
+Static Function,find_ct,mod_mime.c,24,82976002,36
+Static Function,find_default_server,vhost.c,1,4,7
+Static Function,find_desc,mod_autoindex.c,4,10,11
+Static Function,find_directive,mod_include.c,13,26,21
+Static Function,find_directory,htcacheclean.c,12,1121,9
+Static Function,find_file,mod_include.c,9,29,20
+Static Function,find_filter_def,mod_ext_filter.c,2,2,8
+Static Function,find_ipaddr,vhost.c,3,8,8
+Static Function,find_item,mod_autoindex.c,3,12,18
+Static Function,find_item_by_request,mod_autoindex.c,3,1,8
+Static Function,find_lang_index,mod_negotiation.c,3,4,6
+Static Function,find_last_token,util.c,4,4,4
+Static Function,find_list_item,util.c,3,5571,6
+Static Function,find_listeners,listen.c,5,5,9
+Static Function,find_module,core.c,4,12,9
+Static Function,find_more_info,mod_info.c,2,4,11
+Static Function,find_multiple_headers,mod_log_config.c,9,13,11
+Static Function,find_parent,core.c,2,3,5
+Static Function,find_partial_start_sequence,mod_include.c,4,46,9
+Static Function,find_route_worker,mod_proxy_balancer.c,3,18,13
+Static Function,find_session_route,mod_proxy_balancer.c,10,71,22
+Static Function,find_start_sequence,mod_include.c,4,21,8
+Static Function,find_tail,mod_include.c,3,12,9
+Static Function,find_title,mod_autoindex.c,9,15,7
+Static Function,fix_cgivars,mod_proxy_fcgi.c,6,13,18
+Static Function,fix_encoding,mod_negotiation.c,6,17,8
+Static Function,fix_hostname,vhost.c,16,127,13
+Static Function,fix_hostname_non_v6,vhost.c,3,12,2
+Static Function,fix_hostname_v6_literal,vhost.c,3,10,2
+Static Function,fix_uds_filename,proxy_util.c,11,5,15
+Static Function,fixup_dflt,mod_dir.c,12,15,16
+Static Function,fixup_dir,mod_dir.c,19,82,26
+Static Function,fixup_env_module,mod_env.c,5,2,8
+Static Function,fixup_redir,mod_alias.c,9,15,19
+Static Function,fixup_vary,http_filters.c,4,2,5
+Static Function,flush_all_logs,mod_log_config.c,2,11,13
+Static Function,flush_log,mod_log_config.c,3,2,6
+Static Function,flush_output_buffer,mod_sed.c,5,2,6
+Static Function,fmt_data,log.c,3,9,5
+Static Function,fname_alphasort,util.c,2,1,4
+Static Function,force_recovery,mod_proxy_balancer.c,5,16,16
+Static Function,force_type_handler,mod_rewrite.c,4,9,9
+Static Function,form_header_field,http_filters.c,5,1,6
+Static Function,format_authz_command,mod_authz_core.c,2,1,12
+Static Function,format_authz_result,mod_authz_core.c,1,1,2
+Static Function,format_byte_out,mod_status.c,1,4,3
+Static Function,format_kbyte_out,mod_status.c,1,3,3
+Static Function,forward_100_continue,mod_proxy.c,3,1,2
+Static Function,forward_dns_check_authorization,mod_authz_host.c,7,39,15
+Static Function,ftp_check_globbingchars,mod_proxy_ftp.c,2,5,3
+Static Function,ftp_check_string,mod_proxy_ftp.c,3,5,3
+Static Function,ftp_escape_globbingchars,mod_proxy_ftp.c,4,4,5
+Static Function,ftp_get_PWD,mod_proxy_ftp.c,4,3,5
+Static Function,ftp_getrc_msg,mod_proxy_ftp.c,7,9,9
+Static Function,ftp_proxyerror,mod_proxy_ftp.c,3,1,5
+Static Function,ftp_set_TYPE,mod_proxy_ftp.c,4,4,7
+Static Function,ftp_string_read,mod_proxy_ftp.c,13,14,15
+Static Function,ftp_unauthorized,mod_proxy_ftp.c,7,3,14
+Static Function,fully_qualify_uri,mod_rewrite.c,8,3,5
+Static Function,gc,mod_auth_digest.c,8,33,11
+Static Function,gen_client,mod_auth_digest.c,6,4,12
+Static Function,gen_nonce,mod_auth_digest.c,6,3,10
+Static Function,gen_nonce_hash,mod_auth_digest.c,5,2,7
+Static Function,gen_unique_id,mod_unique_id.c,10,15,15
+Static Function,generate_error,core.c,3,4,3
+Static Function,generate_log_id,mod_unique_id.c,4,3,4
+Static Function,generate_salt,passwd_common.c,7,5,4
+Static Function,get_addresses,vhost.c,14,53,9
+Static Function,get_arguments,mod_macro.c,4,6,4
+Static Function,get_basic_auth,mod_auth_basic.c,12,5,15
+Static Function,get_body,mod_negotiation.c,6,8,5
+Static Function,get_cache_value,mod_rewrite.c,9,5,11
+Static Function,get_canned_error_string,http_protocol.c,6,40,10
+Static Function,get_cfg_string,mod_ext_filter.c,2,1,8
+Static Function,get_cgi_pid,mod_cgid.c,8,6,15
+Static Function,get_client,mod_auth_digest.c,7,17,18
+Static Function,get_connection_for_authz,mod_authnz_ldap.c,2,2,21
+Static Function,get_content_length,mod_proxy_ajp.c,3,4,4
+Static Function,get_conv_set,mod_authnz_ldap.c,5,7,6
+Static Function,get_cookie_param,mod_proxy_balancer.c,7,13,5
+Static Function,get_data,mod_proxy_fcgi.c,5,2,6
+Static Function,get_data_full,mod_proxy_fcgi.c,2,2,4
+Static Function,get_dbm_entry_as_str,mod_authz_dbm.c,6,2,6
+Static Function,get_dbm_grp,mod_authz_dbm.c,6,7,8
+Static Function,get_dbm_realm_hash,mod_authn_dbm.c,7,7,19
+Static Function,get_digest_rec,mod_auth_digest.c,23,17957,16
+Static Function,get_entry,mod_negotiation.c,13,2056,8
+Static Function,get_filter_handle,util_filter.c,1,19,9
+Static Function,get_fn_info,mod_info.c,1,2,6
+Static Function,get_form_auth,mod_auth_form.c,19,162,28
+Static Function,get_hash,mod_auth_digest.c,7,32,19
+Static Function,get_header_line,mod_negotiation.c,7,31,4
+Static Function,get_include_var,mod_include.c,6,8,28
+Static Function,get_line,htdigest.c,3,8,3
+Static Function,get_lines_till_end_token,mod_macro.c,12,73,11
+Static Function,get_mutex_filename,util_mutex.c,6,3,9
+Static Function,get_notes_auth,mod_auth_form.c,10,256,20
+Static Function,get_now,rotatelogs.c,4,4,8
+Function,get_password,passwd_common.c,13,13,7
+Static Function,get_path_param,mod_proxy_balancer.c,5,8,5
+Static Function,get_provider,cache_util.c,7,7,8
+Static Function,get_ptoken,mod_include.c,9,1009,8
+Static Function,get_realm_hash,mod_authn_file.c,9,19,18
+Static Function,get_realm_hash,mod_authn_socache.c,7,7,21
+Static Function,get_req,mod_cgid.c,15,16,21
+Static Function,get_request_end_time,mod_log_config.c,7,4,9
+Static Function,get_session_auth,mod_auth_form.c,8,32,14
+Static Function,get_socket_from_path,mod_proxy_fdpass.c,4,3,3
+Static Function,get_sorted_modules,mod_info.c,4,2,6
+Static Function,get_suexec_id_doer,mod_userdir.c,5,4,6
+Static Function,get_time_or_size,rotatelogs.c,7,50,7
+Static Function,getrnge,regexp.c,3,1,4
+Static Function,getsfunc_BRIGADE,util_script.c,8,10,12
+Static Function,getsfunc_FILE,util_script.c,2,1,4
+Static Function,getsfunc_STRING,util_script.c,6,9,6
+Static Function,getword,htdigest.c,3,9,3
+Static Function,group_check_authorization,mod_authz_groupfile.c,7,14,18
+Static Function,groupfile_parse_config,mod_authz_groupfile.c,4,2,5
+Static Function,groups_for_user,mod_authz_groupfile.c,18,14,6
+Static Function,grow_buffer,sed1.c,6,17,8
+Static Function,grow_gen_buffer,sed1.c,3,2,10
+Static Function,grow_hold_buffer,sed1.c,1,1,7
+Static Function,grow_line_buffer,sed1.c,1,1,7
+Static Function,handle_autoindex,mod_autoindex.c,11,8,20
+Static Function,handle_comment,mod_include.c,1,1,0
+Static Function,handle_config,mod_include.c,20,63,31
+Static Function,handle_echo,mod_include.c,23,813,27
+Static Function,handle_elif,mod_include.c,13,39,26
+Static Function,handle_else,mod_include.c,9,15,24
+Static Function,handle_endif,mod_include.c,10,9,23
+Static Function,handle_exec,mod_cgid.c,13,63,23
+Static Function,handle_flastmod,mod_include.c,12,21,25
+Static Function,handle_fsize,mod_include.c,15,93,25
+Static Function,handle_headers,mod_proxy_fcgi.c,2,30,4
+Static Function,handle_if,mod_include.c,14,36,25
+Static Function,handle_include,mod_include.c,18,14412,31
+Static Function,handle_map_file,mod_negotiation.c,29,46,22
+Static Function,handle_multi,mod_negotiation.c,11,41,14
+Static Function,handle_printenv,mod_include.c,14,15,31
+Static Function,handle_set,mod_include.c,22,4752,27
+Static Function,handler_redirect,mod_rewrite.c,5,3,6
+Static Function,hash_addr,vhost.c,2,1,5
+Static Function,hash_inaddr,vhost.c,1,1,2
+Static Function,have_lf_or_eos,mod_reqtimeout.c,2,12,10
+Static Function,hc_check,mod_proxy_hcheck.c,11,40,22
+Static Function,hc_check_http,mod_proxy_hcheck.c,18,25,29
+Static Function,hc_check_tcp,mod_proxy_hcheck.c,4,2,6
+Static Function,hc_create_config,mod_proxy_hcheck.c,12,1,5
+Static Function,hc_determine_connection,mod_proxy_hcheck.c,4,4,16
+Static Function,hc_expr_func_fn,mod_proxy_hcheck.c,3,2,3
+Static Function,hc_expr_lookup,mod_proxy_hcheck.c,6,5,5
+Static Function,hc_expr_var_fn,mod_proxy_hcheck.c,3,2,3
+Static Function,hc_get_backend,mod_proxy_hcheck.c,10,5,18
+Static Function,hc_get_body,mod_proxy_hcheck.c,4,4,5
+Static Function,hc_get_hcworker,mod_proxy_hcheck.c,30,27,26
+Static Function,hc_init_worker,mod_proxy_hcheck.c,4,5,15
+Static Function,hc_post_config,mod_proxy_hcheck.c,4,18,14
+Static Function,hc_pre_config,mod_proxy_hcheck.c,2,1,1
+Static Function,hc_read_body,mod_proxy_hcheck.c,9,25,19
+Static Function,hc_read_headers,mod_proxy_hcheck.c,15,85,9
+Static Function,hc_register_hooks,mod_proxy_hcheck.c,4,1,1
+Static Function,hc_select_exprs,mod_proxy_hcheck.c,5,5,11
+Static Function,hc_send,mod_proxy_hcheck.c,10,2,17
+Static Function,hc_show_exprs,mod_proxy_hcheck.c,5,5,12
+Static Function,hc_valid_expr,mod_proxy_hcheck.c,4,7,10
+Static Function,hc_watchdog_callback,mod_proxy_hcheck.c,20,31,23
+Static Function,header_cmd,mod_headers.c,7,8,10
+Static Function,header_file,mod_cache_disk.c,5,4,12
+Static Function,header_inout_cmd,mod_headers.c,16,1271,20
+Static Function,header_name_set,mod_remoteip.c,2,1,6
+Static Function,header_post_config,mod_headers.c,3,1,1
+Static Function,header_pre_config,mod_headers.c,4,1,2
+Static Function,header_request_busy,mod_headers.c,3,1,4
+Static Function,header_request_duration,mod_headers.c,3,1,4
+Static Function,header_request_env_var,mod_headers.c,3,2,5
+Static Function,header_request_idle,mod_headers.c,3,1,4
+Static Function,header_request_loadavg,mod_headers.c,3,1,6
+Static Function,header_request_ssl_var,mod_headers.c,3,3,7
+Static Function,header_request_time,mod_headers.c,2,1,4
+Static Function,hm_read,mod_lbmethod_heartbeat.c,11,4,13
+Static Function,hook_fixup,mod_rewrite.c,26,370,27
+Static Function,hook_mimetype,mod_rewrite.c,6,4,4
+Static Function,hook_note_basic_auth_failure,mod_auth_basic.c,3,2,3
+Static Function,hook_note_cookie_auth_failure,mod_auth_form.c,3,2,3
+Static Function,hook_note_digest_auth_failure,mod_auth_digest.c,4,5,9
+Static Function,hook_uri2file,mod_rewrite.c,31,652,33
+Static Function,host_check_authorization,mod_authz_host.c,8,15,14
+Static Function,host_parse_config,mod_authz_host.c,4,2,5
+Static Function,htdbm_del,htdbm.c,6,2,4
+Static Function,htdbm_init,htdbm.c,12,1,3
+Static Function,htdbm_interrupted,htdbm.c,3,1,3
+Static Function,htdbm_list,htdbm.c,6,7,7
+Static Function,htdbm_make,htdbm.c,9,2,6
+Static Function,htdbm_open,htdbm.c,2,2,9
+Static Function,htdbm_save,htdbm.c,8,5,8
+Static Function,htdbm_terminate,htdbm.c,3,2,4
+Static Function,htdbm_usage,htdbm.c,2,1,2
+Static Function,htdbm_valid_username,htdbm.c,4,3,4
+Static Function,htdbm_verify,htdbm.c,10,4,9
+Static Function,http2env,util_script.c,7,6,11
+Static Function,http_create_request,http_core.c,2,2,9
+Static Function,http_port,http_core.c,2,2,4
+Static Function,http_post_config,http_core.c,6,2,3
+Static Function,http_scheme,http_core.c,2,2,4
+Static Function,http_send_options,http_core.c,1,2,4
+Static Function,identity_concat,mod_session.c,3,2,4
+Static Function,identity_count,mod_session.c,2,1,4
+Static Function,ifsection,core.c,23,90,15
+Static Function,ignore_entry,mod_autoindex.c,3,10,9
+Static Function,ilink_read,ajp_link.c,2,5,4
+Static Function,in_domain,mod_authz_host.c,3,4,3
+Static Function,in_domain,mod_access_compat.c,3,4,3
+Static Function,inc_rec,util_expr_eval.c,3,2,4
+Static Function,include_cgi,mod_cgid.c,15,6,21
+Static Function,include_cmd,mod_cgid.c,20,7,28
+Static Function,include_config,core.c,10,22,9
+Static Function,include_expr_lookup,mod_include.c,6,3,4
+Static Function,include_expr_var_fn,mod_include.c,4,4,6
+Static Function,include_fixup,mod_include.c,7,6,11
+Static Function,include_post_config,mod_include.c,5,2,3
+Static Function,includes_filter,mod_include.c,48,50,45
+Static Function,includes_setup,mod_include.c,5,4,12
+Static Function,index_directory,mod_autoindex.c,30,82962,29
+Static Function,init_balancer_members,mod_proxy_balancer.c,7,10,16
+Static Function,init_cache,mod_rewrite.c,7,2,5
+Static Function,init_child,mod_rewrite.c,4,12,8
+Static Function,init_child,mod_log_config.c,6,6,14
+Static Function,init_config_defines,core.c,3,1,5
+Static Function,init_config_globals,config.c,1,1,2
+Static Function,init_config_log,mod_log_config.c,4,4,5
+Static Function,init_conn_pool,proxy_util.c,8,1,2
+Static Function,init_context,mod_sed.c,15,3,10
+Static Function,init_ext_filter_process,mod_ext_filter.c,30,14,29
+Static Function,init_filter_instance,mod_ext_filter.c,18,450,33
+Static Function,init_process,main.c,19,4,4
+Static Function,init_server_config,config.c,32,3,9
+Static Function,initialize_child,mod_auth_digest.c,5,5,7
+Static Function,initialize_module,mod_auth_digest.c,4,3,3
+Static Function,initialize_tables,mod_auth_digest.c,18,28,19
+Static Function,insert_old_write_filter,protocol.c,6,6,10
+Static Function,internal_internal_redirect,http_request.c,64,73,54
+Static Function,interrupted,htdigest.c,2,1,2
+Static Function,intstrcmp,util_expr_eval.c,2,3,3
+Static Function,invalidate_entity,mod_cache_disk.c,8,2,3
+Static Function,invalidate_entity,mod_cache_socache.c,7,1,3
+Static Function,invoke_cmd,config.c,17,99,19
+Static Function,invoke_filter_init,config.c,2,4,7
+Static Function,ip_check_authorization,mod_authz_host.c,2,3,4
+Static Function,ip_parse_config,mod_authz_host.c,11,36,6
+Static Function,is_absolute_uri,mod_rewrite.c,3,28,7
+Static Function,is_best_bybusyness,mod_lbmethod_bybusyness.c,3,1,7
+Static Function,is_best_byrequests,mod_lbmethod_byrequests.c,3,1,6
+Static Function,is_best_bytraffic,mod_lbmethod_bytraffic.c,1,2,7
+Static Function,is_child_process,mod_slotmem_shm.c,1,1,2
+Static Function,is_header_regex,mod_setenvif.c,2,2,3
+Static Function,is_idempotent,mod_proxy_ajp.c,1,3,4
+Static Function,is_identity_encoding,mod_negotiation.c,2,1,3
+Static Function,is_mpm_running,http_protocol.c,2,3,1
+Static Function,is_qtext,mod_mime.c,1,1,2
+Static Function,is_quoted_pair,mod_mime.c,1,3,2
+Static Function,is_scriptaliased,mod_cgid.c,3,1,3
+Static Function,is_token,mod_mime.c,3,1,3
+Static Function,is_variant_better,mod_negotiation.c,5,15,12
+Static Function,is_variant_better_rvsa,mod_negotiation.c,2,6,9
+Static Function,join_start_thread,worker.c,3,3,7
+Static Function,join_workers,worker.c,6,88,11
+Static Function,just_die,worker.c,1,1,1
+Static Function,keep_body_filter,mod_request.c,21,53,33
+Static Function,kept_body_filter,mod_request.c,15,27,27
+Static Function,kept_body_filter_init,mod_request.c,5,2,6
+Static Function,la_u,mod_rewrite.c,2,2,10
+Static Function,lb_hb_create_config,mod_lbmethod_heartbeat.c,4,1,2
+Static Function,lb_hb_init,mod_lbmethod_heartbeat.c,7,11,12
+Static Function,lb_hb_merge_config,mod_lbmethod_heartbeat.c,5,2,5
+Static Function,lbmethod_bybusyness_post_config,mod_lbmethod_bybusyness.c,5,4,7
+Static Function,lbmethod_byrequests_post_config,mod_lbmethod_byrequests.c,5,4,7
+Static Function,lbmethod_bytraffic_post_config,mod_lbmethod_bytraffic.c,5,4,7
+Static Function,lcase_header_name_return_body,mod_negotiation.c,4,10,12
+Static Function,ldap_determine_binddn,mod_authnz_ldap.c,4,4,10
+Static Function,ldap_parse_config,mod_authnz_ldap.c,4,2,5
+Static Function,ldapattribute_check_authorization,mod_authnz_ldap.c,20,178,28
+Static Function,ldapdn_check_authorization,mod_authnz_ldap.c,18,106,29
+Static Function,ldapfilter_check_authorization,mod_authnz_ldap.c,20,970,31
+Static Function,ldapgroup_check_authorization,mod_authnz_ldap.c,25,16324,39
+Static Function,ldapuser_check_authorization,mod_authnz_ldap.c,19,214,29
+Static Function,level_cmp,mod_negotiation.c,2,7,7
+Static Function,list_urls,htcacheclean.c,21,88,24
+Static Function,listener_thread,worker.c,31,69961,28
+Static Function,load_file,mod_so.c,3,3,6
+Static Function,load_module,mod_so.c,18,203,16
+Static Function,local_check_authorization,mod_authz_host.c,3,2,7
+Static Function,lock_remove,mod_proxy_balancer.c,3,3,9
+Static Function,log_apr_status,log.c,4,5,6
+Static Function,log_backtrace,core.c,1,20,12
+Static Function,log_bad_create_options,util_mutex.c,1,2,7
+Static Function,log_bytes_combined,mod_logio.c,2,1,8
+Static Function,log_bytes_in,mod_logio.c,2,1,7
+Static Function,log_bytes_out,mod_logio.c,2,1,7
+Static Function,log_bytes_sent,mod_log_config.c,2,2,4
+Static Function,log_check_config,mod_log_config.c,2,4,10
+Static Function,log_child,log.c,15,7,7
+Static Function,log_child_errfn,log.c,1,2,6
+Static Function,log_connection_status,mod_log_config.c,1,3,7
+Static Function,log_constant_item,core.c,2,1,4
+Static Function,log_cookie,mod_log_config.c,8,9,4
+Static Function,log_create_failure,util_mutex.c,1,2,9
+Static Function,log_ctime,log.c,3,4,5
+Static Function,log_data_core,log.c,3,24,15
+Static Function,log_debug_check_access,mod_log_debug.c,2,1,3
+Static Function,log_debug_check_access_ex,mod_log_debug.c,2,1,3
+Static Function,log_debug_check_authn,mod_log_debug.c,2,1,3
+Static Function,log_debug_check_authz,mod_log_debug.c,2,1,3
+Static Function,log_debug_create_dconf,mod_log_debug.c,3,1,2
+Static Function,log_debug_fixups,mod_log_debug.c,2,1,3
+Static Function,log_debug_handler,mod_log_debug.c,2,1,3
+Static Function,log_debug_insert_filter,mod_log_debug.c,1,1,3
+Static Function,log_debug_log_transaction,mod_log_debug.c,2,1,3
+Static Function,log_debug_map_to_storage,mod_log_debug.c,2,1,3
+Static Function,log_debug_merge_dconf,mod_log_debug.c,5,3,5
+Static Function,log_debug_quick_handler,mod_log_debug.c,2,1,3
+Static Function,log_debug_translate_name,mod_log_debug.c,2,1,3
+Static Function,log_debug_type_checker,mod_log_debug.c,2,1,3
+Static Function,log_env_var,log.c,2,2,7
+Static Function,log_env_var,mod_log_config.c,3,1,4
+Static Function,log_error_and_cleanup,mod_auth_digest.c,2,2,9
+Static Function,log_error_core,log.c,18,6576,38
+Static Function,log_error_va_glue,log.c,3,1,11
+Static Function,log_file_line,log.c,3,3,7
+Static Function,log_format,mod_log_config.c,5,3,9
+Static Function,log_handler,mod_log_config.c,2,1,3
+Static Function,log_header,log.c,2,2,8
+Static Function,log_header_in,mod_log_config.c,3,1,4
+Static Function,log_header_out,mod_log_config.c,6,3,5
+Static Function,log_keepalives,log.c,2,2,6
+Static Function,log_local_address,log.c,2,2,8
+Static Function,log_local_address,mod_log_config.c,1,1,3
+Static Function,log_log_id,log.c,3,4,10
+Static Function,log_log_id,mod_log_config.c,2,2,5
+Static Function,log_loglevel,log.c,2,2,8
+Static Function,log_module_name,log.c,3,1,6
+Static Function,log_note,log.c,2,2,7
+Static Function,log_note,mod_log_config.c,3,1,4
+Static Function,log_perms_failure,util_mutex.c,1,2,8
+Static Function,log_pid,htcacheclean.c,4,3,5
+Static Function,log_pid,log.c,3,1,4
+Static Function,log_pid_tid,mod_log_config.c,5,3,3
+Static Function,log_pre_config,mod_log_config.c,5,2,2
+Static Function,log_remote_address,log.c,2,3,12
+Static Function,log_remote_address,mod_log_config.c,2,2,5
+Static Function,log_remote_host,mod_log_config.c,5,2,5
+Static Function,log_remote_logname,mod_log_config.c,3,1,2
+Static Function,log_remote_user,mod_log_config.c,3,3,3
+Static Function,log_request_duration_microseconds,mod_log_config.c,3,1,3
+Static Function,log_request_duration_scaled,mod_log_config.c,4,4,4
+Static Function,log_request_file,mod_log_config.c,2,1,3
+Static Function,log_request_line,mod_log_config.c,4,1,8
+Static Function,log_request_method,mod_log_config.c,2,1,3
+Static Function,log_request_protocol,mod_log_config.c,2,1,3
+Static Function,log_request_query,mod_log_config.c,3,1,3
+Static Function,log_request_time,mod_log_config.c,11,640,16
+Static Function,log_request_time_custom,mod_log_config.c,3,1,5
+Static Function,log_request_uri,mod_log_config.c,2,1,3
+Static Function,log_requests_on_connection,mod_log_config.c,2,1,4
+Static Function,log_script,mod_cgid.c,13,2595,30
+Static Function,log_scripterror,mod_cgid.c,8,4,24
+Static Function,log_sed_errf,mod_sed.c,2,2,11
+Static Function,log_server_name,log.c,3,2,5
+Static Function,log_server_name,mod_log_config.c,3,1,2
+Static Function,log_server_port,mod_log_config.c,4,4,9
+Static Function,log_status,mod_log_config.c,2,1,3
+Static Function,log_table_entry,log.c,4,2,7
+Static Function,log_tid,log.c,5,4,5
+Static Function,log_trailer_in,mod_log_config.c,3,1,4
+Static Function,log_trailer_out,mod_log_config.c,3,1,4
+Static Function,log_ttfb,mod_logio.c,2,2,6
+Static Function,log_unknown_type,util_mutex.c,1,2,7
+Static Function,log_virtual_host,log.c,2,2,6
+Static Function,log_virtual_host,mod_log_config.c,2,1,4
+Static Function,logio_in_filter,mod_logio.c,4,2,11
+Static Function,logio_insert_filter,mod_logio.c,1,2,8
+Static Function,logio_pre_config,mod_logio.c,2,2,2
+Static Function,logio_pre_conn,mod_logio.c,6,1,6
+Static Function,logio_track_ttfb,mod_logio.c,2,1,2
+Static Function,logio_transaction,mod_logio.c,4,1,8
+Static Function,logio_ttfb_filter,mod_logio.c,8,3,12
+Static Function,long_res_header_for_sc,ajp_header.c,1,2,3
+Static Function,looks_like_an_argument,mod_macro.c,2,1,3
+Static Function,looks_like_ip,mod_remoteip.c,3,3,2
+Static Function,lookup_builtin_method,http_protocol.c,2,36,3
+Static Function,lookup_header,mod_rewrite.c,7,2,7
+Static Function,lookup_map,mod_rewrite.c,14,46,27
+Static Function,lookup_map_dbd,mod_rewrite.c,11,40,16
+Static Function,lookup_map_dbmfile,mod_rewrite.c,9,4,16
+Static Function,lookup_map_program,mod_rewrite.c,16,4371,18
+Static Function,lookup_map_txtfile,mod_rewrite.c,8,67,13
+Static Function,lookup_variable,mod_rewrite.c,35,102,48
+Static Function,ltox,mod_auth_digest.c,2,2,3
+Static Function,macro_section,mod_macro.c,23,78,15
+Function,main,ab.c,61,4709,12
+Function,main,htdigest.c,23,152,5
+Function,main,main.c,57,999999999,23
+Function,main,fcgistarter.c,22,11521,3
+Function,main,htcacheclean.c,49,749041923,17
+Function,main,htdbm.c,30,37263,16
+Function,main,htpasswd.c,29,2540,6
+Function,main,checkgid.c,7,7,4
+Function,main,logresolve.c,40,9299,8
+Function,main,rotatelogs.c,50,390528,21
+Function,main,gen_test_char.c,4,1025,0
+Function,main,httxt2dbm.c,22,1680,7
+Static Function,make_allow,http_protocol.c,8,12,12
+Static Function,make_array_config,mod_macro.c,11,1,9
+Static Function,make_autoindex_entry,mod_autoindex.c,29,330,20
+Static Function,make_child,worker.c,17,12,17
+Static Function,make_config_log_state,mod_log_config.c,10,1,3
+Static Function,make_fake_req,mod_proxy_uwsgi.c,26,1,12
+Static Function,make_fake_req,mod_proxy_http.c,28,1,12
+Static Function,make_parent_entry,mod_autoindex.c,18,10,12
+Static Function,make_server_id,mod_proxy_balancer.c,8,60,14
+Static Function,make_servers_ids,mod_proxy_balancer.c,11,18,5
+Static Function,make_sock,listen.c,14,129,12
+Static Function,make_sub_request,request.c,29,7,23
+Static Function,make_variant_list,mod_negotiation.c,6,17,13
+Static Function,match,sed1.c,4,3,8
+Static Function,match_headers,mod_setenvif.c,14,562,36
+Static Function,match_version,mod_version.c,6,2,8
+Static Function,matches_aliases,vhost.c,3,27,9
+Static Function,maybe_add_default_accepts,mod_negotiation.c,7,4,6
+Static Function,md5_func,util_expr_eval.c,2,1,3
+Static Function,merge_action_dir_configs,mod_actions.c,6,2,7
+Static Function,merge_alias_config,mod_alias.c,6,1,6
+Static Function,merge_alias_dir_config,mod_alias.c,11,1,11
+Static Function,merge_auth_basic_dir_config,mod_auth_basic.c,11,1,12
+Static Function,merge_auth_form_dir_config,mod_auth_form.c,32,1,33
+Static Function,merge_authn_alias_svr_config,mod_authn_core.c,1,1,2
+Static Function,merge_authn_core_dir_config,mod_authn_core.c,6,4,7
+Static Function,merge_authz_core_dir_config,mod_authz_core.c,12,10,8
+Static Function,merge_authz_core_svr_config,mod_authz_core.c,1,1,2
+Static Function,merge_autoindex_configs,mod_autoindex.c,27,12,28
+Static Function,merge_balancers,mod_proxy.c,27,8197,32
+Static Function,merge_buffer_config,mod_buffer.c,5,1,6
+Static Function,merge_cache_config,mod_cache.c,17,1,28
+Static Function,merge_cgid_config,mod_cgid.c,1,1,4
+Static Function,merge_config,mod_proxy_connect.c,5,1,5
+Static Function,merge_config,mod_cache_socache.c,1,1,3
+Static Function,merge_config_log_state,mod_log_config.c,6,2,8
+Static Function,merge_core_dir_configs,core.c,53,999999999,51
+Static Function,merge_core_server_configs,core.c,22,8192,24
+Static Function,merge_dbd_config,mod_dbd.c,17,1,17
+Static Function,merge_dir_config,mod_cache.c,30,1,30
+Static Function,merge_dir_config,mod_cache_disk.c,11,1,12
+Static Function,merge_dir_config,mod_cache_socache.c,13,1,14
+Static Function,merge_dir_configs,mod_dir.c,8,1,9
+Static Function,merge_ef_dir_conf,mod_ext_filter.c,5,4,6
+Static Function,merge_env_dir_configs,mod_env.c,8,9,10
+Static Function,merge_expires_dir_configs,mod_expires.c,8,4,8
+Static Function,merge_headers_config,mod_headers.c,7,1,7
+Static Function,merge_includes_dir_config,mod_include.c,9,1,11
+Static Function,merge_info_config,mod_info.c,5,1,5
+Static Function,merge_mime_dir_configs,mod_mime.c,10,30,9
+Static Function,merge_neg_dir_configs,mod_negotiation.c,4,1,6
+Static Function,merge_proxy_config,mod_proxy.c,43,4,42
+Static Function,merge_proxy_dir_config,mod_proxy.c,22,1,22
+Static Function,merge_proxy_ftp_dir_config,mod_proxy_ftp.c,8,1,9
+Static Function,merge_remoteip_server_config,mod_remoteip.c,5,1,7
+Static Function,merge_request_dir_config,mod_request.c,5,1,6
+Static Function,merge_scgi_config,mod_proxy_scgi.c,4,1,6
+Static Function,merge_server_configs,config.c,2,7,10
+Static Function,merge_session_cookie_dir_config,mod_session_cookie.c,11,1,12
+Static Function,merge_session_crypto_dir_config,mod_session_crypto.c,7,1,8
+Static Function,merge_session_dbd_dir_config,mod_session_dbd.c,17,1,18
+Static Function,merge_session_dir_config,mod_session.c,16,1,16
+Static Function,merge_setenvif_config,mod_setenvif.c,5,1,6
+Static Function,merge_substitute_dcfg,mod_substitute.c,7,2,8
+Static Function,merge_userdir_config,mod_userdir.c,7,1,8
+Static Function,method_check_authorization,mod_authz_core.c,1,2,4
+Static Function,method_parse_config,mod_authz_core.c,7,3,5
+Static Function,mime_match,mod_negotiation.c,7,7,8
+Static Function,mime_post_config,mod_mime.c,11,18,12
+Static Function,misc_var_fn,util_expr_eval.c,7,11,11
+Static Function,missing_container_arg,core.c,2,1,11
+Static Function,mkconfig,mod_speling.c,5,1,3
+Static Function,mkdir_structure,mod_cache_disk.c,3,5,6
+Function,mkhash,passwd_common.c,20,110,11
+Static Function,mkrecord,htpasswd.c,8,3,6
+Static Function,mmap_handler,mod_file_cache.c,9,2,14
+Static Function,mod_auth_ldap_add_group_attribute,mod_authnz_ldap.c,4,2,6
+Static Function,mod_auth_ldap_add_subgroup_attribute,mod_authnz_ldap.c,3,4,5
+Static Function,mod_auth_ldap_add_subgroup_class,mod_authnz_ldap.c,4,2,6
+Static Function,mod_auth_ldap_parse_url,mod_authnz_ldap.c,21,511,20
+Static Function,mod_auth_ldap_set_deref,mod_authnz_ldap.c,4,5,2
+Static Function,mod_auth_ldap_set_subgroup_maxdepth,mod_authnz_ldap.c,3,1,2
+Static Function,mod_info_has_cmd,mod_info.c,2,4,5
+Static Function,mod_info_indent,mod_info.c,9,72,9
+Static Function,mod_info_module_cmds,mod_info.c,6,12,10
+Static Function,mod_info_show_close,mod_info.c,4,4,8
+Static Function,mod_info_show_cmd,mod_info.c,4,2,10
+Static Function,mod_info_show_open,mod_info.c,4,2,10
+Static Function,mod_info_show_parents,mod_info.c,1,2,6
+Static Function,module_find_hook,mod_info.c,2,4,7
+Static Function,module_participate,mod_info.c,4,3,7
+Static Function,module_request_hook_participate,mod_info.c,2,4,5
+Function,mpm_common_pre_config,mpm_common.c,7,1,3
+Static Function,multi_log_transaction,mod_log_config.c,6,12,13
+Static Function,multiviews_match,mod_mime.c,5,10,5
+Static Function,mutex_needs_file,util_mutex.c,1,2,3
+Static Function,mva_create_server_config,mod_vhost_alias.c,7,1,2
+Static Function,mva_merge_server_config,mod_vhost_alias.c,7,4,8
+Static Function,mva_translate,mod_vhost_alias.c,11,33,15
+Static Function,mxcfg_lookup,util_mutex.c,5,17,10
+Static Function,new_digest,mod_auth_digest.c,3,1,11
+Static Function,new_ipaddr_chain,vhost.c,7,1,4
+Static Function,new_name_chain,vhost.c,5,1,4
+Static Function,next_one,mod_macro.c,4,2,5
+Static Function,next_substitution,mod_macro.c,4,3,5
+Static Function,non_regex_pattern,mod_setenvif.c,2,17,3
+Static Function,note_basic_auth_failure,mod_auth_basic.c,3,1,7
+Static Function,note_cookie_auth_failure,mod_auth_form.c,2,2,8
+Static Function,note_digest_auth_failure,mod_auth_digest.c,16,120,22
+Static Function,number_of_escapes,mod_macro.c,1,3,3
+Static Function,old_digest,mod_auth_digest.c,3,1,8
+Static Function,oom,htcacheclean.c,2,2,1
+Static Function,op_R,util_expr_eval.c,2,2,4
+Static Function,op_T,util_expr_eval.c,2,6,1
+Static Function,op_file_link,util_expr_eval.c,2,2,4
+Static Function,op_file_min,util_expr_eval.c,3,6,6
+Static Function,op_file_subr,util_expr_eval.c,5,5,17
+Static Function,op_file_xbit,util_expr_eval.c,2,2,4
+Static Function,op_fnmatch,util_expr_eval.c,2,1,2
+Static Function,op_ipmatch,util_expr_eval.c,3,2,4
+Static Function,op_nz,util_expr_eval.c,1,2,2
+Static Function,op_strcmatch,util_expr_eval.c,2,1,2
+Static Function,op_strmatch,util_expr_eval.c,2,1,2
+Static Function,op_url_subr,util_expr_eval.c,5,6,17
+Static Function,open_config_log,mod_log_config.c,4,4,6
+Static Function,open_entity,mod_cache_disk.c,35,39,36
+Static Function,open_entity,mod_cache_socache.c,41,11247,49
+Static Function,open_error_log,log.c,13,36,14
+Static Function,open_listeners,listen.c,14,178,18
+Static Function,open_multi_logs,mod_log_config.c,6,90,14
+Static Function,open_postfile,ab.c,10,4,7
+Static Function,open_scoreboard,scoreboard.c,7,9,9
+Static Function,opt_retr,mod_authn_dbm.c,2,1,1
+Static Function,opt_retr,mod_authn_file.c,2,1,1
+Static Function,opt_retr,mod_authn_dbd.c,2,1,1
+Static Function,order,mod_access_compat.c,3,10,4
+Static Function,original_uri,util_script.c,5,9,4
+Static Function,osenv_func,util_expr_eval.c,2,1,1
+Static Function,output_directories,mod_autoindex.c,21,999999999,26
+Static Function,output_html_results,ab.c,1,384,28
+Static Function,output_results,ab.c,11,999999999,36
+Static Function,overlay_extension_mappings,mod_mime.c,9,128,11
+Static Function,parse_accept_headers,mod_negotiation.c,17,4,13
+Static Function,parse_ap_expr,mod_include.c,28,26,24
+Static Function,parse_chunk_size,http_filters.c,8,247,11
+Static Function,parse_cmd,mod_ext_filter.c,8,18,5
+Function,parse_common_options,passwd_common.c,9,10,5
+Static Function,parse_epsv_reply,mod_proxy_ftp.c,4,3,2
+Static Function,parse_errorlog_item,core.c,11,13,6
+Static Function,parse_errorlog_misc_string,core.c,6,8,3
+Static Function,parse_errorlog_string,core.c,6,14,6
+Static Function,parse_expr,mod_include.c,19,268,24
+Static Function,parse_format_string,mod_headers.c,10,11,9
+Static Function,parse_format_tag,mod_headers.c,9,7,5
+Static Function,parse_hdr_and_update_nc,mod_auth_digest.c,14,3,10
+Static Function,parse_int,mod_reqtimeout.c,4,4,4
+Static Function,parse_log_item,mod_log_config.c,15,30,10
+Static Function,parse_log_misc_string,mod_log_config.c,7,14,5
+Static Function,parse_log_string,mod_log_config.c,5,3,5
+Static Function,parse_misc_string,mod_headers.c,6,14,5
+Static Function,parse_negotiate_header,mod_negotiation.c,11,12,5
+Static Function,parse_url,ab.c,15,21,6
+Static Function,parseargline,mod_rewrite.c,5,1310,3
+Static Function,pass_data_to_filter,mod_ext_filter.c,5,9,19
+Static Function,pass_response,mod_proxy_scgi.c,22,46,35
+Static Function,perform_idle_server_maintenance,worker.c,14,9118,31
+Static Function,pfmt,mod_log_config.c,2,2,3
+Static Function,piped_log_cleanup,log.c,3,2,5
+Static Function,piped_log_cleanup_for_exec,log.c,2,1,5
+Static Function,piped_log_maintenance,log.c,6,14,8
+Static Function,piped_log_spawn,log.c,18,5,14
+Static Function,place,sed1.c,3,2,7
+Static Function,pod_signal_internal,mpm_unix.c,3,3,7
+Static Function,podx_signal_internal,mpm_unix.c,3,12,9
+Static Function,post_config,mod_slotmem_shm.c,2,1,2
+Static Function,post_config,mod_rewrite.c,10,9,5
+Static Function,post_config,mod_proxy_express.c,3,1,1
+Static Function,post_rotate,rotatelogs.c,10,119,13
+Static Function,pre_config,mod_slotmem_shm.c,3,1,2
+Static Function,pre_config,mod_rewrite.c,6,2,3
+Static Function,pre_init,mod_auth_digest.c,7,9,8
+Static Function,prefix_stat,mod_rewrite.c,6,7,3
+Static Function,prep_walk_cache,request.c,10,10,12
+Static Function,print_statistics,logresolve.c,1,4,9
+Static Function,printstats,htcacheclean.c,5,41,19
+Static Function,proc_mutex_mech,unixd.c,3,3,2
+Static Function,process_command_config,config.c,14,4,11
+Static Function,process_content,mod_macro.c,8,8,12
+Static Function,process_dir,htcacheclean.c,54,2117500,29
+Static Function,process_item,mod_log_config.c,2,7,11
+Static Function,process_mkcol_body,mod_dav.c,11,14,13
+Static Function,process_proxy_header,mod_proxy_http.c,4,7,8
+Static Function,process_regexp,mod_headers.c,9,5,10
+Static Function,process_resource_config_cb,config.c,2,1,8
+Static Function,process_socket,worker.c,5,2,9
+Static Function,process_tags,mod_headers.c,6,6,18
+Static Function,protocol_cmp,protocol.c,3,4,5
+Static Function,proxies_header_name_set,mod_remoteip.c,2,1,6
+Static Function,proxies_set,mod_remoteip.c,13,36,15
+Static Function,proxy_ajp_canon,mod_proxy_ajp.c,13,25,15
+Static Function,proxy_ajp_handler,mod_proxy_ajp.c,13,56,27
+Static Function,proxy_balancer_canon,mod_proxy_balancer.c,11,13,15
+Static Function,proxy_balancer_get_best_worker,proxy_util.c,8,12174,22
+Static Function,proxy_balancer_post_request,mod_proxy_balancer.c,11,92,24
+Static Function,proxy_balancer_pre_request,mod_proxy_balancer.c,20,405,31
+Static Function,proxy_connect_canon,mod_proxy_connect.c,2,3,12
+Static Function,proxy_connect_handler,mod_proxy_connect.c,40,12424,36
+Static Function,proxy_connection_create,proxy_util.c,17,30,23
+Static Function,proxy_detect,mod_proxy.c,11,4,16
+Static Function,proxy_fcgi_canon,mod_proxy_fcgi.c,22,789,20
+Static Function,proxy_fcgi_handler,mod_proxy_fcgi.c,12,60,23
+Static Function,proxy_fdpass_canon,mod_proxy_fdpass.c,7,3,13
+Static Function,proxy_fdpass_handler,mod_proxy_fdpass.c,12,11,16
+Static Function,proxy_fixup,mod_proxy.c,11,7,12
+Static Function,proxy_ftp_canon,mod_proxy_ftp.c,14,73,14
+Static Function,proxy_ftp_cleanup,mod_proxy_ftp.c,7,1,7
+Static Function,proxy_ftp_command,mod_proxy_ftp.c,16,160,23
+Static Function,proxy_ftp_handler,mod_proxy_ftp.c,103,999999999,68
+Static Function,proxy_get_host_of_request,proxy_util.c,7,5,16
+Static Function,proxy_handler,mod_proxy.c,35,2405533,43
+Function,proxy_hook_canon_handler,mod_proxy.c,11,4,19
+Function,proxy_hook_get_canon_handler,mod_proxy.c,1,1,2
+Function,proxy_hook_get_post_request,mod_proxy.c,1,1,2
+Function,proxy_hook_get_pre_request,mod_proxy.c,1,1,2
+Function,proxy_hook_get_scheme_handler,mod_proxy.c,1,1,2
+Function,proxy_hook_post_request,mod_proxy.c,11,4,10
+Function,proxy_hook_pre_request,mod_proxy.c,11,4,10
+Function,proxy_hook_scheme_handler,mod_proxy.c,11,4,18
+Static Function,proxy_http_canon,mod_proxy_http.c,13,109,15
+Static Function,proxy_http_handler,mod_proxy_http.c,41,250572,38
+Static Function,proxy_http_post_config,mod_proxy_http.c,5,4,7
+Static Function,proxy_interpolate,mod_proxy.c,6,4,6
+Static Function,proxy_map_location,mod_proxy.c,4,3,4
+Static Function,proxy_match_domainname,proxy_util.c,4,5,4
+Static Function,proxy_match_hostname,proxy_util.c,4,5,4
+Static Function,proxy_match_ipaddr,proxy_util.c,7,9,9
+Static Function,proxy_match_word,proxy_util.c,3,1,4
+Static Function,proxy_needsdomain,mod_proxy.c,11,4,19
+Static Function,proxy_post_config,mod_proxy.c,13,5,15
+Static Function,proxy_pre_config,mod_proxy.c,7,2,5
+Function,proxy_run_canon_handler,mod_proxy.c,2,4,7
+Function,proxy_run_create_req,proxy_util.c,3,4,6
+Function,proxy_run_fixups,mod_proxy.c,3,4,4
+Function,proxy_run_post_request,mod_proxy.c,2,4,9
+Function,proxy_run_pre_request,mod_proxy.c,2,4,10
+Function,proxy_run_request_status,mod_proxy.c,3,4,5
+Function,proxy_run_scheme_handler,mod_proxy.c,2,4,11
+Function,proxy_run_section_post_config,mod_proxy.c,3,4,8
+Static Function,proxy_send_dir_filter,mod_proxy_ftp.c,48,400909180,34
+Static Function,proxy_status_hook,mod_proxy.c,7,51,30
+Static Function,proxy_trans,mod_proxy.c,3,12,15
+Function,proxy_util_register_hooks,proxy_util.c,1,1,1
+Static Function,proxy_vars,mod_proxy.c,6,2,9
+Static Function,proxy_walk,mod_proxy.c,13,42,19
+Static Function,proxy_wstunnel_canon,mod_proxy_wstunnel.c,13,49,15
+Static Function,proxy_wstunnel_handler,mod_proxy_wstunnel.c,14,390,20
+Static Function,proxy_wstunnel_request,mod_proxy_wstunnel.c,34,1520,32
+Static Function,proxylist_read,mod_remoteip.c,8,7,8
+Static Function,proxysection,mod_proxy.c,33,506,20
+Static Function,purge,htcacheclean.c,17,186,26
+Static Function,push2table,mod_proxy_balancer.c,6,10,5
+Static Function,push_item,mod_autoindex.c,8,8,10
+Static Function,put_int_flush_right,mod_info.c,4,8,5
+Static Function,putline,htdigest.c,1,2,3
+Function,putline,passwd_common.c,4,3,4
+Static Function,queue_info_cleanup,mpm_fdqueue.c,5,5,7
+Static Function,queue_interrupt,mpm_fdqueue.c,7,5,8
+Static Function,r_flush,protocol.c,5,3,6
+Static Function,rate_limit_filter,mod_ratelimit.c,29,40618,37
+Static Function,re_check,mod_include.c,14,4,20
+Static Function,read_array,mod_cache_disk.c,6,9,13
+Static Function,read_array,mod_cache_socache.c,3,6,7
+Static Function,read_chunked_trailers,http_filters.c,14,6,24
+Static Function,read_connection,ab.c,50,92901,36
+Static Function,read_heartbeats,mod_lbmethod_heartbeat.c,6,2,5
+Static Function,read_request_line,protocol.c,28,999999999,29
+Static Function,read_table,mod_cache_disk.c,7,21,12
+Static Function,read_table,mod_cache_socache.c,5,13,15
+Static Function,read_type_map,mod_negotiation.c,30,98,18
+Static Function,read_types_multi,mod_negotiation.c,32,32263,28
+Static Function,readfile_heartbeats,mod_lbmethod_heartbeat.c,26,1029,11
+Static Function,readslot_heartbeats,mod_lbmethod_heartbeat.c,2,1,5
+Static Function,rebuild_conf_hash,config.c,4,3,7
+Static Function,recalc_factors,mod_proxy_balancer.c,3,3,7
+Static Function,recall_body,mod_cache_disk.c,2,2,9
+Static Function,recall_body,mod_cache_socache.c,6,3,11
+Static Function,recall_headers,mod_cache_disk.c,8,20,21
+Static Function,recall_headers,mod_cache_socache.c,1,1,1
+Static Function,reclaim_one_pid,mpm_unix.c,6,12,8
+Static Function,reduce_uri,mod_rewrite.c,11,37,10
+Static Function,regen_key,mod_cache_disk.c,7,3,8
+Static Function,regen_key,mod_cache_socache.c,7,3,9
+Static Function,regerr,regexp.c,2,14,3
+Static Function,regex_cleanup,util.c,2,1,3
+Static Function,register_filter,util_filter.c,16,12,9
+Static Function,register_format_tag_handler,mod_headers.c,1,1,4
+Static Function,register_hook,mod_lbmethod_bytraffic.c,2,1,3
+Static Function,register_hook,mod_cgid.c,3,1,1
+Static Function,register_hook,mod_lbmethod_bybusyness.c,2,1,3
+Static Function,register_hook,mod_lbmethod_byrequests.c,2,1,3
+Static Function,register_hooks,mod_dav_fs.c,4,1,2
+Static Function,register_hooks,mod_proxy.c,9,1,2
+Static Function,register_hooks,mod_authn_dbm.c,2,1,3
+Static Function,register_hooks,mod_cache.c,13,1,1
+Static Function,register_hooks,mod_substitute.c,1,1,2
+Static Function,register_hooks,mod_expires.c,3,1,1
+Static Function,register_hooks,mod_unique_id.c,4,1,1
+Static Function,register_hooks,mod_authn_core.c,2,1,1
+Static Function,register_hooks,mod_authz_core.c,6,1,6
+Static Function,register_hooks,mod_logio.c,7,1,3
+Static Function,register_hooks,mod_dir.c,1,1,1
+Static Function,register_hooks,mod_so.c,2,1,1
+Static Function,register_hooks,mod_sed.c,2,1,2
+Static Function,register_hooks,mod_autoindex.c,1,1,1
+Static Function,register_hooks,mod_ratelimit.c,1,1,1
+Static Function,register_hooks,mod_authn_file.c,2,1,3
+Static Function,register_hooks,mod_rewrite.c,9,1,2
+Static Function,register_hooks,mod_authz_user.c,1,1,4
+Static Function,register_hooks,mod_session_crypto.c,3,1,1
+Static Function,register_hooks,mod_socache_redis.c,0,1,1
+Static Function,register_hooks,mod_log_debug.c,12,1,1
+Static Function,register_hooks,mod_headers.c,7,1,1
+Static Function,register_hooks,mod_proxy_express.c,2,1,1
+Static Function,register_hooks,http_core.c,14,1,2
+Static Function,register_hooks,mod_request.c,5,1,1
+Static Function,register_hooks,mod_authnz_ldap.c,3,1,8
+Static Function,register_hooks,mod_auth_form.c,4,1,1
+Static Function,register_hooks,mod_authz_groupfile.c,2,1,4
+Static Function,register_hooks,mod_authz_owner.c,2,1,3
+Static Function,register_hooks,mod_session_dbd.c,3,1,1
+Static Function,register_hooks,mod_vhost_alias.c,1,1,1
+Static Function,register_hooks,core.c,34,1,2
+Static Function,register_hooks,mod_negotiation.c,3,1,1
+Static Function,register_hooks,mod_socache_memcache.c,1,1,3
+Static Function,register_hooks,mod_proxy_uwsgi.c,2,1,1
+Static Function,register_hooks,mod_auth_digest.c,7,1,1
+Static Function,register_hooks,mod_buffer.c,2,1,2
+Static Function,register_hooks,mod_proxy_fdpass.c,3,1,3
+Static Function,register_hooks,mod_session_cookie.c,2,1,1
+Static Function,register_hooks,mod_authz_dbm.c,2,1,4
+Static Function,register_hooks,mod_authz_host.c,3,1,6
+Static Function,register_hooks,mod_socache_shmcb.c,1,1,3
+Static Function,register_hooks,mod_log_config.c,8,1,2
+Static Function,register_hooks,mod_authn_anon.c,1,1,3
+Static Function,register_hooks,mod_speling.c,1,1,1
+Static Function,register_hooks,mod_setenvif.c,5,1,3
+Static Function,register_hooks,mod_lbmethod_heartbeat.c,2,1,3
+Static Function,register_hooks,mod_dav.c,6,1,2
+Static Function,register_hooks,mod_userdir.c,2,1,1
+Static Function,register_hooks,mod_alias.c,2,1,1
+Static Function,register_hooks,mod_proxy_fcgi.c,2,1,1
+Static Function,register_hooks,mod_mime.c,2,1,1
+Static Function,register_hooks,mod_actions.c,1,1,1
+Static Function,register_hooks,mod_session.c,7,1,1
+Static Function,register_hooks,mod_file_cache.c,3,1,1
+Static Function,register_hooks,mod_info.c,2,1,1
+Static Function,register_hooks,mod_socache_dbm.c,1,1,3
+Static Function,register_hooks,mod_access_compat.c,2,1,1
+Static Function,register_hooks,mod_authn_socache.c,5,1,3
+Static Function,register_hooks,mod_env.c,1,1,1
+Static Function,register_hooks,mod_status.c,4,1,1
+Static Function,register_hooks,mod_include.c,4,1,1
+Static Function,register_hooks,mod_remoteip.c,5,1,1
+Static Function,register_hooks,mod_proxy_scgi.c,3,1,1
+Static Function,register_hooks,mod_ext_filter.c,1,1,1
+Static Function,register_hooks,mod_auth_basic.c,3,1,1
+Static Function,register_one_method,http_protocol.c,2,1,6
+Static Function,regsub_core,util.c,11,258,14
+Static Function,remoteip_addr_in_list,mod_remoteip.c,2,3,6
+Static Function,remoteip_determine_version,mod_remoteip.c,2,3,7
+Static Function,remoteip_disable_networks,mod_remoteip.c,9,8,12
+Static Function,remoteip_enable_proxy_protocol,mod_remoteip.c,8,22,15
+Static Function,remoteip_get_v2_len,mod_remoteip.c,2,1,4
+Static Function,remoteip_hook_post_config,mod_remoteip.c,3,9,15
+Static Function,remoteip_hook_pre_connection,mod_remoteip.c,10,12,25
+Static Function,remoteip_input_filter,mod_remoteip.c,28,835,38
+Static Function,remoteip_is_server_port,mod_remoteip.c,1,3,6
+Static Function,remoteip_modify_request,mod_remoteip.c,21,842433,42
+Static Function,remoteip_process_v1_header,mod_remoteip.c,15,32,17
+Static Function,remoteip_process_v2_header,mod_remoteip.c,12,14,28
+Static Function,remoteip_sockaddr_compat,mod_remoteip.c,3,4,4
+Static Function,remoteip_sockaddr_equal,mod_remoteip.c,2,1,4
+Static Function,remoteip_warn_enable_conflict,mod_remoteip.c,2,2,15
+Static Function,remove_any_filter,util_filter.c,2,8,7
+Static Function,remove_directory,htcacheclean.c,9,32,6
+Static Function,remove_empty_buckets,core_filters.c,5,2,12
+Static Function,remove_entity,mod_cache_disk.c,4,1,7
+Static Function,remove_entity,mod_cache_socache.c,3,1,1
+Static Function,remove_extension_info,mod_mime.c,8,4,7
+Static Function,remove_extension_type,mod_mime.c,2,1,3
+Static Function,remove_header_do,cache_storage.c,3,2,3
+Static Function,remove_items,mod_mime.c,4,3,8
+Static Function,remove_lock,mod_cache_socache.c,3,2,2
+Static Function,remove_lock,mod_authn_socache.c,3,2,2
+Static Function,remove_url,mod_cache_disk.c,6,80,20
+Static Function,remove_url,mod_cache_socache.c,8,11,23
+Static Function,rename_original_env,http_request.c,5,3,8
+Static Function,reorder_sorter,core.c,1,5,7
+Static Function,req_header_var_fn,util_expr_eval.c,4,3,6
+Static Function,req_table_func,util_expr_eval.c,4,8,9
+Static Function,reqtimeout_before_body,mod_reqtimeout.c,8,4,14
+Static Function,reqtimeout_before_header,mod_reqtimeout.c,8,3,13
+Static Function,reqtimeout_create_srv_config,mod_reqtimeout.c,9,1,2
+Static Function,reqtimeout_eor,mod_reqtimeout.c,3,2,11
+Static Function,reqtimeout_filter,mod_reqtimeout.c,37,112515,32
+Static Function,reqtimeout_hooks,mod_reqtimeout.c,7,1,2
+Static Function,reqtimeout_init,mod_reqtimeout.c,12,5,16
+Static Function,reqtimeout_merge_srv_config,mod_reqtimeout.c,10,1,11
+Static Function,request_is_filter_present,mod_request.c,1,3,6
+Static Function,request_var_fn,util_expr_eval.c,15,34,37
+Static Function,reset,mod_lbmethod_bytraffic.c,6,2,5
+Static Function,reset,mod_lbmethod_bybusyness.c,4,2,5
+Static Function,reset,mod_lbmethod_byrequests.c,3,2,5
+Static Function,reset,mod_lbmethod_heartbeat.c,1,1,1
+Static Function,reset_banner,core.c,5,1,1
+Static Function,reset_conf_vector_length,config.c,3,1,2
+Static Function,reset_config_defines,core.c,4,1,2
+Static Function,reset_process_pconf,main.c,5,2,5
+Static Function,reset_request_notes,core.c,2,1,1
+Static Function,resolve_symlink,request.c,6,13,9
+Static Function,response_is_html,mod_autoindex.c,3,1,6
+Static Function,restore_slotmem,mod_slotmem_shm.c,8,220,10
+Static Function,retained_data_cleanup,unixd.c,2,1,2
+Static Function,rewrite_child_errfn,mod_rewrite.c,1,2,7
+Static Function,rewrite_mapfunc_escape,mod_rewrite.c,2,1,3
+Static Function,rewrite_mapfunc_tolower,mod_rewrite.c,2,1,1
+Static Function,rewrite_mapfunc_toupper,mod_rewrite.c,2,1,1
+Static Function,rewrite_mapfunc_unescape,mod_rewrite.c,2,1,1
+Static Function,rewrite_url,mod_proxy_balancer.c,6,4,7
+Static Function,rewritelock_create,mod_rewrite.c,2,2,5
+Static Function,rewritelock_remove,mod_rewrite.c,3,2,2
+Static Function,rewritemap_program_child,mod_rewrite.c,16,6,9
+Static Function,rl_bucket_read,mod_ratelimit.c,3,1,1
+Static Function,rline,sed0.c,6,72,8
+Static Function,rmm_free,mod_auth_digest.c,3,1,3
+Static Function,rmm_malloc,mod_auth_digest.c,3,2,4
+Static Function,round_up,htcacheclean.c,1,2,4
+Static Function,run_rewritemap_programs,mod_rewrite.c,8,14,19
+Static Function,rxplus_cleanup,util_regex.c,2,1,2
+Static Function,safe_file_rename,mod_cache_disk.c,4,4,5
+Static Function,safe_referer,mod_proxy_balancer.c,4,2,5
+Static Function,satisfy,mod_access_compat.c,3,7,4
+Static Function,sc_for_req_header,ajp_header.c,6,47,2
+Static Function,sc_for_req_method_by_id,ajp_header.c,1,3,5
+Static Function,scgi_canon,mod_proxy_scgi.c,13,15,14
+Static Function,scgi_handler,mod_proxy_scgi.c,14,50,18
+Static Function,scgi_request_status,mod_proxy_scgi.c,11,12,21
+Static Function,scgi_set_internal_redirect,mod_proxy_scgi.c,3,3,4
+Static Function,scgi_set_send_file,mod_proxy_scgi.c,3,3,4
+Static Function,search,sed0.c,2,3,5
+Static Function,sed_add_expr,mod_sed.c,3,2,6
+Function,sed_canbe_finalized,sed0.c,1,1,3
+Function,sed_compile,regexp.c,8,1972236,9
+Static Function,sed_compile_errf,mod_sed.c,2,1,3
+Function,sed_compile_file,sed0.c,2,1,2
+Function,sed_compile_string,sed0.c,7,2,3
+Function,sed_destroy_commands,sed0.c,0,1,1
+Function,sed_destroy_eval,sed1.c,3,3,5
+Function,sed_eval_buffer,sed1.c,11,92,11
+Static Function,sed_eval_cleanup,mod_sed.c,2,1,2
+Function,sed_eval_file,sed1.c,4,7,4
+Function,sed_finalize_eval,sed1.c,9,11,10
+Function,sed_get_finalize_error,sed0.c,2,5,9
+Function,sed_init_commands,sed0.c,17,3,9
+Function,sed_init_eval,sed1.c,6,1,7
+Static Function,sed_request_filter,mod_sed.c,20,92,29
+Function,sed_reset_eval,sed1.c,35,48,17
+Static Function,sed_response_filter,mod_sed.c,18,45,27
+Function,sed_step,regexp.c,4,7,5
+Static Function,sed_write_output,mod_sed.c,6,14,8
+Static Function,select_random_value_part,mod_rewrite.c,3,14,2
+Static Function,send_416,byterange_filter.c,11,1,12
+Static Function,send_all_header_fields,http_filters.c,9,4,19
+Static Function,send_begin_request,mod_proxy_fcgi.c,9,1,3
+Static Function,send_brigade_blocking,core_filters.c,9,5,9
+Static Function,send_brigade_nonblocking,core_filters.c,9,176,16
+Static Function,send_data,mod_proxy_fcgi.c,8,30,9
+Static Function,send_environment,mod_proxy_fcgi.c,24,3132,27
+Static Function,send_header,protocol.c,2,1,6
+Static Function,send_headers,mod_proxy_scgi.c,10,9,10
+Static Function,send_http_connect,proxy_util.c,9,288,14
+Static Function,send_parsed_content,mod_include.c,36,527031,47
+Static Function,send_req,mod_cgid.c,23,272,28
+Static Function,send_request_body,mod_proxy_scgi.c,6,8,12
+Static Function,send_signal,mpm_unix.c,4,3,6
+Static Function,send_socket,mod_proxy_fdpass.c,16,4,6
+Static Function,sendall,mod_proxy_scgi.c,6,4,17
+Static Function,sendfile_handler,mod_file_cache.c,8,2,14
+Static Function,sendfile_nonblocking,core_filters.c,13,34,18
+Static Function,server_create,mod_proxy_express.c,6,1,2
+Static Function,server_hostname_port,core.c,15,8,4
+Static Function,server_main_loop,worker.c,19,110,21
+Static Function,server_merge,mod_proxy_express.c,6,1,7
+Static Function,session_cookie_load,mod_session_cookie.c,13,20,15
+Static Function,session_cookie_save,mod_session_cookie.c,5,18,16
+Static Function,session_crypto_decode,mod_session_crypto.c,6,4,18
+Static Function,session_crypto_encode,mod_session_crypto.c,6,4,18
+Static Function,session_crypto_init,mod_session_crypto.c,7,34,17
+Static Function,session_dbd_load,mod_session_dbd.c,16,49,18
+Static Function,session_dbd_monitor,mod_session_dbd.c,2,1,3
+Static Function,session_dbd_save,mod_session_dbd.c,13,45,32
+Static Function,session_fixups,mod_session.c,6,4,9
+Static Function,session_identity_decode,mod_session.c,11,7,7
+Static Function,session_identity_encode,mod_session.c,8,2,8
+Static Function,session_included,mod_session.c,3,16,8
+Static Function,session_insert_output_filter,mod_session.c,1,1,4
+Static Function,session_output_filter,mod_session.c,10,22,15
+Static Function,set_accept_path_info,core.c,3,4,2
+Static Function,set_accept_quality,mod_negotiation.c,4,12,12
+Static Function,set_access_name,core.c,4,2,5
+Static Function,set_accf_map,core.c,5,2,7
+Static Function,set_add_default_charset,core.c,4,3,2
+Static Function,set_algorithm,mod_auth_digest.c,5,3,3
+Static Function,set_allow2f,core.c,5,4,6
+Static Function,set_allow_opts,core.c,5,23,4
+Static Function,set_allowed_ports,mod_proxy_connect.c,7,5,8
+Static Function,set_authname,mod_authn_core.c,3,1,4
+Static Function,set_authoritative,mod_auth_form.c,3,1,2
+Static Function,set_authoritative,mod_auth_basic.c,3,1,2
+Static Function,set_authtype,mod_authn_core.c,4,1,2
+Static Function,set_bad_opt,mod_proxy.c,4,4,6
+Static Function,set_balancer_param,mod_proxy.c,34,36,13
+Static Function,set_banner,core.c,3,10,3
+Static Function,set_bgrowth,mod_proxy.c,4,2,6
+Static Function,set_bind_password,mod_authnz_ldap.c,8,5,5
+Static Function,set_bind_pattern,mod_authnz_ldap.c,5,2,5
+Static Function,set_buffer_size,mod_buffer.c,3,2,3
+Static Function,set_buffered_logs_on,mod_log_config.c,4,2,2
+Static Function,set_cache_defex,mod_cache.c,4,1,2
+Static Function,set_cache_dirlength,mod_cache_disk.c,3,3,7
+Static Function,set_cache_dirlevels,mod_cache_disk.c,3,3,7
+Static Function,set_cache_factor,mod_cache.c,4,2,2
+Static Function,set_cache_ignore_cachecontrol,mod_cache.c,3,1,6
+Static Function,set_cache_ignore_no_last_mod,mod_cache.c,3,1,2
+Static Function,set_cache_ignore_querystring,mod_cache.c,3,1,6
+Static Function,set_cache_key_base_url,mod_cache.c,7,3,11
+Static Function,set_cache_lock,mod_cache.c,3,1,6
+Static Function,set_cache_lock_maxage,mod_cache.c,4,2,6
+Static Function,set_cache_lock_path,mod_cache.c,5,2,8
+Static Function,set_cache_max,mod_cache_socache.c,3,2,3
+Static Function,set_cache_maxex,mod_cache.c,4,1,2
+Static Function,set_cache_maxfs,mod_cache_disk.c,3,2,3
+Static Function,set_cache_maxtime,mod_cache_socache.c,4,2,2
+Static Function,set_cache_minex,mod_cache.c,4,1,2
+Static Function,set_cache_minfs,mod_cache_disk.c,3,2,3
+Static Function,set_cache_mintime,mod_cache_socache.c,4,2,2
+Static Function,set_cache_quick_handler,mod_cache.c,3,1,6
+Static Function,set_cache_readsize,mod_cache_disk.c,3,2,3
+Static Function,set_cache_readsize,mod_cache_socache.c,3,2,3
+Static Function,set_cache_readtime,mod_cache_disk.c,4,2,2
+Static Function,set_cache_readtime,mod_cache_socache.c,4,2,2
+Static Function,set_cache_root,mod_cache_disk.c,4,1,6
+Static Function,set_cache_socache,mod_cache_socache.c,10,4,8
+Static Function,set_cache_stale_on_error,mod_cache.c,3,1,2
+Static Function,set_cache_store_expired,mod_cache.c,3,1,2
+Static Function,set_cache_store_nostore,mod_cache.c,3,1,2
+Static Function,set_cache_store_private,mod_cache.c,3,1,2
+Static Function,set_cache_value,mod_rewrite.c,12,5,12
+Static Function,set_cache_x_cache,mod_cache.c,3,2,8
+Static Function,set_cache_x_cache_detail,mod_cache.c,3,2,8
+Static Function,set_cgi_pass_auth,core.c,2,1,2
+Static Function,set_cgi_var,core.c,8,4,6
+Static Function,set_charset_config,mod_authnz_ldap.c,4,1,3
+Static Function,set_charset_quality,mod_negotiation.c,5,24,11
+Static Function,set_conn_state,ab.c,3,1,7
+Static Function,set_content_md5,core.c,2,1,2
+Static Function,set_cookie_doo_doo,util_script.c,2,1,4
+Static Function,set_cookie_form_body,mod_auth_form.c,4,1,3
+Static Function,set_cookie_form_location,mod_auth_form.c,4,1,3
+Static Function,set_cookie_form_method,mod_auth_form.c,4,1,3
+Static Function,set_cookie_form_mimetype,mod_auth_form.c,4,1,3
+Static Function,set_cookie_form_password,mod_auth_form.c,4,1,3
+Static Function,set_cookie_form_size,mod_auth_form.c,4,2,2
+Static Function,set_cookie_form_username,mod_auth_form.c,4,1,3
+Static Function,set_cookie_name,mod_session_dbd.c,8,2,4
+Static Function,set_cookie_name,mod_session_cookie.c,8,2,4
+Static Function,set_cookie_name2,mod_session_dbd.c,8,2,4
+Static Function,set_cookie_name2,mod_session_cookie.c,8,2,4
+Static Function,set_core_server_flag,core.c,2,1,4
+Static Function,set_crypto_cipher,mod_session_crypto.c,3,1,2
+Static Function,set_crypto_driver,mod_session_crypto.c,6,2,7
+Static Function,set_crypto_passphrase,mod_session_crypto.c,9,5,7
+Static Function,set_crypto_passphrase_file,mod_session_crypto.c,8,5,7
+Static Function,set_daemons_to_start,worker.c,4,2,2
+Static Function,set_dbd_cookie_remove,mod_session_dbd.c,3,1,2
+Static Function,set_dbd_peruser,mod_session_dbd.c,3,1,2
+Static Function,set_dbmfile,mod_proxy_express.c,4,2,7
+Static Function,set_dbmtype,mod_proxy_express.c,2,1,6
+Static Function,set_default_end_tag,mod_include.c,3,3,6
+Static Function,set_default_error_msg,mod_include.c,2,1,2
+Static Function,set_default_lang_quality,mod_negotiation.c,2,4,7
+Static Function,set_default_order,mod_autoindex.c,4,11,3
+Static Function,set_default_start_tag,mod_include.c,3,3,6
+Static Function,set_default_time_fmt,mod_include.c,2,1,2
+Static Function,set_default_type,core.c,3,3,9
+Static Function,set_define,core.c,9,14,7
+Static Function,set_disable_no_store,mod_auth_form.c,3,1,2
+Static Function,set_document_root,core.c,8,6,9
+Static Function,set_enable_mmap,core.c,3,3,2
+Static Function,set_enable_sendfile,core.c,3,3,2
+Static Function,set_enabled,mod_proxy_express.c,2,1,6
+Static Function,set_encoding_quality,mod_negotiation.c,4,50,9
+Static Function,set_error_document,core.c,14,65,15
+Static Function,set_errorlog_format,core.c,8,10,8
+Static Function,set_etag_bits,core.c,7,792,10
+Static Function,set_expiration_fields,mod_expires.c,8,7,18
+Static Function,set_expiresactive,mod_expires.c,2,2,2
+Static Function,set_expiresbytype,mod_expires.c,7,5,6
+Static Function,set_expiresdefault,mod_expires.c,4,2,4
+Static Function,set_fake_basic_auth,mod_auth_form.c,3,1,2
+Static Function,set_fn_info,mod_info.c,3,2,6
+Static Function,set_force_priority,mod_negotiation.c,4,7,5
+Static Function,set_ftp_directory_charset,mod_proxy_ftp.c,2,1,2
+Static Function,set_ftp_escape_wildcards,mod_proxy_ftp.c,3,1,2
+Static Function,set_ftp_list_on_wildcard,mod_proxy_ftp.c,3,1,2
+Static Function,set_group_privs,mod_unixd.c,8,13,10
+Static Function,set_hc_condition,mod_proxy_hcheck.c,13,7,12
+Static Function,set_hc_template,mod_proxy_hcheck.c,16,6,12
+Static Function,set_hc_tpsize,mod_proxy_hcheck.c,4,3,3
+Static Function,set_hostname_lookups,core.c,3,4,2
+Static Function,set_http_method,core.c,3,2,3
+Static Function,set_http_protocol_options,core.c,5,25,7
+Static Function,set_inherit,mod_proxy.c,3,1,6
+Static Function,set_io_buffer_size,mod_proxy.c,4,2,6
+Static Function,set_keep_alive,http_core.c,5,2,2
+Static Function,set_keep_alive_max,http_core.c,6,2,2
+Static Function,set_keep_alive_timeout,http_core.c,7,4,4
+Static Function,set_kept_body_size,mod_request.c,3,2,3
+Static Function,set_language_priority,mod_negotiation.c,4,2,5
+Static Function,set_language_quality,mod_negotiation.c,9,9572,16
+Static Function,set_limit_cpu,core.c,2,1,5
+Static Function,set_limit_mem,core.c,2,1,5
+Static Function,set_limit_nproc,core.c,2,1,5
+Static Function,set_limit_req_body,core.c,2,3,3
+Static Function,set_limit_req_fields,core.c,7,3,3
+Static Function,set_limit_req_fieldsize,core.c,7,3,3
+Static Function,set_limit_req_line,core.c,7,3,3
+Static Function,set_limit_xml_req_body,core.c,3,2,3
+Static Function,set_login_required_location,mod_auth_form.c,5,2,5
+Static Function,set_login_success_location,mod_auth_form.c,5,2,5
+Static Function,set_loglevel,core.c,11,45,13
+Static Function,set_logout_location,mod_auth_form.c,5,2,5
+Static Function,set_max_forwards,mod_proxy.c,4,1,6
+Static Function,set_max_line_length,mod_substitute.c,4,12,2
+Static Function,set_max_overlaps,core.c,4,5,2
+Static Function,set_max_ranges,core.c,4,5,2
+Static Function,set_max_reversals,core.c,4,5,2
+Static Function,set_max_spare_threads,worker.c,4,2,2
+Static Function,set_max_workers,worker.c,6,4,8
+Static Function,set_merge_trailers,core.c,2,1,6
+Static Function,set_mime_fields,mod_negotiation.c,7,1,9
+Static Function,set_min_spare_threads,worker.c,4,2,2
+Static Function,set_nc_check,mod_auth_digest.c,3,1,1
+Static Function,set_neg_headers,mod_negotiation.c,13,139280,20
+Static Function,set_nonce_format,mod_auth_digest.c,1,1,0
+Static Function,set_nonce_lifetime,mod_auth_digest.c,7,2,3
+Static Function,set_notes_auth,mod_auth_form.c,3,64,10
+Static Function,set_options,core.c,7,138,6
+Static Function,set_override,core.c,10,84,13
+Static Function,set_override_list,core.c,8,27,15
+Static Function,set_pattern,mod_substitute.c,15,3137,5
+Static Function,set_persist,mod_proxy.c,2,1,6
+Static Function,set_polled_events,ab.c,6,10,8
+Static Function,set_ppinherit,mod_proxy.c,3,1,6
+Static Function,set_preserve_host,mod_proxy.c,3,1,2
+Static Function,set_protocol,core.c,5,2,5
+Static Function,set_protocols,core.c,3,2,5
+Static Function,set_protocols_honor_order,core.c,4,4,4
+Static Function,set_proxy_dirconn,mod_proxy.c,11,15,11
+Static Function,set_proxy_domain,mod_proxy.c,2,2,6
+Static Function,set_proxy_error_override,mod_proxy.c,3,1,2
+Static Function,set_proxy_exclude,mod_proxy.c,6,9,11
+Static Function,set_proxy_param,mod_proxy.c,14,85,12
+Static Function,set_proxy_req,mod_proxy.c,3,1,6
+Static Function,set_proxy_timeout,mod_proxy.c,4,2,6
+Static Function,set_qop,mod_auth_digest.c,5,4,5
+Static Function,set_qualify_redirect_url,core.c,2,1,2
+Static Function,set_realm,mod_auth_digest.c,5,1,4
+Static Function,set_recursion_limit,core.c,5,16,8
+Static Function,set_recv_buffer_size,mod_proxy.c,4,2,6
+Static Function,set_regex_default_options,core.c,8,26,5
+Static Function,set_remove,mod_session_cookie.c,3,1,2
+Static Function,set_reqtimeout_param,mod_reqtimeout.c,9,49,11
+Static Function,set_reqtimeouts,mod_reqtimeout.c,5,4,8
+Static Function,set_request_connection,mod_proxy_hcheck.c,13,1,9
+Static Function,set_request_vars,mod_authnz_ldap.c,9,6,18
+Static Function,set_resource_limits,mod_ext_filter.c,3,1,7
+Static Function,set_runtime_dir,core.c,5,3,5
+Static Function,set_script,mod_actions.c,6,6,6
+Static Function,set_script_socket,mod_cgid.c,6,3,4
+Static Function,set_script_timeout,mod_cgid.c,2,2,3
+Static Function,set_scriptlog,mod_cgid.c,4,2,8
+Static Function,set_scriptlog_buffer,mod_cgid.c,3,1,6
+Static Function,set_scriptlog_length,mod_cgid.c,3,1,6
+Static Function,set_serv_tokens,core.c,4,8,2
+Static Function,set_server_alias,core.c,4,4,6
+Static Function,set_server_limit,worker.c,4,2,2
+Static Function,set_server_root,core.c,4,3,5
+Static Function,set_server_string_slot,core.c,2,2,4
+Static Function,set_serverpath,core.c,7,2,2
+Static Function,set_session_auth,mod_auth_form.c,6,2,8
+Static Function,set_session_enable,mod_session.c,3,1,2
+Static Function,set_session_env,mod_session.c,3,1,2
+Static Function,set_session_expiry_update,mod_session.c,4,2,3
+Static Function,set_session_header,mod_session.c,3,1,2
+Static Function,set_session_maxage,mod_session.c,4,1,2
+Static Function,set_sethandler,core.c,4,2,4
+Static Function,set_shmem_size,mod_auth_digest.c,8,32,11
+Static Function,set_signature_flag,core.c,3,4,2
+Static Function,set_site_passphrase,mod_auth_form.c,3,1,2
+Static Function,set_source_address,mod_proxy.c,4,2,7
+Static Function,set_status_opt,mod_proxy.c,4,4,6
+Static Function,set_thread_limit,worker.c,4,2,2
+Static Function,set_threads_per_child,worker.c,4,2,2
+Static Function,set_timeout,core.c,6,2,2
+Static Function,set_trace_enable,core.c,3,4,4
+Static Function,set_transfer_log,mod_log_config.c,2,1,3
+Static Function,set_types_config,mod_mime.c,4,1,3
+Static Function,set_undefined_echo,mod_include.c,2,1,2
+Static Function,set_unique_id,mod_unique_id.c,4,8,5
+Static Function,set_uri_list,mod_auth_digest.c,4,2,5
+Static Function,set_use_canonical_name,core.c,3,4,2
+Static Function,set_use_canonical_phys_port,core.c,3,3,2
+Static Function,set_use_digest_algorithm,mod_auth_basic.c,5,2,4
+Static Function,set_user_dir,mod_userdir.c,6,8,10
+Static Function,set_via_opt,mod_proxy.c,4,5,6
+Static Function,set_vlist_validator,mod_negotiation.c,4,1,5
+Static Function,set_worker_hc_param,mod_proxy_hcheck.c,22,55,27
+Static Function,set_worker_param,mod_proxy.c,41,66,16
+Static Function,set_xbithack,mod_include.c,3,4,2
+Static Function,setaside_remaining_output,core_filters.c,7,6,11
+Static Function,setterm,htcacheclean.c,1,1,1
+Static Function,setup_choice_response,mod_negotiation.c,11,9,12
+Static Function,setup_threads_runtime,worker.c,17,10,17
+Static Function,sha1_func,util_expr_eval.c,7,1,3
+Static Function,shmcb_cyclic_cton_memcpy,mod_socache_shmcb.c,1,2,7
+Static Function,shmcb_cyclic_memcmp,mod_socache_shmcb.c,2,3,7
+Static Function,shmcb_cyclic_ntoc_memcpy,mod_socache_shmcb.c,1,2,6
+Static Function,shmcb_subcache_expire,mod_socache_shmcb.c,7,36,18
+Static Function,shmcb_subcache_iterate,mod_socache_shmcb.c,8,22,24
+Static Function,shmcb_subcache_remove,mod_socache_shmcb.c,4,6,19
+Static Function,shmcb_subcache_retrieve,mod_socache_shmcb.c,8,10,22
+Static Function,shmcb_subcache_store,mod_socache_shmcb.c,16,38,21
+Static Function,show_active_hooks,mod_info.c,4,8,7
+Static Function,show_compile_settings,main.c,6,1,1
+Static Function,show_mpm_settings,main.c,3,16,1
+Static Function,show_overrides,config.c,1,1470,5
+Static Function,show_providers,mod_info.c,6,14,8
+Static Function,show_server_settings,mod_info.c,12,1,9
+Static Function,show_time,mod_status.c,1,16,3
+Static Function,sig_coredump,mpm_unix.c,5,3,9
+Static Function,sig_restart,unixd.c,4,4,5
+Static Function,sig_term,unixd.c,4,4,5
+Static Function,signal_threads,worker.c,8,3,8
+Static Function,slotmem_attach,mod_slotmem_shm.c,22,30,17
+Static Function,slotmem_clearinuse,mod_slotmem_shm.c,1,4,5
+Static Function,slotmem_create,mod_slotmem_shm.c,29,2703,15
+Static Function,slotmem_doall,mod_slotmem_shm.c,1,5,10
+Static Function,slotmem_dptr,mod_slotmem_shm.c,2,4,9
+Static Function,slotmem_fgrab,mod_slotmem_shm.c,5,5,12
+Static Function,slotmem_filenames,mod_slotmem_shm.c,8,14,5
+Static Function,slotmem_get,mod_slotmem_shm.c,3,5,9
+Static Function,slotmem_grab,mod_slotmem_shm.c,6,10,11
+Static Function,slotmem_num_free_slots,mod_slotmem_shm.c,1,4,9
+Static Function,slotmem_num_slots,mod_slotmem_shm.c,1,1,7
+Static Function,slotmem_put,mod_slotmem_shm.c,3,5,9
+Static Function,slotmem_release,mod_slotmem_shm.c,4,6,12
+Static Function,slotmem_shm_getstorage,mod_slotmem_shm.c,1,1,2
+Static Function,slotmem_slot_size,mod_slotmem_shm.c,1,1,4
+Static Function,so_sconf_create,mod_so.c,5,1,2
+Static Function,sobj_body_pre_cleanup,mod_cache_socache.c,3,1,3
+Static Function,socache_child_init,mod_cache_socache.c,3,4,8
+Static Function,socache_dbm_create,mod_socache_dbm.c,8,3,6
+Static Function,socache_dbm_destroy,mod_socache_dbm.c,2,1,4
+Static Function,socache_dbm_expire,mod_socache_dbm.c,16,1875,15
+Static Function,socache_dbm_init,mod_socache_dbm.c,13,26,13
+Static Function,socache_dbm_iterate,mod_socache_dbm.c,9,38,13
+Static Function,socache_dbm_remove,mod_socache_dbm.c,8,3,12
+Static Function,socache_dbm_retrieve,mod_socache_dbm.c,13,7,16
+Static Function,socache_dbm_status,mod_socache_dbm.c,9,14,16
+Static Function,socache_dbm_store,mod_socache_dbm.c,12,7,16
+Static Function,socache_mc_create,mod_socache_memcache.c,5,2,3
+Static Function,socache_mc_destroy,mod_socache_memcache.c,0,1,1
+Static Function,socache_mc_id2key,mod_socache_memcache.c,3,2,10
+Static Function,socache_mc_init,mod_socache_memcache.c,14,34,16
+Static Function,socache_mc_iterate,mod_socache_memcache.c,1,1,1
+Static Function,socache_mc_remove,mod_socache_memcache.c,4,4,10
+Static Function,socache_mc_retrieve,mod_socache_memcache.c,6,7,13
+Static Function,socache_mc_set_ttl,mod_socache_memcache.c,4,3,9
+Static Function,socache_mc_status,mod_socache_memcache.c,3,5,32
+Static Function,socache_mc_store,mod_socache_memcache.c,5,5,13
+Static Function,socache_post_config,mod_cache_socache.c,6,15,17
+Static Function,socache_precfg,mod_cache_socache.c,4,2,5
+Static Function,socache_rd_set_rwto,mod_socache_redis.c,4,3,9
+Static Function,socache_rd_set_ttl,mod_socache_redis.c,4,3,9
+Static Function,socache_shmcb_create,mod_socache_shmcb.c,11,8,5
+Static Function,socache_shmcb_destroy,mod_socache_shmcb.c,3,2,3
+Static Function,socache_shmcb_init,mod_socache_shmcb.c,28,16468,20
+Static Function,socache_shmcb_iterate,mod_socache_shmcb.c,3,2,9
+Static Function,socache_shmcb_remove,mod_socache_shmcb.c,5,12,12
+Static Function,socache_shmcb_retrieve,mod_socache_shmcb.c,5,8,14
+Static Function,socache_shmcb_status,mod_socache_shmcb.c,5,96,30
+Static Function,socache_shmcb_store,mod_socache_shmcb.c,6,16,15
+Static Function,socache_status_hook,mod_cache_socache.c,6,193,17
+Static Function,socache_status_register,mod_cache_socache.c,1,1,1
+Static Function,sock_read,mod_cgid.c,3,3,5
+Static Function,sock_write,mod_cgid.c,3,2,6
+Static Function,sock_writev,mod_cgid.c,8,4,5
+Static Function,sockaddr_is_wildcard,mod_remoteip.c,3,5,7
+Static Function,socket_cleanup,proxy_util.c,6,1,8
+Static Function,sort_by_quality,mod_speling.c,1,1,4
+Static Function,spdist,mod_speling.c,3,21,3
+Static Function,splitout_queryargs,mod_rewrite.c,9,27,8
+Static Function,spool_reqbody_cl,mod_proxy_http.c,23,221,24
+Static Function,ssl_expr_eval_comp,util_expr_eval.c,4,7,6
+Static Function,standard_flush,mod_proxy_fdpass.c,11,3,17
+Static Function,start_cond_section,core.c,9,7,7
+Static Function,start_connect,ab.c,30,601,18
+Static Function,start_ifversion,mod_version.c,10,712,10
+Static Function,start_threads,worker.c,12,53,18
+Static Function,startup_children,worker.c,1,5,11
+Static Function,status_child_init,mod_status.c,2,1,1
+Static Function,status_handler,mod_status.c,38,999999999,65
+Static Function,status_init,mod_status.c,4,2,6
+Static Function,status_pre_config,mod_status.c,2,1,1
+Static Function,store_array,mod_cache_disk.c,5,3,5
+Static Function,store_array,mod_cache_socache.c,4,5,7
+Static Function,store_body,mod_cache_disk.c,24,61336,47
+Static Function,store_body,mod_cache_socache.c,18,15984,42
+Static Function,store_headers,mod_cache_disk.c,8,8,11
+Static Function,store_headers,mod_cache_socache.c,37,1040,52
+Static Function,store_slotmem,mod_slotmem_shm.c,7,70,14
+Static Function,store_table,mod_cache_disk.c,6,4,7
+Static Function,store_table,mod_cache_socache.c,5,10,10
+Static Function,store_variant_list,mod_negotiation.c,2,2,5
+Static Function,strcmplex,util_expr_eval.c,2,8,3
+Static Function,stream_reqbody,mod_proxy_http.c,16,345,30
+Static Function,stream_reqbody_read,mod_proxy_http.c,6,11,25
+Static Function,strict_hostname_check,vhost.c,3,48,10
+Static Function,strip_headers_request_body,protocol.c,1,1,3
+Static Function,strip_paren_comments,mod_negotiation.c,1,8,2
+Static Function,subnet_parse_arg,util_expr_eval.c,8,5,6
+Static Function,subst_prefix_path,mod_rewrite.c,6,10,6
+Static Function,substitute,mod_macro.c,8,26,6
+Static Function,substitute,sed1.c,6,8,9
+Static Function,substitute_filter,mod_substitute.c,31,1698,38
+Static Function,substitute_macro_args,mod_macro.c,7,8,10
+Static Function,substring_conf,util.c,2,3,6
+Static Function,table_do_fn_check_lengths,protocol.c,6,3,13
+Static Function,terminate,htdigest.c,1,1,1
+Static Function,terminate,htdbm.c,1,1,1
+Static Function,terminate,htpasswd.c,1,1,1
+Static Function,terminate_description,mod_autoindex.c,2,144,6
+Static Function,terminate_header,http_filters.c,2,1,2
+Static Function,terminate_headers,mod_proxy_http.c,4,1,7
+Static Function,test,ab.c,41,7151616,54
+Static Function,test_ifdefine_section,core.c,2,1,1
+Static Function,test_ifdirective_section,core.c,2,1,3
+Static Function,test_iffile_section,core.c,3,1,3
+Static Function,test_ifmod_section,core.c,2,1,3
+Static Function,test_ifsection_section,core.c,3,1,3
+Static Function,text,sed0.c,3,20,5
+Static Function,tmpfile_cleanup,repos.c,2,2,6
+Static Function,to_dbm,httxt2dbm.c,10,257,7
+Static Function,tokens_to_array,mod_cache_disk.c,3,2,6
+Static Function,tokens_to_array,mod_cache_socache.c,3,2,6
+Static Function,tolower_func,util_expr_eval.c,3,1,3
+Static Function,toupper_func,util_expr_eval.c,3,1,3
+Static Function,translate_alias_redir,mod_alias.c,12,17,20
+Static Function,translate_userdir,mod_userdir.c,15,66,14
+Static Function,trie_node_alloc,util_filter.c,7,5,9
+Static Function,trie_node_link,util_filter.c,7,14,11
+Static Function,truncate_and_write_error,rotatelogs.c,5,3,8
+Static Function,try_alias,mod_alias.c,8,5,19
+Static Function,try_alias_list,mod_alias.c,15,93,27
+Static Function,try_chown,mod_socache_dbm.c,5,8,11
+Static Function,try_redirect,mod_alias.c,9,8,21
+Static Function,uldap_cache_check_subgroups,util_ldap.c,25,3873244,33
+Static Function,uldap_cache_checkuserid,util_ldap.c,40,1720776,36
+Static Function,uldap_cache_compare,util_ldap.c,27,179320,34
+Static Function,uldap_cache_comparedn,util_ldap.c,22,8088,28
+Static Function,uldap_cache_getuserdn,util_ldap.c,37,40920,35
+Static Function,uldap_connection_close,util_ldap.c,6,2,3
+Static Function,uldap_connection_find,util_ldap.c,31,1980,40
+Static Function,uldap_connection_init,util_ldap.c,14,6421,33
+Static Function,uldap_connection_open,util_ldap.c,10,407,26
+Static Function,uldap_connection_unbind,util_ldap.c,7,9,22
+Static Function,uldap_get_subgroups,util_ldap.c,22,562,27
+Static Function,uldap_ld_errno,util_ldap.c,2,3,3
+Static Function,uldap_simple_bind,util_ldap.c,9,6,17
+Static Function,uldap_ssl_supported,util_ldap.c,1,1,6
+Static Function,unbase64_func,util_expr_eval.c,2,1,3
+Static Function,unblock_signal,worker.c,3,1,4
+Static Function,unclosed_directive,core.c,2,1,11
+Static Function,undef_macro,mod_macro.c,6,4,4
+Static Function,unescape_func,util_expr_eval.c,4,3,15
+Static Function,unescape_url,util.c,4,19,7
+Static Function,uniq_field_values,http_filters.c,5,96,6
+Static Function,unique_id_child_init,mod_unique_id.c,1,1,4
+Static Function,unique_id_global_init,mod_unique_id.c,5,1,8
+Static Function,unixd_drop_privileges,mod_unixd.c,9,21,9
+Static Function,unixd_dump_config,mod_unixd.c,4,5,8
+Static Function,unixd_hooks,mod_unixd.c,3,1,1
+Static Function,unixd_pre_config,mod_unixd.c,14,3,4
+Static Function,unixd_set_chroot_dir,mod_unixd.c,5,3,3
+Static Function,unixd_set_group,mod_unixd.c,6,2,2
+Static Function,unixd_set_suexec,mod_unixd.c,6,4,6
+Static Function,unixd_set_user,mod_unixd.c,6,3,4
+Static Function,unload_module,mod_so.c,4,2,3
+Static Function,unset_define,core.c,7,14,8
+Static Function,unset_signals,unixd.c,6,2,3
+Static Function,unwrap_header,mod_headers.c,3,3,4
+Static Function,update_child_status_internal,scoreboard.c,24,962,30
+Static Function,update_r_in_filters,http_request.c,2,3,8
+Static Function,uri_meets_conditions,cache_util.c,6,36,10
+Static Function,urlsection,core.c,25,20,15
+Static Function,usage,ab.c,2,1,3
+Static Function,usage,htdigest.c,2,1,2
+Static Function,usage,main.c,3,67108864,7
+Static Function,usage,fcgistarter.c,2,1,3
+Static Function,usage,htcacheclean.c,2,2,5
+Static Function,usage,htpasswd.c,2,1,2
+Static Function,usage,logresolve.c,2,1,3
+Static Function,usage,rotatelogs.c,2,2,4
+Static Function,usage,httxt2dbm.c,1,1,3
+Static Function,usage_repeated_arg,htcacheclean.c,2,1,3
+Static Function,use_macro,mod_macro.c,13,7,11
+Static Function,use_range_x,byterange_filter.c,3,1,3
+Static Function,user_check_authorization,mod_authz_user.c,5,8,14
+Static Function,user_parse_config,mod_authz_user.c,4,2,5
+Function,util_ald_alloc,util_ldap_cache_mgr.c,4,3,10
+Function,util_ald_cache_display,util_ldap_cache_mgr.c,9,43,19
+Function,util_ald_cache_display_stats,util_ldap_cache_mgr.c,5,17,19
+Function,util_ald_cache_fetch,util_ldap_cache_mgr.c,5,5,11
+Function,util_ald_cache_insert,util_ldap_cache_mgr.c,16,199,18
+Function,util_ald_cache_purge,util_ldap_cache_mgr.c,10,9,12
+Function,util_ald_cache_remove,util_ldap_cache_mgr.c,8,7,9
+Function,util_ald_create_cache,util_ldap_cache_mgr.c,28,27,16
+Function,util_ald_create_caches,util_ldap_cache_mgr.c,8,2,11
+Function,util_ald_destroy_cache,util_ldap_cache_mgr.c,2,4,7
+Function,util_ald_free,util_ldap_cache_mgr.c,3,4,15
+Function,util_ald_hash_string,util_ldap_cache_mgr.c,3,4,5
+Function,util_ald_sgl_dup,util_ldap_cache_mgr.c,6,11,6
+Function,util_ald_sgl_free,util_ldap_cache_mgr.c,1,3,6
+Function,util_ald_strdup,util_ldap_cache_mgr.c,6,3,8
+Function,util_ldap_cache_init,util_ldap_cache.c,10,7,9
+Static Function,util_ldap_cache_module_kill,util_ldap_cache.c,6,4,5
+Static Function,util_ldap_child_init,util_ldap.c,3,4,12
+Static Function,util_ldap_cleanup_module,util_ldap.c,2,2,7
+Function,util_ldap_compare_node_compare,util_ldap_cache.c,2,1,6
+Function,util_ldap_compare_node_copy,util_ldap_cache.c,12,3,10
+Function,util_ldap_compare_node_display,util_ldap_cache.c,3,12,11
+Function,util_ldap_compare_node_free,util_ldap_cache.c,2,1,8
+Function,util_ldap_compare_node_hash,util_ldap_cache.c,2,1,5
+Static Function,util_ldap_create_config,util_ldap.c,23,1,4
+Static Function,util_ldap_create_dir_config,util_ldap.c,7,1,2
+Function,util_ldap_dn_compare_node_compare,util_ldap_cache.c,2,1,4
+Function,util_ldap_dn_compare_node_copy,util_ldap_cache.c,6,3,5
+Function,util_ldap_dn_compare_node_display,util_ldap_cache.c,1,1,5
+Function,util_ldap_dn_compare_node_free,util_ldap_cache.c,1,1,6
+Function,util_ldap_dn_compare_node_hash,util_ldap_cache.c,2,1,3
+Static Function,util_ldap_handler,util_ldap.c,6,4,9
+Static Function,util_ldap_merge_config,util_ldap.c,22,1,21
+Static Function,util_ldap_parse_cert_type,util_ldap.c,2,13,3
+Static Function,util_ldap_post_config,util_ldap.c,20,965,24
+Static Function,util_ldap_pre_config,util_ldap.c,2,2,3
+Static Function,util_ldap_register_hooks,util_ldap.c,5,1,1
+Function,util_ldap_search_node_compare,util_ldap_cache.c,2,1,4
+Function,util_ldap_search_node_copy,util_ldap_cache.c,10,19,9
+Function,util_ldap_search_node_display,util_ldap_cache.c,2,1,6
+Function,util_ldap_search_node_free,util_ldap_cache.c,1,4,9
+Function,util_ldap_search_node_hash,util_ldap_cache.c,2,1,3
+Static Function,util_ldap_set_cache_bytes,util_ldap.c,5,3,11
+Static Function,util_ldap_set_cache_entries,util_ldap.c,5,5,11
+Static Function,util_ldap_set_cache_file,util_ldap.c,5,5,12
+Static Function,util_ldap_set_cache_ttl,util_ldap.c,5,3,11
+Static Function,util_ldap_set_chase_referrals,util_ldap.c,4,8,8
+Static Function,util_ldap_set_conn_ttl,util_ldap.c,3,3,6
+Static Function,util_ldap_set_connection_timeout,util_ldap.c,5,3,11
+Static Function,util_ldap_set_debug_level,util_ldap.c,4,2,6
+Static Function,util_ldap_set_op_timeout,util_ldap.c,8,9,12
+Static Function,util_ldap_set_opcache_entries,util_ldap.c,5,5,11
+Static Function,util_ldap_set_opcache_ttl,util_ldap.c,5,3,11
+Static Function,util_ldap_set_referral_hop_limit,util_ldap.c,4,3,9
+Static Function,util_ldap_set_retries,util_ldap.c,4,3,7
+Static Function,util_ldap_set_retry_delay,util_ldap.c,4,4,6
+Static Function,util_ldap_set_trusted_client_cert,util_ldap.c,10,11,13
+Static Function,util_ldap_set_trusted_global_cert,util_ldap.c,11,11,15
+Static Function,util_ldap_set_trusted_mode,util_ldap.c,5,8,10
+Static Function,util_ldap_set_verify_srv_cert,util_ldap.c,4,3,10
+Static Function,util_ldap_strdup,util_ldap.c,3,4,3
+Function,util_ldap_url_node_compare,util_ldap_cache.c,2,1,4
+Function,util_ldap_url_node_copy,util_ldap_cache.c,8,3,7
+Function,util_ldap_url_node_display,util_ldap_cache.c,2,9,13
+Function,util_ldap_url_node_free,util_ldap_cache.c,2,1,7
+Function,util_ldap_url_node_hash,util_ldap_cache.c,2,1,3
+Static Function,uwsgi_canon,mod_proxy_uwsgi.c,11,11,13
+Static Function,uwsgi_handler,mod_proxy_uwsgi.c,18,198,22
+Static Function,uwsgi_response,mod_proxy_uwsgi.c,31,5979,25
+Static Function,uwsgi_send,mod_proxy_uwsgi.c,6,4,17
+Static Function,uwsgi_send_body,mod_proxy_uwsgi.c,6,8,12
+Static Function,uwsgi_send_headers,mod_proxy_uwsgi.c,13,32,10
+Static Function,validate_status_line,http_filters.c,7,4,5
+Static Function,validuser_check_authorization,mod_authz_user.c,1,2,3
+Static Function,varbuf_cleanup,util.c,4,1,5
+Static Function,variant_has_language,mod_negotiation.c,2,3,4
+Static Function,variantsortf,mod_negotiation.c,2,3,5
+Static Function,verify,htpasswd.c,6,4,5
+Static Function,vhost_alias_checkspace,mod_vhost_alias.c,5,3,7
+Static Function,vhost_alias_interpolate,mod_vhost_alias.c,10,138252,7
+Static Function,vhost_alias_set,mod_vhost_alias.c,4,813,16
+Static Function,vhost_check_config,vhost.c,1,1,2
+Static Function,virtualhost_section,core.c,13,6,12
+Static Function,wakeup_listener,worker.c,3,2,4
+Static Function,warn_if_non_blank,mod_macro.c,1,7,11
+Static Function,wd_child_init_hook,mod_watchdog.c,4,9,14
+Static Function,wd_cmd_watchdog_int,mod_watchdog.c,4,4,4
+Static Function,wd_post_config_hook,mod_watchdog.c,18,40862,19
+Static Function,wd_pre_config_hook,mod_watchdog.c,4,7,4
+Static Function,wd_register_hooks,mod_watchdog.c,4,1,1
+Static Function,wd_startup,mod_watchdog.c,10,6,8
+Static Function,wd_worker,mod_watchdog.c,22,4734240,24
+Static Function,wd_worker_cleanup,mod_watchdog.c,5,4,10
+Static Function,wline,sed1.c,2,2,7
+Static Function,worker_check_config,worker.c,12,72900000,18
+Static Function,worker_get_name,worker.c,1,1,1
+Static Function,worker_hooks,worker.c,7,1,1
+Static Function,worker_note_child_killed,worker.c,4,2,12
+Static Function,worker_note_child_lost_slot,worker.c,3,2,13
+Static Function,worker_note_child_started,worker.c,5,1,7
+Static Function,worker_open_logs,worker.c,19,292,23
+Static Function,worker_pre_config,worker.c,31,40,15
+Static Function,worker_query,worker.c,3,15,14
+Static Function,worker_run,worker.c,34,89089,33
+Static Function,worker_thread,worker.c,21,49,18
+Static Function,write_headers,mod_cache_disk.c,39,164,42
+Static Function,write_logline,log.c,4,3,5
+Static Function,write_request,ab.c,16,11,15
+Static Function,writev_nonblocking,core_filters.c,13,90,17
+Static Function,x2c,util.c,1,1,3
+Static Function,xcalloc,ab.c,4,2,4
+Static Function,xlate_name,mod_proxy_express.c,22,599,28
+Static Function,xmalloc,ab.c,4,2,4
+Static Function,xstrcasestr,ab.c,2,14,3
+Static Function,xstrdup,ab.c,5,2,3
+Static Function,ycomp,sed0.c,5,138,7
+Static Function,yy_fatal_error,util_expr_scan.c,2,1,11
+Static Function,yy_get_next_buffer,util_expr_scan.c,15,1048,17
+Static Function,yy_get_previous_state,util_expr_scan.c,3,7,12
+Static Function,yy_init_globals,util_expr_scan.c,12,1,4
+Static Function,yy_pop_state,util_expr_scan.c,3,2,4
+Static Function,yy_push_state,util_expr_scan.c,7,5,7
+Static Function,yy_try_NUL_trans,util_expr_scan.c,3,6,10
+Static Function,yydestruct,util_expr_parse.c,0,2,5
+Static Function,yysyntax_error,util_expr_parse.c,4,254,8
+Static Function,yytnamerr,util_expr_parse.c,4,20,3
+Static Function,zap_sp,mod_mime.c,1,4,2
+Static Function,zap_sp_and_dup,mod_mime.c,4,8,5
