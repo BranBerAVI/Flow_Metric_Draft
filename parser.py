@@ -1,4 +1,5 @@
 import xml.etree.ElementTree as ET
+from xml.etree.ElementTree import Element as ElementTreeElement
 import re
 import subprocess
 import os
@@ -30,8 +31,8 @@ def _get_name_from_nested_name(name):
         if name.text is not None:
             return name
         else:
-            next_name = name.find(rf"{{{SRC_NS}}}name")     
-            return _get_name_from_nested_name(next_name)
+            next_elname = name.find(rf"{{{SRC_NS}}}name")     
+            return _get_name_from_nested_name(next_elname)
 
     return None
 
@@ -600,41 +601,184 @@ def _get_enum_declarations(root):
 
     return list(set(enum_names))
 
-def _calculate_unique_path_count(function):
-    paths = 1
+def _compile_acyclical_paths(root):
+    root_paths = []
 
-    for child in function.iter():
-        #print(child)
-        sub_path = 1
-        
-        if re.search(rf'{{{SRC_NS}}}(if_stmt|else|then|case|default)', child.tag): #or re.search(rf'{{{SRC_CPP}}}(if|ifdef)', child.tag):
-            if re.search(rf'{{{SRC_NS}}}(if_stmt|else)', child.tag):
-                if_else_exprs= [*child.findall(rf'{{{SRC_NS}}}if')] #, *child.findall(rf'{{{SRC_NS}}}else')]
-                op_count = 0
+    root_block = root.find(rf"{{{SRC_NS}}}block")
+    root_block_content = root_block.find(rf"{{{SRC_NS}}}block_content") if root_block is not None else root
+    
+    for child in list(root_block_content):
+        if re.search(rf'{{{SRC_NS}}}if_stmt', child.tag):
+            root_paths = [*root_paths, *_compile_acyclical_paths(child)]
+        elif re.search (rf'{{{SRC_NS}}}if|else', child.tag):
+            if_type = child.attrib["type"] if "type" in child.attrib.keys() else ""
 
-                for if_child in if_else_exprs:
-                    if_cond = if_child.find(rf'{{{SRC_NS}}}condition')
-                    if_cond_expr = if_cond.find(rf'{{{SRC_NS}}}expr') if if_cond is not None else None
-                    if_cond_ops = if_cond_expr.findall(rf'{{{SRC_NS}}}operator') if if_cond_expr is not None else []
+            # if_else_block = root.find(rf"{{{SRC_NS}}}block")
+            # if_else_block_content = root_block.find(rf"{{{SRC_NS}}}block_content") if root_block is not None else []
 
-                    for op in if_cond_ops:
-                        if op is not None and op.text is not None:
-                            if op.text == '&&' or op.text == '||':
-                                op_count += 1
+            root_paths.append({
+                "element": child,
+                "type": child.tag,
+                "if_type": if_type,
+                "children": _compile_acyclical_paths(child)
+            })
+        elif re.search(rf'{{{SRC_NS}}}for|while|do', child.tag):
+            children = _compile_acyclical_paths(child)
+            root_paths.append({
+                "element": child,
+                "type": child.tag,
+                "children": children #[*_compile_acyclical_paths(if_child) for if_child in if_stmt_if_exprs] if len(if_stmt_if_exprs) > 0 else _compile_acyclical_paths(child)
+            })
+        elif re.search(rf'{{{SRC_NS}}}case|default', child.tag):
+            root_paths.append({
+                "element": child,
+                "type": child.tag,
+                "children": _compile_acyclical_paths(child)
+            })
+        elif re.search(rf"{{{SRC_NS}}}ternary", child.tag):
+            root_paths.append({
+                "element": child,
+                "type": child.tag,
+                "children": _compile_acyclical_paths(child)
+            })
+        elif re.search(rf"{{{SRC_NS}}}then", child.tag):
+            root_paths.append({
+                "element": child,
+                "type": child.tag,
+                "children": []
+            })   
+        elif not re.search(rf"{{{SRC_NS}}}comment", child.tag):
+            root_paths.append(
+                'break'
+            )     
 
+    return root_paths
+   
+def _reformat_acyclical_path_tree(acyc_paths):
+    npath_chains = []
+    current_chain = []
+    
+    pos = 0
 
-                    for if_child_el in if_child.iter():
-                        if re.search(rf'{{{SRC_NS}}}(if_stmt|else)', if_child_el.tag): #or re.search(rf'{{{SRC_CPP}}}(if)', if_child_el.tag):
-                            sub_path *= (2 + op_count)
+    for path in acyc_paths:
+        #print (path)
+        if isinstance(path, dict):
+            p_children = path["children"] if "children" in path.keys() else []
+            p_type = path["type"] if "type" in path.keys() else ""
+            p_element = path["element"] if "element" in path.keys() else []
+
+            if re.fullmatch(rf"{{{SRC_NS}}}if", p_element.tag):# == "if_stmt":
+                p_if_type = path["if_type"]
+
+                if p_if_type != '':
+                    npath_chains.append(p_if_type)    
+                else:
+                     npath_chains.append('if') 
+            elif re.fullmatch(rf"{{{SRC_NS}}}(for|while)", p_element.tag):
+                npath_chains.append('loop')
+            elif re.fullmatch(rf"{{{SRC_NS}}}else", p_element.tag):
+                npath_chains.append('else')   
+            elif re.fullmatch(rf"{{{SRC_NS}}}switch", p_element.tag):
+                npath_chains.append('switch')
+            elif re.fullmatch(rf"{{{SRC_NS}}}case", p_element.tag):
+                npath_chains.append('case')
+            elif re.fullmatch(rf"{{{SRC_NS}}}default", p_element.tag):
+                npath_chains.append('default')         
+            
+            if len(p_children) > 0:
+                p_children_dataset = _reformat_acyclical_path_tree(acyc_paths = p_children)
+                if p_children_dataset != []:
+                    npath_chains.append(p_children_dataset)
+
+        elif isinstance(path, str) and path == "break":
+            #npath_chains.append(current_chain)
+            #print(current_chain)
+            npath_chains.append('break')
+            #current_chain = []  
+
+        pos += 1
+
+    #npath_chains.append(current_chain)
+    return npath_chains
+
+def _calculate_npath_from_reformatted_acyclical_path_tree(formatted_acyc_paths, current_depth = 0):
+    npath = 0
+    local_npath = 0
+    pos = 0
+
+    while pos < len(formatted_acyc_paths):
+        prev = formatted_acyc_paths[pos - 1] if pos > 0 else 'break'
+        current = formatted_acyc_paths[pos]
+
+        next_el = formatted_acyc_paths[pos + 1] if pos + 1 < len(formatted_acyc_paths) else []
+        next_el_over = formatted_acyc_paths[pos + 2] if pos + 2 < len(formatted_acyc_paths) else 'break'
+        # next_el_over = formatted_acyc_paths[pos + 2] if pos + 2 < len(formatted_acyc_paths) else 'break'
+
+        npath_child = _calculate_npath_from_reformatted_acyclical_path_tree(next_el, current_depth = current_depth + 1) if isinstance(next_el, list) else 1
+        #npath_child = 1 if npath_child == 0 else npath_child
+
+        if isinstance(current, str):
+            previous_is_valid = False
+
+            if pos > 0:
+                for el in reversed(formatted_acyc_paths[:pos]):
+                    if isinstance(el, str):
+                        if re.fullmatch(r'^if|elseif|else|loop|switch$', el):
+                            previous_is_valid = True
+                            break
+                        elif el == 'break':
+                            previous_is_valid = False
+                            break
+
+            if current == 'if':
+                next_el_over = formatted_acyc_paths[pos + 2] if pos + 2 < len(formatted_acyc_paths) else 'break'
+                previous_over = formatted_acyc_paths[pos - 2] if pos - 2 >= 0 else 'break'
+
+                proceded_by_else = True if isinstance(next_el_over, str) and re.fullmatch(r'$(else|elseif)^', next_el_over) else False
+                preceded_by_else = False                
                 
+                if next_el_over == 'elseif' or next_el_over == 'else':
+                    npath += 1 + npath_child
+                elif (isinstance(previous_over, str) and re.fullmatch(r'^if|switch|loop$', previous_over)):                    
+                    if npath_child == 0:
+                        npath = npath + 2 if npath == 0 else npath * 2
+                    else:
+                        npath = npath + (2 * npath_child) if npath == 0 else npath * 2 * npath_child
+                else:# isinstance(next_el_over, str) and next_el_over == 'break':
+                    npath = npath + 2 * npath_child if npath_child > 0 else npath + 2 
 
-            if sub_path > 1:
-                paths += sub_path
-            else:
-                paths+=1
+            elif current == 'elseif':
+                npath += 1 + npath_child               
+            elif current == 'else':
+                preceded_by_if_else = False
+                npath += 1 + npath_child
+  
+            elif current == 'loop':
+                previous_over = formatted_acyc_paths[pos - 2] if pos - 2 >= 0 else 'break'
+                # print('loop')
+                # print(npath_child)
+                if isinstance(previous_over, str) and re.fullmatch(r'^if|elseif|else|loop|switch$', previous_over):
+                    npath = npath * (1 + npath_child) if npath_child > 0 else npath * 2
+                else:
+                    npath = npath + 1 + npath_child if npath_child > 0 else npath + 2                             
 
+            elif current == 'switch':
+                npath += 1 + npath_child
+            elif current == 'case':
+                npath += 1 + npath_child
+            elif current == 'default':
+                npath += npath_child
 
-    return paths
+        pos += 1
+        
+        # print(('-'*current_depth) + "  current inst: " + str(current))
+        # print(('-'*current_depth) + " current npath: " + str(npath))
+        # print('\n')
+
+    if current_depth == 0 and npath == 0:
+        npath += 1
+
+    return npath
 
 def _get_fan_out_from_expr_global_var_write(expr, function_declaration_list, parameters_passed_by_reference, pointer_declarations, calls, variable_writes, parent_declarations):
     fan_out = 0
@@ -827,13 +971,21 @@ def _count_fan_out(variable_writes):
 
 def _get_fan_in_from_expr_global_var_read(expr, calls, function_declarations, pointer_declarations, params, local_function_names, enums, read_variable_names, function_throws_exception_names, parent_declarations):
     fan_in = 0
+    
     none_ptr_declaration_var_names = [d["name"] for d in function_declarations]
     pointer_declaration_var_names = [d["name"] for d in pointer_declarations]
     parent_declaration_var_names= [d["name"] for d in parent_declarations]
     param_names = [p["name"] for p in params]
+    declaration_names = [*none_ptr_declaration_var_names, *pointer_declaration_var_names]
+
+    call_arg_names = []
+
+    for key in calls.keys():
+        call_arg_names = [*call_arg_names, *calls[key]["cumulative_args"]]
 
     #print(local_function_names)
-    pointer_parameter_names = [p["name"] for p in params if re.fullmatch(r"^\*|ref|\&$", p["modifier"])]
+    #pointer_parameter_names = [p["name"] for p in params if re.fullmatch(r"^\*|ref|\&$", p["modifier"])]
+    none_pointer_parameter_names = [p["name"] for p in params if not re.fullmatch(r"^\*|ref|\&$", p["modifier"])]
 
     expr_names = expr.findall(rf"{{{SRC_NS}}}name")
 
@@ -857,17 +1009,44 @@ def _get_fan_in_from_expr_global_var_read(expr, calls, function_declarations, po
     equal_op_pos_row = int(equal_op_pos[0])
     equal_op_pos_col = int(equal_op_pos[1])
 
-    for name in expr_names:        
-        name_op = name.find(rf"{{{SRC_NS}}}operator")
+    for arg in call_arg_names:
+        if( 
+            not isinstance(arg, (int, float, bytes)) and
+            arg != "" and
+            arg is not None and
+            arg not in C_RESERVED_KEYWORDS and 
+            arg not in C_LIB_STREAMS and 
+            not re.match(r"^null$", arg, flags=re.IGNORECASE) and
+            arg not in declaration_names and
+            arg not in param_names and
+        (
+            
+            (
+                arg not in list(calls) and                     
+                arg not in C_LIB_FUNCTIONS and        
+                arg not in local_function_names and
+                arg not in enums and
+                arg not in function_throws_exception_names        
+            ) 
+        or
+            arg in parent_declaration_var_names 
+        or
+            arg in param_names
+        )
+        ):
+            read_variable_names.append(arg)  
+
+    for name in expr_names:               
+        name_op = name.find(rf"{{{SRC_NS}}}operator") if isinstance(name, ElementTreeElement) else None
         name_op_text = name_op.text if name_op is not None and name_op.text is not None else ""
 
         name_txt = _get_full_name_text_from_name(name)
 
-        name_member_access_txt = re.split(r"\-\>|\[|\.", name_txt, 1)[0]
-
         name_pos = name.attrib[rf'{{{POS_NS}}}start'].split(':') if rf'{{{POS_NS}}}start' in name.attrib.keys() else [-1, -1]
         name_pos_row = int(name_pos[0])
         name_pos_col = int(name_pos[1]) 
+
+        name_member_access_txt = re.split(r"\-\>|\[|\.", name_txt, 1)[0]
 
         if(
             name_pos_col >= equal_op_pos_col and 
@@ -877,28 +1056,24 @@ def _get_fan_in_from_expr_global_var_read(expr, calls, function_declarations, po
             name_member_access_txt not in C_RESERVED_KEYWORDS and 
             name_member_access_txt not in C_LIB_STREAMS and 
             not re.match(r"^null$", name_member_access_txt, flags=re.IGNORECASE) and
-            name_member_access_txt not in none_ptr_declaration_var_names and
-            name_member_access_txt not in pointer_declaration_var_names and
-            name_member_access_txt not in param_names and
-        (
+            name_member_access_txt not in declaration_names and
+            #name_member_access_txt not in none_ptr_declaration_var_names and    
+            #name_member_access_txt not in none_pointer_parameter_names and     
+            #name_member_access_txt not in pointer_declaration_var_names and   
+        
             (
-
                 (
-                    name_member_access_txt not in list(calls) and 
-                    name_member_access_txt not in none_ptr_declaration_var_names and
-                    
+                    name_member_access_txt not in list(calls) and                     
                     name_member_access_txt not in C_LIB_FUNCTIONS and        
-                    name_member_access_txt not in local_function_names
+                    name_member_access_txt not in local_function_names and
+                    name_member_access_txt not in enums and
+                    name_member_access_txt not in function_throws_exception_names    
                 ) 
-        or
-            name_member_access_txt in parent_declaration_var_names 
-        ) 
-        or 
-            (
-                name_member_access_txt not in enums and
-                name_member_access_txt not in function_throws_exception_names                
-            )
-        )
+            or
+                name_member_access_txt in parent_declaration_var_names 
+            or  
+                name_member_access_txt in param_names
+            )         
         ):
             read_variable_names.append(name_txt)
             # print("     " + name_txt)
@@ -981,7 +1156,24 @@ def _parse_function_for_metrics(root, function_dict, all_local_call_names, paren
             init_fan_out = 1
             init_fan_in = 1
         
-        init_n_path = 1 
+        init_n_path = 0
+        #init_n_path = _calculate_unique_path_count(root) 
+        #init_n_path = _calculate_npath(root)
+
+        #if re.search(r"module_request_hook_participate", func_sig):
+        #print (func_sig)
+        acyc_paths = _compile_acyclical_paths(root)
+        new_acyc_paths = _reformat_acyclical_path_tree(acyc_paths)
+        init_n_path = _calculate_npath_from_reformatted_acyclical_path_tree(new_acyc_paths)
+            #init_n_path = _count_npath_from_acyclical_paths(acyc_paths)
+            #init_n_path = _print_acyclical_paths(paths = acyc_paths, indent = 0)
+
+
+            # print (new_acyc_paths)
+            # #init_n_path = _calculate_npath(root)
+            # print("paths: " + str(init_n_path))    
+
+            # print('|'*40)        
 
         throws_exception_names = []
         declarations = []
@@ -1017,9 +1209,7 @@ def _parse_function_for_metrics(root, function_dict, all_local_call_names, paren
                     all_local_call_names = [*all_local_call_names, *call.keys()]
                 
                 if macros is not None:
-                    macro_calls = {**macro_calls, **macros}
-
-                init_n_path += _get_path_from_statement(func_child)
+                    macro_calls = {**macro_calls, **macros}                
 
                 if re.search(rf'{{{SRC_NS}}}return', func_child.tag) and has_return_value == False:  
                     return_expr = func_child.find(rf"{{{SRC_NS}}}expr")
@@ -1038,7 +1228,6 @@ def _parse_function_for_metrics(root, function_dict, all_local_call_names, paren
                         parent_declarations = parent_declarations
                     )
 
-                    
                     _get_fan_in_from_expr_global_var_read(
                         expr = func_child, 
                         calls = calls, 
@@ -1284,8 +1473,10 @@ def _calculate_metrics_for_project(root, scitools_csv_path):
     merged_metric_data.to_csv('SciToolsCompare' + csv_file_name + '.csv', index=False)
 
 def _calculate_metrics_for_functions_in_file(root, file_name, function_name):
+    
     for subdir, dirs, files in os.walk(root):
         for file in files:
+            
             if file == file_name:
                 path = os.path.join(subdir, file)
 
@@ -1301,6 +1492,8 @@ def _calculate_metrics_for_functions_in_file(root, file_name, function_name):
                     'java': 'Java',
                     'py': 'Python'
                 }
+
+                
 
                 if file_extension in languages_from_extension.keys(): 
                     language = languages_from_extension[file_extension] 
@@ -1329,12 +1522,12 @@ def _calculate_metrics_for_functions_in_file(root, file_name, function_name):
                             called_by = function_dict[key]["called_by"]
                             global_writes = function_dict[key]["global_variable_writes"]
                             global_reads = function_dict[key]["global_variable_reads"]
+                            param_count = function_dict[key]["param_count"]                        
 
-                        
-
-                            print ("\n  Fan-in: " + str(fan_in))
-                            print (" Fan-out: " + str(fan_out))
-                            print ("   Paths: " + str(paths))
+                            print ("\n      Fan-in: " + str(fan_in))
+                            print ("     Fan-out: " + str(fan_out))
+                            print ("       Paths: " + str(paths))
+                            print (" Param Count: " + str(param_count))
 
                             print ("\nGlobal Variable Writes: ")
                             for key in global_writes.keys():
@@ -1364,9 +1557,10 @@ def _calculate_metrics_for_functions_in_file(root, file_name, function_name):
 
 
 #src_file = ".\\TheAlgorithms\\DataStructures\\Trees\\TrieImp.java"
-#src_file = ".\\apache\\httpd-2.4.43\\support\\ab.c"
+src_file = ".\\apache\\httpd-2.4.43\\support\\ab.c"
 #src_file = ".\\Sokoban Pro\\Level.cs"
-src_file = ".\\apache\\httpd-2.4.43\\modules\\loggers\\mod_log_config.c" #ab.c""
+#src_file = ".\\"
+#src_file = ".\\apache\\httpd-2.4.43\\modules\\loggers\\mod_log_config.c" #ab.c""
 
 root_dir = ".\\apache"
 #root_dir = ".\\Sokoban Pro"
@@ -1374,7 +1568,7 @@ root_dir = ".\\apache"
 
 file_name = src_file.split('\\')[-1]
 # file_extension = src_file.split(".")[-1]
-language = "C#"
+language = "C"
 
 srcml = get_srcml_from_path(src_file, language)
 
@@ -1382,10 +1576,8 @@ rootet = ET.fromstring(srcml)
 
 
 local_function_names = _get_local_function_names(rootet)
-
 enums = _get_enum_declarations(rootet)
 
 #_calculate_metrics(rootet, language, local_function_names, enums, file_name)
 _calculate_metrics_for_project(root_dir, 'apache.csv')
-
-#_calculate_metrics_for_functions_in_file(root = root_dir, file_name = "mod_socache_memcache.c", function_name = "create_server_config")           
+#_calculate_metrics_for_functions_in_file(root = root_dir, file_name = "mod_info.c", function_name = "module_request_hook_participate")           
