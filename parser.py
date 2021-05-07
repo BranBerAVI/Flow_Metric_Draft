@@ -415,7 +415,7 @@ def _parse_macro_call(element, language):
 
     return None
 
-def _parse_declaration(element, parent_struct_name, parent_struct_type, belongs_to_file):
+def _parse_declaration(element, parent_struct_name = '', parent_struct_type = '', belongs_to_file = ''):
     if re.search(rf"{{{SRC_NS}}}decl_stmt|control|struct", element.tag):
         decls = []
 
@@ -436,12 +436,13 @@ def _parse_declaration(element, parent_struct_name, parent_struct_type, belongs_
             decl_type = decl.find(rf"{{{SRC_NS}}}type") if decl is not None else None
 
             decl_name_el = decl.find(rf"{{{SRC_NS}}}name") if decl is not None else None
+            decl_names = decl.findall(rf"{{{SRC_NS}}}name") if decl is not None else None
             decl_name = decl_name_el
 
-            if decl_name_el is not None and decl_name_el.text is None:
-                decl_name = next((el for el in decl_name_el.iter() if re.search(rf"{{{SRC_NS}}}name", str(el)) and el.text is not None), None)
+            # if decl_name_el is not None and decl_name_el.text is None:
+            #     decl_name = next((el for el in decl_name_el.iter() if re.search(rf"{{{SRC_NS}}}name", str(el)) and el.text is not None), None)
 
-            decl_name_txt = decl_name.text if decl_name is not None and decl_name.text is not None else ""
+            #decl_name_txt = decl_name.text if decl_name is not None and decl_name.text is not None else ""
 
             type_specifier = decl_type.find(rf"{{{SRC_NS}}}specifier") if decl_type is not None else None
             type_specifier_txt = type_specifier.text if type_specifier is not None and type_specifier.text is not None else ""
@@ -472,20 +473,24 @@ def _parse_declaration(element, parent_struct_name, parent_struct_type, belongs_
             decl_pos_row = int(decl_pos[0])
 
 
-            if type_name != "":                    
-                return {
-                    "specifier": type_specifier_txt,
-                    "type": type_name_txt,
-                    "modifier": type_modifier_txt,
-                    "name": decl_name_txt,
-                    "index_tag": index_tag,
-                    "index_str": index_str,
-                    "signature": re.sub("/s+", " ", " ".join([type_specifier_txt, type_name_txt, type_modifier_txt, decl_name_txt]).rstrip()),
-                    "pos_row": decl_pos_row,
-                    "file_name": belongs_to_file,                    
-                    "parent_structure_name": parent_struct_name,
-                    "parent_structure_type": parent_struct_type,
-                }
+            if type_name != "":   
+                for name in decl_names:  
+                    decl_name_txt = name.text if name is not None and name.text is not None else ''
+
+                    if decl_name_txt != '':  
+                        return {
+                            "specifier": type_specifier_txt,
+                            "type": type_name_txt,
+                            "modifier": type_modifier_txt,
+                            "name": decl_name_txt,
+                            "index_tag": index_tag,
+                            "index_str": index_str,
+                            "signature": re.sub("/s+", " ", " ".join([type_specifier_txt, type_name_txt, type_modifier_txt, decl_name_txt]).rstrip()),
+                            "pos_row": decl_pos_row,
+                            "file_name": belongs_to_file,                    
+                            "parent_structure_name": parent_struct_name,
+                            "parent_structure_type": parent_struct_type,
+                        }
 
         
     return None
@@ -780,7 +785,7 @@ def _calculate_npath_from_reformatted_acyclical_path_tree(formatted_acyc_paths, 
 
     return npath
 
-def _get_fan_out_from_expr_global_var_write(expr, function_declaration_list, parameters_passed_by_reference, pointer_declarations, calls, variable_writes, parent_declarations):
+def _get_fan_out_from_expr_global_var_write(element, function_declaration_list, parameters_passed_by_reference, pointer_declarations, calls, variable_writes, parent_declarations):
     fan_out = 0
 
     decl_names = [d["name"] for d in [*function_declaration_list]] 
@@ -789,13 +794,39 @@ def _get_fan_out_from_expr_global_var_write(expr, function_declaration_list, par
 
     expr_str = ""
 
-    expr_children = [child for child in expr.iter()]     
-    expr_str = ''.join([child for child in expr.itertext()])  
+    fan_out_var_candidates = []
 
-    expr_row_pos = int(expr.attrib[rf"{{{POS_NS}}}start"].split(':')[0]) if rf"{{{POS_NS}}}" in expr.attrib.keys() else -1
+    if re.search(rf"{{{SRC_NS}}}decl_stmt", element.tag):
+        decl = _parse_declaration(element)
+        
+        if decl is not None and decl['modifier'] == '*' and element is not None:
+            decl_stmt_decl = element.find(rf'{{{SRC_NS}}}decl') 
+            decl_init = decl_stmt_decl.find(rf'{{{SRC_NS}}}init') if decl_stmt_decl is not None else None
 
-    expr_names = expr.findall(rf"{{{SRC_NS}}}name")
-    operators = expr.findall(rf"{{{SRC_NS}}}operator")
+            decl_init_expr = decl_init.find(rf'{{{SRC_NS}}}expr') if decl_init is not None else None
+            expr_str = ''
+
+            expr_mod_statements = [] 
+
+            if decl_init_expr is not None:
+                expr_str = ''.join([child for child in decl_init_expr.itertext()])  
+                expr_mod_statements.append(expr_str)           
+
+                if decl["name"] != '':
+                    
+                    variable_writes[decl["name"]] = {
+                        'expressions': expr_mod_statements,
+                        'members_modified': [],
+                        'indices_modified': []
+                    }
+
+    expr_children = [child for child in element.iter()]     
+    expr_str = ''.join([child for child in element.itertext()])  
+
+    expr_row_pos = int(element.attrib[rf"{{{POS_NS}}}start"].split(':')[0]) if rf"{{{POS_NS}}}" in element.attrib.keys() else -1
+
+    expr_names = element.findall(rf"{{{SRC_NS}}}name")
+    operators = element.findall(rf"{{{SRC_NS}}}operator")
 
     incr_decr_op = next((op for op in operators if op is not None and op.text is not None and re.fullmatch(r"^\+\+|\-\-$", op.text)), None)
     incr_decr_op_txt = incr_decr_op.text if incr_decr_op is not None and incr_decr_op.text is not None else ''
@@ -821,16 +852,13 @@ def _get_fan_out_from_expr_global_var_write(expr, function_declaration_list, par
     first_equals_op_row = int(first_equals_op_pos[0])
     first_equals_op_col = int(first_equals_op_pos[1])
 
-    fan_out_var_candidates = []
-
     if last_equals_op_txt != '' or incr_decr_op_txt != '':
         # print(expr_str)
         if len(expr_names) > 0:
             first_expr_name = expr_names[0]
             first_expr_name_txt = ''
-            first_expr_name_txt_full = ''            
-            
-            
+            first_expr_name_txt_full = ''       
+                       
             for name in expr_names:
                     name_pos = name.attrib[rf"{{{POS_NS}}}start"].split(':') 
                     name_pos_row = int(name_pos[0])  
@@ -947,6 +975,7 @@ def _count_fan_out(variable_writes):
         if len(variable_writes[key]['expressions']) > 0:
             fan_out += 1
 
+        var_expressions = [e for e in variable_writes[key]['expressions'] if e.rstrip() != '']
         members_modded = list(set([m for m in variable_writes[key]['members_modified'] if m.rstrip() != '']))
         indicies_modded = list(set([i for i in variable_writes[key]['indices_modified'] if i.rstrip() != '']))
 
@@ -955,7 +984,7 @@ def _count_fan_out(variable_writes):
         if print_data:
             print("variable: " + key)
             print("expressions: ")
-            for expr in variable_writes[key]['expressions']:
+            for expr in var_expressions:
                 print("    " + expr)
 
 
@@ -974,7 +1003,7 @@ def _get_fan_in_from_expr_global_var_read(expr, calls, function_declarations, po
     
     none_ptr_declaration_var_names = [d["name"] for d in function_declarations]
     pointer_declaration_var_names = [d["name"] for d in pointer_declarations]
-    parent_declaration_var_names= [d["name"] for d in parent_declarations]
+    parent_declaration_var_names= [d["name"] for d in parent_declarations if d is not None]
     param_names = [p["name"] for p in params]
     declaration_names = [*none_ptr_declaration_var_names, *pointer_declaration_var_names]
 
@@ -1217,9 +1246,10 @@ def _parse_function_for_metrics(root, function_dict, all_local_call_names, paren
                         init_fan_out += 1
                         has_return_value = True
 
-                if re.search(rf"{{{SRC_NS}}}expr", func_child.tag):
+                if re.search(rf"{{{SRC_NS}}}expr|decl_stmt", func_child.tag):
+                    #if re.search(r"cmd_rewritecond_setflag", func_sig):
                     _get_fan_out_from_expr_global_var_write(
-                        expr = func_child, 
+                        element = func_child, 
                         function_declaration_list = declarations,
                         parameters_passed_by_reference = param_data["parameters_passed_by_reference"], 
                         pointer_declarations = pointer_decls, 
@@ -1579,5 +1609,5 @@ local_function_names = _get_local_function_names(rootet)
 enums = _get_enum_declarations(rootet)
 
 #_calculate_metrics(rootet, language, local_function_names, enums, file_name)
-_calculate_metrics_for_project(root_dir, 'apache.csv')
-#_calculate_metrics_for_functions_in_file(root = root_dir, file_name = "mod_info.c", function_name = "module_request_hook_participate")           
+#_calculate_metrics_for_project(root_dir, 'apache.csv')
+_calculate_metrics_for_functions_in_file(root = root_dir, file_name = "mod_authn_core.c", function_name = "authn_alias_get_realm_hash")           
